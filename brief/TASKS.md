@@ -18,13 +18,13 @@ Rules:
 
 ---
 
-### [ ] Phase 02: Layout Shell, Glassmorphic Navbar & Hero Section
-- [ ] Build Sticky Navbar:
+### [x] Phase 02: Layout Shell, Glassmorphic Navbar & Hero Section
+- [x] Build Sticky Navbar:
   - Brand Logo + institutional tag (`YKP bank bjb x Universitas Ekuitas Indonesia`).
   - Anchor navigation (`Layanan`, `Direktori Expert`, `Fasilitas`, `Portofolio`, `Tentang Kami`).
   - Secondary action (`Hubungi Kami`) & Primary conversion button (`Konsultasi`).
   - Mobile responsive drawer/sheet menu with backdrop blur.
-- [ ] Build Hero Section (2-column desktop split, stacked mobile):
+- [x] Build Hero Section (2-column desktop split, stacked mobile):
   - Institutional authority badge with live pulse indicator.
   - Value proposition headline with precise typography scale.
   - Dual CTAs: Brand Navy (`Jelajahi Layanan`) & Subtle Outline (`Permintaan Proposal`).
