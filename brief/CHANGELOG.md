@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- [Phase 05] Built asymmetric `FacilitiesBento.tsx` showcasing 6 campus facilities with capacity badges and highlight specs.
+- [Phase 05] Built `PortfolioSpotlight.tsx` featuring the `Abdi bjb Frontliner` case study with impact metrics and support scope checklist.
 - [Phase 04] Built interactive `ExpertDirectory.tsx` with instant live search, category pill tabs, 12 domain cards, and Radix UI detail syllabus modal.
 - [Phase 03] Built `SynergyNarrative.tsx` section highlighting the YKP bank bjb x Universitas Ekuitas Indonesia ecosystem.
 - [Phase 03] Built `ServicesBento.tsx` featuring a 3x2 responsive Bento grid for all 6 core business units with dynamic Lucide icon rendering.

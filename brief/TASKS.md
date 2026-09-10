@@ -68,20 +68,20 @@ Rules:
 
 ---
 
-### [ ] Phase 05: Facilities Showcase & Portfolio Spotlight
-- [ ] Build Facilities Showcase (Bento Grid layout):
+### [x] Phase 05: Facilities Showcase & Portfolio Spotlight
+- [x] Build Facilities Showcase (Bento Grid layout):
   - Lab. Bank Mini (simulasi teller & customer service).
   - Lab. Komputer multimedia.
   - Ruang Seminar & Meeting Room.
   - Ruang Diskusi, Aula & Dukungan Transportasi/Akomodasi.
   - Coral-accent specification badges (`bg-coral-500 text-white text-xs`).
-- [ ] Build Portfolio Spotlight section:
+- [x] Build Portfolio Spotlight section:
   - Featured case card: `Kegiatan Abdi bjb Frontliner`.
   - Client badge: `bank bjb`.
   - Comprehensive service scope tags (fasilitas kelas, lab komputer, simulasi CS/teller, transportasi & akomodasi).
-- [ ] Run build test (`npm run build`).
-- [ ] Update `CHANGELOG.md`.
-- [ ] Git commit and push: `feat(facilities): add facilities bento grid and abdi bjb portfolio spotlight [Phase 05]`.
+- [x] Run build test (`npm run build`).
+- [x] Update `CHANGELOG.md`.
+- [x] Git commit and push: `feat(facilities): add facilities bento grid and abdi bjb portfolio spotlight [Phase 05]`.
 
 ---
 
