@@ -98,16 +98,16 @@ Rules:
 
 ---
 
-### [ ] Phase 07: Conversion Hub, Interactive Map & High-Authority Footer
-- [ ] Build Full-width Conversion Section (Deep Navy `#0F2A47`):
+### [x] Phase 07: Conversion Hub, Interactive Map & High-Authority Footer
+- [x] Build Full-width Conversion Section (Deep Navy `#0F2A47`):
   - Direct WhatsApp conversion button (`bg-coral-500 text-white hover:bg-coral-600`).
   - Pre-filled WhatsApp deep-link (`+62821-1969-5761`).
   - Email action (`sinergiekuitas@gmail.com`) and office address (`Jl. PHH. Mustofa No. 31, Bandung`).
   - Embedded Google Map container with subtle border styling.
-- [ ] Build Footer with copyright, ecosystem links, and quick anchor index.
-- [ ] Run build test (`npm run build`).
-- [ ] Update `CHANGELOG.md`.
-- [ ] Git commit and push: `feat(footer): implement high-conversion footer, map embed, and whatsapp action [Phase 07]`.
+- [x] Build Footer with copyright, ecosystem links, and quick anchor index.
+- [x] Run build test (`npm run build`).
+- [x] Update `CHANGELOG.md`.
+- [x] Git commit and push: `feat(footer): implement high-conversion footer, map embed, and whatsapp action [Phase 07]`.
 
 ---
 

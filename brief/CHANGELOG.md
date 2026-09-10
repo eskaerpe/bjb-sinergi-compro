@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- [Phase 07] Built `LeadHub.tsx` full-width conversion section with interactive proposal form, WhatsApp official deep-link, and embedded Google Map.
+- [Phase 07] Built institutional `Footer.tsx` with ecosystem navigation index, contact details, and copyright statement.
 - [Phase 06] Built `LeadershipSection.tsx` spotlighting Direktur Utama Deni Hamdani, SE. M.Si and GCG commitment.
 - [Phase 06] Built `VisionMission.tsx` featuring corporate vision, 5 strategic mission pillars, and 7 SINERGI core value cards.
 - [Phase 05] Built asymmetric `FacilitiesBento.tsx` showcasing 6 campus facilities with capacity badges and highlight specs.

@@ -8,6 +8,8 @@ import { FacilitiesBento } from './components/sections/FacilitiesBento';
 import { PortfolioSpotlight } from './components/sections/PortfolioSpotlight';
 import { LeadershipSection } from './components/sections/LeadershipSection';
 import { VisionMission } from './components/sections/VisionMission';
+import { LeadHub } from './components/sections/LeadHub';
+import { Footer } from './components/layout/Footer';
 
 export const App: React.FC = () => {
   return (
@@ -22,7 +24,9 @@ export const App: React.FC = () => {
         <PortfolioSpotlight />
         <LeadershipSection />
         <VisionMission />
+        <LeadHub />
       </main>
+      <Footer />
     </div>
   );
 };
