@@ -46,6 +46,8 @@ export const PortfolioSpotlight: React.FC = () => {
                 src={PORTFOLIO_PROJECT.image.url}
                 alt={PORTFOLIO_PROJECT.image.alt}
                 onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
                   (e.target as HTMLImageElement).src = PORTFOLIO_PROJECT.image.fallbackUrl;
                 }}
                 className="w-full h-full object-cover opacity-90"
@@ -145,6 +147,8 @@ export const PortfolioSpotlight: React.FC = () => {
                     src={photo.url}
                     alt={photo.caption}
                     onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
                       (e.target as HTMLImageElement).src = photo.fallbackUrl;
                     }}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
@@ -204,6 +208,8 @@ export const PortfolioSpotlight: React.FC = () => {
                       src={galleryImages[selectedPhotoIndex].url}
                       alt={galleryImages[selectedPhotoIndex].caption}
                       onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
                         (e.target as HTMLImageElement).src = galleryImages[selectedPhotoIndex].fallbackUrl;
                       }}
                       className="w-full max-h-[68vh] object-contain"

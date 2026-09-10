@@ -324,12 +324,12 @@ export const FACILITIES_DATA: FacilityItem[] = [
     description: "Penyediaan armada bus pariwisata dan shuttle Hiace terawat untuk mobilisasi dan akomodasi nyaman peserta pelatihan.",
     highlights: ["Bus AC & Comfortable Seats", "Armada Hiace Executive", "Driver Berpengalaman", "Penjemputan Direct Bandara/Stasiun"],
     image: {
-      url: "/images/facilities/transportasi.jpeg",
+      url: "./images/facilities/transportasi.jpeg",
       alt: "Armada Transportasi Operasional PT Sinergi Ekuitas Indonesia",
       aspectRatio: "4:3"
     },
     galleryImages: [
-      { url: "/images/facilities/transportasi.jpeg", caption: "Armada Transportasi & Shuttle Operasional Peserta" }
+      { url: "./images/facilities/transportasi.jpeg", caption: "Armada Transportasi & Shuttle Operasional Peserta" }
     ]
   },
   {
@@ -339,13 +339,13 @@ export const FACILITIES_DATA: FacilityItem[] = [
     description: "Ruang pembelajaran modern ber-AC dilengkapi proyektor HD, sound system jernih, smart display, dan papan tulis interaktif.",
     highlights: ["Interactive Smart Screen", "Audio-Visual High Definition", "Desain Ergonomis", "High-Speed Wi-Fi"],
     image: {
-      url: "/images/facilities/classroom-1.jpeg",
+      url: "./images/facilities/classroom-1.jpeg",
       alt: "Ruang Kelas Multimedia PT Sinergi Ekuitas Indonesia",
       aspectRatio: "4:3"
     },
     galleryImages: [
-      { url: "/images/facilities/classroom-1.jpeg", caption: "Ruang Kelas Multimedia Tipe 1" },
-      { url: "/images/facilities/classroom-2.jpeg", caption: "Ruang Kelas Multimedia Tipe 2 (Layout Diskusi)" }
+      { url: "./images/facilities/classroom-1.jpeg", caption: "Ruang Kelas Multimedia Tipe 1" },
+      { url: "./images/facilities/classroom-2.jpeg", caption: "Ruang Kelas Multimedia Tipe 2 (Layout Diskusi)" }
     ]
   },
   {
@@ -355,12 +355,12 @@ export const FACILITIES_DATA: FacilityItem[] = [
     description: "Laboratorium dengan spesifikasi hardware tinggi dan software perbankan/statistik untuk simulasi data real-time.",
     highlights: ["PC Core i7 & RAM 16GB", "Software Simulasi Perbankan", "LAN GigaBit & Fiber Optic", "Dukungan IT Support Onsite"],
     image: {
-      url: "/images/facilities/lab-komputer.jpeg",
+      url: "./images/facilities/lab-komputer.jpeg",
       alt: "Laboratorium Komputer Modern",
       aspectRatio: "4:3"
     },
     galleryImages: [
-      { url: "/images/facilities/lab-komputer.jpeg", caption: "Laboratorium Komputer High-Spec Tipe 1" }
+      { url: "./images/facilities/lab-komputer.jpeg", caption: "Laboratorium Komputer High-Spec Tipe 1" }
     ]
   },
   {
@@ -370,12 +370,12 @@ export const FACILITIES_DATA: FacilityItem[] = [
     description: "Laboratorium simulasi perbankan yang dirancang persis seperti counter cabang bank bjb untuk pengalaman latihan nyata.",
     highlights: ["Counter Teller & CS Authentik", "Mesin Hitung Uang & Passbook Printer", "Sistem Antrean Digital", "CCTV & Security Simulation"],
     image: {
-      url: "/images/facilities/lab-bank-mini.jpeg",
+      url: "./images/facilities/lab-bank-mini.jpeg",
       alt: "Mini Banking Simulation Lab",
       aspectRatio: "4:3"
     },
     galleryImages: [
-      { url: "/images/facilities/lab-bank-mini.jpeg", caption: "Laboratorium Simulasi Bank Mini Frontliner bank bjb" }
+      { url: "./images/facilities/lab-bank-mini.jpeg", caption: "Laboratorium Simulasi Bank Mini Frontliner bank bjb" }
     ]
   },
   {
@@ -385,12 +385,12 @@ export const FACILITIES_DATA: FacilityItem[] = [
     description: "Ruang rapat privat untuk konsolidasi direksi, sesi konsultasi bisnis, dan penandatanganan kemitraan.",
     highlights: ["Executive Conference Table", "Video Conference System", "Acoustic Wall Panel", "Private Refreshment"],
     image: {
-      url: "/images/facilities/meeting-room.jpeg",
+      url: "./images/facilities/meeting-room.jpeg",
       alt: "Meeting Room Executive",
       aspectRatio: "4:3"
     },
     galleryImages: [
-      { url: "/images/facilities/meeting-room.jpeg", caption: "Executive Meeting Room & Discussion Hub" }
+      { url: "./images/facilities/meeting-room.jpeg", caption: "Executive Meeting Room & Discussion Hub" }
     ]
   },
   {
@@ -400,12 +400,12 @@ export const FACILITIES_DATA: FacilityItem[] = [
     description: "Auditorium representatif untuk penyelenggaraan konferensi, seminar nasional, wisuda, dan rapat umum.",
     highlights: ["Panggung Utama & Videotron", "Aksestabilitas Difabel", "Ruang Transit VIP", "Sistem Lighting Panggung"],
     image: {
-      url: "/images/facilities/aula-auditorium.jpeg",
+      url: "./images/facilities/aula-auditorium.jpeg",
       alt: "Ruang Seminar & Auditorium",
       aspectRatio: "4:3"
     },
     galleryImages: [
-      { url: "/images/facilities/aula-auditorium.jpeg", caption: "Auditorium & Ruang Seminar Utama" }
+      { url: "./images/facilities/aula-auditorium.jpeg", caption: "Auditorium & Ruang Seminar Utama" }
     ]
   }
 ];
@@ -429,44 +429,44 @@ export const PORTFOLIO_PROJECT: PortfolioProject = {
     "Evaluasi kompetensi individual dan penerbitan rekomendasi sertifikasi"
   ],
   image: {
-    url: "/images/portfolio/abdi-bjb-1.jpeg",
+    url: "./images/portfolio/abdi-bjb-1.jpeg",
     fallbackUrl: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1200&q=80",
     alt: "Dokumentasi Program Frontliner bank bjb",
     aspectRatio: "16:9"
   },
   galleryImages: [
     {
-      url: "/images/portfolio/abdi-bjb-1.jpeg",
+      url: "./images/portfolio/abdi-bjb-1.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80",
       caption: "Serah Terima & Pembukaan Resmi Program Pembelajaran Frontliner bank bjb",
       tag: "Pembukaan & Serah Terima"
     },
     {
-      url: "/images/portfolio/abdi-bjb-2.jpeg",
+      url: "./images/portfolio/abdi-bjb-2.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1556742049-0a67daf64f42?auto=format&fit=crop&w=800&q=80",
       caption: "Simulasi Real-Time Counter Teller & Handling CS di Laboratorium Bank Mini",
       tag: "Simulasi Teller & CS"
     },
     {
-      url: "/images/portfolio/abdi-bjb-3.jpeg",
+      url: "./images/portfolio/abdi-bjb-3.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
       caption: "Suasana Kelas Pembelajaran Frontliner & Diskusi Modul Standar Service Excellence",
       tag: "Suasana Kelas"
     },
     {
-      url: "/images/portfolio/abdi-bjb-4.jpeg",
+      url: "./images/portfolio/abdi-bjb-4.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
       caption: "Sesi Roleplay & Asesmen Penanganan Nasabah (Customer Handling)",
       tag: "Roleplay Customer Handling"
     },
     {
-      url: "/images/portfolio/abdi-bjb-5.jpeg",
+      url: "./images/portfolio/abdi-bjb-5.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
       caption: "Praktik Komputerisasi & Software Perbankan di Laboratorium Komputer Modern",
       tag: "Praktik Lab Komputer"
     },
     {
-      url: "/images/portfolio/abdi-bjb-6.jpeg",
+      url: "./images/portfolio/abdi-bjb-6.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
       caption: "Penutupan Program Pembelajaran & Penyerahan Sertifikat Kompetensi Peserta",
       tag: "Penutupan & Sertifikasi"
@@ -482,7 +482,7 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
     role: "Pengawasan & Arahan Tata Kelola (GCG)",
     bio: "Melaksanakan fungsi pengawasan serta memberikan arahan dan masukan strategis terhadap kebijakan dan pengelolaan perusahaan agar seluruh kegiatan operasional selaras dengan prinsip Good Corporate Governance (GCG) dan hukum yang berlaku.",
     image: {
-      url: "/images/team/muhammad-gunawan.jpeg",
+      url: "./images/team/muhammad-gunawan.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
       alt: "Muhammad Gunawan - Komisaris PT Sinergi Ekuitas Indonesia"
     }
@@ -495,7 +495,7 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
     bio: "Memimpin arah strategis perusahaan serta bertanggung jawab dalam memastikan seluruh kegiatan operasional dan pengembangan bisnis berjalan selaras dengan visi perusahaan. Berperan dalam penguatan tata kelola serta membangun sinergi ekosistem bank bjb dan Universitas Ekuitas Indonesia.",
     quote: "Sinergi antara kekuatan akademik Universitas Ekuitas Indonesia dan pengalaman praktis ekosistem bank bjb adalah fondasi utama kami dalam menghadirkan solusi SDM dan kelembagaan yang solutif, akuntabel, dan berdampak nyata.",
     image: {
-      url: "/images/team/deni-hamdani.jpeg",
+      url: "./images/team/deni-hamdani.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
       alt: "Deni Hamdani, SE. M.Si - Direktur Utama PT Sinergi Ekuitas Indonesia"
     }
@@ -507,7 +507,7 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
     role: "Perencanaan Strategis & Inovasi Layanan",
     bio: "Berperan dalam mendukung perencanaan dan pelaksanaan strategi perusahaan, khususnya dalam pengembangan bisnis, inovasi, serta peningkatan kualitas layanan pelatihan profesional dan konsultasi institusional.",
     image: {
-      url: "/images/team/gatot-iwan.jpeg",
+      url: "./images/team/gatot-iwan.jpeg",
       fallbackUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
       alt: "Dr. Gatot Iwan Kurniawan, SE., MBA - Direktur PT Sinergi Ekuitas Indonesia"
     }

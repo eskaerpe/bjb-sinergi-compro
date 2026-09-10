@@ -46,6 +46,8 @@ export const LeadershipSection: React.FC = () => {
                       src={leader.image.url}
                       alt={leader.image.alt}
                       onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
                         (e.target as HTMLImageElement).src = leader.image.fallbackUrl;
                       }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-95"

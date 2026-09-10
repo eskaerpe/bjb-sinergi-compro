@@ -63,6 +63,8 @@ export const FacilitiesBento: React.FC = () => {
                     src={facility.image.url}
                     alt={facility.image.alt}
                     onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
                       (e.target as HTMLImageElement).src =
                         'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80';
                     }}
@@ -150,6 +152,8 @@ export const FacilitiesBento: React.FC = () => {
                       src={images[activeImageIndex]?.url}
                       alt={images[activeImageIndex]?.caption || activeFacility.name}
                       onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
                         (e.target as HTMLImageElement).src =
                           'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80';
                       }}
@@ -203,6 +207,8 @@ export const FacilitiesBento: React.FC = () => {
                             src={img.url}
                             alt={img.caption}
                             onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
                               (e.target as HTMLImageElement).src =
                                 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80';
                             }}
