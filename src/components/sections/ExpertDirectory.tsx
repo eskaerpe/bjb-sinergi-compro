@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import {
   Search,
@@ -275,13 +276,13 @@ export const ExpertDirectory: React.FC = () => {
 
                   {/* Modal Footer Actions */}
                   <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-                    <a
-                      href="#lead-form"
+                    <Link
+                      to="/kontak"
                       onClick={() => setActiveModalDomain(null)}
                       className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 py-3 rounded-xl shadow-md transition-all"
                     >
                       <span>Minta Modul & Pelatihan Bidang Ini</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               )}

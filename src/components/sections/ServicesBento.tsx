@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   GraduationCap,
   TrendingUp,
@@ -21,7 +22,11 @@ const ICON_MAP: Record<string, React.ElementType> = {
   ShieldCheck,
 };
 
-export const ServicesBento: React.FC = () => {
+interface ServicesBentoProps {
+  showViewAllLink?: boolean;
+}
+
+export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = false }) => {
   return (
     <SectionContainer id="layanan" outerClassName="bg-surface-tint">
       <div className="space-y-12">
@@ -90,19 +95,31 @@ export const ServicesBento: React.FC = () => {
 
                   {/* Action Link */}
                   <div className="pt-4">
-                    <a
-                      href="#lead-form"
+                    <Link
+                      to="/kontak"
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-navy-900 group-hover:text-brandBlue-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded"
                     >
                       <span>Minta Proposal Layanan</span>
                       <ArrowRight className="w-3.5 h-3.5 text-coral-500 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
+
+        {showViewAllLink && (
+          <div className="text-center pt-4">
+            <Link
+              to="/layanan"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs rounded-xl shadow-card hover:shadow-card-hover transition-all active:scale-[0.98]"
+            >
+              <span>Lihat Seluruh Layanan</span>
+              <ArrowRight className="w-4 h-4 text-coral-500" />
+            </Link>
+          </div>
+        )}
       </div>
     </SectionContainer>
   );

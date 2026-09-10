@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import { CheckCircle2, ShieldCheck, ArrowRight, Camera, X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PORTFOLIO_PROJECT } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
-export const PortfolioSpotlight: React.FC = () => {
+interface PortfolioSpotlightProps {
+  showViewAllLink?: boolean;
+}
+
+export const PortfolioSpotlight: React.FC<PortfolioSpotlightProps> = ({ showViewAllLink = false }) => {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
 
   const galleryImages = PORTFOLIO_PROJECT.galleryImages;
@@ -104,13 +109,13 @@ export const PortfolioSpotlight: React.FC = () => {
 
               {/* CTA Button */}
               <div className="pt-4">
-                <a
-                  href="#lead-form"
+                <Link
+                  to="/kontak"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-950 bg-white hover:bg-navy-50 px-6 py-3 rounded-xl shadow-lg transition-all"
                 >
                   <span>Ajukan Kemitraan Program Serupa</span>
                   <ArrowRight className="w-4 h-4 text-coral-500" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -174,6 +179,18 @@ export const PortfolioSpotlight: React.FC = () => {
             ))}
           </div>
         </div>
+
+        {showViewAllLink && (
+          <div className="text-center pt-4">
+            <Link
+              to="/portofolio"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs rounded-xl shadow-card hover:shadow-card-hover transition-all active:scale-[0.98]"
+            >
+              <span>Lihat Seluruh Portofolio</span>
+              <ArrowRight className="w-4 h-4 text-coral-500" />
+            </Link>
+          </div>
+        )}
 
         {/* Lightbox Modal with Next/Prev Carousel Navigation */}
         <Dialog.Root open={selectedPhotoIndex !== null} onOpenChange={(open) => !open && setSelectedPhotoIndex(null)}>

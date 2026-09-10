@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-09-10
+
+### Added & Refactored (Corporate Multi-Page Architecture & Full Master Data Sync)
+- **HashRouter Multipage Architecture:** Migrated website architecture from single-page scroll to a 7-route corporate SPA using `react-router-dom` (`HashRouter`) for 100% 404-free navigation on GitHub Pages.
+- **7 Dedicated Pages & Layout:**
+  - `/` — `HomePage.tsx` (Hero split, dual CTAs, ecosystem narrative, teaser blocks, lead banner)
+  - `/tentang-kami` — `AboutPage.tsx` (Institutional background, Visi & 5 Misi, 3-Card Executive Leadership)
+  - `/layanan` — `ServicesPage.tsx` (6 Pilar Layanan Terpadu interactive bento grid)
+  - `/fasilitas` — `FacilitiesPage.tsx` (8 Campus facilities showcase with multi-photo carousel viewer)
+  - `/portofolio` — `PortfolioPage.tsx` (Program Pembelajaran Abdi bjb Frontliner 6-photo activity lightbox gallery)
+  - `/jaringan-ahli` — `ExpertPage.tsx` (12 Domain keahlian directory with instant search & filter tabs across 124+ topics)
+  - `/kontak` — `ContactPage.tsx` (Official contact cards, WhatsApp deep-link proposal handler, Google Maps embed, PDF download CTA)
+- **Scroll Restoration (`ScrollToTop`):** Automatic `window.scrollTo(0, 0)` trigger on every route transition.
+- **Active Navigation States:** `<NavLink>` indicator styling in `Navbar.tsx` and auto-closing mobile navigation drawer.
+- **100% Data Synchronization (`companyData.ts`):** Complete precision sync with `Company_Profile_PT_Sinergi.md` (6 service pillars, 8 campus facilities, 6 Abdi bjb activity photos, 124+ expert topics across 12 domains, 3 leaders, exact address/WA/email).
+
 ## [1.2.0] - 2026-09-10
 
 ### Added & Improved (Audit Action Checklist & UX Enhancement)

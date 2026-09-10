@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import { CheckCircle2, Images, X, ChevronRight, ChevronLeft } from 'lucide-react';
 import { FACILITIES_DATA, FacilityItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
-export const FacilitiesBento: React.FC = () => {
+interface FacilitiesBentoProps {
+  showViewAllLink?: boolean;
+}
+
+export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLink = false }) => {
   const [activeFacility, setActiveFacility] = useState<FacilityItem | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
@@ -117,6 +122,18 @@ export const FacilitiesBento: React.FC = () => {
             );
           })}
         </div>
+
+        {showViewAllLink && (
+          <div className="text-center pt-4">
+            <Link
+              to="/fasilitas"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-navy-900 hover:bg-navy-800 text-white font-bold text-xs rounded-xl shadow-card hover:shadow-card-hover transition-all active:scale-[0.98]"
+            >
+              <span>Lihat Seluruh Fasilitas</span>
+              <ChevronRight className="w-4 h-4 text-coral-500" />
+            </Link>
+          </div>
+        )}
 
         {/* Multi-Photo Interactive Carousel Lightbox Modal */}
         <Dialog.Root open={!!activeFacility} onOpenChange={(open) => !open && setActiveFacility(null)}>

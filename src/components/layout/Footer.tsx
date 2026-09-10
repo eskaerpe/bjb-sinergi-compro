@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ShieldCheck, MapPin, Phone, Mail, ChevronRight, Download } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 
@@ -10,7 +11,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 text-left">
           {/* Col 1: Brand & Identity (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
-            <a href="#" className="flex items-center gap-3 group inline-block">
+            <Link to="/" className="flex items-center gap-3 group inline-block">
               <div className="w-10 h-10 rounded-xl bg-white text-navy-900 flex items-center justify-center font-extrabold text-lg shadow-md p-1.5">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#007CAB" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
@@ -27,7 +28,7 @@ export const Footer: React.FC = () => {
                   {COMPANY_INFO.parentOrg}
                 </span>
               </div>
-            </a>
+            </Link>
 
             <p className="text-xs text-navy-200 leading-relaxed max-w-sm">
               Mitra strategis untuk pelatihan profesional, konsultasi bisnis, pengembangan SDM, event management, dan layanan pendukung institusional berbasis ekosistem bank bjb dan Universitas Ekuitas Indonesia.
@@ -52,34 +53,40 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-xs text-navy-200">
               <li>
-                <a href="#layanan" className="hover:text-white flex items-center gap-1 transition-colors">
+                <Link to="/layanan" className="hover:text-white flex items-center gap-1 transition-colors">
                   <ChevronRight className="w-3 h-3 text-brandBlue-500" />
                   <span>6 Layanan Utama</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#expert-directory" className="hover:text-white flex items-center gap-1 transition-colors">
+                <Link to="/jaringan-ahli" className="hover:text-white flex items-center gap-1 transition-colors">
                   <ChevronRight className="w-3 h-3 text-brandBlue-500" />
                   <span>Direktori 12 Bidang Expert</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#fasilitas" className="hover:text-white flex items-center gap-1 transition-colors">
+                <Link to="/fasilitas" className="hover:text-white flex items-center gap-1 transition-colors">
                   <ChevronRight className="w-3 h-3 text-brandBlue-500" />
                   <span>Fasilitas & Lab Komputer</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#portofolio" className="hover:text-white flex items-center gap-1 transition-colors">
+                <Link to="/portofolio" className="hover:text-white flex items-center gap-1 transition-colors">
                   <ChevronRight className="w-3 h-3 text-brandBlue-500" />
                   <span>Portofolio & Abdi bank bjb</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#tentang-kami" className="hover:text-white flex items-center gap-1 transition-colors">
+                <Link to="/tentang-kami" className="hover:text-white flex items-center gap-1 transition-colors">
                   <ChevronRight className="w-3 h-3 text-brandBlue-500" />
                   <span>Sinergi Ekosistem & Direksi</span>
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/kontak" className="hover:text-white flex items-center gap-1 transition-colors">
+                  <ChevronRight className="w-3 h-3 text-brandBlue-500" />
+                  <span>Kontak Sekretariat & Maps</span>
+                </Link>
               </li>
             </ul>
           </div>

@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Menu, X, PhoneCall, MessageSquare, ShieldCheck, Download } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { cn } from '@/utils/cn';
 
-interface NavLink {
+interface NavItem {
   name: string;
-  href: string;
+  path: string;
 }
 
-const NAV_LINKS: NavLink[] = [
-  { name: 'Layanan', href: '#layanan' },
-  { name: 'Direktori Expert', href: '#expert-directory' },
-  { name: 'Fasilitas', href: '#fasilitas' },
-  { name: 'Portofolio', href: '#portofolio' },
-  { name: 'Tentang Kami', href: '#tentang-kami' },
+const NAV_ITEMS: NavItem[] = [
+  { name: 'Beranda', path: '/' },
+  { name: 'Tentang Kami', path: '/tentang-kami' },
+  { name: 'Layanan', path: '/layanan' },
+  { name: 'Fasilitas', path: '/fasilitas' },
+  { name: 'Portofolio', path: '/portofolio' },
+  { name: 'Jaringan Ahli', path: '/jaringan-ahli' },
+  { name: 'Kontak', path: '/kontak' },
 ];
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +37,10 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   return (
     <header
       className={cn(
@@ -45,8 +53,11 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Institutional Logo Emblem */}
-          <a href="#" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded-lg">
-            <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-extrabold text-lg shadow-md group-hover:bg-navy-800 transition-colors p-1.5">
+          <Link
+            to="/"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded-lg"
+          >
+            <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-extrabold text-lg shadow-md p-1.5 group-hover:bg-brandBlue-600 transition-colors">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#007CAB" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
                 <circle cx="50" cy="45" r="12" fill="#FB6040"/>
@@ -62,18 +73,26 @@ export const Navbar: React.FC = () => {
                 {COMPANY_INFO.parentOrg}
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-semibold text-navy-800 hover:text-brandBlue-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded px-1 py-0.5"
+          <nav className="hidden lg:flex items-center gap-6">
+            {NAV_ITEMS.map((item) => (
+              <NavLink
+                key={item.name}
+                to={item.path}
+                end={item.path === '/'}
+                className={({ isActive }) =>
+                  cn(
+                    'text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded px-1 py-0.5',
+                    isActive
+                      ? 'text-brandBlue-500 font-semibold border-b-2 border-brandBlue-500 pb-1'
+                      : 'font-semibold text-navy-800 hover:text-brandBlue-500'
+                  )
+                }
               >
-                {link.name}
-              </a>
+                {item.name}
+              </NavLink>
             ))}
           </nav>
 
@@ -96,13 +115,13 @@ export const Navbar: React.FC = () => {
               <PhoneCall className="w-3.5 h-3.5 text-brandBlue-500" />
               <span>Hubungi</span>
             </a>
-            <a
-              href="#lead-form"
+            <Link
+              to="/kontak"
               className="inline-flex items-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
             >
               <MessageSquare className="w-3.5 h-3.5 text-coral-500" />
               <span>Konsultasi</span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,16 +160,24 @@ export const Navbar: React.FC = () => {
                       </Dialog.Close>
                     </div>
 
-                    <nav className="flex flex-col gap-2">
-                      {NAV_LINKS.map((link) => (
-                        <a
-                          key={link.name}
-                          href={link.href}
+                    <nav className="flex flex-col gap-1.5">
+                      {NAV_ITEMS.map((item) => (
+                        <NavLink
+                          key={item.name}
+                          to={item.path}
+                          end={item.path === '/'}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="text-base font-semibold text-navy-900 hover:text-brandBlue-500 py-2.5 px-3 rounded-lg hover:bg-navy-50 transition-colors"
+                          className={({ isActive }) =>
+                            cn(
+                              'text-base py-2.5 px-3 rounded-lg transition-colors',
+                              isActive
+                                ? 'text-brandBlue-500 font-semibold bg-brandBlue-50'
+                                : 'font-semibold text-navy-900 hover:text-brandBlue-500 hover:bg-navy-50'
+                            )
+                          }
                         >
-                          {link.name}
-                        </a>
+                          {item.name}
+                        </NavLink>
                       ))}
                     </nav>
                   </div>
@@ -173,14 +200,14 @@ export const Navbar: React.FC = () => {
                       <PhoneCall className="w-4 h-4 text-brandBlue-500" />
                       <span>Hubungi Kami via WA</span>
                     </a>
-                    <a
-                      href="#lead-form"
+                    <Link
+                      to="/kontak"
                       onClick={() => setMobileMenuOpen(false)}
                       className="w-full inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-navy-900 py-3 rounded-xl shadow-md"
                     >
                       <MessageSquare className="w-4 h-4 text-coral-500" />
                       <span>Konsultasi Sekarang</span>
-                    </a>
+                    </Link>
                   </div>
                 </Dialog.Content>
               </Dialog.Portal>

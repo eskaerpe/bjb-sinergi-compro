@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Shield, Award, Users, FileText } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
@@ -52,13 +53,13 @@ export const Hero: React.FC = () => {
 
           {/* Action CTAs (Includes PDF Download) */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4">
-            <a
-              href="#layanan"
+            <Link
+              to="/layanan"
               className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 px-5 py-3.5 rounded-xl shadow-card hover:shadow-card-hover transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
             >
-              <span>Jelajahi Layanan</span>
+              <span>Eksplorasi Layanan</span>
               <ArrowRight className="w-4 h-4 text-coral-500" />
-            </a>
+            </Link>
 
             <a
               href="/docs/Company-Profile-PT-Sinergi.pdf"
@@ -66,16 +67,16 @@ export const Hero: React.FC = () => {
               className="inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 hover:text-navy-950 bg-coral-50 hover:bg-coral-100 border border-coral-200 px-5 py-3.5 rounded-xl shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
             >
               <Download className="w-4 h-4 text-coral-500" />
-              <span>Unduh Profile PDF</span>
+              <span>Unduh Company Profile (PDF)</span>
             </a>
 
-            <a
-              href="#lead-form"
+            <Link
+              to="/kontak"
               className="inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 hover:text-navy-950 bg-white hover:bg-navy-50 px-5 py-3.5 rounded-xl border border-border-subtle shadow-sm hover:border-navy-200 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
             >
               <FileText className="w-4 h-4 text-brandBlue-500" />
               <span>Minta Proposal</span>
-            </a>
+            </Link>
           </div>
         </div>
 

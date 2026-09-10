@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { GraduationCap, Building, Network, School, CheckCircle2 } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
@@ -100,12 +101,12 @@ export const SynergyNarrative: React.FC = () => {
               </div>
             </div>
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <a
-                href="#lead-form"
+              <Link
+                to="/kontak"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold text-navy-950 bg-white hover:bg-navy-50 px-6 py-3.5 rounded-xl shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 Diskusi Program Sinergi
-              </a>
+              </Link>
             </div>
           </div>
           {/* Subtle background glow circle */}

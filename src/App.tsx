@@ -1,33 +1,36 @@
 import React from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { ScrollToTop } from './components/common/ScrollToTop';
 import { Navbar } from './components/layout/Navbar';
-import { Hero } from './components/sections/Hero';
-import { SynergyNarrative } from './components/sections/SynergyNarrative';
-import { ServicesBento } from './components/sections/ServicesBento';
-import { ExpertDirectory } from './components/sections/ExpertDirectory';
-import { FacilitiesBento } from './components/sections/FacilitiesBento';
-import { PortfolioSpotlight } from './components/sections/PortfolioSpotlight';
-import { LeadershipSection } from './components/sections/LeadershipSection';
-import { VisionMission } from './components/sections/VisionMission';
-import { LeadHub } from './components/sections/LeadHub';
 import { Footer } from './components/layout/Footer';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import FacilitiesPage from './pages/FacilitiesPage';
+import PortfolioPage from './pages/PortfolioPage';
+import ExpertPage from './pages/ExpertPage';
+import ContactPage from './pages/ContactPage';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-surface-tint text-navy-900 font-sans antialiased selection:bg-brandBlue-500 selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <SynergyNarrative />
-        <ServicesBento />
-        <ExpertDirectory />
-        <FacilitiesBento />
-        <PortfolioSpotlight />
-        <LeadershipSection />
-        <VisionMission />
-        <LeadHub />
-      </main>
-      <Footer />
-    </div>
+    <HashRouter>
+      <ScrollToTop />
+      <div className="min-h-screen bg-surface-tint text-navy-900 font-sans antialiased selection:bg-brandBlue-500 selection:text-white flex flex-col justify-between">
+        <Navbar />
+        <main className="flex-grow pt-20">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/tentang-kami" element={<AboutPage />} />
+            <Route path="/layanan" element={<ServicesPage />} />
+            <Route path="/fasilitas" element={<FacilitiesPage />} />
+            <Route path="/portofolio" element={<PortfolioPage />} />
+            <Route path="/jaringan-ahli" element={<ExpertPage />} />
+            <Route path="/kontak" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </HashRouter>
   );
 };
 
