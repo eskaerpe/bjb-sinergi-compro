@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-09-10
+
+### Added & Fixed (Gap Analysis Alignment with PDF 22 Hal)
+- **Leadership Section Upgrade (Hal 4 PDF):** Updated `LEADERSHIP_MEMBERS` array and refactored `LeadershipSection.tsx` into a 3-column executive grid displaying all 3 leaders: Muhammad Gunawan (Komisaris), Deni Hamdani, SE.M.Si (Direktur Utama), and Dr. Gatot Iwan Kurniawan, SE., MBA (Direktur) with role bio narration and fallback images.
+- **Facilities Real Showcase Upgrade (Hal 7–14 PDF):** Added Armada Transportasi Bus & Shuttle Operasional to `FACILITIES_DATA` and implemented interactive multi-photo gallery popups (`@radix-ui/react-dialog`) per facility view.
+- **Portfolio 6-Photo Activity Gallery (Hal 15 PDF):** Built 6-photo activity documentation gallery grid with tag badges, captions, and interactive lightbox viewer for `Program Pembelajaran Abdi bjb Frontliner`.
+- **Image Fallback Architecture:** Configured seamless local image paths (`/images/team/*`, `/images/facilities/*`, `/images/portfolio/*`) with automatic corporate photo fallback when local assets are dropped into `public/images/`.
+
 ## [1.0.0] - 2026-09-10
 
 ### Added

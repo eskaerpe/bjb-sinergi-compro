@@ -1,12 +1,15 @@
-import React from 'react';
-import { CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
-import { PORTFOLIO_PROJECT } from '@/data/companyData';
+import React, { useState } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
+import { CheckCircle2, ShieldCheck, ArrowRight, Camera, X, Maximize2 } from 'lucide-react';
+import { PORTFOLIO_PROJECT, PortfolioGalleryImage } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
 export const PortfolioSpotlight: React.FC = () => {
+  const [selectedPhoto, setSelectedPhoto] = useState<PortfolioGalleryImage | null>(null);
+
   return (
     <SectionContainer id="portofolio" outerClassName="bg-white border-y border-border-subtle">
-      <div className="space-y-12">
+      <div className="space-y-16">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <span className="inline-block px-3.5 py-1 text-xs font-bold text-coral-600 bg-coral-50 rounded-full border border-coral-100">
@@ -28,6 +31,9 @@ export const PortfolioSpotlight: React.FC = () => {
               <img
                 src={PORTFOLIO_PROJECT.image.url}
                 alt={PORTFOLIO_PROJECT.image.alt}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = PORTFOLIO_PROJECT.image.fallbackUrl;
+                }}
                 className="w-full h-full object-cover opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-navy-950/40 lg:to-navy-950"></div>
@@ -93,6 +99,107 @@ export const PortfolioSpotlight: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Sub-Section: 6-Photo Activity Gallery Grid (PDF Page 15 Documentation) */}
+        <div className="space-y-8">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border-subtle pb-4">
+            <div className="space-y-1">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-navy-800 bg-surface-tint px-3 py-1 rounded-full border border-border-subtle">
+                <Camera className="w-3.5 h-3.5 text-coral-500" />
+                <span>Dokumentasi Kegiatan Aktual (PDF Hal 15)</span>
+              </span>
+              <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900">
+                Galeri Foto Kegiatan Program Abdi bjb Frontliner
+              </h3>
+            </div>
+            <p className="text-xs text-navy-700">
+              6 Momen Utama: Pembukaan, Simulasi Bank Mini, Kelas, Lab Komputer & Sertifikasi
+            </p>
+          </div>
+
+          {/* 6-Photo Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PORTFOLIO_PROJECT.galleryImages.map((photo, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedPhoto(photo)}
+                className="bg-white rounded-2xl border border-border-subtle hover:border-navy-200 shadow-sm hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer"
+              >
+                {/* Photo Thumbnail */}
+                <div className="relative h-52 w-full overflow-hidden bg-navy-950">
+                  <img
+                    src={photo.url}
+                    alt={photo.caption}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = photo.fallbackUrl;
+                    }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent"></div>
+
+                  <span className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-extrabold text-white bg-navy-900/90 backdrop-blur-md rounded-md border border-navy-700 shadow-md">
+                    {photo.tag}
+                  </span>
+
+                  <div className="absolute bottom-3 right-3 w-8 h-8 rounded-lg bg-white/90 backdrop-blur-md text-navy-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md">
+                    <Maximize2 className="w-4 h-4 text-brandBlue-600" />
+                  </div>
+                </div>
+
+                {/* Caption */}
+                <div className="p-4 text-left">
+                  <p className="text-xs font-semibold text-navy-900 group-hover:text-brandBlue-600 transition-colors line-clamp-2">
+                    {photo.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Lightbox Modal */}
+        <Dialog.Root open={!!selectedPhoto} onOpenChange={(open) => !open && setSelectedPhoto(null)}>
+          <Dialog.Portal>
+            <Dialog.Overlay className="fixed inset-0 z-50 bg-navy-950/85 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+            <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-4xl bg-navy-950 text-white rounded-3xl p-4 sm:p-6 shadow-2xl border border-navy-800 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 duration-200">
+              {selectedPhoto && (
+                <div className="space-y-4 text-left">
+                  <div className="flex items-center justify-between border-b border-navy-800 pb-3">
+                    <span className="px-3 py-1 text-xs font-extrabold text-coral-500 bg-navy-900 rounded-md border border-navy-700">
+                      {selectedPhoto.tag}
+                    </span>
+                    <Dialog.Close asChild>
+                      <button
+                        type="button"
+                        aria-label="Tutup Foto"
+                        className="p-1.5 text-navy-200 hover:text-white hover:bg-navy-900 rounded-lg transition-colors"
+                      >
+                        <X className="w-6 h-6" />
+                      </button>
+                    </Dialog.Close>
+                  </div>
+
+                  <div className="relative rounded-2xl overflow-hidden bg-navy-900 max-h-[70vh] flex items-center justify-center">
+                    <img
+                      src={selectedPhoto.url}
+                      alt={selectedPhoto.caption}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = selectedPhoto.fallbackUrl;
+                      }}
+                      className="w-full max-h-[68vh] object-contain"
+                    />
+                  </div>
+
+                  <div className="pt-2">
+                    <p className="text-sm font-semibold text-white">
+                      {selectedPhoto.caption}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
       </div>
     </SectionContainer>
   );
