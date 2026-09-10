@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- [Phase 06] Built `LeadershipSection.tsx` spotlighting Direktur Utama Deni Hamdani, SE. M.Si and GCG commitment.
+- [Phase 06] Built `VisionMission.tsx` featuring corporate vision, 5 strategic mission pillars, and 7 SINERGI core value cards.
 - [Phase 05] Built asymmetric `FacilitiesBento.tsx` showcasing 6 campus facilities with capacity badges and highlight specs.
 - [Phase 05] Built `PortfolioSpotlight.tsx` featuring the `Abdi bjb Frontliner` case study with impact metrics and support scope checklist.
 - [Phase 04] Built interactive `ExpertDirectory.tsx` with instant live search, category pill tabs, 12 domain cards, and Radix UI detail syllabus modal.

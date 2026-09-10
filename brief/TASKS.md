@@ -85,16 +85,16 @@ Rules:
 
 ---
 
-### [ ] Phase 06: Leadership Governance & Corporate Governance (GCG)
-- [ ] Build Executive Leadership section with high-prestige profile cards:
+### [x] Phase 06: Leadership Governance & Corporate Governance (GCG)
+- [x] Build Executive Leadership section with high-prestige profile cards:
   - Deni Hamdani, SE.M.Si (Direktur Utama)
   - Dr. Gatot Iwan Kurniawan, SE., MBA (Direktur)
   - Muhammad Gunawan (Komisaris)
-- [ ] Build Vision & 5 Mission Pillars block with structured icon bullet list.
-- [ ] Add GCG (Good Corporate Governance) commitment statement.
-- [ ] Run build test (`npm run build`).
-- [ ] Update `CHANGELOG.md`.
-- [ ] Git commit and push: `feat(leadership): add executive leadership cards and vision mission block [Phase 06]`.
+- [x] Build Vision & 5 Mission Pillars block with structured icon bullet list.
+- [x] Add GCG (Good Corporate Governance) commitment statement.
+- [x] Run build test (`npm run build`).
+- [x] Update `CHANGELOG.md`.
+- [x] Git commit and push: `feat(leadership): add executive leadership cards and vision mission block [Phase 06]`.
 
 ---
 
