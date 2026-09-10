@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
+import { SynergyNarrative } from './components/sections/SynergyNarrative';
+import { ServicesBento } from './components/sections/ServicesBento';
 
 export const App: React.FC = () => {
   return (
@@ -8,6 +10,8 @@ export const App: React.FC = () => {
       <Navbar />
       <main>
         <Hero />
+        <SynergyNarrative />
+        <ServicesBento />
       </main>
     </div>
   );

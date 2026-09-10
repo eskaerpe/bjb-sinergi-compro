@@ -36,21 +36,21 @@ Rules:
 
 ---
 
-### [ ] Phase 03: Institutional Synergy Narrative & 6 Core Services Bento Grid
-- [ ] Build About / Institutional Synergy section:
+### [x] Phase 03: Institutional Synergy Narrative & 6 Core Services Bento Grid
+- [x] Build About / Institutional Synergy section:
   - Narrative connecting academic rigor (Universitas Ekuitas) with industry practice (bank bjb).
   - 4 key metric stat counters (12 Expert Domains, 6 Core Pillars, Representative Facilities, GCG Standard).
-- [ ] Build 6 Core Services Bento Grid (3x2 desktop, 2x3 tablet, 1-col mobile):
+- [x] Build 6 Core Services Bento Grid (3x2 desktop, 2x3 tablet, 1-col mobile):
   - Pelatihan & Pengembangan
   - Konsultasi
   - Manajemen Acara
   - Fasilitas Pembelajaran
   - Merchandise Institusional
   - Kemitraan Strategis
-- [ ] Apply card visual styling: `surface-white`, `border-subtle`, 16px radius, blue-tinted icon wells, subtle hover lift.
-- [ ] Run build test (`npm run build`).
-- [ ] Update `CHANGELOG.md`.
-- [ ] Git commit and push: `feat(services): add institutional synergy and 6 core services bento grid [Phase 03]`.
+- [x] Apply card visual styling: `surface-white`, `border-subtle`, 16px radius, blue-tinted icon wells, subtle hover lift.
+- [x] Run build test (`npm run build`).
+- [x] Update `CHANGELOG.md`.
+- [x] Git commit and push: `feat(services): add institutional synergy and 6 core services bento grid [Phase 03]`.
 
 ---
 
