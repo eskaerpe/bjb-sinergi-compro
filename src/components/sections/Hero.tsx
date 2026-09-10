@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, FileText, CheckCircle2, Shield, Award, Users } from 'lucide-react';
+import { ArrowRight, Download, Shield, Award, Users, FileText } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
@@ -50,21 +50,31 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+          {/* Action CTAs (Includes PDF Download) */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4">
             <a
               href="#layanan"
-              className="inline-flex items-center justify-center gap-2 text-sm font-bold text-white bg-navy-900 hover:bg-navy-800 px-6 py-3.5 rounded-xl shadow-card hover:shadow-card-hover transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 px-5 py-3.5 rounded-xl shadow-card hover:shadow-card-hover transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
             >
-              <span>Jelajahi Layanan Kami</span>
+              <span>Jelajahi Layanan</span>
               <ArrowRight className="w-4 h-4 text-coral-500" />
             </a>
+
+            <a
+              href="/docs/Company-Profile-PT-Sinergi.pdf"
+              download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+              className="inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 hover:text-navy-950 bg-coral-50 hover:bg-coral-100 border border-coral-200 px-5 py-3.5 rounded-xl shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
+            >
+              <Download className="w-4 h-4 text-coral-500" />
+              <span>Unduh Profile PDF</span>
+            </a>
+
             <a
               href="#lead-form"
-              className="inline-flex items-center justify-center gap-2 text-sm font-bold text-navy-900 hover:text-navy-950 bg-white hover:bg-navy-50 px-6 py-3.5 rounded-xl border border-border-subtle shadow-sm hover:border-navy-200 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
+              className="inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 hover:text-navy-950 bg-white hover:bg-navy-50 px-5 py-3.5 rounded-xl border border-border-subtle shadow-sm hover:border-navy-200 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
             >
               <FileText className="w-4 h-4 text-brandBlue-500" />
-              <span>Permintaan Proposal</span>
+              <span>Minta Proposal</span>
             </a>
           </div>
         </div>
@@ -103,17 +113,6 @@ export const Hero: React.FC = () => {
               <div>
                 <p className="text-xs font-bold text-navy-900">Tingkat Kepuasan</p>
                 <p className="text-[10px] text-navy-700">Mitra & Peserta Bank</p>
-              </div>
-            </div>
-
-            {/* Floating Trust Card 2 (Bottom Left) */}
-            <div className="absolute -bottom-6 -left-4 sm:-left-6 bg-white p-4 rounded-2xl shadow-xl border border-border-subtle flex items-center gap-3 max-w-[220px] z-10">
-              <div className="w-10 h-10 rounded-xl bg-coral-50 text-coral-500 flex items-center justify-center flex-shrink-0">
-                <CheckCircle2 className="w-5 h-5 text-coral-500" />
-              </div>
-              <div>
-                <p className="text-xs font-bold text-navy-900">500+ Frontliner</p>
-                <p className="text-[10px] text-navy-700">Terlatih & Tersertifikasi</p>
               </div>
             </div>
           </div>

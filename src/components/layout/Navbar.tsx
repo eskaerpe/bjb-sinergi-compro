@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { Menu, X, PhoneCall, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Menu, X, PhoneCall, MessageSquare, ShieldCheck, Download } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { cn } from '@/utils/cn';
 
@@ -44,16 +44,20 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo & Institutional Tagline */}
+          {/* Brand Institutional Logo Emblem */}
           <a href="#" className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded-lg">
-            <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-extrabold text-xl shadow-md group-hover:bg-navy-800 transition-colors">
-              SEI
+            <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-extrabold text-lg shadow-md group-hover:bg-navy-800 transition-colors p-1.5">
+              <svg viewBox="0 0 100 100" className="w-full h-full">
+                <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#007CAB" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="50" cy="45" r="12" fill="#FB6040"/>
+                <path d="M38 65 L62 65" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round"/>
+              </svg>
             </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-navy-900 text-lg leading-tight tracking-tight">
+            <div className="flex flex-col text-left">
+              <span className="font-extrabold text-navy-900 text-base sm:text-lg leading-tight tracking-tight">
                 {COMPANY_INFO.name}
               </span>
-              <span className="text-[11px] font-medium text-navy-700 leading-none mt-0.5 flex items-center gap-1">
+              <span className="text-[10px] sm:text-[11px] font-medium text-navy-700 leading-none mt-0.5 flex items-center gap-1">
                 <ShieldCheck className="w-3 h-3 text-brandBlue-500 inline" />
                 {COMPANY_INFO.parentOrg}
               </span>
@@ -76,13 +80,21 @@ export const Navbar: React.FC = () => {
           {/* Desktop Action CTAs */}
           <div className="hidden sm:flex items-center gap-3">
             <a
+              href="/docs/Company-Profile-PT-Sinergi.pdf"
+              download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-navy-900 hover:text-navy-950 bg-white hover:bg-navy-50 px-3.5 py-2.5 rounded-xl border border-border-subtle shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
+            >
+              <Download className="w-3.5 h-3.5 text-brandBlue-600" />
+              <span>PDF Profile</span>
+            </a>
+            <a
               href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Halo%20PT%20Sinergi%20Ekuitas%20Indonesia,%20saya%20ingin%20berkonsultasi.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold text-navy-800 hover:text-navy-900 bg-surface-tint hover:bg-navy-100 px-4 py-2.5 rounded-xl border border-border-subtle transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
+              className="inline-flex items-center gap-2 text-xs font-bold text-navy-800 hover:text-navy-900 bg-surface-tint hover:bg-navy-100 px-3.5 py-2.5 rounded-xl border border-border-subtle transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
             >
               <PhoneCall className="w-3.5 h-3.5 text-brandBlue-500" />
-              <span>Hubungi Kami</span>
+              <span>Hubungi</span>
             </a>
             <a
               href="#lead-form"
@@ -111,7 +123,7 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center justify-between border-b border-border-subtle pb-4 mb-6">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-navy-900 text-white font-extrabold flex items-center justify-center text-sm">
+                        <div className="w-8 h-8 rounded-lg bg-navy-900 text-white font-extrabold flex items-center justify-center text-xs p-1">
                           SEI
                         </div>
                         <span className="font-extrabold text-navy-900 text-sm">
@@ -145,13 +157,21 @@ export const Navbar: React.FC = () => {
 
                   <div className="flex flex-col gap-3 pt-6 border-t border-border-subtle">
                     <a
+                      href="/docs/Company-Profile-PT-Sinergi.pdf"
+                      download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                      className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 bg-surface-tint py-3 rounded-xl border border-border-subtle"
+                    >
+                      <Download className="w-4 h-4 text-brandBlue-600" />
+                      <span>Unduh Company Profile (PDF)</span>
+                    </a>
+                    <a
                       href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Halo%20PT%20Sinergi%20Ekuitas%20Indonesia`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center gap-2 text-sm font-bold text-navy-900 bg-surface-tint py-3 rounded-xl border border-border-subtle"
+                      className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 bg-white py-3 rounded-xl border border-border-subtle"
                     >
                       <PhoneCall className="w-4 h-4 text-brandBlue-500" />
-                      <span>Hubungi Kami</span>
+                      <span>Hubungi Kami via WA</span>
                     </a>
                     <a
                       href="#lead-form"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Send, MessageSquare, CheckCircle2, Download } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
@@ -17,9 +17,9 @@ export const LeadHub: React.FC = () => {
     e.preventDefault();
     if (!formData.name || !formData.contact) return;
     
-    // Construct WhatsApp message URL for direct submit fallback
+    // Construct pre-filled WhatsApp deep-link message
     const waText = encodeURIComponent(
-      `Halo PT Sinergi Ekuitas Indonesia,\n\nNama: ${formData.name}\nInstitusi: ${formData.institution}\nLayanan Diminati: ${formData.service}\nKontak: ${formData.contact}\nKebutuhan: ${formData.message}`
+      `Halo PT Sinergi Ekuitas Indonesia,\n\nNama: ${formData.name}\nInstitusi/Perusahaan: ${formData.institution || '-'}\nLayanan Diminati: ${formData.service}\nKontak (Email/WA): ${formData.contact}\nKebutuhan Proposal: ${formData.message || '-'}`
     );
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}?text=${waText}`, '_blank');
     setSubmitted(true);
@@ -45,7 +45,7 @@ export const LeadHub: React.FC = () => {
           {/* Left Column: Direct Contact Info & Map Embed */}
           <div className="lg:col-span-5 space-y-6">
             {/* Contact Details Cards */}
-            <div className="bg-navy-950 p-6 sm:p-8 rounded-3xl border border-navy-800 space-y-6 shadow-xl">
+            <div className="bg-navy-950 p-6 sm:p-8 rounded-3xl border border-navy-800 space-y-6 shadow-xl text-left">
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-coral-500" />
                 <span>Kontak Resmi Perusahaan</span>
@@ -93,8 +93,8 @@ export const LeadHub: React.FC = () => {
                 </div>
               </div>
 
-              {/* Instant WhatsApp CTA Button */}
-              <div className="pt-2">
+              {/* Action Buttons */}
+              <div className="pt-2 space-y-3">
                 <a
                   href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Halo%20PT%20Sinergi%20Ekuitas%20Indonesia,%20saya%20ingin%20berkonsultasi.`}
                   target="_blank"
@@ -103,6 +103,15 @@ export const LeadHub: React.FC = () => {
                 >
                   <Phone className="w-4 h-4" />
                   <span>Chat Langsung via WhatsApp Official</span>
+                </a>
+
+                <a
+                  href="/docs/Company-Profile-PT-Sinergi.pdf"
+                  download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                  className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 border border-navy-700 py-3 px-4 rounded-xl transition-all"
+                >
+                  <Download className="w-4 h-4 text-brandBlue-500" />
+                  <span>Unduh E-Brochure Profile (PDF)</span>
                 </a>
               </div>
             </div>
@@ -131,10 +140,10 @@ export const LeadHub: React.FC = () => {
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-navy-900">
-                  Permintaan Pesan Berhasil Terkirim!
+                  Permintaan Pesan Berhasil Diteruskan!
                 </h3>
                 <p className="text-xs sm:text-sm text-navy-700 max-w-md mx-auto">
-                  Pesan Anda telah diteruskan ke WhatsApp Official PT Sinergi Ekuitas Indonesia. Tim kami akan segera merespons kebutuhan Anda.
+                  Format pesan otomatis telah dibuat dan siap dikirim ke WhatsApp Official PT Sinergi Ekuitas Indonesia.
                 </p>
                 <button
                   type="button"
@@ -146,12 +155,12 @@ export const LeadHub: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="space-y-1">
+                <div className="space-y-1 text-left">
                   <h3 className="text-xl font-extrabold text-navy-900">
                     Formulir Permintaan Proposal & Diskusi
                   </h3>
                   <p className="text-xs text-navy-700">
-                    Isi formulir di bawah ini untuk menerima penawaran program terintegrasi.
+                    Isi formulir di bawah ini untuk terhubung langsung dengan Tim Sekretariat via WhatsApp.
                   </p>
                 </div>
 
@@ -245,15 +254,13 @@ export const LeadHub: React.FC = () => {
                   className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 py-3.5 rounded-xl shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-navy-900"
                 >
                   <Send className="w-4 h-4 text-coral-500" />
-                  <span>Kirim Permintaan Proposal</span>
+                  <span>Kirim & Buka WhatsApp Official</span>
                 </button>
               </form>
             )}
           </div>
         </div>
       </div>
-      {/* Background glow */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-brandBlue-500/10 rounded-full blur-3xl pointer-events-none"></div>
     </SectionContainer>
   );
 };

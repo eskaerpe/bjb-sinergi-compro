@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-09-10
+
+### Added & Improved (Audit Action Checklist & UX Enhancement)
+- **Institutional Emblem Logo:** Created `public/favicon.svg` and embedded SVG logo emblem across `Navbar.tsx`, `Hero.tsx`, and `Footer.tsx` for YKP bank bjb x Universitas Ekuitas Indonesia ecosystem.
+- **Company Profile PDF Download CTA:** Added "Unduh E-Brochure Profile (PDF)" CTAs in `Navbar.tsx`, `Hero.tsx`, `LeadHub.tsx`, and `Footer.tsx` pointing to `/docs/Company-Profile-PT-Sinergi.pdf`.
+- **Pre-filled WhatsApp Deep-Link Form:** Refactored `LeadHub.tsx` proposal form submit to format structured WhatsApp inquiry text and open WhatsApp Official directly.
+- **OpenGraph & Local SEO Meta Tags:** Added `og:title`, `og:description`, `og:image`, `twitter:card`, and Bandung banking/training local SEO keywords in `index.html`.
+- **Carousel Controls in Lightbox Modals:** Implemented Next/Prev photo carousel controls and thumbnail selectors in `FacilitiesBento.tsx` and `PortfolioSpotlight.tsx` lightbox dialogs.
+
 ## [1.1.0] - 2026-09-10
 
 ### Added & Fixed (Gap Analysis Alignment with PDF 22 Hal)

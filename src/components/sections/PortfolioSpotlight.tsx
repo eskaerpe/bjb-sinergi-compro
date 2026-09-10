@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { CheckCircle2, ShieldCheck, ArrowRight, Camera, X, Maximize2 } from 'lucide-react';
-import { PORTFOLIO_PROJECT, PortfolioGalleryImage } from '@/data/companyData';
+import { CheckCircle2, ShieldCheck, ArrowRight, Camera, X, Maximize2, ChevronLeft, ChevronRight } from 'lucide-react';
+import { PORTFOLIO_PROJECT } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
 export const PortfolioSpotlight: React.FC = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState<PortfolioGalleryImage | null>(null);
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
+
+  const galleryImages = PORTFOLIO_PROJECT.galleryImages;
+
+  const handleNextPhoto = () => {
+    if (selectedPhotoIndex !== null) {
+      setSelectedPhotoIndex((selectedPhotoIndex + 1) % galleryImages.length);
+    }
+  };
+
+  const handlePrevPhoto = () => {
+    if (selectedPhotoIndex !== null) {
+      setSelectedPhotoIndex((selectedPhotoIndex - 1 + galleryImages.length) % galleryImages.length);
+    }
+  };
 
   return (
     <SectionContainer id="portofolio" outerClassName="bg-white border-y border-border-subtle">
@@ -46,7 +60,7 @@ export const PortfolioSpotlight: React.FC = () => {
             </div>
 
             {/* Right Content Column */}
-            <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-6 p-8 lg:p-12 flex flex-col justify-between space-y-8 text-left">
               <div className="space-y-4">
                 <span className="inline-block px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-coral-500 bg-navy-950/80 rounded-md border border-navy-800">
                   {PORTFOLIO_PROJECT.category}
@@ -103,7 +117,7 @@ export const PortfolioSpotlight: React.FC = () => {
         {/* Sub-Section: 6-Photo Activity Gallery Grid (PDF Page 15 Documentation) */}
         <div className="space-y-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-border-subtle pb-4">
-            <div className="space-y-1">
+            <div className="space-y-1 text-left">
               <span className="inline-flex items-center gap-1.5 text-xs font-bold text-navy-800 bg-surface-tint px-3 py-1 rounded-full border border-border-subtle">
                 <Camera className="w-3.5 h-3.5 text-coral-500" />
                 <span>Dokumentasi Kegiatan Aktual (PDF Hal 15)</span>
@@ -113,16 +127,16 @@ export const PortfolioSpotlight: React.FC = () => {
               </h3>
             </div>
             <p className="text-xs text-navy-700">
-              6 Momen Utama: Pembukaan, Simulasi Bank Mini, Kelas, Lab Komputer & Sertifikasi
+              Klik foto untuk membuka tampilan layar penuh & navigasi foto.
             </p>
           </div>
 
           {/* 6-Photo Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {PORTFOLIO_PROJECT.galleryImages.map((photo, idx) => (
+            {galleryImages.map((photo, idx) => (
               <div
                 key={idx}
-                onClick={() => setSelectedPhoto(photo)}
+                onClick={() => setSelectedPhotoIndex(idx)}
                 className="bg-white rounded-2xl border border-border-subtle hover:border-navy-200 shadow-sm hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer"
               >
                 {/* Photo Thumbnail */}
@@ -157,17 +171,22 @@ export const PortfolioSpotlight: React.FC = () => {
           </div>
         </div>
 
-        {/* Lightbox Modal */}
-        <Dialog.Root open={!!selectedPhoto} onOpenChange={(open) => !open && setSelectedPhoto(null)}>
+        {/* Lightbox Modal with Next/Prev Carousel Navigation */}
+        <Dialog.Root open={selectedPhotoIndex !== null} onOpenChange={(open) => !open && setSelectedPhotoIndex(null)}>
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 z-50 bg-navy-950/85 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
             <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-4xl bg-navy-950 text-white rounded-3xl p-4 sm:p-6 shadow-2xl border border-navy-800 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 duration-200">
-              {selectedPhoto && (
+              {selectedPhotoIndex !== null && galleryImages[selectedPhotoIndex] && (
                 <div className="space-y-4 text-left">
                   <div className="flex items-center justify-between border-b border-navy-800 pb-3">
-                    <span className="px-3 py-1 text-xs font-extrabold text-coral-500 bg-navy-900 rounded-md border border-navy-700">
-                      {selectedPhoto.tag}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 text-xs font-extrabold text-coral-500 bg-navy-900 rounded-md border border-navy-700">
+                        {galleryImages[selectedPhotoIndex].tag}
+                      </span>
+                      <span className="text-xs text-navy-300">
+                        Foto {selectedPhotoIndex + 1} dari {galleryImages.length}
+                      </span>
+                    </div>
                     <Dialog.Close asChild>
                       <button
                         type="button"
@@ -179,20 +198,40 @@ export const PortfolioSpotlight: React.FC = () => {
                     </Dialog.Close>
                   </div>
 
-                  <div className="relative rounded-2xl overflow-hidden bg-navy-900 max-h-[70vh] flex items-center justify-center">
+                  {/* Main Image View with Left & Right Arrows */}
+                  <div className="relative rounded-2xl overflow-hidden bg-navy-900 max-h-[70vh] flex items-center justify-center group shadow-2xl">
                     <img
-                      src={selectedPhoto.url}
-                      alt={selectedPhoto.caption}
+                      src={galleryImages[selectedPhotoIndex].url}
+                      alt={galleryImages[selectedPhotoIndex].caption}
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = selectedPhoto.fallbackUrl;
+                        (e.target as HTMLImageElement).src = galleryImages[selectedPhotoIndex].fallbackUrl;
                       }}
                       className="w-full max-h-[68vh] object-contain"
                     />
+
+                    {/* Carousel Nav Arrows */}
+                    <button
+                      type="button"
+                      onClick={handlePrevPhoto}
+                      aria-label="Foto Sebelumnya"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/80 text-white flex items-center justify-center shadow-lg hover:bg-navy-900 border border-navy-700 transition-colors"
+                    >
+                      <ChevronLeft className="w-6 h-6" />
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handleNextPhoto}
+                      aria-label="Foto Berikutnya"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/80 text-white flex items-center justify-center shadow-lg hover:bg-navy-900 border border-navy-700 transition-colors"
+                    >
+                      <ChevronRight className="w-6 h-6" />
+                    </button>
                   </div>
 
                   <div className="pt-2">
                     <p className="text-sm font-semibold text-white">
-                      {selectedPhoto.caption}
+                      {galleryImages[selectedPhotoIndex].caption}
                     </p>
                   </div>
                 </div>

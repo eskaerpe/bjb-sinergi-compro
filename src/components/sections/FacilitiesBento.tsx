@@ -1,11 +1,27 @@
 import React, { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
-import { CheckCircle2, Images, X, ChevronRight } from 'lucide-react';
+import { CheckCircle2, Images, X, ChevronRight, ChevronLeft } from 'lucide-react';
 import { FACILITIES_DATA, FacilityItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
 export const FacilitiesBento: React.FC = () => {
   const [activeFacility, setActiveFacility] = useState<FacilityItem | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const openFacilityModal = (facility: FacilityItem) => {
+    setActiveFacility(facility);
+    setActiveImageIndex(0);
+  };
+
+  const images = activeFacility?.galleryImages || (activeFacility ? [{ url: activeFacility.image.url, caption: activeFacility.name }] : []);
+
+  const handleNextImage = () => {
+    setActiveImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const handlePrevImage = () => {
+    setActiveImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <SectionContainer id="fasilitas" outerClassName="bg-surface-tint">
@@ -39,7 +55,7 @@ export const FacilitiesBento: React.FC = () => {
               <div
                 key={facility.id}
                 className={`${colSpanClass} bg-white rounded-3xl border border-border-subtle hover:border-navy-200 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer`}
-                onClick={() => setActiveFacility(facility)}
+                onClick={() => openFacilityModal(facility)}
               >
                 {/* Visual Image Banner */}
                 <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-navy-950">
@@ -100,7 +116,7 @@ export const FacilitiesBento: React.FC = () => {
           })}
         </div>
 
-        {/* Multi-Photo View Gallery Modal */}
+        {/* Multi-Photo Interactive Carousel Lightbox Modal */}
         <Dialog.Root open={!!activeFacility} onOpenChange={(open) => !open && setActiveFacility(null)}>
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
@@ -111,7 +127,7 @@ export const FacilitiesBento: React.FC = () => {
                   <div className="flex items-center justify-between border-b border-border-subtle pb-4">
                     <div>
                       <span className="text-[10px] font-extrabold uppercase text-coral-500 tracking-wider">
-                        {activeFacility.capacity}
+                        {activeFacility.capacity} • Foto {activeImageIndex + 1} dari {images.length}
                       </span>
                       <h3 className="text-xl font-extrabold text-navy-900 leading-snug">
                         {activeFacility.name}
@@ -128,35 +144,74 @@ export const FacilitiesBento: React.FC = () => {
                     </Dialog.Close>
                   </div>
 
-                  {/* Facility Gallery Grid */}
-                  <div className="space-y-4">
-                    <p className="text-xs text-navy-700 leading-relaxed">
-                      {activeFacility.description}
-                    </p>
+                  {/* Main Full View Photo Viewer with Carousel Controls */}
+                  <div className="relative rounded-2xl overflow-hidden bg-navy-950 h-72 sm:h-96 w-full flex items-center justify-center group shadow-xl">
+                    <img
+                      src={images[activeImageIndex]?.url}
+                      alt={images[activeImageIndex]?.caption || activeFacility.name}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80';
+                      }}
+                      className="w-full h-full object-cover"
+                    />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {(activeFacility.galleryImages || [{ url: activeFacility.image.url, caption: activeFacility.name }]).map((img, idx) => (
-                        <div key={idx} className="bg-navy-950 rounded-2xl overflow-hidden border border-navy-800 space-y-2 group">
-                          <div className="h-48 w-full overflow-hidden">
-                            <img
-                              src={img.url}
-                              alt={img.caption}
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src =
-                                  'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80';
-                              }}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </div>
-                          <div className="p-3 text-left">
-                            <p className="text-xs font-semibold text-white">
-                              {img.caption}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
+                    {/* Left/Right Carousel Controls */}
+                    {images.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={handlePrevImage}
+                          aria-label="Foto Sebelumnya"
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-900/80 text-white flex items-center justify-center shadow-lg hover:bg-navy-900 transition-colors"
+                        >
+                          <ChevronLeft className="w-6 h-6" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleNextImage}
+                          aria-label="Foto Berikutnya"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-900/80 text-white flex items-center justify-center shadow-lg hover:bg-navy-900 transition-colors"
+                        >
+                          <ChevronRight className="w-6 h-6" />
+                        </button>
+                      </>
+                    )}
+
+                    <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-transparent p-4 text-left">
+                      <p className="text-xs font-bold text-white">
+                        {images[activeImageIndex]?.caption}
+                      </p>
                     </div>
                   </div>
+
+                  {/* Thumbnail Selector */}
+                  {images.length > 1 && (
+                    <div className="flex items-center gap-3 overflow-x-auto pb-1">
+                      {images.map((img, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          onClick={() => setActiveImageIndex(idx)}
+                          className={`relative w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 transition-all ${
+                            idx === activeImageIndex
+                              ? 'border-coral-500 ring-2 ring-coral-500/30'
+                              : 'border-border-subtle opacity-70 hover:opacity-100'
+                          }`}
+                        >
+                          <img
+                            src={img.url}
+                            alt={img.caption}
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src =
+                                'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80';
+                            }}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Highlights Checklist */}
                   <div className="bg-surface-tint p-4 rounded-2xl border border-border-subtle space-y-2 text-left">

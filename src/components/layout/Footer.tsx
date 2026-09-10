@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
+import { ShieldCheck, MapPin, Phone, Mail, ChevronRight, Download } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 
 export const Footer: React.FC = () => {
@@ -7,12 +7,16 @@ export const Footer: React.FC = () => {
     <footer className="bg-navy-950 text-white border-t border-navy-800 pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Main 4-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 text-left">
           {/* Col 1: Brand & Identity (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <a href="#" className="flex items-center gap-3 group inline-block">
-              <div className="w-10 h-10 rounded-xl bg-white text-navy-900 flex items-center justify-center font-extrabold text-xl shadow-md">
-                SEI
+              <div className="w-10 h-10 rounded-xl bg-white text-navy-900 flex items-center justify-center font-extrabold text-lg shadow-md p-1.5">
+                <svg viewBox="0 0 100 100" className="w-full h-full">
+                  <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#007CAB" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="50" cy="45" r="12" fill="#FB6040"/>
+                  <path d="M38 65 L62 65" stroke="#0F2A47" strokeWidth="5" strokeLinecap="round"/>
+                </svg>
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-white text-lg leading-tight tracking-tight">
@@ -29,9 +33,15 @@ export const Footer: React.FC = () => {
               Mitra strategis untuk pelatihan profesional, konsultasi bisnis, pengembangan SDM, event management, dan layanan pendukung institusional berbasis ekosistem bank bjb dan Universitas Ekuitas Indonesia.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-900 border border-navy-800 text-[11px] text-navy-100 font-medium">
-              <span className="w-2 h-2 rounded-full bg-coral-500"></span>
-              <span>Berlokasi di Kampus Universitas Ekuitas Indonesia, Bandung</span>
+            <div className="pt-2">
+              <a
+                href="/docs/Company-Profile-PT-Sinergi.pdf"
+                download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                className="inline-flex items-center gap-2 text-xs font-bold text-navy-950 bg-white hover:bg-navy-50 px-4 py-2.5 rounded-xl shadow-md transition-all"
+              >
+                <Download className="w-4 h-4 text-brandBlue-600" />
+                <span>Unduh E-Brochure Profile (PDF)</span>
+              </a>
             </div>
           </div>
 
