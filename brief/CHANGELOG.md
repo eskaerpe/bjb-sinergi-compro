@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- [Phase 04] Built interactive `ExpertDirectory.tsx` with instant live search, category pill tabs, 12 domain cards, and Radix UI detail syllabus modal.
 - [Phase 03] Built `SynergyNarrative.tsx` section highlighting the YKP bank bjb x Universitas Ekuitas Indonesia ecosystem.
 - [Phase 03] Built `ServicesBento.tsx` featuring a 3x2 responsive Bento grid for all 6 core business units with dynamic Lucide icon rendering.
 - [Phase 02] Built sticky glassmorphic `Navbar.tsx` with backdrop-blur, brand identity, navigation anchors, dual CTAs, and Radix UI mobile drawer.

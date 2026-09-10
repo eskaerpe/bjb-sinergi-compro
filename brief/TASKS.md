@@ -54,17 +54,17 @@ Rules:
 
 ---
 
-### [ ] Phase 04: Interactive 12-Domain Expert & Trainer Directory
-- [ ] Build Expert & Trainer Network section.
-- [ ] Implement responsive directory layout:
+### [x] Phase 04: Interactive 12-Domain Expert & Trainer Directory
+- [x] Build Expert & Trainer Network section.
+- [x] Implement responsive directory layout:
   - Left desktop sidebar navigation with category item counters.
   - Mobile horizontal scroll pill bar with active snap.
   - Live search input for instant skill filtering.
-- [ ] Populate all 12 domains with verified sub-competencies (Perbankan, Audit/GRC, Perpajakan, ESG, Manajemen Risiko, Digital Tech, dll.).
-- [ ] Apply active state styling (`bg-blue-500 text-white font-medium shadow-sm`) with zero layout shift (CLS: 0).
-- [ ] Run build test (`npm run build`).
-- [ ] Update `CHANGELOG.md`.
-- [ ] Git commit and push: `feat(experts): build interactive 12-domain expert directory with instant filter [Phase 04]`.
+- [x] Populate all 12 domains with verified sub-competencies (Perbankan, Audit/GRC, Perpajakan, ESG, Manajemen Risiko, Digital Tech, dll.).
+- [x] Apply active state styling (`bg-blue-500 text-white font-medium shadow-sm`) with zero layout shift (CLS: 0).
+- [x] Run build test (`npm run build`).
+- [x] Update `CHANGELOG.md`.
+- [x] Git commit and push: `feat(experts): build interactive 12-domain expert directory with instant filter [Phase 04]`.
 
 ---
 

@@ -3,6 +3,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/sections/Hero';
 import { SynergyNarrative } from './components/sections/SynergyNarrative';
 import { ServicesBento } from './components/sections/ServicesBento';
+import { ExpertDirectory } from './components/sections/ExpertDirectory';
 
 export const App: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ export const App: React.FC = () => {
         <Hero />
         <SynergyNarrative />
         <ServicesBento />
+        <ExpertDirectory />
       </main>
     </div>
   );
