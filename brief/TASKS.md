@@ -111,10 +111,10 @@ Rules:
 
 ---
 
-### [ ] Phase 08: Accessibility Audit, Performance Optimization & Final Build
-- [ ] Run WCAG AA contrast ratio validation across all typography and surfaces (4.5:1 min).
-- [ ] Test keyboard navigation (`Tab` index, visible focus rings `ring-2 ring-blue-500`).
-- [ ] Verify mobile viewport responsiveness across 320px, 375px, 768px, 1024px, 1440px.
-- [ ] Run complete production build (`npm run build`) and verify bundle size optimization.
-- [ ] Update `CHANGELOG.md` for release `v1.0.0`.
-- [ ] Git commit and push: `chore(release): complete v1.0.0 accessibility audit, responsive QA, and build validation [Phase 08]`.
+### [x] Phase 08: Accessibility Audit, Performance Optimization & Final Build
+- [x] Run WCAG AA contrast ratio validation across all typography and surfaces (4.5:1 min).
+- [x] Test keyboard navigation (`Tab` index, visible focus rings `ring-2 ring-blue-500`).
+- [x] Verify mobile viewport responsiveness across 320px, 375px, 768px, 1024px, 1440px.
+- [x] Run complete production build (`npm run build`) and verify bundle size optimization.
+- [x] Update `CHANGELOG.md` for release `v1.0.0`.
+- [x] Git commit and push: `chore(release): complete v1.0.0 accessibility audit, responsive QA, and build validation [Phase 08]`.
