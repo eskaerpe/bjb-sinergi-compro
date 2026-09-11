@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Download, Shield, Award, Users, FileText } from 'lucide-react';
-import { COMPANY_INFO } from '@/data/companyData';
+import { ArrowRight, Download, FileText, ShieldCheck, Building2, GraduationCap } from 'lucide-react';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
 export const Hero: React.FC = () => {
@@ -10,21 +9,6 @@ export const Hero: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left Column — Text & CTAs */}
         <div className="lg:col-span-7 space-y-6 text-left">
-          {/* Institutional Authority Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-navy-100 shadow-sm">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-coral-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-coral-500"></span>
-            </span>
-            <span className="text-xs font-bold text-navy-800 tracking-wide">
-              {COMPANY_INFO.parentOrg}
-            </span>
-            <span className="text-navy-300">•</span>
-            <span className="text-xs font-semibold text-brandBlue-600">
-              {COMPANY_INFO.affiliateOrg}
-            </span>
-          </div>
-
           {/* Headline */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-900 tracking-tight leading-[1.15]">
             Mitra Strategis Pelatihan, Konsultasi & Layanan <span className="text-brandBlue-500 underline decoration-coral-500 decoration-4 underline-offset-8">Institusional</span>
@@ -35,60 +19,82 @@ export const Hero: React.FC = () => {
             PT Sinergi Ekuitas Indonesia memadukan kekuatan akademik Universitas Ekuitas Indonesia, keahlian praktisi bank bjb, serta fasilitas representatif untuk menghadirkan solusi SDM dan kelembagaan yang solutif dan terpercaya.
           </p>
 
-          {/* Key Value Trust Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-            <div className="flex items-center gap-2 text-xs font-medium text-navy-800 bg-white/80 p-2.5 rounded-xl border border-border-subtle shadow-sm">
-              <Shield className="w-4 h-4 text-brandBlue-500 flex-shrink-0" />
-              <span>Ekosistem bank bjb</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-medium text-navy-800 bg-white/80 p-2.5 rounded-xl border border-border-subtle shadow-sm">
-              <Award className="w-4 h-4 text-brandBlue-500 flex-shrink-0" />
-              <span>Standar Akademik</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs font-medium text-navy-800 bg-white/80 p-2.5 rounded-xl border border-border-subtle shadow-sm">
-              <Users className="w-4 h-4 text-brandBlue-500 flex-shrink-0" />
-              <span>Praktisi Teruji</span>
+          {/* Trust Strip — Institutional Proof Grid (replaces floating badge cards) */}
+          <div className="pt-2 border-y border-border-subtle/80 py-3.5 my-2">
+            <div className="grid grid-cols-3 gap-2 sm:gap-6 divide-x divide-border-subtle">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 text-left pr-2">
+                <Building2 className="w-5 h-5 text-brandBlue-500 flex-shrink-0" />
+                <div>
+                  <h4 className="text-xs font-bold text-navy-900 leading-snug">Ekosistem Teruji</h4>
+                  <p className="text-[11px] text-navy-600 hidden sm:block">Afiliasi YKP bank bjb</p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 text-left px-2 sm:px-4">
+                <GraduationCap className="w-5 h-5 text-brandBlue-500 flex-shrink-0" />
+                <div>
+                  <h4 className="text-xs font-bold text-navy-900 leading-snug">Standar Akademik</h4>
+                  <p className="text-[11px] text-navy-600 hidden sm:block">Univ. Ekuitas Indonesia</p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 text-left pl-2 sm:pl-4">
+                <ShieldCheck className="w-5 h-5 text-coral-500 flex-shrink-0" />
+                <div>
+                  <h4 className="text-xs font-bold text-navy-900 leading-snug">Praktisi Profesional</h4>
+                  <p className="text-[11px] text-navy-600 hidden sm:block">12 Domain Keahlian</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Action CTAs (Includes PDF Download) */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-4">
-            <Link
-              to="/layanan"
-              className="inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 px-5 py-3.5 rounded-xl shadow-card hover:shadow-card-hover transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
-            >
-              <span>Eksplorasi Layanan</span>
-              <ArrowRight className="w-4 h-4 text-coral-500" />
-            </Link>
+          {/* Primary CTA — Hero Action (distraction-free) */}
+          <div className="pt-2 space-y-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <Link
+                to="/layanan"
+                className="inline-flex items-center justify-center gap-2.5 text-sm font-bold text-white bg-navy-900 hover:bg-navy-800 px-7 py-4 rounded-xl shadow-lg hover:shadow-card-hover transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98] group"
+              >
+                <span>Jelajahi Seluruh Layanan</span>
+                <ArrowRight className="w-4 h-4 text-coral-500 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
 
-            <a
-              href="/docs/Company-Profile-PT-Sinergi.pdf"
-              download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
-              className="inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 hover:text-navy-950 bg-coral-50 hover:bg-coral-100 border border-coral-200 px-5 py-3.5 rounded-xl shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-500"
-            >
-              <Download className="w-4 h-4 text-coral-500" />
-              <span>Unduh Company Profile (PDF)</span>
-            </a>
-
-            <Link
-              to="/kontak"
-              className="inline-flex items-center justify-center gap-2 text-xs font-bold text-navy-900 hover:text-navy-950 bg-white hover:bg-navy-50 px-5 py-3.5 rounded-xl border border-border-subtle shadow-sm hover:border-navy-200 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900"
-            >
-              <FileText className="w-4 h-4 text-brandBlue-500" />
-              <span>Minta Proposal</span>
-            </Link>
+            {/* Secondary Utility Links — separated to avoid CTA distraction */}
+            <div className="flex items-center gap-4 text-xs font-semibold text-navy-700 pt-1">
+              <span className="text-navy-400 font-normal">Aksi cepat:</span>
+              <a
+                href="./docs/Company-Profile-PT-Sinergi.pdf"
+                download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                className="inline-flex items-center gap-1.5 hover:text-navy-950 hover:underline transition-colors"
+              >
+                <Download className="w-3.5 h-3.5 text-brandBlue-600" />
+                <span>Unduh E-Brochure (PDF)</span>
+              </a>
+              <span className="text-navy-300">•</span>
+              <Link
+                to="/kontak"
+                className="inline-flex items-center gap-1.5 hover:text-navy-950 hover:underline transition-colors"
+              >
+                <FileText className="w-3.5 h-3.5 text-coral-500" />
+                <span>Minta Proposal / Penawaran</span>
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Right Column — Institutional Visual Frame */}
         <div className="lg:col-span-5 relative">
           <div className="relative mx-auto max-w-md lg:max-w-none">
-            {/* Main Visual Image Card */}
+            {/* Main Visual Image Card with Real Extracted Asset */}
             <div className="relative rounded-3xl overflow-hidden border border-white shadow-2xl bg-navy-900 group">
               <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=80"
-                alt="Fasilitas Pelatihan PT Sinergi Ekuitas Indonesia"
+                src="./images/facilities/bank-mini.jpeg"
+                alt="Fasilitas Pelatihan Simulasi Frontliner PT Sinergi Ekuitas Indonesia"
                 className="w-full h-[380px] sm:h-[440px] object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.onerror = null;
+                  target.src = './images/facilities/classroom-1.jpeg';
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-900/30 to-transparent"></div>
 
@@ -107,7 +113,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Floating Trust Card 1 (Top Right) */}
-            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white p-4 rounded-2xl shadow-xl border border-border-subtle flex items-center gap-3 animate-pulse-subtle max-w-[200px] z-10">
+            <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white p-4 rounded-2xl shadow-xl border border-border-subtle flex items-center gap-3 max-w-[200px] z-10">
               <div className="w-10 h-10 rounded-xl bg-brandBlue-50 text-brandBlue-500 flex items-center justify-center flex-shrink-0 font-bold">
                 98%
               </div>
