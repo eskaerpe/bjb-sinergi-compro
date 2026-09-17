@@ -11,7 +11,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({ badge, title, subtitle }
     <div className="bg-navy-900 text-white py-14 md:py-18 border-b border-navy-800 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-3">
         {badge && (
-          <span className="inline-block px-3.5 py-1 text-xs font-extrabold text-coral-500 bg-navy-950 rounded-full border border-navy-800">
+          <span className="inline-block px-3.5 py-1 text-xs font-extrabold text-coral-400 bg-navy-950/80 rounded-full">
             {badge}
           </span>
         )}
@@ -27,3 +27,5 @@ export const PageHeader: React.FC<PageHeaderProps> = ({ badge, title, subtitle }
     </div>
   );
 };
+
+export default PageHeader;

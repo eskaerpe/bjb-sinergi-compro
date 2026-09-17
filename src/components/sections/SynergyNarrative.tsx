@@ -92,21 +92,16 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
   return (
     <SectionContainer
       id="tentang-kami"
-      outerClassName={cn(
-        'relative overflow-hidden',
-        isPreview ? 'bg-white border-b border-border-subtle' : 'bg-white border-b border-border-subtle'
-      )}
+      outerClassName="relative overflow-hidden bg-white border-b border-border-subtle"
     >
-      {/* Background Subtle Accent */}
       <div
         className="absolute inset-0 bg-[radial-gradient(#1A4886_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.025] pointer-events-none"
         aria-hidden="true"
       />
 
       <div className="relative z-10 space-y-12">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3.5">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-brandBlue-600 bg-brandBlue-50 rounded-full border border-brandBlue-100">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-brandBlue-600 bg-brandBlue-50 rounded-full">
             <Sparkles className="w-3.5 h-3.5 text-coral-500" aria-hidden="true" />
             {isPreview ? 'Sinergi B2B & Ekuitas' : 'Sinergi Ekosistem Terintegrasi'}
           </span>
@@ -115,12 +110,11 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
               ? 'Sinergi Riset Akademik, Praktisi Perbankan & Fasilitas Terpadu'
               : 'Perpaduan Riset Akademik, Praktisi Perbankan & Fasilitas Mandiri'}
           </h2>
-          <p className="text-sm sm:text-base text-navy-700 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-navy-700 leading-relaxed max-w-2xl mx-auto font-normal">
             {COMPANY_INFO.ecosystemSubtitle}
           </p>
         </div>
 
-        {/* 4 Pillar Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PILLARS.map((pillar) => {
             const IconComponent = pillar.icon;
@@ -130,41 +124,38 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
             return (
               <div
                 key={pillar.number}
-                className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle hover:border-brandBlue-400/80 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+                className="relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle shadow-card"
               >
                 <div className="space-y-4">
-                  {/* Top Bar: Clean Number + Icon */}
                   <div className="flex items-center justify-between">
                     <span
-                      className="text-2xl font-black text-navy-900/25 group-hover:text-brandBlue-600 transition-colors font-mono select-none"
+                      className="text-2xl font-black text-navy-900/25 font-mono select-none"
                       aria-hidden="true"
                     >
                       {pillar.number}
                     </span>
                     <div
                       className={cn(
-                        'w-10 h-10 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs',
+                        'w-10 h-10 rounded-xl flex items-center justify-center shadow-xs',
                         isCoral
-                          ? 'bg-coral-50 text-coral-600 border border-coral-100'
+                          ? 'bg-coral-50 text-coral-600'
                           : isNavy
                           ? 'bg-navy-900 text-white'
-                          : 'bg-brandBlue-50 text-brandBlue-600 border border-brandBlue-100'
+                          : 'bg-brandBlue-50 text-brandBlue-600'
                       )}
                     >
                       <IconComponent className="w-5 h-5" aria-hidden="true" />
                     </div>
                   </div>
 
-                  {/* Entity Source Badge */}
                   <div>
-                    <span className="inline-block text-[11px] font-bold text-navy-700 uppercase tracking-wide bg-navy-50/80 px-2.5 py-0.5 rounded-md border border-navy-100">
+                    <span className="inline-block text-[11px] font-bold text-navy-700 uppercase tracking-wide bg-navy-50 px-2.5 py-0.5 rounded-full">
                       {pillar.source}
                     </span>
                   </div>
 
-                  {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="text-base font-bold text-navy-900 leading-snug group-hover:text-brandBlue-600 transition-colors">
+                    <h3 className="text-base font-bold text-navy-900 leading-snug">
                       {pillar.title}
                     </h3>
                     <p className="text-[13px] text-navy-700 leading-relaxed font-normal">
@@ -173,10 +164,9 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                   </div>
                 </div>
 
-                {/* Proof Metric Tag */}
-                <div className="mt-6 pt-3.5 border-t border-border-subtle/80 flex items-center justify-between">
+                <div className="mt-6 pt-3.5 border-t border-border-subtle flex items-center justify-between">
                   <span className="text-[11px] text-navy-500 font-medium">Kapasitas Unggulan:</span>
-                  <span className="text-[11px] font-bold text-navy-900 bg-surface-tint px-2.5 py-1 rounded-md border border-border-subtle shadow-2xs">
+                  <span className="text-[11px] font-bold text-navy-900 bg-surface-tint px-2.5 py-1 rounded-full shadow-2xs">
                     {pillar.metric}
                   </span>
                 </div>
@@ -185,15 +175,14 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
           })}
         </div>
 
-        {/* Full Variant: Legal & Institutional Governance Pillars */}
         {!isPreview && (
-          <div className="bg-surface-tint rounded-2xl p-6 sm:p-8 border border-border-subtle space-y-6">
+          <div className="bg-surface-tint rounded-3xl p-6 sm:p-8 border border-border-subtle space-y-6">
             <div className="max-w-2xl">
               <span className="text-[11px] font-extrabold uppercase tracking-wider text-brandBlue-600">
-                Landasan Hukum & Tata Kelola
+                Landasan Hukum &amp; Tata Kelola
               </span>
               <h3 className="text-xl sm:text-2xl font-bold text-navy-900 mt-1">
-                Kredibilitas Institusional & Legalitas Terjamin
+                Kredibilitas Institusional &amp; Legalitas Terjamin
               </h3>
               <p className="text-xs sm:text-sm text-navy-700 mt-2">
                 Menjamin setiap kesepakatan pelatihan, konsultasi, dan pengadaan sarana dikelola dengan standar akuntabilitas korporasi tertinggi.
@@ -206,9 +195,9 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                 return (
                   <div
                     key={i}
-                    className="p-5 rounded-xl bg-white border border-border-subtle/80 shadow-2xs flex items-start gap-3.5"
+                    className="p-5 rounded-2xl bg-white border border-border-subtle shadow-2xs flex items-start gap-3.5"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-xl bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" aria-hidden="true" />
                     </div>
                     <div className="space-y-1">
@@ -222,8 +211,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
           </div>
         )}
 
-        {/* Action & Legal CTA Bar */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-navy-950 text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-card border border-navy-900">
+        <div className="p-6 sm:p-8 rounded-3xl bg-navy-950 text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-card border border-navy-900">
           <div className="space-y-1.5 text-center sm:text-left max-w-xl">
             <div className="inline-flex items-center gap-2 text-xs font-semibold text-coral-400">
               <span className="w-2 h-2 rounded-full bg-coral-500 animate-pulse" />
@@ -247,15 +235,15 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                 <Link
                   to="/tentang-kami"
                   aria-label="Pelajari Profil dan Legalitas PT Sinergi Ekuitas Indonesia"
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-400 active:scale-[0.98]"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-400 active:scale-[0.98]"
                 >
                   <span>Pelajari Profil &amp; Legalitas Kami</span>
-                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform duration-200 ease-out" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/kontak"
                   aria-label="Konsultasi Program Sinergi"
-                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
                 >
                   Konsultasi Sinergi
                 </Link>
@@ -265,15 +253,15 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                 <Link
                   to="/layanan"
                   aria-label="Lihat Layanan Kami"
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-400 active:scale-[0.98]"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-400 active:scale-[0.98]"
                 >
                   <span>Jelajahi Layanan Kami</span>
-                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform duration-200 ease-out" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/kontak"
                   aria-label="Hubungi Konsultan Kami"
-                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
                 >
                   Hubungi Kami
                 </Link>
