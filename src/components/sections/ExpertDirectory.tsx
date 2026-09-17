@@ -186,7 +186,7 @@ export const ExpertDirectory: React.FC = () => {
                           <div className="w-10 h-10 rounded-xl bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center font-bold">
                             <IconComponent className="w-5 h-5" />
                           </div>
-                          <span className="px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-navy-800 bg-surface-tint rounded-md border border-border-subtle">
+                          <span className="px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-navy-800 bg-surface-tint rounded-md border border-border-subtle">
                             {domain.badge}
                           </span>
                         </div>
@@ -206,13 +206,13 @@ export const ExpertDirectory: React.FC = () => {
                           {domain.topics.slice(0, 3).map((topic, idx) => (
                             <span
                               key={idx}
-                              className="px-2 py-0.5 text-[10px] font-semibold text-navy-700 bg-navy-50 rounded"
+                              className="px-2 py-0.5 text-xs font-medium text-navy-700 bg-navy-50 rounded"
                             >
                               {topic}
                             </span>
                           ))}
                           {domain.topics.length > 3 && (
-                            <span className="px-2 py-0.5 text-[10px] font-semibold text-navy-700 bg-navy-100 rounded">
+                            <span className="px-2 py-0.5 text-xs font-medium text-navy-700 bg-navy-100 rounded">
                               +{domain.topics.length - 3} lainnya
                             </span>
                           )}

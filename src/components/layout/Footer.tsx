@@ -14,18 +14,18 @@ export const Footer: React.FC = () => {
             <Link to="/" className="flex items-center gap-3 group inline-block">
               <div className="w-10 h-10 rounded-xl bg-white text-navy-900 flex items-center justify-center font-extrabold text-lg shadow-md p-1.5">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#007CAB" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="50" cy="45" r="12" fill="#FB6040"/>
-                  <path d="M38 65 L62 65" stroke="#0F2A47" strokeWidth="5" strokeLinecap="round"/>
+                  <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#2D8CBA" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="50" cy="45" r="12" fill="#FEA959"/>
+                  <path d="M38 65 L62 65" stroke="#1A4886" strokeWidth="5" strokeLinecap="round"/>
                 </svg>
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-white text-lg leading-tight tracking-tight">
                   {COMPANY_INFO.name}
                 </span>
-                <span className="text-[11px] font-medium text-navy-200 leading-none mt-0.5 flex items-center gap-1">
+                <span className="text-xs font-medium text-navy-200 leading-none mt-0.5 flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-coral-500 inline" />
-                  {COMPANY_INFO.parentOrg}
+                  Grup YKP bank bjb &amp; Universitas Ekuitas Indonesia
                 </span>
               </div>
             </Link>
@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar — Copyright & Legal */}
-        <div className="pt-8 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-navy-300">
+        <div className="pt-8 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-navy-300">
           <p>© 2026 {COMPANY_INFO.name}. Hak Cipta Dilindungi Undang-Undang.</p>
           <div className="flex items-center gap-4">
             <span className="hover:text-white cursor-pointer">Syarat & Ketentuan</span>

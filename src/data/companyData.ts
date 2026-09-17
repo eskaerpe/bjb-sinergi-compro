@@ -654,6 +654,31 @@ export const EXPERT_DOMAINS = EXPERT_DOMAINS_DATA;
 
 export const LEADERSHIP_MEMBERS: LeaderItem[] = [
   {
+    id: "deni-hamdani",
+    name: "Deni Hamdani, SE.M.Si",
+    title: "Direktur Utama",
+    role: "Arah Strategis & Sinergi Kemitraan",
+    bio: "Memimpin arah strategis perusahaan serta bertanggung jawab dalam memastikan seluruh kegiatan operasional dan pengembangan bisnis berjalan selaras dengan visi perusahaan. Berperan dalam pengambilan keputusan strategis, penguatan tata kelola, serta membangun sinergi dan kerja sama dengan berbagai mitra untuk mendukung pertumbuhan perusahaan yang berkelanjutan.",
+    image: {
+      url: "./images/team/deni-hamdani.jpeg",
+      fallbackUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
+      alt: "Deni Hamdani, SE.M.Si — Direktur Utama"
+    }
+  },
+  {
+    id: "gatot-iwan",
+    name: "Dr. Gatot Iwan Kurniawan, SE., MBA",
+    title: "Direktur",
+    role: "Perencanaan Strategis & Inovasi Layanan",
+    bio: "Berperan dalam mendukung perencanaan dan pelaksanaan strategi perusahaan, khususnya dalam pengembangan bisnis, inovasi, serta peningkatan kualitas layanan. Turut mengawal pelaksanaan program perusahaan agar berjalan efektif, adaptif terhadap perkembangan industri, dan mampu memberikan nilai tambah bagi mitra maupun pelanggan.",
+
+    image: {
+      url: "./images/team/gatot-iwan.jpeg",
+      fallbackUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
+      alt: "Dr. Gatot Iwan Kurniawan, SE., MBA — Direktur"
+    }
+  },
+  {
     id: "muhammad-gunawan",
     name: "Muhammad Gunawan",
     title: "Komisaris",
@@ -664,35 +689,10 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
       fallbackUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
       alt: "Muhammad Gunawan — Komisaris"
     }
-  },
-  {
-    id: "deni-hamdani",
-    name: "Deni Hamdani, SE.M.Si",
-    title: "Direktur Utama",
-    role: "Arah Strategis & Sinergi Kemitraan",
-    bio: "Memimpin arah strategis perusahaan serta bertanggung jawab dalam memastikan seluruh kegiatan operasional dan pengembangan bisnis berjalan selaras dengan visi perusahaan. Berperan dalam pengambilan keputusan strategis, penguatan tata kelola, serta membangun sinergi dan kerja sama dengan berbagai mitra untuk mendukung pertumbuhan perusahaan yang berkelanjutan.",
-    quote: "Sinergi antara kekuatan akademik Universitas Ekuitas Indonesia dan pengalaman praktis ekosistem bank bjb adalah fondasi utama kami dalam menghadirkan solusi SDM dan kelembagaan yang solutif, akuntabel, dan berdampak nyata.",
-    image: {
-      url: "./images/team/deni-hamdani.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
-      alt: "Deni Hamdani, SE.M.Si — Direktur Utama"
-    }
-  },
-  {
-    id: "gatot-iwan",
-    name: "Dr. Gatot Iwan Kurniawan, SE., MBA",
-    title: "Direktur",
-    role: "Perencanaan Strategis & Inovasi Layanan",
-    bio: "Berperan dalam mendukung perencanaan dan pelaksanaan strategi perusahaan, khususnya dalam pengembangan bisnis, inovasi, serta peningkatan kualitas layanan. Turut mengawal pelaksanaan program perusahaan agar berjalan efektif, adaptif terhadap perkembangan industri, dan mampu memberikan nilai tambah bagi mitra maupun pelanggan.",
-    image: {
-      url: "./images/team/gatot-iwan.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
-      alt: "Dr. Gatot Iwan Kurniawan, SE., MBA — Direktur"
-    }
   }
 ];
 
-export const LEADERSHIP_DATA = LEADERSHIP_MEMBERS[1];
+export const LEADERSHIP_DATA = LEADERSHIP_MEMBERS[0];
 
 export const VISION_MISSION_DATA = {
   vision: COMPANY_INFO.vision,

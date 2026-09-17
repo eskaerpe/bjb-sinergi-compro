@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send, MessageSquare, CheckCircle2, Download } from 'lucide-react';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  MessageSquare,
+  CheckCircle2,
+  Download,
+  AlertCircle,
+  Sparkles,
+  ArrowRight
+} from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
@@ -7,54 +19,126 @@ export const LeadHub: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     institution: '',
-    service: 'Pelatihan Profesional & Sertifikasi',
+    service: 'Pelatihan & Pengembangan (Training & Development)',
     contact: '',
     message: '',
   });
+
+  const [errors, setErrors] = useState<{ name?: string; contact?: string }>({});
+  const [touched, setTouched] = useState<{ name?: boolean; contact?: boolean }>({});
   const [submitted, setSubmitted] = useState(false);
+
+  const validateField = (field: 'name' | 'contact', value: string) => {
+    let err = '';
+    const trimmed = value.trim();
+
+    if (field === 'name') {
+      if (!trimmed) {
+        err = 'Nama lengkap wajib diisi.';
+      } else if (trimmed.length < 3) {
+        err = 'Nama lengkap minimal 3 karakter.';
+      }
+    }
+
+    if (field === 'contact') {
+      if (!trimmed) {
+        err = 'Nomor WhatsApp atau Email kontak wajib diisi.';
+      } else if (trimmed.includes('@')) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(trimmed)) {
+          err = 'Format email tidak valid (contoh: nama@perusahaan.co.id).';
+        }
+      } else {
+        const phoneRegex = /^(\+?62|0)[0-9]{8,13}$/;
+        const cleanPhone = trimmed.replace(/[\s-]/g, '');
+        if (!phoneRegex.test(cleanPhone)) {
+          err = 'Format nomor HP/WA tidak valid (contoh: 081234567890).';
+        }
+      }
+    }
+
+    return err;
+  };
+
+  const handleBlur = (field: 'name' | 'contact') => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+    const errorMsg = validateField(field, formData[field]);
+    setErrors((prev) => ({ ...prev, [field]: errorMsg }));
+  };
+
+  const handleChange = (field: 'name' | 'contact' | 'institution' | 'service' | 'message', value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (field === 'name' || field === 'contact') {
+      if (touched[field]) {
+        const errorMsg = validateField(field, value);
+        setErrors((prev) => ({ ...prev, [field]: errorMsg }));
+      }
+    }
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.contact) return;
-    
+
+    const nameErr = validateField('name', formData.name);
+    const contactErr = validateField('contact', formData.contact);
+
+    setTouched({ name: true, contact: true });
+    setErrors({ name: nameErr, contact: contactErr });
+
+    if (nameErr || contactErr) {
+      return;
+    }
+
     // Construct pre-filled WhatsApp deep-link message
     const waText = encodeURIComponent(
-      `Halo PT Sinergi Ekuitas Indonesia,\n\nNama: ${formData.name}\nInstitusi/Perusahaan: ${formData.institution || '-'}\nLayanan Diminati: ${formData.service}\nKontak (Email/WA): ${formData.contact}\nKebutuhan Proposal: ${formData.message || '-'}`
+      `Halo PT Sinergi Ekuitas Indonesia,\n\nNama: ${formData.name}\nInstitusi/Perusahaan: ${formData.institution || '-'}\nLayanan Diminati: ${formData.service}\nKontak (Email/WA): ${formData.contact}\nKebutuhan Program/Proposal: ${formData.message || '-'}`
     );
     window.open(`https://wa.me/${COMPANY_INFO.whatsapp}?text=${waText}`, '_blank');
     setSubmitted(true);
   };
 
   return (
-    <SectionContainer id="lead-form" outerClassName="bg-navy-900 text-white relative overflow-hidden">
-      <div className="space-y-12 relative z-10">
+    <SectionContainer id="lead-form" outerClassName="relative bg-navy-950 text-white overflow-hidden border-t border-navy-800">
+      {/* Background Atmosphere Lights */}
+      <div
+        className="absolute top-0 right-1/4 w-[32rem] h-[32rem] bg-brandBlue-500/10 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-0 left-1/4 w-[32rem] h-[32rem] bg-coral-500/10 rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 space-y-12">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-block px-3.5 py-1 text-xs font-extrabold text-coral-500 bg-navy-950 rounded-full border border-navy-800">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-extrabold text-coral-400 bg-navy-900 rounded-full border border-navy-700">
+            <Sparkles className="w-3.5 h-3.5 text-coral-500" aria-hidden="true" />
             Hubungi Tim Konsultasi Kami
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Mulai Konsultasi & Permintaan Proposal Sinergi
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+            Mulai Konsultasi &amp; Permintaan Proposal Sinergi
           </h2>
-          <p className="text-base text-navy-100 leading-relaxed">
-            Siap mendiskusikan kebutuhan pengembangan SDM, pelatihan perbankan, konsultasi bisnis, dan operasional kegiatan institusi Anda.
+          <p className="text-base text-navy-200 leading-relaxed font-normal">
+            Siap mendiskusikan kebutuhan pengembangan SDM, pelatihan perbankan, konsultasi bisnis, dan operasional
+            kegiatan institusi Anda bersama pakar kami.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Direct Contact Info & Map Embed */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* Left Column: Direct Contact Console & Map Embed */}
           <div className="lg:col-span-5 space-y-6">
-            {/* Contact Details Cards */}
-            <div className="bg-navy-950 p-6 sm:p-8 rounded-3xl border border-navy-800 space-y-6 shadow-xl text-left">
-              <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-coral-500" />
+            {/* Contact Details Card */}
+            <div className="bg-navy-900/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-navy-800 space-y-6 shadow-xl text-left">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2.5">
+                <MessageSquare className="w-5 h-5 text-coral-500 flex-shrink-0" aria-hidden="true" />
                 <span>Kontak Resmi Perusahaan</span>
               </h3>
 
               <div className="space-y-4 text-xs">
                 <div className="flex items-start gap-3 text-navy-100">
-                  <div className="w-8 h-8 rounded-lg bg-navy-900 text-brandBlue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-lg bg-navy-950 text-brandBlue-400 flex items-center justify-center flex-shrink-0 mt-0.5 border border-navy-800">
+                    <MapPin className="w-4 h-4" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-white font-semibold">Alamat Kantor:</strong>
@@ -63,18 +147,18 @@ export const LeadHub: React.FC = () => {
                 </div>
 
                 <div className="flex items-start gap-3 text-navy-100">
-                  <div className="w-8 h-8 rounded-lg bg-navy-900 text-coral-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Phone className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-lg bg-navy-950 text-coral-500 flex items-center justify-center flex-shrink-0 mt-0.5 border border-navy-800">
+                    <Phone className="w-4 h-4" aria-hidden="true" />
                   </div>
                   <div>
-                    <strong className="block text-white font-semibold">Telepon & WhatsApp:</strong>
+                    <strong className="block text-white font-semibold">Telepon &amp; WhatsApp:</strong>
                     <p className="text-navy-200 mt-0.5">{COMPANY_INFO.phone} / {COMPANY_INFO.whatsappFormatted}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3 text-navy-100">
-                  <div className="w-8 h-8 rounded-lg bg-navy-900 text-brandBlue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Mail className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-lg bg-navy-950 text-brandBlue-400 flex items-center justify-center flex-shrink-0 mt-0.5 border border-navy-800">
+                    <Mail className="w-4 h-4" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-white font-semibold">Email Official:</strong>
@@ -83,8 +167,8 @@ export const LeadHub: React.FC = () => {
                 </div>
 
                 <div className="flex items-start gap-3 text-navy-100">
-                  <div className="w-8 h-8 rounded-lg bg-navy-900 text-coral-500 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Clock className="w-4 h-4" />
+                  <div className="w-8 h-8 rounded-lg bg-navy-950 text-coral-500 flex items-center justify-center flex-shrink-0 mt-0.5 border border-navy-800">
+                    <Clock className="w-4 h-4" aria-hidden="true" />
                   </div>
                   <div>
                     <strong className="block text-white font-semibold">Jam Operasional:</strong>
@@ -93,33 +177,35 @@ export const LeadHub: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons with Accessible Min 44px Touch Targets */}
               <div className="pt-2 space-y-3">
                 <a
                   href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Halo%20PT%20Sinergi%20Ekuitas%20Indonesia,%20saya%20ingin%20berkonsultasi.`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-coral-500 hover:bg-coral-600 py-3.5 px-4 rounded-xl shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-coral-500"
+                  aria-label="Chat langsung dengan sekretariat via WhatsApp Official"
+                  className="w-full inline-flex items-center justify-center gap-2 min-h-[48px] text-xs font-bold text-navy-950 bg-coral-500 hover:bg-coral-400 px-5 py-3 rounded-xl shadow-lg transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
                 >
-                  <Phone className="w-4 h-4" />
+                  <Phone className="w-4 h-4" aria-hidden="true" />
                   <span>Chat Langsung via WhatsApp Official</span>
                 </a>
 
                 <a
-                  href="/docs/Company-Profile-PT-Sinergi.pdf"
+                  href="./docs/Company-Profile-PT-Sinergi.pdf"
                   download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
-                  className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 border border-navy-700 py-3 px-4 rounded-xl transition-all"
+                  aria-label="Unduh E-Brochure Company Profile PT Sinergi format PDF"
+                  className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] text-xs font-bold text-white bg-navy-950 hover:bg-navy-800 border border-navy-700 px-5 py-2.5 rounded-xl transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
                 >
-                  <Download className="w-4 h-4 text-brandBlue-500" />
+                  <Download className="w-4 h-4 text-brandBlue-400" aria-hidden="true" />
                   <span>Unduh E-Brochure Profile (PDF)</span>
                 </a>
               </div>
             </div>
 
-            {/* Google Map Container */}
-            <div className="bg-navy-950 rounded-3xl overflow-hidden border border-navy-800 h-64 relative shadow-xl">
+            {/* Google Map Container with accessible title */}
+            <div className="bg-navy-900 rounded-3xl overflow-hidden border border-navy-800 h-60 relative shadow-xl">
               <iframe
-                title="Peta Lokasi PT Sinergi Ekuitas Indonesia"
+                title="Peta Lokasi Gedung Universitas Ekuitas Indonesia Bandung"
                 src={COMPANY_INFO.googleMapsEmbedUrl}
                 width="100%"
                 height="100%"
@@ -127,114 +213,172 @@ export const LeadHub: React.FC = () => {
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="opacity-90"
-              ></iframe>
+                className="opacity-90 w-full h-full"
+              />
             </div>
           </div>
 
-          {/* Right Column: B2B Proposal Form */}
-          <div className="lg:col-span-7 bg-white text-navy-900 p-8 sm:p-10 rounded-3xl shadow-2xl border border-border-subtle">
+          {/* Right Column: B2B Consultation Proposal Form */}
+          <div className="lg:col-span-7 bg-white text-navy-900 p-7 sm:p-10 rounded-3xl shadow-2xl border border-border-subtle text-left">
             {submitted ? (
               <div className="text-center py-12 space-y-4">
                 <div className="w-16 h-16 rounded-full bg-coral-50 text-coral-500 flex items-center justify-center mx-auto shadow-md">
-                  <CheckCircle2 className="w-8 h-8" />
+                  <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-extrabold text-navy-900">
-                  Permintaan Pesan Berhasil Diteruskan!
+                  Permintaan Proposal Berhasil Diteruskan!
                 </h3>
-                <p className="text-xs sm:text-sm text-navy-700 max-w-md mx-auto">
+                <p className="text-xs sm:text-sm text-navy-700 max-w-md mx-auto leading-relaxed">
                   Format pesan otomatis telah dibuat dan siap dikirim ke WhatsApp Official PT Sinergi Ekuitas Indonesia.
+                  Tim konsultan kami akan merespons dalam waktu 1-2 jam kerja.
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="inline-block text-xs font-bold text-brandBlue-600 hover:underline pt-4"
-                >
-                  Kirim Permintaan Proposal Lainnya
-                </button>
+                <div className="pt-4">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSubmitted(false);
+                      setFormData({
+                        name: '',
+                        institution: '',
+                        service: 'Pelatihan & Pengembangan (Training & Development)',
+                        contact: '',
+                        message: '',
+                      });
+                      setErrors({});
+                      setTouched({});
+                    }}
+                    className="inline-flex items-center gap-2 min-h-[44px] px-6 py-2.5 rounded-xl text-xs font-bold text-brandBlue-700 bg-brandBlue-50 hover:bg-brandBlue-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
+                  >
+                    <span>Kirim Permintaan Proposal Lainnya</span>
+                    <ArrowRight className="w-4 h-4 text-brandBlue-600" aria-hidden="true" />
+                  </button>
+                </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="space-y-1 text-left">
-                  <h3 className="text-xl font-extrabold text-navy-900">
-                    Formulir Permintaan Proposal & Diskusi
+              <form onSubmit={handleSubmit} noValidate className="space-y-5">
+                <div className="space-y-1">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 leading-snug">
+                    Formulir Permintaan Proposal &amp; Diskusi
                   </h3>
-                  <p className="text-xs text-navy-700">
-                    Isi formulir di bawah ini untuk terhubung langsung dengan Tim Sekretariat via WhatsApp.
+                  <p className="text-xs text-navy-600 leading-relaxed">
+                    Isi formulir di bawah ini untuk terhubung langsung dengan Tim Konsultasi &amp; Sekretariat Sinergi.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name Input */}
-                  <div className="space-y-1.5 text-left">
+                  <div className="space-y-1.5">
                     <label htmlFor="form-name" className="block text-xs font-bold text-navy-900">
-                      Nama Lengkap *
+                      Nama Lengkap <span className="text-coral-500" aria-hidden="true">*</span>
+                      <span className="sr-only">(wajib diisi)</span>
                     </label>
                     <input
                       id="form-name"
                       type="text"
                       required
-                      placeholder="Nama lengkap Anda..."
+                      aria-required="true"
+                      aria-invalid={!!errors.name}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
+                      placeholder="Contoh: Budi Pratama"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-700 focus:outline-none focus:ring-2 focus:ring-brandBlue-500"
+                      onBlur={() => handleBlur('name')}
+                      onChange={(e) => handleChange('name', e.target.value)}
+                      className={`w-full min-h-[44px] bg-surface-tint border px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 transition-all ${
+                        errors.name
+                          ? 'border-red-500 focus-visible:ring-red-400 bg-red-50/20'
+                          : 'border-border-subtle focus-visible:ring-brandBlue-500'
+                      }`}
                     />
+                    {errors.name && (
+                      <p id="name-error" role="alert" className="text-xs text-red-600 font-medium flex items-center gap-1 pt-0.5">
+                        <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
+                        <span>{errors.name}</span>
+                      </p>
+                    )}
                   </div>
 
                   {/* Institution Input */}
-                  <div className="space-y-1.5 text-left">
+                  <div className="space-y-1.5">
                     <label htmlFor="form-institution" className="block text-xs font-bold text-navy-900">
                       Institusi / Bank / Perusahaan
                     </label>
                     <input
                       id="form-institution"
                       type="text"
-                      placeholder="Nama instansi Anda..."
+                      placeholder="Contoh: bank bjb Kantor Cabang Bandung"
                       value={formData.institution}
-                      onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                      className="w-full bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-700 focus:outline-none focus:ring-2 focus:ring-brandBlue-500"
+                      onChange={(e) => handleChange('institution', e.target.value)}
+                      className="w-full min-h-[44px] bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
                     />
                   </div>
                 </div>
 
                 {/* Service Selection */}
-                <div className="space-y-1.5 text-left">
+                <div className="space-y-1.5">
                   <label htmlFor="form-service" className="block text-xs font-bold text-navy-900">
-                    Layanan / Bidang yang Diminati *
+                    Layanan / Bidang yang Diminati <span className="text-coral-500" aria-hidden="true">*</span>
+                    <span className="sr-only">(wajib diisi)</span>
                   </label>
                   <select
                     id="form-service"
                     value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 focus:outline-none focus:ring-2 focus:ring-brandBlue-500"
+                    onChange={(e) => handleChange('service', e.target.value)}
+                    className="w-full min-h-[44px] bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 cursor-pointer"
                   >
-                    <option value="Pelatihan Profesional & Sertifikasi">Pelatihan Profesional & Sertifikasi</option>
-                    <option value="Konsultasi Bisnis & Keuangan">Konsultasi Bisnis & Keuangan</option>
-                    <option value="Development & Competency SDM">Development & Competency SDM</option>
-                    <option value="Event Management & MICE">Event Management & MICE</option>
-                    <option value="Layanan Pendukung Institusional">Layanan Pendukung Institusional</option>
-                    <option value="Program Frontliner & Simulasi Perbankan">Program Frontliner & Simulasi Perbankan</option>
+                    <option value="Pelatihan & Pengembangan (Training & Development)">
+                      Pelatihan &amp; Pengembangan (Training &amp; Development)
+                    </option>
+                    <option value="Konsultasi (Strategic & Organizational Consulting)">
+                      Konsultasi (Strategic &amp; Organizational Consulting)
+                    </option>
+                    <option value="Manajemen Acara (Event & Conference Management)">
+                      Manajemen Acara (Event &amp; Conference Management)
+                    </option>
+                    <option value="Fasilitas Pembelajaran (Learning Facilities Rental & Support)">
+                      Fasilitas Pembelajaran (Learning Facilities Rental &amp; Support)
+                    </option>
+                    <option value="Merchandise Institusional (Corporate Merchandise & Branding)">
+                      Merchandise Institusional (Corporate Merchandise &amp; Branding)
+                    </option>
+                    <option value="Kemitraan Strategis (Strategic Partnerships & Synergies)">
+                      Kemitraan Strategis (Strategic Partnerships &amp; Synergies)
+                    </option>
                   </select>
                 </div>
 
                 {/* Contact Email / Phone Input */}
-                <div className="space-y-1.5 text-left">
+                <div className="space-y-1.5">
                   <label htmlFor="form-contact" className="block text-xs font-bold text-navy-900">
-                    Nomor WhatsApp / Email Kontak *
+                    Nomor WhatsApp / Email Kontak <span className="text-coral-500" aria-hidden="true">*</span>
+                    <span className="sr-only">(wajib diisi)</span>
                   </label>
                   <input
                     id="form-contact"
                     type="text"
                     required
-                    placeholder="Contoh: 081234567890 / email@instansi.id"
+                    aria-required="true"
+                    aria-invalid={!!errors.contact}
+                    aria-describedby={errors.contact ? 'contact-error' : undefined}
+                    placeholder="Contoh: 081234567890 atau nama@instansi.id"
                     value={formData.contact}
-                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                    className="w-full bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-700 focus:outline-none focus:ring-2 focus:ring-brandBlue-500"
+                    onBlur={() => handleBlur('contact')}
+                    onChange={(e) => handleChange('contact', e.target.value)}
+                    className={`w-full min-h-[44px] bg-surface-tint border px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 transition-all ${
+                      errors.contact
+                        ? 'border-red-500 focus-visible:ring-red-400 bg-red-50/20'
+                        : 'border-border-subtle focus-visible:ring-brandBlue-500'
+                    }`}
                   />
+                  {errors.contact && (
+                    <p id="contact-error" role="alert" className="text-xs text-red-600 font-medium flex items-center gap-1 pt-0.5">
+                      <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
+                      <span>{errors.contact}</span>
+                    </p>
+                  )}
                 </div>
 
                 {/* Message Input */}
-                <div className="space-y-1.5 text-left">
+                <div className="space-y-1.5">
                   <label htmlFor="form-message" className="block text-xs font-bold text-navy-900">
                     Detail Kebutuhan / Pertanyaan Proposal
                   </label>
@@ -243,19 +387,25 @@ export const LeadHub: React.FC = () => {
                     rows={4}
                     placeholder="Jelaskan perkiraan jumlah peserta, jadwal kegiatan, atau spesifikasi program yang dibutuhkan..."
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-700 focus:outline-none focus:ring-2 focus:ring-brandBlue-500"
-                  ></textarea>
+                    onChange={(e) => handleChange('message', e.target.value)}
+                    className="w-full bg-surface-tint border border-border-subtle p-3.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 resize-y"
+                  />
                 </div>
 
-                {/* Submit Action Button */}
-                <button
-                  type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-navy-900 hover:bg-navy-800 py-3.5 rounded-xl shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-navy-900"
-                >
-                  <Send className="w-4 h-4 text-coral-500" />
-                  <span>Kirim & Buka WhatsApp Official</span>
-                </button>
+                {/* Submit Action Button with Accessible Min 48px Height */}
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    aria-label="Kirim formulir dan lanjutkan via WhatsApp Official"
+                    className="w-full inline-flex items-center justify-center gap-2.5 min-h-[48px] text-sm font-bold text-white bg-navy-900 hover:bg-navy-800 py-3.5 px-6 rounded-xl shadow-lg hover:shadow-card-hover transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98] group"
+                  >
+                    <Send className="w-4 h-4 text-coral-500 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    <span>Kirim &amp; Hubungkan ke WhatsApp Official</span>
+                  </button>
+                  <p className="text-[11px] text-navy-500 text-center pt-2">
+                    Respons cepat di hari &amp; jam kerja (Senin - Jumat: 08:00 - 17:00 WIB).
+                  </p>
+                </div>
               </form>
             )}
           </div>

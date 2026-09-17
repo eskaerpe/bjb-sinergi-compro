@@ -12,7 +12,7 @@ export const AboutPage: React.FC = () => {
         title="Tentang Kami & Kepemimpinan"
         subtitle="Mengenal lebih dalam profil PT Sinergi Ekuitas Indonesia, sinergi ekosistem Universitas Ekuitas Indonesia dan bank bjb, serta jajaran kepemimpinan perusahaan."
       />
-      <SynergyNarrative />
+      <SynergyNarrative variant="full" />
       <VisionMission />
       <LeadershipSection />
     </>

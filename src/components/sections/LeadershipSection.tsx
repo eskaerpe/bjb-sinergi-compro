@@ -34,7 +34,7 @@ export const LeadershipSection: React.FC = () => {
               >
                 {/* Dirut Highlight Badge */}
                 {isDirut && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-coral-500 text-white text-[10px] font-extrabold uppercase tracking-wider rounded-full shadow-md">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-coral-500 text-navy-950 text-[10px] font-extrabold uppercase tracking-wider rounded-full shadow-md">
                     Pimpinan Eksekutif
                   </div>
                 )}
@@ -82,9 +82,12 @@ export const LeadershipSection: React.FC = () => {
 
                 {/* Optional Quote for Dirut */}
                 {leader.quote && (
-                  <div className="bg-surface-tint p-4 rounded-2xl border-l-4 border-brandBlue-500 space-y-2 text-left">
-                    <Quote className="w-4 h-4 text-brandBlue-500" />
-                    <p className="text-[11px] text-navy-900 italic font-medium leading-relaxed">
+                  <div className="bg-surface-tint p-4 rounded-2xl border border-brandBlue-100/80 space-y-2 text-left relative overflow-hidden">
+                    <div className="flex items-center gap-1.5 text-brandBlue-600">
+                      <Quote className="w-4 h-4 shrink-0" aria-hidden="true" />
+                      <span className="text-xs font-bold tracking-wider uppercase">Pesan Kepemimpinan</span>
+                    </div>
+                    <p className="text-xs text-navy-800 italic font-medium leading-relaxed">
                       "{leader.quote}"
                     </p>
                   </div>

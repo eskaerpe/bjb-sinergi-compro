@@ -62,17 +62,17 @@ export const Navbar: React.FC = () => {
                 <path
                   d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z"
                   fill="none"
-                  stroke="#007CAB"
+                  stroke="#2D8CBA"
                   strokeWidth="7"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                <circle cx="50" cy="45" r="12" fill="#FB6040" />
+                <circle cx="50" cy="45" r="12" fill="#FEA959" />
                 <path d="M38 65 L62 65" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" />
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-extrabold text-navy-900 text-base sm:text-[17px] tracking-tight leading-none group-hover:text-brandBlue-600 transition-colors">
+              <span className="font-extrabold text-navy-900 text-base tracking-tight leading-none group-hover:text-brandBlue-600 transition-colors">
                 PT SINERGI EKUITAS INDONESIA
               </span>
               <span className="text-xs font-semibold text-brandBlue-600 mt-1 tracking-wide uppercase">
@@ -90,7 +90,7 @@ export const Navbar: React.FC = () => {
                 end={item.path === '/'}
                 className={({ isActive }) =>
                   cn(
-                    'text-[15px] font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded py-1',
+                    'text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded py-1',
                     isActive
                       ? 'text-brandBlue-600 font-bold border-b-2 border-brandBlue-600'
                       : 'text-navy-800 hover:text-brandBlue-600'
@@ -136,12 +136,12 @@ export const Navbar: React.FC = () => {
                             <path
                               d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z"
                               fill="none"
-                              stroke="#007CAB"
+                              stroke="#2D8CBA"
                               strokeWidth="7"
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             />
-                            <circle cx="50" cy="45" r="12" fill="#FB6040" />
+                            <circle cx="50" cy="45" r="12" fill="#FEA959" />
                             <path d="M38 65 L62 65" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" />
                           </svg>
                         </div>

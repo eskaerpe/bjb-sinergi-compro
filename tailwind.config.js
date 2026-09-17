@@ -8,31 +8,33 @@ export default {
     extend: {
       colors: {
         navy: {
-          950: '#091A2E',
-          900: '#0F2A47',
-          800: '#16365C',
-          700: '#1F4879',
-          600: '#2A5C99',
-          100: '#E6EEF8',
-          50: '#F0F5FA',
+          950: '#0F2C54',
+          900: '#1A4886', // Primary Biru Tua (Base)
+          800: '#163F75',
+          700: '#23579D',
+          600: '#2E6BBF',
+          100: '#E5EEF9',
+          50: '#F0F5FC',
         },
         brandBlue: {
-          500: '#007CAB',
-          600: '#00648A',
-          100: '#E0F2FE',
-          50: '#F0F9FF',
+          600: '#237298',
+          500: '#2D8CBA', // Secondary Biru Muda (Base)
+          400: '#50A4CB',
+          100: '#DCF0F9',
+          50: '#EDF7FC',
         },
         coral: {
-          500: '#FB6040',
-          600: '#E04B2C',
-          100: '#FFEDEA',
-          50: '#FFF5F3',
+          600: '#E08C3B',
+          500: '#FEA959', // Aksen Kuning / Gold (Base)
+          400: '#FEB975',
+          100: '#FFF1E3',
+          50: '#FFF8F0',
         },
         surface: {
           white: '#FFFFFF',
-          tint: '#F3F6FA',
+          tint: '#F3F7FB',
           muted: '#F8FAFC',
-          dark: '#0A1D33',
+          dark: '#0F2C54',
         },
         border: {
           subtle: '#E2E8F0',
@@ -43,9 +45,9 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 10px 30px -5px rgba(15, 42, 71, 0.08)',
-        'card-hover': '0 20px 40px -10px rgba(15, 42, 71, 0.15)',
-        'nav': '0 4px 20px -2px rgba(15, 42, 71, 0.06)',
+        'card': '0 10px 30px -5px rgba(26, 72, 134, 0.08)',
+        'card-hover': '0 20px 40px -10px rgba(26, 72, 134, 0.16)',
+        'nav': '0 4px 20px -2px rgba(26, 72, 134, 0.06)',
       },
       animation: {
         'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
