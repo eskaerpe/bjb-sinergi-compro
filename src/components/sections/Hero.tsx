@@ -114,44 +114,8 @@ export const Hero: React.FC = () => {
             terukur, dan terpercaya.
           </p>
 
-          {/* Trust Badges Container */}
-          {/* Mobile: grid-cols-3 (compact horizontal) | Desktop: md:grid-cols-1 (lebar stacked vertikal) */}
-          <div className="grid grid-cols-3 md:grid-cols-1 gap-2.5 sm:gap-3 md:gap-3.5 w-full my-4 md:my-6">
-            {/* 1. YKP bank bjb */}
-            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-200 transition-all">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mb-1.5 md:mb-0 md:mr-3.5">
-                <Landmark className="w-4 h-4 md:w-5 md:h-5" />
-              </div>
-              <div>
-                <h4 className="text-[11px] sm:text-xs md:text-sm font-bold text-navy-950 leading-tight">YKP bank bjb</h4>
-                <p className="text-[9px] sm:text-[10px] md:text-xs text-slate-500 mt-0.5 leading-tight">Standar Praktisi & Jaringan Perbankan</p>
-              </div>
-            </div>
-
-            {/* 2. Univ. Ekuitas */}
-            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-200 transition-all">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mb-1.5 md:mb-0 md:mr-3.5">
-                <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
-              </div>
-              <div>
-                <h4 className="text-[11px] sm:text-xs md:text-sm font-bold text-navy-950 leading-tight">Univ. Ekuitas</h4>
-                <p className="text-[9px] sm:text-[10px] md:text-xs text-slate-500 mt-0.5 leading-tight">Riset Akademik & Kurikulum Terapan</p>
-              </div>
-            </div>
-
-            {/* 3. Tata Kelola GCG */}
-            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-200 transition-all">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mb-1.5 md:mb-0 md:mr-3.5">
-                <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
-              </div>
-              <div>
-                <h4 className="text-[11px] sm:text-xs md:text-sm font-bold text-navy-950 leading-tight">Tata Kelola GCG</h4>
-                <p className="text-[9px] sm:text-[10px] md:text-xs text-slate-500 mt-0.5 leading-tight">Akuntabel, Transparan & Kepatuhan Legal</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-2 space-y-4">
+          {/* Primary CTAs & Brochure Link */}
+          <div className="space-y-4 pt-1">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <Link
                 to="/layanan"
@@ -183,6 +147,44 @@ export const Hero: React.FC = () => {
                   Unduh E-Brochure Company Profile Resmi (PDF)
                 </span>
               </a>
+            </div>
+          </div>
+
+          {/* Trust Badges Social Proof Strip */}
+          <div className="pt-6 border-t border-slate-200/80">
+            <div className="grid grid-cols-3 divide-x divide-slate-200/80 text-left">
+              {/* 1. YKP bank bjb */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 pr-2 sm:pr-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center shrink-0">
+                  <Landmark className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brandBlue-600" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-navy-950 leading-tight">YKP bank bjb</h4>
+                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 leading-snug">Standar Praktisi &amp; Jaringan Perbankan</p>
+                </div>
+              </div>
+
+              {/* 2. Univ. Ekuitas */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 px-2 sm:px-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center shrink-0">
+                  <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brandBlue-600" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-navy-950 leading-tight">Univ. Ekuitas</h4>
+                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 leading-snug">Riset Akademik &amp; Kurikulum Terapan</p>
+                </div>
+              </div>
+
+              {/* 3. Tata Kelola GCG */}
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 pl-2 sm:pl-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brandBlue-600" aria-hidden="true" />
+                </div>
+                <div className="min-w-0">
+                  <h4 className="text-[11px] sm:text-xs font-bold text-navy-950 leading-tight">Tata Kelola GCG</h4>
+                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 leading-snug">Akuntabel, Transparan &amp; Kepatuhan Legal</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
