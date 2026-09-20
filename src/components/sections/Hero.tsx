@@ -97,8 +97,8 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
         <div className="lg:col-span-7 space-y-6 text-left">
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 border border-brandBlue-100 text-xs font-semibold text-navy-900 shadow-sm backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-coral-500 shadow-[0_0_8px_#FEA959] animate-pulse-subtle" aria-hidden="true" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-brandBlue-100 text-xs font-semibold text-navy-900 shadow-2xs backdrop-blur-sm">
+            <span className="w-2 h-2 rounded-full bg-coral-500" aria-hidden="true" />
             <span>Didukung oleh YKP bank bjb &amp; Universitas Ekuitas Indonesia</span>
           </div>
 
@@ -119,6 +119,7 @@ export const Hero: React.FC = () => {
             terukur, dan terpercaya.
           </p>
 
+          {/* Trust Badges */}
           <div className="pt-2 border-y border-border-subtle py-4 my-2">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/80 border border-navy-100/80 shadow-xs backdrop-blur-sm">
@@ -126,10 +127,7 @@ export const Hero: React.FC = () => {
                   <Building2 className="w-5 h-5 text-navy-900" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">YKP bank bjb</p>
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-brandBlue-500" aria-hidden="true" />
-                  </div>
+                  <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">YKP bank bjb</p>
                   <p className="text-[11px] font-medium text-navy-600 truncate">Standar Praktisi</p>
                 </div>
               </div>
@@ -139,10 +137,7 @@ export const Hero: React.FC = () => {
                   <GraduationCap className="w-5 h-5 text-brandBlue-700" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">Univ. Ekuitas</p>
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-brandBlue-500" aria-hidden="true" />
-                  </div>
+                  <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">Univ. Ekuitas</p>
                   <p className="text-[11px] font-medium text-navy-600 truncate">Riset &amp; Kurikulum</p>
                 </div>
               </div>
@@ -152,10 +147,7 @@ export const Hero: React.FC = () => {
                   <ShieldCheck className="w-5 h-5 text-coral-600" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">Tata Kelola GCG</p>
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-coral-500" aria-hidden="true" />
-                  </div>
+                  <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">Tata Kelola GCG</p>
                   <p className="text-[11px] font-medium text-navy-600 truncate">Akuntabel &amp; Legal</p>
                 </div>
               </div>
@@ -183,15 +175,16 @@ export const Hero: React.FC = () => {
               </Link>
             </div>
 
-            <div className="flex items-center gap-2 pt-1 text-xs text-navy-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-brandBlue-600" aria-hidden="true" />
+            <div className="flex items-center pt-1 text-xs text-navy-700">
               <a
                 href="/docs/Company-Profile-PT-Sinergi.pdf"
                 download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
-                className="inline-flex items-center gap-1.5 font-semibold text-navy-700 hover:text-navy-950 hover:underline transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded-xl"
+                className="group inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-navy-950 transition-colors duration-150 focus:outline-none focus-visible:underline rounded-lg"
               >
-                <Download className="w-3.5 h-3.5 text-brandBlue-600" aria-hidden="true" />
-                <span>Unduh E-Brochure Company Profile Resmi (PDF)</span>
+                <Download className="w-4 h-4 text-brandBlue-600 group-hover:text-navy-950 transition-colors shrink-0" aria-hidden="true" />
+                <span className="underline decoration-slate-300 underline-offset-4 group-hover:decoration-navy-950">
+                  Unduh E-Brochure Company Profile Resmi (PDF)
+                </span>
               </a>
             </div>
           </div>
@@ -245,22 +238,22 @@ export const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent pointer-events-none" />
 
               <div className="absolute top-4 left-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-white bg-navy-900/90 backdrop-blur-md shadow-md border border-white/10">
-                  <span>{activeTab.badge}</span>
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold text-white/95 bg-navy-950/80 backdrop-blur-md shadow-sm border border-white/15">
+                  {activeTab.badge}
                 </span>
               </div>
 
               <div className="absolute top-4 right-4">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-white bg-navy-900/90 backdrop-blur-md shadow-md border border-white/10">
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold text-white bg-navy-950/80 backdrop-blur-md shadow-sm border border-white/15">
                   <span className="text-coral-400">{activeTab.metricValue}</span>
                 </span>
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-navy-900/90 backdrop-blur-md border border-white/10 text-left space-y-1.5 shadow-xl">
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-navy-950/85 backdrop-blur-md border border-white/15 text-left space-y-1.5 shadow-xl">
                 <h2 className="text-base font-bold text-white leading-tight">
                   {activeTab.title}
                 </h2>
-                <p className="text-xs text-slate-300 leading-relaxed line-clamp-2 font-normal">
+                <p className="text-xs text-slate-200 leading-relaxed line-clamp-2 font-normal">
                   {activeTab.description}
                 </p>
               </div>

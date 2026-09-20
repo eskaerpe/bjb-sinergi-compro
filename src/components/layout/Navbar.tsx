@@ -67,24 +67,14 @@ export const Navbar: React.FC = () => {
                 end={item.path === '/'}
                 className={({ isActive }) =>
                   cn(
-                    'relative inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
+                    'inline-flex items-center px-3.5 py-2 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
                     isActive
-                      ? 'bg-brandBlue-50 text-brandBlue-600 font-bold shadow-2xs'
+                      ? 'bg-brandBlue-50 text-brandBlue-700 font-semibold'
                       : 'text-navy-700 hover:text-navy-950 hover:bg-surface-tint font-medium'
                   )
                 }
               >
-                {({ isActive }) => (
-                  <>
-                    {isActive && (
-                      <span
-                        className="w-1.5 h-1.5 rounded-full bg-brandBlue-600 animate-pulse-subtle shrink-0"
-                        aria-hidden="true"
-                      />
-                    )}
-                    <span>{item.name}</span>
-                  </>
-                )}
+                {item.name}
               </NavLink>
             ))}
           </nav>
@@ -145,7 +135,7 @@ export const Navbar: React.FC = () => {
                       </Dialog.Close>
                     </div>
 
-                    <nav className="flex flex-col gap-1.5 mt-6">
+                    <nav className="flex flex-col gap-1 mt-6">
                       {NAV_ITEMS.map((item) => (
                         <NavLink
                           key={item.name}
@@ -154,30 +144,14 @@ export const Navbar: React.FC = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className={({ isActive }) =>
                             cn(
-                              'flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
+                              'flex items-center px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
                               isActive
-                                ? 'bg-brandBlue-50 text-brandBlue-600 font-bold border-l-4 border-brandBlue-600 pl-3'
+                                ? 'bg-brandBlue-50 text-brandBlue-700 font-semibold border-l-2 border-brandBlue-600 pl-3'
                                 : 'text-navy-700 hover:bg-surface-tint hover:text-navy-900 font-medium'
                             )
                           }
                         >
-                          {({ isActive }) => (
-                            <>
-                              <div className="flex items-center gap-2.5">
-                                {isActive ? (
-                                  <span className="w-2 h-2 rounded-full bg-brandBlue-600 shrink-0" aria-hidden="true" />
-                                ) : (
-                                  <span className="w-1.5 h-1.5 rounded-full bg-border-medium shrink-0" aria-hidden="true" />
-                                )}
-                                <span>{item.name}</span>
-                              </div>
-                              {isActive && (
-                                <span className="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider text-brandBlue-600 bg-white rounded-full shadow-2xs">
-                                  Aktif
-                                </span>
-                              )}
-                            </>
-                          )}
+                          <span>{item.name}</span>
                         </NavLink>
                       ))}
                     </nav>
