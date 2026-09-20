@@ -5,7 +5,7 @@ import {
   Download,
   FileText,
   ShieldCheck,
-  Building2,
+  Landmark,
   GraduationCap
 } from 'lucide-react';
 import { SectionContainer } from '@/components/common/SectionContainer';
@@ -115,37 +115,32 @@ export const Hero: React.FC = () => {
           </p>
 
           {/* Trust Badges */}
-          <div className="pt-2 border-y border-border-subtle py-4 my-2">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/80 border border-navy-100/80 shadow-xs backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-xl bg-navy-100 text-navy-900 flex items-center justify-center flex-shrink-0 shadow-xs">
-                  <Building2 className="w-5 h-5 text-navy-900" aria-hidden="true" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">YKP bank bjb</p>
-                  <p className="text-[11px] font-medium text-navy-600 truncate">Standar Praktisi</p>
-                </div>
+          <div className="grid grid-cols-3 gap-2 w-full my-3">
+            {/* YKP bank bjb */}
+            <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white border border-slate-200">
+              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-1">
+                <Landmark className="w-3.5 h-3.5" />
               </div>
+              <span className="text-[11px] font-bold text-slate-900 leading-tight">YKP bank bjb</span>
+              <span className="text-[9px] text-slate-500 leading-tight">Standar Praktisi</span>
+            </div>
 
-              <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/80 border border-navy-100/80 shadow-xs backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-xl bg-brandBlue-100 text-brandBlue-700 flex items-center justify-center flex-shrink-0 shadow-xs">
-                  <GraduationCap className="w-5 h-5 text-brandBlue-700" aria-hidden="true" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">Univ. Ekuitas</p>
-                  <p className="text-[11px] font-medium text-navy-600 truncate">Riset &amp; Kurikulum</p>
-                </div>
+            {/* Univ. Ekuitas */}
+            <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white border border-slate-200">
+              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-1">
+                <GraduationCap className="w-3.5 h-3.5" />
               </div>
+              <span className="text-[11px] font-bold text-slate-900 leading-tight">Univ. Ekuitas</span>
+              <span className="text-[9px] text-slate-500 leading-tight">Riset &amp; Kurikulum</span>
+            </div>
 
-              <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/80 border border-navy-100/80 shadow-xs backdrop-blur-sm">
-                <div className="w-10 h-10 rounded-xl bg-coral-100 text-coral-700 flex items-center justify-center flex-shrink-0 shadow-xs">
-                  <ShieldCheck className="w-5 h-5 text-coral-600" aria-hidden="true" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-xs sm:text-sm font-bold text-navy-950 leading-tight truncate">Tata Kelola GCG</p>
-                  <p className="text-[11px] font-medium text-navy-600 truncate">Akuntabel &amp; Legal</p>
-                </div>
+            {/* Tata Kelola GCG */}
+            <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white border border-slate-200">
+              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-1">
+                <ShieldCheck className="w-3.5 h-3.5" />
               </div>
+              <span className="text-[11px] font-bold text-slate-900 leading-tight">Tata Kelola GCG</span>
+              <span className="text-[9px] text-slate-500 leading-tight">Akuntabel &amp; Legal</span>
             </div>
           </div>
 
