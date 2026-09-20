@@ -114,33 +114,40 @@ export const Hero: React.FC = () => {
             terukur, dan terpercaya.
           </p>
 
-          {/* Trust Badges */}
-          <div className="grid grid-cols-3 gap-2 w-full my-3">
-            {/* YKP bank bjb */}
-            <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white border border-slate-200">
-              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-1">
-                <Landmark className="w-3.5 h-3.5" />
+          {/* Trust Badges Container */}
+          {/* Mobile: grid-cols-3 (compact horizontal) | Desktop: md:grid-cols-1 (lebar stacked vertikal) */}
+          <div className="grid grid-cols-3 md:grid-cols-1 gap-2.5 sm:gap-3 md:gap-3.5 w-full my-4 md:my-6">
+            {/* 1. YKP bank bjb */}
+            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-200 transition-all">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mb-1.5 md:mb-0 md:mr-3.5">
+                <Landmark className="w-4 h-4 md:w-5 md:h-5" />
               </div>
-              <span className="text-[11px] font-bold text-slate-900 leading-tight">YKP bank bjb</span>
-              <span className="text-[9px] text-slate-500 leading-tight">Standar Praktisi</span>
+              <div>
+                <h4 className="text-[11px] sm:text-xs md:text-sm font-bold text-navy-950 leading-tight">YKP bank bjb</h4>
+                <p className="text-[9px] sm:text-[10px] md:text-xs text-slate-500 mt-0.5 leading-tight">Standar Praktisi & Jaringan Perbankan</p>
+              </div>
             </div>
 
-            {/* Univ. Ekuitas */}
-            <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white border border-slate-200">
-              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-1">
-                <GraduationCap className="w-3.5 h-3.5" />
+            {/* 2. Univ. Ekuitas */}
+            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-200 transition-all">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mb-1.5 md:mb-0 md:mr-3.5">
+                <GraduationCap className="w-4 h-4 md:w-5 md:h-5" />
               </div>
-              <span className="text-[11px] font-bold text-slate-900 leading-tight">Univ. Ekuitas</span>
-              <span className="text-[9px] text-slate-500 leading-tight">Riset &amp; Kurikulum</span>
+              <div>
+                <h4 className="text-[11px] sm:text-xs md:text-sm font-bold text-navy-950 leading-tight">Univ. Ekuitas</h4>
+                <p className="text-[9px] sm:text-[10px] md:text-xs text-slate-500 mt-0.5 leading-tight">Riset Akademik & Kurikulum Terapan</p>
+              </div>
             </div>
 
-            {/* Tata Kelola GCG */}
-            <div className="flex flex-col items-center text-center p-2 rounded-xl bg-white border border-slate-200">
-              <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-900 flex items-center justify-center mb-1">
-                <ShieldCheck className="w-3.5 h-3.5" />
+            {/* 3. Tata Kelola GCG */}
+            <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left p-2.5 sm:p-3 md:p-4 rounded-xl md:rounded-2xl bg-white border border-slate-200/80 shadow-2xs hover:border-blue-200 transition-all">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 rounded-lg md:rounded-xl bg-blue-50 text-blue-900 flex items-center justify-center shrink-0 mb-1.5 md:mb-0 md:mr-3.5">
+                <ShieldCheck className="w-4 h-4 md:w-5 md:h-5" />
               </div>
-              <span className="text-[11px] font-bold text-slate-900 leading-tight">Tata Kelola GCG</span>
-              <span className="text-[9px] text-slate-500 leading-tight">Akuntabel &amp; Legal</span>
+              <div>
+                <h4 className="text-[11px] sm:text-xs md:text-sm font-bold text-navy-950 leading-tight">Tata Kelola GCG</h4>
+                <p className="text-[9px] sm:text-[10px] md:text-xs text-slate-500 mt-0.5 leading-tight">Akuntabel, Transparan & Kepatuhan Legal</p>
+              </div>
             </div>
           </div>
 
