@@ -56,7 +56,7 @@ export const ExpertiseTeaser: React.FC = () => {
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center px-3.5 py-1 text-xs font-bold text-brandBlue-600 bg-brandBlue-50 rounded-full">
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Pilar Kompetensi &amp; Silabus
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight">

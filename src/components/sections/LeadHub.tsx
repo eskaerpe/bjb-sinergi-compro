@@ -109,7 +109,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center px-3.5 py-1 text-xs font-extrabold text-coral-400 bg-navy-900 rounded-full">
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-coral-400 uppercase">
             Hubungi Tim Konsultasi Kami
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">

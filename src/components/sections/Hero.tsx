@@ -97,11 +97,6 @@ export const Hero: React.FC = () => {
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
         <div className="lg:col-span-7 space-y-6 text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-brandBlue-100 text-xs font-semibold text-navy-900 shadow-2xs backdrop-blur-sm">
-            <span className="w-2 h-2 rounded-full bg-coral-500" aria-hidden="true" />
-            <span>Didukung oleh YKP bank bjb &amp; Universitas Ekuitas Indonesia</span>
-          </div>
-
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-950 tracking-tight leading-[1.18]">
             Mitra Strategis Pelatihan, Konsultasi &amp; Layanan{' '}
             <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-navy-900 via-brandBlue-600 to-coral-600">

@@ -12,7 +12,6 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
-import { cn } from '@/utils/cn';
 
 export interface SynergyNarrativeProps {
   variant?: 'preview' | 'full';
@@ -25,7 +24,6 @@ interface PillarItem {
   description: string;
   metric: string;
   icon: React.ElementType;
-  accent: 'blue' | 'coral' | 'navy';
 }
 
 const PILLARS: PillarItem[] = [
@@ -35,8 +33,7 @@ const PILLARS: PillarItem[] = [
     title: 'Kekuatan Riset & Kurikulum',
     description: 'Dukungan akademisi bergelar doktoral dan pakar riset di bidang ekonomi terapan, perbankan modern, dan manajemen risiko terintegrasi.',
     metric: '20+ Dosen & Peneliti',
-    icon: GraduationCap,
-    accent: 'blue'
+    icon: GraduationCap
   },
   {
     number: '02',
@@ -44,8 +41,7 @@ const PILLARS: PillarItem[] = [
     title: 'Pengalaman Praktisi Nyata',
     description: 'Instruktur praktisi perbankan dengan pemahaman mendalam pada operasional lapangan, frontliner, audit, dan kepatuhan regulasi.',
     metric: 'Standar Industri',
-    icon: Building2,
-    accent: 'coral'
+    icon: Building2
   },
   {
     number: '03',
@@ -53,8 +49,7 @@ const PILLARS: PillarItem[] = [
     title: 'Jaringan Kelembagaan & GCG',
     description: 'Afiliasi resmi bersama Yayasan Kesejahteraan Pegawai bank bjb menjamin kepatuhan tata kelola (GCG) dan reliabilitas jangka panjang.',
     metric: 'Prinsip GCG',
-    icon: ShieldCheck,
-    accent: 'navy'
+    icon: ShieldCheck
   },
   {
     number: '04',
@@ -62,8 +57,7 @@ const PILLARS: PillarItem[] = [
     title: 'Infrastruktur Komprehensif',
     description: 'Mini bank lab, smart classrooms multimedia, aula representatif, serta laboratorium komputer berkapasitas besar di satu kawasan terpadu.',
     metric: '4 Lab & Fasilitas',
-    icon: Layers,
-    accent: 'blue'
+    icon: Layers
   }
 ];
 
@@ -100,7 +94,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3.5">
-          <span className="inline-flex items-center px-3.5 py-1 text-xs font-bold text-brandBlue-600 bg-brandBlue-50 rounded-full">
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             {isPreview ? 'Sinergi B2B & Ekuitas' : 'Sinergi Ekosistem Terintegrasi'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
@@ -116,38 +110,27 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PILLARS.map((pillar) => {
             const IconComponent = pillar.icon;
-            const isCoral = pillar.accent === 'coral';
-            const isNavy = pillar.accent === 'navy';
 
             return (
               <div
                 key={pillar.number}
-                className="relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle shadow-card"
+                className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle shadow-card hover:border-brandBlue-200 transition-colors"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span
-                      className="text-2xl font-black text-navy-900/25 font-mono select-none"
+                      className="text-2xl font-black text-slate-300 group-hover:text-brandBlue-200 font-mono select-none transition-colors"
                       aria-hidden="true"
                     >
                       {pillar.number}
                     </span>
-                    <div
-                      className={cn(
-                        'w-10 h-10 rounded-xl flex items-center justify-center shadow-xs',
-                        isCoral
-                          ? 'bg-coral-50 text-coral-600'
-                          : isNavy
-                          ? 'bg-navy-900 text-white'
-                          : 'bg-brandBlue-50 text-brandBlue-600'
-                      )}
-                    >
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center shadow-xs bg-navy-50 border border-navy-100 text-brandBlue-600 group-hover:bg-navy-900 group-hover:text-white transition-colors">
                       <IconComponent className="w-5 h-5" aria-hidden="true" />
                     </div>
                   </div>
 
                   <div>
-                    <span className="inline-block text-[11px] font-bold text-navy-700 uppercase tracking-wide bg-navy-50 px-2.5 py-0.5 rounded-full">
+                    <span className="inline-block text-xs font-semibold text-brandBlue-900 bg-brandBlue-50 border border-brandBlue-100/60 px-2.5 py-1 rounded-md">
                       {pillar.source}
                     </span>
                   </div>
@@ -164,7 +147,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
 
                 <div className="mt-6 pt-3.5 border-t border-border-subtle flex items-center justify-between">
                   <span className="text-[11px] text-navy-500 font-medium">Kapasitas Unggulan:</span>
-                  <span className="text-[11px] font-bold text-navy-900 bg-surface-tint px-2.5 py-1 rounded-full shadow-2xs">
+                  <span className="text-xs font-semibold text-navy-900 bg-slate-50 border border-slate-200/80 px-2.5 py-1 rounded-md">
                     {pillar.metric}
                   </span>
                 </div>
@@ -211,10 +194,9 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
 
         <div className="p-6 sm:p-8 rounded-3xl bg-navy-950 text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-card border border-navy-900">
           <div className="space-y-1.5 text-center sm:text-left max-w-xl">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold text-coral-400">
-              <span className="w-2 h-2 rounded-full bg-coral-500 animate-pulse" />
+            <span className="text-xs sm:text-sm font-bold tracking-wider text-coral-400 uppercase">
               Kemitraan Strategis B2B &amp; Kelembagaan
-            </div>
+            </span>
             <p className="text-base sm:text-lg font-bold text-white leading-snug">
               {isPreview
                 ? 'Fondasi Akademik Kuat Didukung Tata Kelola bank bjb'

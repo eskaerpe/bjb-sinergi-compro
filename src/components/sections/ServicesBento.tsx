@@ -12,8 +12,7 @@ import {
   ArrowRight,
   ShieldCheck,
   X,
-  Layers,
-  Sparkles
+  Layers
 } from 'lucide-react';
 import { SERVICES_DATA, ServiceItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
@@ -43,7 +42,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center px-3.5 py-1 text-xs font-bold text-coral-600 bg-coral-50 rounded-full">
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Portofolio Solusi Kelembagaan
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight">
@@ -133,8 +132,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
         ) : (
           <div className="bg-navy-950 text-white rounded-3xl p-8 sm:p-10 border border-navy-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
             <div className="space-y-2 text-left relative z-10 max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold text-coral-400 bg-navy-900 rounded-full">
-                <Sparkles className="w-3.5 h-3.5" />
+              <span className="text-xs sm:text-sm font-bold tracking-wider text-coral-400 uppercase">
                 Integrasi Jaringan Ahli &amp; Silabus Kompetensi
               </span>
               <h3 className="text-2xl font-extrabold text-white">

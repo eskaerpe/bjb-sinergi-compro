@@ -8,7 +8,7 @@ export const VisionMission: React.FC = () => {
     <SectionContainer outerClassName="bg-white border-y border-border-subtle">
       <div className="space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-block px-3.5 py-1 text-xs font-bold text-coral-600 bg-coral-50 rounded-full">
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Arah Strategis Perusahaan
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
@@ -25,7 +25,7 @@ export const VisionMission: React.FC = () => {
               <div className="w-12 h-12 rounded-xl bg-coral-500 text-navy-950 flex items-center justify-center font-bold shadow-sm">
                 <Target className="w-6 h-6" />
               </div>
-              <span className="inline-block px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider text-coral-400 bg-navy-950/80 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-wider text-coral-400">
                 Visi Perusahaan
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  UserCheck,
   ShieldCheck,
   ArrowRight,
   Briefcase
@@ -53,8 +52,7 @@ export const LeadershipStrip: React.FC = () => {
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3.5">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-coral-600 bg-coral-50 rounded-full">
-            <UserCheck className="w-3.5 h-3.5 text-coral-500" aria-hidden="true" />
+          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Jajaran Kepemimpinan
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
