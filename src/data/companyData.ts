@@ -14,6 +14,7 @@ export interface ServiceItem {
 
 export interface ExpertDomain {
   id: string;
+  domainNumber: number;
   title: string;
   category: 'Keuangan & Perbankan' | 'Manajemen & SDM' | 'Teknologi & Operasional';
   shortDesc: string;
@@ -38,7 +39,7 @@ export interface FacilityItem {
     alt: string;
     aspectRatio: string;
   };
-  galleryImages?: FacilityGalleryImage[];
+  galleryImages: FacilityGalleryImage[];
 }
 
 export interface LeaderItem {
@@ -47,6 +48,7 @@ export interface LeaderItem {
   title: 'Direktur Utama' | 'Direktur' | 'Komisaris';
   role: string;
   bio: string;
+  rolesList: string[];
   quote?: string;
   image: {
     url: string;
@@ -66,6 +68,9 @@ export interface PortfolioProject {
   id: string;
   title: string;
   client: string;
+  organizer: string;
+  period: string;
+  totalParticipants: string;
   category: string;
   impactMetrics: { label: string; value: string }[];
   summary: string;
@@ -81,14 +86,21 @@ export interface PortfolioProject {
 
 export const COMPANY_INFO = {
   name: "PT Sinergi Ekuitas Indonesia",
+  shortName: "PT Sinergi",
   tagline: "Strategic Partner for Training, Consulting, Event Management, and Institutional Support",
+  shortTagline: "Mitra Strategis Pelatihan, Konsultasi, Event & Pengelolaan Fasilitas",
   parentOrg: "Yayasan Kesejahteraan Pegawai (YKP) bank bjb",
   affiliateOrg: "Universitas Ekuitas Indonesia",
-  ecosystemSubtitle: "Memadukan kekuatan akademik, pengalaman praktisi perbankan, dan ekosistem kelembagaan bank bjb.",
+  ecosystemSubtitle: "Memadukan kekuatan riset akademik Universitas Ekuitas Indonesia, pengalaman praktisi perbankan, dan tata kelola YKP bank bjb.",
   address: "Gedung Universitas Ekuitas Indonesia, Jl. PHH. Mustofa No. 31, Bandung, Jawa Barat 40124",
-  phone: "+62 22 7276323",
+  city: "Bandung, Jawa Barat",
+  postalCode: "40124",
+  phone: "+62 821-1969-5761",
+  phoneDisplay: "+62821-1969-5761",
   whatsapp: "6282119695761",
   whatsappFormatted: "+62 821-1969-5761",
+  whatsappDisplay: "0821-1969-5761",
+  whatsappLink: "https://wa.me/6282119695761",
   email: "sinergiekuitas@gmail.com",
   operatingHours: "Senin – Jumat: 08:00 – 17:00 WIB",
   googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.898687796347!2d107.63666507499622!3d-6.902700993096645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b5ad16111f%3A0x63bc297ad2efbeec!2sUniversitas%20Ekuitas%20Indonesia!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid",
@@ -98,612 +110,688 @@ export const COMPANY_INFO = {
     "Mengoptimalkan pemanfaatan aset untuk menghasilkan nilai ekonomi berkelanjutan.",
     "Mengembangkan layanan pelatihan dan konsultasi yang berkualitas.",
     "Membangun kemitraan strategis dengan berbagai institusi.",
-    "Mendorong penerapan prinsip Good Corporate Governance (GCG) di seluruh lini bisnis."
+    "Mendorong penerapan prinsip Good Corporate Governance di seluruh lini bisnis."
   ]
+};
+
+export const LEADERSHIP_MEMBERS: LeaderItem[] = [
+  {
+    id: 'deni-hamdani',
+    name: 'Deni Hamdani, SE., M.Si',
+    title: 'Direktur Utama',
+    role: 'Pimpinan Eksekutif',
+    bio: 'Memimpin arah strategis perusahaan serta bertanggung jawab dalam memastikan seluruh kegiatan operasional dan pengembangan bisnis berjalan selaras dengan visi perusahaan. Berperan dalam pengambilan keputusan strategis, penguatan tata kelola, serta membangun sinergi dan kerja sama dengan berbagai mitra untuk mendukung pertumbuhan perusahaan yang berkelanjutan.',
+    rolesList: [
+      'Memimpin arah strategis dan operasional PT Sinergi Ekuitas Indonesia.',
+      'Memastikan seluruh kegiatan dan bisnis selaras dengan visi & misi perusahaan.',
+      'Pengambilan keputusan strategis & penguatan tata kelola (GCG).',
+      'Membangun sinergi & kemitraan strategis berkelanjutan.'
+    ],
+    quote: 'Memadukan keunggulan akademik, pengalaman praktisi perbankan, dan jaringan kelembagaan untuk mengakselerasi pertumbuhan kompetensi SDM dan efisiensi operasional mitra.',
+    image: {
+      url: './images/team/deni-hamdani.jpeg',
+      fallbackUrl: './images/team/deni-hamdani.jpeg',
+      alt: 'Deni Hamdani, SE., M.Si - Direktur Utama'
+    }
+  },
+  {
+    id: 'gatot-iwan',
+    name: 'Dr. Gatot Iwan Kurniawan, SE., MBA',
+    title: 'Direktur',
+    role: 'Pengembangan & Inovasi',
+    bio: 'Berperan dalam mendukung perencanaan dan pelaksanaan strategi perusahaan, khususnya dalam pengembangan bisnis, inovasi, serta peningkatan kualitas layanan. Turut mengawal pelaksanaan program perusahaan agar berjalan efektif, adaptif terhadap perkembangan industri, dan mampu memberikan nilai tambah bagi mitra maupun pelanggan.',
+    rolesList: [
+      'Mendukung perencanaan dan pelaksanaan strategi pengembangan bisnis.',
+      'Mendorong inovasi dan peningkatan kualitas layanan terpadu.',
+      'Mengawal efektivitas pelaksanaan seluruh program perusahaan.',
+      'Menjamin nilai tambah yang adaptif bagi mitra dan pelanggan.'
+    ],
+    quote: 'Inovasi berkelanjutan dan standar mutu tinggi adalah kunci utama dalam menghadirkan solusi pengembangan SDM dan konsultasi manajemen yang berdampak nyata.',
+    image: {
+      url: './images/team/gatot-iwan.jpeg',
+      fallbackUrl: './images/team/gatot-iwan.jpeg',
+      alt: 'Dr. Gatot Iwan Kurniawan, SE., MBA - Direktur'
+    }
+  },
+  {
+    id: 'muhammad-gunawan',
+    name: 'Muhammad Gunawan',
+    title: 'Komisaris',
+    role: 'Pengawasan & GCG',
+    bio: 'Melaksanakan fungsi pengawasan serta memberikan arahan dan masukan strategis terhadap kebijakan dan pengelolaan perusahaan. Berperan dalam menjaga kepatuhan, akuntabilitas, dan penerapan Good Corporate Governance (GCG) guna memastikan perlindungan kepentingan pemegang saham dan pemangku kepentingan.',
+    rolesList: [
+      'Melaksanakan fungsi pengawasan independen atas pengelolaan perusahaan.',
+      'Memberikan arahan dan masukan strategis kebijakan korporasi.',
+      'Menjaga kepatuhan, akuntabilitas, dan penerapan prinsip Good Corporate Governance (GCG).'
+    ],
+    quote: 'Pengawasan independen dan komitmen pada Good Corporate Governance (GCG) adalah fondasi utama kepercayaan pemangku kepentingan dan keberlanjutan bisnis.',
+    image: {
+      url: './images/team/muhammad-gunawan.jpeg',
+      fallbackUrl: './images/team/muhammad-gunawan.jpeg',
+      alt: 'Muhammad Gunawan - Komisaris'
+    }
+  }
+];
+
+export const VISION_MISSION_DATA = {
+  vision: COMPANY_INFO.vision,
+  missions: COMPANY_INFO.missions,
+  values: [
+    {
+      letter: 'S',
+      word: 'Sinergi',
+      label: 'Sinergi',
+      desc: 'Membangun kolaborasi harmonis dan saling menguntungkan antar seluruh pemangku kepentingan.',
+      description: 'Membangun kolaborasi harmonis dan saling menguntungkan antar seluruh pemangku kepentingan.'
+    },
+    {
+      letter: 'I',
+      word: 'Integritas',
+      label: 'Integritas',
+      desc: 'Menjunjung tinggi kejujuran, etika profesi, dan keterbukaan dalam setiap aktivitas operasional.',
+      description: 'Menjunjung tinggi kejujuran, etika profesi, dan keterbukaan dalam setiap aktivitas operasional.'
+    },
+    {
+      letter: 'N',
+      word: 'Nawaitu',
+      label: 'Nawaitu',
+      desc: 'Didasari niat tulus dan komitmen ibadah untuk memberikan kemanfaatan terbaik bagi masyarakat.',
+      description: 'Didasari niat tulus dan komitmen ibadah untuk memberikan kemanfaatan terbaik bagi masyarakat.'
+    },
+    {
+      letter: 'E',
+      word: 'Efisien',
+      label: 'Efisien',
+      desc: 'Mengoptimalkan daya guna sumber daya dan aset untuk hasil kinerja yang maksimal dan berkelanjutan.',
+      description: 'Mengoptimalkan daya guna sumber daya dan aset untuk hasil kinerja yang maksimal dan berkelanjutan.'
+    },
+    {
+      letter: 'R',
+      word: 'Responsif',
+      label: 'Responsif',
+      desc: 'Cepat dan tanggap melayani serta beradaptasi terhadap dinamika dan kebutuhan mitra bisnis.',
+      description: 'Cepat dan tanggap melayani serta beradaptasi terhadap dinamika dan kebutuhan mitra bisnis.'
+    },
+    {
+      letter: 'G',
+      word: 'Gigih',
+      label: 'Gigih',
+      desc: 'Pantang menyerah dan berorientasi pada pencapaian kualitas serta standar keunggulan terbaik.',
+      description: 'Pantang menyerah dan berorientasi pada pencapaian kualitas serta standar keunggulan terbaik.'
+    },
+    {
+      letter: 'I',
+      word: 'Inovatif',
+      label: 'Inovatif',
+      desc: 'Menciptakan terobosan dan solusi kreatif yang relevan dengan perkembangan industri terkini.',
+      description: 'Menciptakan terobosan dan solusi kreatif yang relevan dengan perkembangan industri terkini.'
+    }
+  ],
+  get coreValues() {
+    return this.values;
+  }
 };
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: "pelatihan-sertifikasi",
-    title: "Pelatihan & Pengembangan (Training & Development)",
-    shortDesc: "Program peningkatan kemampuan (upskilling/reskilling) dan pengayaan wawasan karyawan secara terstruktur.",
-    fullDesc: "Menyelenggarakan program pelatihan dan pengembangan kompetensi terstruktur untuk memastikan kesiapan tenaga kerja sejalan dengan dinamika industri perbankan, bisnis, dan visi jangka panjang organisasi.",
-    iconName: "GraduationCap",
+    id: 'pelatihan-profesional',
+    title: 'Pelatihan Profesional & Sertifikasi Kompetensi',
+    shortDesc: 'Program upskilling, reskilling, workshop teknis, dan persiapan sertifikasi profesi (BNSP) berstandar industri perbankan dan korporasi.',
+    fullDesc: 'Menyediakan program pembelajaran dan pengembangan kompetensi kerja komprehensif berbasis standar BNSP dan kebutuhan spesifik industri. Menggabungkan pengajar doktoral Universitas Ekuitas Indonesia dan praktisi perbankan berpengalaman.',
+    iconName: 'GraduationCap',
     features: [
-      "Upskilling & reskilling terstruktur",
-      "Kurikulum berbasis industri & perbankan",
-      "Instruktur praktisi & akademisi",
-      "Sertifikasi kompetensi resmi"
+      'Pelatihan Sertifikasi Kompetensi BNSP & Lembaga Sertifikasi Profesi',
+      'Program Pembelajaran Frontliner (Customer Service, Teller, Back Office)',
+      'Workshop In-House & Custom Learning & Development Program',
+      'Executive Leadership & Strategic Management Workshop'
     ],
     image: {
-      url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80",
-      alt: "Pelatihan & Pengembangan (Training & Development)",
-      aspectRatio: "16:9"
+      url: './images/portfolio/abdi-bjb-2.jpeg',
+      alt: 'Pelatihan Profesional & Sertifikasi Kompetensi',
+      aspectRatio: '16/9'
     }
   },
   {
-    id: "konsultasi-bisnis",
-    title: "Konsultasi (Strategic & Organizational Consulting)",
-    shortDesc: "Diagnosis mendalam terhadap tantangan organisasi, restrukturisasi proses bisnis, dan pendampingan manajemen.",
-    fullDesc: "Menghadirkan solusi konsultasi berbasis data dan inovasi terapan dari gabungan praktisi industri serta akademisi untuk mendukung transformasi dan efisiensi organisasi.",
-    iconName: "Briefcase",
+    id: 'konsultasi-manajemen',
+    title: 'Konsultasi Bisnis, Manajemen & Tata Kelola',
+    shortDesc: 'Pendampingan restrukturisasi organisasi, penyusunan SOP, audit tata kelola (GCG), dan manajemen risiko perbankan.',
+    fullDesc: 'Layanan konsultasi bisnis dan manajemen yang memberikan solusi berbasis riset terapan dan prinsip Good Corporate Governance (GCG) untuk meningkatkan efisiensi operasional dan kepatuhan institusi.',
+    iconName: 'Briefcase',
     features: [
-      "Diagnosis tantangan organisasi",
-      "Restrukturisasi proses bisnis",
-      "Pendampingan manajemen",
-      "Solusi berbasis data & inovasi"
+      'Pendampingan & Evaluasi Penerapan Good Corporate Governance (GCG)',
+      'Penyusunan & Pembaruan Standard Operating Procedures (SOP)',
+      'Kajian Manajemen Risiko & Kepatuhan Regulasi',
+      'Studi Kelayakan Bisnis & Audit Manajemen Organisasi'
     ],
     image: {
-      url: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
-      alt: "Konsultasi (Strategic & Organizational Consulting)",
-      aspectRatio: "16:9"
+      url: './images/portfolio/abdi-bjb-6.jpeg',
+      alt: 'Konsultasi Bisnis, Manajemen & Tata Kelola',
+      aspectRatio: '16/9'
     }
   },
   {
-    id: "event-management",
-    title: "Manajemen Acara (Event & Conference Management)",
-    shortDesc: "Pengelolaan kegiatan korporat (MICE, sertifikasi, workshop, asesmen, seminar nasional) secara end-to-end.",
-    fullDesc: "Layanan manajemen acara profesional end-to-end untuk menjamin efisiensi operasional dan standar eksekusi kegiatan korporat yang berkesan.",
-    iconName: "Calendar",
+    id: 'pengembangan-sdm',
+    title: 'Pengembangan SDM & Assessment Center',
+    shortDesc: 'Asesmen pemetaan potensi SDM, psikotes kerja, pemetaan jalur karir, dan konsultasi manajerial.',
+    fullDesc: 'Layanan pengukuran dan pemetaan potensi sumber daya manusia melalui metode assessment center teruji untuk kebutuhan rekrutmen, promosi jabatan, serta pemetaan bakat institusional.',
+    iconName: 'Users',
     features: [
-      "Pengelolaan MICE & workshop",
-      "Pelaksanaan sertifikasi & asesmen",
-      "Penyelenggaraan seminar nasional",
-      "Eksekusi end-to-end profesional"
+      'Assessment Center & Pemetaan Potensi Manajerial',
+      'Psikotes Rekrutmen & Promosi Jabatan',
+      'Evaluasi Kinerja & Desain Executive Career Path',
+      'Konsultasi Pengembangan Budaya Kerja Korporat'
     ],
     image: {
-      url: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
-      alt: "Manajemen Acara (Event & Conference Management)",
-      aspectRatio: "16:9"
+      url: './images/portfolio/abdi-bjb-3.jpeg',
+      alt: 'Pengembangan SDM & Assessment Center',
+      aspectRatio: '16/9'
     }
   },
   {
-    id: "fasilitas-pembelajaran",
-    title: "Fasilitas Pembelajaran (Learning Facilities Rental & Support)",
-    shortDesc: "Penyediaan infrastruktur edukasi modern, ruang multimedia, mini bank, dan lab komputer berkapasitas besar.",
-    fullDesc: "Menyediakan sarana dan fasilitas pembelajaran modern yang kondusif, interaktif, dan berstandar industri untuk mendukung berbagai kegiatan pelatihan dan akademis.",
-    iconName: "Building2",
+    id: 'event-management',
+    title: 'Penyelenggaraan Acara Korporat & MICE',
+    shortDesc: 'Pengelolaan konferensi, seminar nasional/internasional, rapat kerja, gathering, dan kegiatan MICE terpadu.',
+    fullDesc: 'Layanan pengelolaan acara end-to-end yang menjamin kelancaran, profesionalisme, dan efisiensi pelaksanaan seminar, konferensi, wisuda, hingga gathering korporat.',
+    iconName: 'Calendar',
     features: [
-      "Ruang kelas multimedia modern",
-      "Laboratorium bank mini terintegrasi",
-      "Lab komputer berkapasitas besar",
-      "Lingkungan belajar kondusif"
+      'Penyelenggaraan Konferensi, Seminar & Workshop Nasional',
+      'Rapat Kerja Terpadu, Focus Group Discussion & Gathering',
+      'Manajemen Konsumsi, Akomodasi, & Mobilisasi Peserta',
+      'Pengelolaan Event Hybrid & Media Livestreaming Professional'
     ],
     image: {
-      url: "./images/facilities/classroom-1.jpeg",
-      alt: "Fasilitas Pembelajaran (Learning Facilities Rental & Support)",
-      aspectRatio: "16:9"
+      url: './images/portfolio/abdi-bjb-4.jpeg',
+      alt: 'Penyelenggaraan Acara Korporat & MICE',
+      aspectRatio: '16/9'
     }
   },
   {
-    id: "merchandise-institusional",
-    title: "Merchandise Institusional (Corporate Merchandise & Branding)",
-    shortDesc: "Pengadaan perlengkapan kantor, seragam, corporate kit, souvenir premium, dan media promosi.",
-    fullDesc: "Layanan pengadaan merchandise dan alat branding korporat untuk memenuhi kebutuhan operasional institusi sekaligus memperkuat citra merek secara profesional.",
-    iconName: "ShoppingBag",
+    id: 'fasilitas-kampus',
+    title: 'Pengelolaan & Optimalisasi Fasilitas Kampus',
+    shortDesc: 'Penyewaan dan optimalisasi sarana kelas multimedia, lab komputer, lab bank mini, auditorium, dan ruang rapat.',
+    fullDesc: 'Optimalisasi pemanfaatan aset sarana edukasi representatif di Kampus Universitas Ekuitas Indonesia untuk mendukung kegiatan pelatihan, ujian online, dan pertemuan bisnis.',
+    iconName: 'Building2',
     features: [
-      "Pengadaan perlengkapan kantor & seragam",
-      "Corporate kit & souvenir premium",
-      "Media promosi & material branding",
-      "Penguatan identitas merek"
+      'Penyewaan Ruang Kelas Multimedia & Auditorium (Graha Ekuitas)',
+      'Fasilitas Lab Komputer Modern & Computer-Based Test (CBT)',
+      'Laboratorium Simulasi Perbankan (Mini Bank Lab)',
+      'Ruang Rapat VIP & Executive Lounge'
     ],
     image: {
-      url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
-      alt: "Merchandise Institusional (Corporate Merchandise & Branding)",
-      aspectRatio: "16:9"
+      url: './images/facilities/classroom-1.jpeg',
+      alt: 'Pengelolaan & Optimalisasi Fasilitas Kampus',
+      aspectRatio: '16/9'
     }
   },
   {
-    id: "kemitraan-strategis",
-    title: "Kemitraan Strategis (Strategic Partnerships & Synergies)",
-    shortDesc: "Pembangunan sinergi kolaboratif antarlembaga (BUMN, perbankan, perguruan tinggi, industri swasta).",
-    fullDesc: "Membangun kemitraan dan sinergi kolaboratif lintas sektor untuk memperluas ekosistem usaha bersama dan menghasilkan nilai tambah ekonomi yang berkelanjutan.",
-    iconName: "Handshake",
+    id: 'pendukung-institusional',
+    title: 'Layanan Pendukung Operasional & Institusional',
+    shortDesc: 'Penyediaan armada transportasi/shuttle, pengadaan merchandise korporat, corporate kit, dan logistik acara.',
+    fullDesc: 'Dukungan operasional institusional menyeluruh mencakup penyediaan armada bus/shuttle untuk mobilitas peserta serta pengadaan atribut dan merchandise resmi korporat.',
+    iconName: 'ShoppingBag',
     features: [
-      "Sinergi BUMN & sektor perbankan",
-      "Kolaborasi perguruan tinggi & industri",
-      "Pengembangan ekosistem usaha bersama",
-      "Nilai tambah ekonomi berkelanjutan"
+      'Layanan Armada Transportasi & Bus Executive Shuttle',
+      'Pengadaan Merchandise & Corporate Souvenir Kit',
+      'Penyediaan Atribut Acara & Media Promosi Kampus/Korporat',
+      'Dukungan Logistik & Operasional Acara Terpadu'
     ],
     image: {
-      url: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
-      alt: "Kemitraan Strategis (Strategic Partnerships & Synergies)",
-      aspectRatio: "16:9"
+      url: './images/facilities/transportasi.jpeg',
+      alt: 'Layanan Pendukung Operasional & Institusional',
+      aspectRatio: '16/9'
     }
   }
 ];
 
 export const FACILITIES_DATA: FacilityItem[] = [
   {
-    id: "armada-transportasi",
-    name: "Armada Transportasi & Shuttle Operasional",
-    capacity: "Bus & Shuttle Fleet",
-    description: "Fasilitas bus dan shuttle armada operasional terawat untuk mobilitas, penjemputan peserta pelatihan luar kota, dan field trip edukasi.",
-    highlights: ["Armada bus terawat", "Shuttle penjemputan peserta", "Dukungan field trip edukasi", "Pengemudi berpengalaman"],
+    id: 'aula-utama',
+    name: 'Auditorium & Aula Utama (Graha Ekuitas)',
+    capacity: '300 - 500 Peserta',
+    description: 'Aula serbaguna utama berkapasitas besar yang dilengkapi dengan panggung utama, sistem pencahayaan modern, AC terpusat, sound system profesional, dan fleksibilitas tata letak tempat duduk untuk acara bertaraf nasional.',
+    highlights: [
+      'Kapasitas hingga 500 orang',
+      'Sound system & lighting auditorium',
+      'Panggung utama & ruang rias VIP',
+      'Cocok untuk wisuda, seminar & gathering'
+    ],
     image: {
-      url: "./images/facilities/transportasi.jpeg",
-      alt: "Armada Transportasi & Shuttle Operasional",
-      aspectRatio: "16:9"
+      url: './images/facilities/aula-1.jpeg',
+      alt: 'Auditorium & Aula Utama (Graha Ekuitas)',
+      aspectRatio: '16/9'
     },
     galleryImages: [
-      { url: "./images/facilities/transportasi.jpeg", caption: "Armada Transportasi & Shuttle Operasional" }
+      { url: './images/facilities/aula-1.jpeg', caption: 'Tampak Utama Auditorium Graha Ekuitas' },
+      { url: './images/facilities/aula-2.jpeg', caption: 'Suasana Acara dan Tata Letak Kursi Auditorium' }
     ]
   },
   {
-    id: "meeting-room",
-    name: "Meeting Room & Executive Discussion Suite",
-    capacity: "15 - 30 Orang",
-    description: "Ruang rapat eksklusif ber-AC dengan layar proyektor, papan presentasi, dan tata letak boardroom untuk diskusi strategis atau FGD.",
-    highlights: ["Layout Boardroom & FGD", "Layar Proyektor & TV Screen", "Pendingin Ruangan (AC)", "Koneksi Wi-Fi Berkecepatan Tinggi"],
+    id: 'ruang-kelas-eksekutif',
+    name: 'Ruang Kelas Pelatihan Eksekutif',
+    capacity: '30 - 60 Peserta per Ruang (Tersedia Berbagai Tipe Layout)',
+    description: 'Ruang kelas modern ber-AC dengan perlengkapan multimedia lengkap, proyektor High Definition, papan tulis interaktif, dan meja-kursi yang dapat disesuaikan untuk format classroom, U-shape, maupun kelompok diskusi.',
+    highlights: [
+      'Desain layout fleksibel (Classroom / U-Shape / Cluster)',
+      'Proyektor HD & screen layar lebar',
+      'Akses Wi-Fi kampus berkecepatan tinggi',
+      'Lingkungan kondusif untuk pelatihan intensif'
+    ],
     image: {
-      url: "./images/facilities/meeting-room.jpeg",
-      alt: "Meeting Room & Executive Discussion Suite",
-      aspectRatio: "4:3"
+      url: './images/facilities/classroom-1.jpeg',
+      alt: 'Ruang Kelas Pelatihan Eksekutif',
+      aspectRatio: '16/9'
     },
     galleryImages: [
-      { url: "./images/facilities/meeting-room.jpeg", caption: "Meeting Room & Executive Discussion Suite" }
+      { url: './images/facilities/classroom-1.jpeg', caption: 'Ruang Kelas Multimedia Tipe Layout Standar' },
+      { url: './images/facilities/classroom-2.jpeg', caption: 'Fasilitas Proyektor dan Suasana Pembelajaran' }
     ]
   },
   {
-    id: "classroom-multimedia-1",
-    name: "Classroom Multimedia Tipe 1",
-    capacity: "40 - 60 Orang",
-    description: "Ruang kelas teori modern berkapasitas fleksibel, dilengkapi podium, sound system terintegrasi, proyektor LCD, dan pencahayaan optimal.",
-    highlights: ["Podium & Integrated Sound System", "LCD Projector & Screen", "Pencahayaan & Ventilasi Optimal", "Meja-Kursi Ergonomis"],
+    id: 'lab-komputer',
+    name: 'Laboratorium Komputer & Analisis Data',
+    capacity: '40 - 50 Workstation PC per Lab',
+    description: 'Laboratorium komputer spesifikasi tinggi dengan jaringan LAN/Wi-Fi terisolasi, siap digunakan untuk Computer Based Test (CBT), pelatihan analisis data, pemrosesan transaksi, dan sertifikasi TI.',
+    highlights: [
+      'Perangkat PC spesifikasi tinggi terhubung internet cepat',
+      'Dukungan perangkat lunak analisis data & ujian CBT',
+      'AC & UPS back-up daya cadangan',
+      'Sistem monitoring layar instruktur'
+    ],
     image: {
-      url: "./images/facilities/classroom-1.jpeg",
-      alt: "Classroom Multimedia Tipe 1",
-      aspectRatio: "16:9"
+      url: './images/facilities/lab-komputer-1.jpeg',
+      alt: 'Laboratorium Komputer & Analisis Data',
+      aspectRatio: '16/9'
     },
     galleryImages: [
-      { url: "./images/facilities/classroom-1.jpeg", caption: "Classroom Multimedia Tipe 1" }
+      { url: './images/facilities/lab-komputer-1.jpeg', caption: 'Workstation PC Laboratorium Komputer' },
+      { url: './images/facilities/lab-komputer-2.jpeg', caption: 'Suasana Pelatihan Berbasis Komputer & CBT' }
     ]
   },
   {
-    id: "classroom-multimedia-2",
-    name: "Classroom Multimedia Tipe 2",
-    capacity: "40 - 60 Orang",
-    description: "Ruang kelas multimedia sekunder berfasilitas lengkap untuk sesi pelatihan paralel atau diskusi kelompok interaktif.",
-    highlights: ["Fasilitas Multimedia Lengkap", "Kapasitas Fleksibel", "AC & Sound System", "Papan Tulis & Flipchart"],
+    id: 'lab-bank-mini',
+    name: 'Laboratorium Simulasi Perbankan (Mini Bank)',
+    capacity: '20 - 30 Peserta Simulasi Terpadu',
+    description: 'Fasilitas simulasi layanan perbankan yang didesain persis menyerupai counter cabang bank nyata, lengkap dengan meja Customer Service, Teller, mesin hitung uang, dan sistem transaksi perbankan untuk pelatihan frontliner.',
+    highlights: [
+      'Counter Teller & Customer Service realistis',
+      'Peralatan transaksi operasional perbankan lengkap',
+      'Sistem simulasi transaksi perbankan terintegrasi',
+      'Digunakan untuk Program Abdi bjb Frontliner'
+    ],
     image: {
-      url: "./images/facilities/classroom-2.jpeg",
-      alt: "Classroom Multimedia Tipe 2",
-      aspectRatio: "16:9"
+      url: './images/facilities/lab-bank-mini.jpeg',
+      alt: 'Laboratorium Simulasi Perbankan (Mini Bank)',
+      aspectRatio: '16/9'
     },
     galleryImages: [
-      { url: "./images/facilities/classroom-2.jpeg", caption: "Classroom Multimedia Tipe 2" }
+      { url: './images/facilities/lab-bank-mini.jpeg', caption: 'Simulasi Counter Teller & Customer Service Bank Mini' }
     ]
   },
   {
-    id: "lab-komputer-1",
-    name: "Laboratorium Komputer & Sistem Informasi Tipe 1",
-    capacity: "30 - 50 Unit PC",
-    description: "Laboratorium komputer dengan puluhan workstation PC berspesifikasi tinggi, LAN berkecepatan tinggi, dan lisensi perangkat lunak perbankan/analitik.",
-    highlights: ["Workstation PC Spesifikasi Tinggi", "Koneksi LAN & Internet Cepat", "Software Analytics & Banking", "AC & LCD Projector"],
+    id: 'ruang-rapat-vip',
+    name: 'Ruang Rapat & Ruang Diskusi VIP',
+    capacity: '10 - 25 Orang',
+    description: 'Ruang rapat eksklusif dengan meja konferensi oval, kursi ergonomis, fasilitas Smart TV/proyektor, dan suasana privat yang ideal untuk rapat dewan direksi, negosiasi bisnis, maupun Focus Group Discussion (FGD).',
+    highlights: [
+      'Meja rapat eksekutif & kursi ergonomis',
+      'Smart TV / Display Presentasi Interaktif',
+      'Suasana privat & kedap suara',
+      'Layanan penyediaan coffee break eksklusif'
+    ],
     image: {
-      url: "./images/facilities/lab-komputer-1.jpeg",
-      alt: "Laboratorium Komputer & Sistem Informasi Tipe 1",
-      aspectRatio: "16:9"
+      url: './images/facilities/meeting-room.jpeg',
+      alt: 'Ruang Rapat & Ruang Diskusi VIP',
+      aspectRatio: '16/9'
     },
     galleryImages: [
-      { url: "./images/facilities/lab-komputer-1.jpeg", caption: "Laboratorium Komputer Tipe 1" }
+      { url: './images/facilities/meeting-room.jpeg', caption: 'Executive Boardroom / Ruang Rapat VIP' }
     ]
   },
   {
-    id: "lab-komputer-2",
-    name: "Laboratorium Komputer & Sistem Informasi Tipe 2",
-    capacity: "30 - 50 Unit PC",
-    description: "Laboratorium komputer sekunder pendukung pelatihan aplikasi bisnis, pengolahan data, dan simulasi IT perbankan.",
-    highlights: ["Puluhan Unit PC Modern", "Jaringan Lokal LAN & Internet", "Perangkat Lunak Praktik Komputer", "Sistem Keamanan Data"],
+    id: 'armada-transportasi',
+    name: 'Armada Transportasi & Fasilitas Pendukung',
+    capacity: 'Bus Medium (30-35 seat), Shuttle HiAce/Elf (14-16 seat), Mobil Operasional VIP',
+    description: 'Armada kendaraan operasional terawat untuk layanan antar-jemput (shuttle) peserta pelatihan dari/ke hotel, stasiun, atau bandara, serta pendukung mobilitas panitia dan kunjungan lapangan.',
+    highlights: [
+      'Bus medium & shuttle AC terawat',
+      'Pengemudi profesional berpengalaman',
+      'Layanan antar-jemput peserta (hotel - lokasi acara)',
+      'Dukungan logistik dan akomodasi acara'
+    ],
     image: {
-      url: "./images/facilities/lab-komputer-2.jpeg",
-      alt: "Laboratorium Komputer & Sistem Informasi Tipe 2",
-      aspectRatio: "16:9"
+      url: './images/facilities/transportasi.jpeg',
+      alt: 'Armada Transportasi & Fasilitas Pendukung',
+      aspectRatio: '16/9'
     },
     galleryImages: [
-      { url: "./images/facilities/lab-komputer-2.jpeg", caption: "Laboratorium Komputer Tipe 2" }
-    ]
-  },
-  {
-    id: "lab-bank-mini",
-    name: "Laboratorium Bank Mini (Simulation Banking Counter)",
-    capacity: "30 - 40 Orang",
-    description: "Ruang simulasi otentik dengan layout counter teller, customer service desk, mesin antrean, dan sistem perbankan nyata untuk sertifikasi frontliner.",
-    highlights: ["Counter Teller & Customer Service Desk", "Mesin Antrean & Display Transaksi", "Software Core Banking Simulation", "CCTV & Assessment Area"],
-    image: {
-      url: "./images/facilities/lab-bank-mini.jpeg",
-      alt: "Laboratorium Bank Mini",
-      aspectRatio: "16:9"
-    },
-    galleryImages: [
-      { url: "./images/facilities/lab-bank-mini.jpeg", caption: "Laboratorium Bank Mini (Simulation Banking Counter)" }
-    ]
-  },
-  {
-    id: "auditorium-aula",
-    name: "Auditorium & Aula Utama",
-    capacity: "300 - 500 Orang",
-    description: "Hall auditorium megah berdaya tampung ratusan peserta dengan panggung utama, akustik ruangan standar konser, dan fasilitas pameran.",
-    highlights: ["Panggung Utama & Display Screen", "Akustik Ruangan & Sound System", "Ruang Transit VIP", "Aksesibilitas & Area Pameran"],
-    image: {
-      url: "./images/facilities/aula-1.jpeg",
-      alt: "Auditorium & Aula Utama",
-      aspectRatio: "16:9"
-    },
-    galleryImages: [
-      { url: "./images/facilities/aula-1.jpeg", caption: "Auditorium & Aula Utama Tipe 1" },
-      { url: "./images/facilities/aula-2.jpeg", caption: "Auditorium & Aula Utama Tipe 2" }
+      { url: './images/facilities/transportasi.jpeg', caption: 'Armada Bus Operasional & Shuttle Peserta' }
     ]
   }
 ];
 
 export const PORTFOLIO_PROJECT: PortfolioProject = {
-  id: "abdi-bjb-frontliner",
-  title: "Program Pembelajaran Abdi bjb Frontliner (Customer Service & Teller)",
-  client: "bank bjb & YKP bank bjb",
-  category: "Frontliner Learning & Certification",
+  id: 'abdi-bjb-frontliner',
+  title: 'Program Pembelajaran Frontliner Abdi bjb (Customer Service & Teller)',
+  client: 'bank bjb (PT Bank Pembangunan Daerah Jawa Barat dan Banten, Tbk.)',
+  organizer: 'PT Sinergi Ekuitas Indonesia (bekerja sama dengan Universitas Ekuitas Indonesia)',
+  period: 'Pelaksanaan Bertahap / Multi-Batch',
+  totalParticipants: 'Ratusan Peserta Frontliner bank bjb',
+  category: 'Pelatihan Perbankan & Operational Support',
   impactMetrics: [
-    { label: "Peserta Terlatih", value: "500+" },
-    { label: "Tingkat Kepuasan", value: "98.4%" },
-    { label: "Laboratorium Simulasi", value: "Mini Bank" },
-    { label: "Dukungan End-to-End", value: "Akomodasi & Transp." }
+    { label: 'Tingkat Kelulusan Evaluasi', value: '100%' },
+    { label: 'Modul Praktikum Perbankan', value: '12+ Modul' },
+    { label: 'Kepuasan Layanan Peserta', value: '98.5%' },
+    { label: 'Cakupan Layanan End-to-End', value: '100%' }
   ],
-  summary: "Penyelenggaraan program pelatihan dan sertifikasi intensif bagi frontliner (Customer Service & Teller) bank bjb yang didukung penuh oleh fasilitas laboratorium mini bank dan sarana Universitas Ekuitas Indonesia.",
+  summary: 'Penyelenggaraan program pelatihan dan pembelajaran frontliner terpadu untuk calon pegawai & staf operasional bank bjb, mencakup kelas teori perbankan, simulasi laboratorium mini bank, ujian CBT, akomodasi, konsumsi, dan transportasi peserta.',
   details: [
-    "Seremoni pembukaan dan pembekalan materi intensif product knowledge perbankan.",
-    "Simulasi transaksi real-time teller dan penanganan nasabah di Laboratorium Bank Mini.",
-    "Pendalaman standar Service Excellence dan modul komunikasi profesional frontliner.",
-    "Praktik roleplay, complaint handling, dan asesmen kelayakan kompetensi individual.",
-    "Pengujian literasi digital dan pengoperasian software transaksi perbankan di Lab Komputer.",
-    "Penutupan program, evaluasi kelulusan akhir, dan penyerahan sertifikat kompetensi."
+    'Penyediaan fasilitas ruang kelas multimedia dan laboratorium komputer CBT untuk sesi ujian tertulis dan evaluasi pemahaman.',
+    'Pelaksanaan praktikum simulasi pelayanan perbankan pada Laboratorium Bank Mini (Customer Service & Teller counter).',
+    'Pengelolaan akomodasi penginapan, konsumsi harian, dan armada transportasi shuttle peserta selama periode pelatihan.',
+    'Penyertaan instruktur praktisi senior perbankan bank bjb dan akademisi pakar Universitas Ekuitas Indonesia.'
   ],
   image: {
-    url: "./images/portfolio/abdi-bjb-1.jpeg",
-    fallbackUrl: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=1200&q=80",
-    alt: "Program Pembelajaran Abdi bjb Frontliner (Customer Service & Teller)",
-    aspectRatio: "16:9"
+    url: './images/portfolio/abdi-bjb-1.jpeg',
+    fallbackUrl: './images/portfolio/abdi-bjb-1.jpeg',
+    alt: 'Dokumentasi Program Pembelajaran Abdi bjb Frontliner',
+    aspectRatio: '16/9'
   },
   galleryImages: [
     {
-      url: "./images/portfolio/abdi-bjb-1.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&w=800&q=80",
-      caption: "Pembukaan & Serah Terima Program Pembelajaran Abdi bjb Frontliner",
-      tag: "Ceremonial & Opening"
+      url: './images/portfolio/abdi-bjb-1.jpeg',
+      fallbackUrl: './images/portfolio/abdi-bjb-1.jpeg',
+      caption: 'Sesi Pembukaan & Pelatihan Kelas Frontliner bank bjb',
+      tag: 'Kelas Pembelajaran'
     },
     {
-      url: "./images/portfolio/abdi-bjb-2.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1556742049-0a67daf64f42?auto=format&fit=crop&w=800&q=80",
-      caption: "Simulasi Counter Teller & CS di Lab Bank Mini",
-      tag: "Mini Bank Simulation"
+      url: './images/portfolio/abdi-bjb-2.jpeg',
+      fallbackUrl: './images/portfolio/abdi-bjb-2.jpeg',
+      caption: 'Praktikum Simulasi Customer Service & Teller di Lab Bank Mini',
+      tag: 'Simulasi Perbankan'
     },
     {
-      url: "./images/portfolio/abdi-bjb-3.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80",
-      caption: "Suasana Kelas Pembelajaran Frontliner",
-      tag: "Classroom Theory"
+      url: './images/portfolio/abdi-bjb-3.jpeg',
+      fallbackUrl: './images/portfolio/abdi-bjb-3.jpeg',
+      caption: 'Ujian Evaluasi Berbasis Komputer (CBT) di Lab Komputer',
+      tag: 'Ujian CBT'
     },
     {
-      url: "./images/portfolio/abdi-bjb-4.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80",
-      caption: "Sesi Roleplay & Asesmen Customer Handling",
-      tag: "Roleplay & Assessment"
+      url: './images/portfolio/abdi-bjb-4.jpeg',
+      fallbackUrl: './images/portfolio/abdi-bjb-4.jpeg',
+      caption: 'Kegiatan Penggemblengan & Character Building Peserta',
+      tag: 'Pembangunan Karakter'
     },
     {
-      url: "./images/portfolio/abdi-bjb-5.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
-      caption: "Praktik Laboratorium Komputer & Sistem Perbankan",
-      tag: "Digital Lab Practice"
+      url: './images/portfolio/abdi-bjb-5.jpeg',
+      fallbackUrl: './images/portfolio/abdi-bjb-5.jpeg',
+      caption: 'Fasilitas Mobilisasi Shuttle Bus & Akomodasi Peserta',
+      tag: 'Logistik & Transportasi'
     },
     {
-      url: "./images/portfolio/abdi-bjb-6.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-      caption: "Penutupan Program & Penyerahan Sertifikat Kompetensi",
-      tag: "Closing & Certification"
+      url: './images/portfolio/abdi-bjb-6.jpeg',
+      fallbackUrl: './images/portfolio/abdi-bjb-6.jpeg',
+      caption: 'Upacara Penutupan & Penyerahan Sertifikat Kelulusan',
+      tag: 'Penutupan Program'
     }
   ]
 };
 
 export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
-    id: "domain-1",
-    title: "Banking & Financial Services",
-    category: "Keuangan & Perbankan",
-    shortDesc: "Manajemen operasional perbankan, analisis kredit, strategi treasury, serta tata kelola lembaga keuangan.",
+    id: 'domain-1',
+    domainNumber: 1,
+    title: 'Banking & Financial Services',
+    category: 'Keuangan & Perbankan',
+    shortDesc: 'Manajemen perbankan, analisis kredit, strategi treasury, perbankan syariah, digitalisasi perbankan, dan pemulihan NPL.',
+    iconName: 'Landmark',
+    badge: '11 Sub Topik',
     topics: [
-      "Banking Management & Operations",
-      "Credit & Financing Analysis",
-      "Funding & Treasury Strategies",
-      "Branch Management & Leadership",
-      "Strategic Banking",
-      "Conventional & Sharia Banking Principles",
-      "Banking Digitalization & Core Systems",
-      "Payment System & Banking Technology (QRIS, BI-FAST, Open API)",
-      "Credit Risk & Non-Performing Loan (NPL) Recovery Management",
-      "Banking Business Planning (RBB)",
-      "Financial Institution Governance"
-    ],
-    iconName: "Landmark",
-    badge: "Perbankan"
+      'Banking Management & Operations',
+      'Credit & Financing Analysis',
+      'Funding & Treasury Strategies',
+      'Branch Management & Leadership',
+      'Strategic Banking',
+      'Conventional & Sharia Banking Principles',
+      'Banking Digitalization & Core Systems',
+      'Payment System & Banking Technology (QRIS, BI-FAST, Open API)',
+      'Credit Risk & Non-Performing Loan (NPL) Recovery Management',
+      'Banking Business Planning (RBB)',
+      'Financial Institution Governance'
+    ]
   },
   {
-    id: "domain-2",
-    title: "Accounting, Finance & Taxation",
-    category: "Keuangan & Perbankan",
-    shortDesc: "Penyusunan laporan keuangan, manajemen modal kerja, penganggaran, hingga strategi perpajakan badan.",
+    id: 'domain-2',
+    domainNumber: 2,
+    title: 'Accounting, Finance & Taxation',
+    category: 'Keuangan & Perbankan',
+    shortDesc: 'Akuntansi keuangan, corporate finance, perpajakan institusi, budgeting, audit internal, dan PSAK/IFRS.',
+    iconName: 'Calculator',
+    badge: '10 Sub Topik',
     topics: [
-      "Financial Accounting & Reporting",
-      "Financial Statement Preparation & Financial Ratio Analysis",
-      "Corporate Finance & Capital Budgeting",
-      "Financial Management for Decision Makers",
-      "Finance for Non-Finance Managers",
-      "Budgeting, Cost Control & Activity-Based Costing",
-      "Cash Flow & Working Capital Management",
-      "Accounts Receivable (AR) & Accounts Payable (AP) Optimization",
-      "Fixed Asset Management & Depreciation Strategy",
-      "Project Financing & Feasibility Analysis",
-      "Standar Akuntansi Keuangan (PSAK / IFRS) & Corporate Taxation"
-    ],
-    iconName: "Calculator",
-    badge: "Akuntansi"
+      'Financial Accounting & Reporting',
+      'Financial Statement Preparation & Financial Ratio Analysis',
+      'Corporate Finance & Capital Budgeting',
+      'Financial Management for Decision Makers',
+      'Finance for Non-Finance Managers',
+      'Budgeting, Cost Control & Activity-Based Costing',
+      'Cash Flow & Working Capital Management',
+      'Accounts Receivable (AR) & Accounts Payable (AP) Optimization',
+      'Fixed Asset Management & Depreciation Strategy',
+      'Project Financing & Feasibility'
+    ]
   },
   {
-    id: "domain-3",
-    title: "Audit, Internal Control & Governance",
-    category: "Keuangan & Perbankan",
-    shortDesc: "Kerangka audit internal modern, pengawasan internal COSO, pencegahan kecurangan, dan ISO management system.",
+    id: 'domain-3',
+    domainNumber: 3,
+    title: 'Sharia Finance & Economics',
+    category: 'Keuangan & Perbankan',
+    shortDesc: 'Prinsip keuangan syariah, akad perbankan, tata kelola syariah, auditing, dan manajemen produk halal.',
+    iconName: 'Wallet',
+    badge: '10 Sub Topik',
     topics: [
-      "Modern Internal Audit Framework",
-      "Internal Control Systems (COSO Framework)",
-      "Financial Audit & Operational Audit",
-      "Audit Committee Best Practices & Reporting",
-      "Fraud Prevention, Detection & Forensic Investigation",
-      "Good Corporate Governance (GCG) Implementation & Scoring",
-      "Governance, Risk & Compliance (GRC) Integration",
-      "Corporate Governance Policy Authoring",
-      "Standard Operating Procedure (SOP) Development & Business Process Mapping",
-      "ISO Management System Certification (ISO 9001, ISO 27001, ISO 37001)",
-      "COBIT & IT Governance Frameworks"
-    ],
-    iconName: "FileCheck",
-    badge: "Audit & GCG"
+      'Principles of Sharia Economics & Islamic Banking',
+      'Sharia Financial Contracts (Akad Mudharabah, Musyarakah, Murabahah, Ijarah)',
+      'Sharia Governance & Sharia Compliance',
+      'Sharia Supervisory Board (DPS) Role & Responsibilities',
+      'Islamic Financial Product Structuring',
+      'Sharia Accounting Standards (PSAK Syariah)',
+      'Sharia Risk Management & Internal Audit',
+      'Zakat, Infaq, Sedekah & Waqf (ZISWAF) Management',
+      'Halal Industry Ecosystem & Certification Support',
+      'Sharia Microfinance & BMT Management'
+    ]
   },
   {
-    id: "domain-4",
-    title: "Risk Management & Compliance",
-    category: "Keuangan & Perbankan",
-    shortDesc: "Penerapan kerangka manajemen risiko ERM ISO 31000, pemenuhan regulasi OJK & BI, serta mitigasi risiko.",
+    id: 'domain-4',
+    domainNumber: 4,
+    title: 'Risk Management, Compliance & Audit',
+    category: 'Keuangan & Perbankan',
+    shortDesc: 'Kerangka manajemen risiko, audit internal, anti-pencucian uang (APU PPT), Good Corporate Governance, dan investigasi kecurangan.',
+    iconName: 'ShieldAlert',
+    badge: '11 Sub Topik',
     topics: [
-      "Enterprise Risk Management (ERM - ISO 31000)",
-      "Banking Risk Management (Regulasi OJK & Bank Indonesia)",
-      "Credit Risk Modeling & Scoring",
-      "Operational Risk & Business Continuity Planning (BCP)",
-      "Market & Liquidity Risk Analysis",
-      "Sharia Banking Risk Management",
-      "Compliance Management System",
-      "Anti-Money Laundering (AML) & Counter Financing of Terrorism (APU-PPT)",
-      "Risk Mitigation & Disaster Recovery Planning",
-      "Corporate Risk Appetite & Tolerance Formulation"
-    ],
-    iconName: "ShieldAlert",
-    badge: "Manajemen Risiko"
+      'Enterprise Risk Management (ERM) Framework (ISO 31000 / COSO)',
+      'Operational Risk & Business Continuity Management (BCM)',
+      'Credit, Market & Liquidity Risk Oversight',
+      'Regulatory Compliance & OJK/BI Regulatory Framework',
+      'Anti-Money Laundering & Counter Financing of Terrorism (APU PPT)',
+      'Internal Audit Methodology & Risk-Based Auditing (RBA)',
+      'Fraud Risk Management & Forensic Audit',
+      'Whistleblowing System Implementation',
+      'Good Corporate Governance (GCG) Assessment',
+      'Compliance Culture & Ethical Leadership',
+      'Cyber Risk & Data Privacy Compliance (UU PDP)'
+    ]
   },
   {
-    id: "domain-5",
-    title: "Strategic Management & Business Development",
-    category: "Manajemen & SDM",
-    shortDesc: "Perencanaan strategis perusahaan, studi kelayakan, rekayasa ulang proses bisnis, dan Balanced Scorecard.",
+    id: 'domain-5',
+    domainNumber: 5,
+    title: 'Human Capital, Leadership & Talent Management',
+    category: 'Manajemen & SDM',
+    shortDesc: 'Perencanaan SDM, kepemimpinan strategis, manajemen kinerja (KPI/OKR), rekrutmen, dan penilaian kompetensi.',
+    iconName: 'UserCheck',
+    badge: '11 Sub Topik',
     topics: [
-      "Corporate Strategic Planning & Roadmapping",
-      "Business Planning & Feasibility Studies",
-      "Business Process Re-engineering (BPR) & Management",
-      "Business Model Canvas (BMC) & Value Proposition Design",
-      "Comprehensive SWOT, PESTLE & Industry Analysis",
-      "Organizational Development (OD) & Change Management",
-      "Balanced Scorecard & Key Performance Indicators (KPI) Cascading",
-      "Corporate Performance Management Systems",
-      "Strategic Sourcing, Procurement & Vendor Management"
-    ],
-    iconName: "Target",
-    badge: "Strategi Bisnis"
+      'Strategic Human Resource Management (SHRM)',
+      'Organization Design & Workload Analysis (ABK)',
+      'Talent Acquisition & Competency-Based Recruitment',
+      'Performance Management System (KPI, OKR & Balance Scorecard)',
+      'Compensation, Benefits & Grading System',
+      'Talent Management & Succession Planning',
+      'Leadership Development & Executive Coaching',
+      'Employee Engagement, Industrial Relations & Labor Law',
+      'Training Needs Analysis (TNA) & Learning Evaluation (Kirkpatrick)',
+      'Assessment Center Assessor Skills',
+      'Corporate Culture Transformation'
+    ]
   },
   {
-    id: "domain-6",
-    title: "Human Capital & Leadership",
-    category: "Manajemen & SDM",
-    shortDesc: "Pengembangan modal manusia, kepemimpinan transformasional, analisis beban kerja, hingga struktur penggajian 3P.",
+    id: 'domain-6',
+    domainNumber: 6,
+    title: 'Digital Transformation, Data Analytics & IT Governance',
+    category: 'Teknologi & Operasional',
+    shortDesc: 'Transformasi digital, analisis data bisnis, tata kelola IT (COBIT/ITIL), keamanan siber, dan AI untuk bisnis.',
+    iconName: 'Cpu',
+    badge: '10 Sub Topik',
     topics: [
-      "Strategic Human Resource Management (SHRM)",
-      "Human Capital Development Framework",
-      "Transformational Leadership & Supervisory Skills",
-      "Strategic Manpower Planning (MPP)",
-      "Workload Analysis (WLA / Analisis Beban Kerja)",
-      "Training Needs Analysis (TNA) & Learning Journey Design",
-      "Job Analysis, Job Description & Job Evaluation",
-      "Job Grading & Salary Structure (3P: Pay for Position, Person, Performance)",
-      "Competency Dictionary & Assessment Center",
-      "Performance Appraisal & 360-Degree Feedback",
-      "Organizational Structure & Career Path Development"
-    ],
-    iconName: "UserCheck",
-    badge: "SDM & Kepemimpinan"
+      'Digital Transformation Strategy & Roadmap',
+      'IT Governance & IT Master Plan (COBIT Framework)',
+      'Data Analytics for Business Decision Making',
+      'Business Intelligence & Dashboard Reporting (Power BI/Tableau)',
+      'Cybersecurity Awareness & Information Security (ISO 27001)',
+      'Core Banking & IT Infrastructure Readiness',
+      'Artificial Intelligence (AI) & Automation for Corporate Efficiency',
+      'Digital Product Management & Agile/Scrum Methodology',
+      'Database Management & Data Governance',
+      'IT Audit & Systems Control'
+    ]
   },
   {
-    id: "domain-7",
-    title: "Marketing, Sales & Customer Experience",
-    category: "Manajemen & SDM",
-    shortDesc: "Manajemen pemasaran strategis, digital marketing, service excellence 5S, dan pemetaan customer journey.",
+    id: 'domain-7',
+    domainNumber: 7,
+    title: 'Business Strategy, Innovation & General Management',
+    category: 'Manajemen & SDM',
+    shortDesc: 'Perencanaan strategis bisnis, inovasi produk, manajemen perubahan, evaluasi investasi, dan kemitraan.',
+    iconName: 'Lightbulb',
+    badge: '10 Sub Topik',
     topics: [
-      "Strategic Marketing Management",
-      "Integrated Marketing Communication (IMC)",
-      "Digital Marketing & Growth Hacking",
-      "Social Media Strategy & Brand Activation",
-      "Content Marketing & Copywriting for Business",
-      "Brand Architecture & Corporate Identity Management",
-      "Sales Pipeline & Territory Management",
-      "Customer Relationship Management (CRM) Architecture",
-      "Service Excellence & 5S Culture Implementation",
-      "Professional Complaint Handling & De-escalation",
-      "End-to-End Customer Experience (CX) Journey Mapping",
-      "Creative Promotional Campaigns & Digital Advertising"
-    ],
-    iconName: "Megaphone",
-    badge: "Pemasaran & Layanan"
+      'Corporate Strategic Planning & Execution',
+      'Business Model Canvas & Innovation Strategy',
+      'Change Management & Organizational Agility',
+      'Feasibility Study & New Business Development',
+      'Competitive Intelligence & Market Analysis',
+      'Joint Venture, M&A & Strategic Partnership',
+      'Design Thinking for Service Innovation',
+      'Crisis Management & Corporate Resilience',
+      'Problem Solving & Decision Making (PSDM)',
+      'Project Management Professional (PMP) Fundamentals'
+    ]
   },
   {
-    id: "domain-8",
-    title: "Entrepreneurship & MSME Development",
-    category: "Manajemen & SDM",
-    shortDesc: "Pendampingan inkubasi bisnis, penguatan modal usaha UMKM, sertifikasi halal, dan onboarding e-commerce.",
+    id: 'domain-8',
+    domainNumber: 8,
+    title: 'Marketing, Branding & Customer Experience',
+    category: 'Manajemen & SDM',
+    shortDesc: 'Pemasaran digital, manajemen merek, service excellence, penanganan komplain, dan manajemen hubungan pelanggan (CRM).',
+    iconName: 'Megaphone',
+    badge: '10 Sub Topik',
     topics: [
-      "MSME Scale-Up & Business Mentoring",
-      "Sustainable Business Model Iteration",
-      "Product Innovation, Packaging & Value Creation",
-      "Financial Literacy & Cash Flow Bookkeeping for Small Businesses",
-      "Digitalization & E-commerce Onboarding for MSMEs",
-      "Halal Product Assurance System & Halal Certification Assistance",
-      "Business Incubation Program Management",
-      "Entrepreneurial Mindset & Business Idea Validation",
-      "Access to Capital & Microfinance Linkage",
-      "Micro Enterprise Management & Cooperatives"
-    ],
-    iconName: "ShoppingBag",
-    badge: "Kewirausahaan & UMKM"
+      'Integrated Marketing Strategy & Communications',
+      'Digital Marketing & Social Media Strategy',
+      'Brand Management & Corporate Reputation',
+      'Customer Experience (CX) & Journey Mapping',
+      'Service Excellence & Frontliner Professionalism',
+      'Customer Relationship Management (CRM) System',
+      'Consumer Behavior & Market Research',
+      'Sales Management & Key Account Management',
+      'Public Relations, Media Handling & Crisis PR',
+      'Content Creation & Copywriting for Corporate Branding'
+    ]
   },
   {
-    id: "domain-9",
-    title: "Digital Technology & Information Systems",
-    category: "Teknologi & Operasional",
-    shortDesc: "Tata kelola IT, sistem informasi enterprise (ERP/MIS), keamanan informasi ISO 27001, data analytics, dan AI terapan.",
+    id: 'domain-9',
+    domainNumber: 9,
+    title: 'Legal, Corporate Governance & Regulatory Affairs',
+    category: 'Keuangan & Perbankan',
+    shortDesc: 'Hukum perusahaan, legal drafting, hukum perbankan, mitigasi risiko sengketa, dan kepatuhan regulasi OJK/BI.',
+    iconName: 'FileCheck',
+    badge: '10 Sub Topik',
     topics: [
-      "Enterprise Information Systems (ERP & MIS)",
-      "IT Governance & Strategy (COBIT / ITIL)",
-      "Information Security Management System (ISO 27001 & Cyber Security)",
-      "Database Management Systems (SQL & Cloud Database)",
-      "Business Intelligence, Data Analytics & Reporting",
-      "Data Visualization & Interactive Executive Dashboards (Power BI / Tableau)",
-      "Machine Learning & Practical Predictive Modeling",
-      "Applied Artificial Intelligence (AI) for Corporate Productivity",
-      "Enterprise Digital Transformation Strategy",
-      "Microsoft Office Specialist (Advanced Excel, VBA, PowerPoint)",
-      "Digital Workplace Tools & Remote Collaboration Suites",
-      "Technology-Based Corporate Solutions"
-    ],
-    iconName: "Cpu",
-    badge: "Teknologi Informasi"
+      'Corporate Law & Contract Drafting/Review',
+      'Banking & Financial Law Compliance',
+      'Labor Law & Industrial Relations Legal Resolution',
+      'Intellectual Property (IP) Protection & Commercialization',
+      'Legal Aspect of Credit & Collateral Execution (Hak Tanggungan, Fidusia)',
+      'Dispute Resolution, Negotiation & Alternative Dispute Resolution (ADR)',
+      'Regulatory Technology (RegTech) & Legal Audit',
+      'BUMD & State-Owned Enterprise (SOE) Legal Governance',
+      'Personal Data Protection (PDP) Legal Compliance',
+      'Corporate Secretary & GCG Secretarial Practices'
+    ]
   },
   {
-    id: "domain-10",
-    title: "Capital Market, Fintech & Financial Literacy",
-    category: "Keuangan & Perbankan",
-    shortDesc: "Pasar modal Indonesia, manajemen investasi reksadana, analisis ekuitas, fintech, dan literasi keuangan korporat.",
+    id: 'domain-10',
+    domainNumber: 10,
+    title: 'Procurement, Supply Chain & Asset Management',
+    category: 'Teknologi & Operasional',
+    shortDesc: 'Pengadaan barang/jasa, manajemen rantai pasok, tata kelola aset, audit vendor, dan manajemen logistik.',
+    iconName: 'ShoppingBag',
+    badge: '10 Sub Topik',
     topics: [
-      "Indonesia Capital Market Architecture & Instruments",
-      "Investment Management & Mutual Funds (Reksadana)",
-      "Portfolio Management & Asset Allocation",
-      "Financial Technology (Fintech), P2P Lending & Open Banking",
-      "Comprehensive Personal & Corporate Financial Literacy",
-      "Behavioral Finance & Investment Psychology",
-      "Equity Research & Investment Valuation",
-      "Corporate Action & IPO Readiness",
-      "Sharia Financial Planning & Sukuk Instruments"
-    ],
-    iconName: "Wallet",
-    badge: "Pasar Modal & Fintech"
+      'Good Procurement Governance & Vendor Management',
+      'Supply Chain Management (SCM) & Strategic Sourcing',
+      'Contract Management in Procurement',
+      'Fixed Asset Management & Optimization Strategy',
+      'Warehouse, Inventory & Logistics Control',
+      'Procurement Audit & Anti-Bribery in Procurement (ISO 37001)',
+      'E-Procurement Implementation',
+      'Negotiation Skills for Procurement Professional',
+      'Asset Valuation & Property Management Fundamentals',
+      'Sustainable Procurement & Green Supply Chain'
+    ]
   },
   {
-    id: "domain-11",
-    title: "Sustainability, ESG & Sustainable Business",
-    category: "Manajemen & SDM",
-    shortDesc: "Integrasi prinsip ESG, penyusunan laporan keberlanjutan GRI & POJK 51, green finance, dan strategi bisnis hijau.",
+    id: 'domain-11',
+    domainNumber: 11,
+    title: 'Soft Skills, Communication & Personal Effectiveness',
+    category: 'Manajemen & SDM',
+    shortDesc: 'Komunikasi bisnis, public speaking, negosiasi, manajemen waktu, etika profesi, dan emotional intelligence.',
+    iconName: 'Award',
+    badge: '10 Sub Topik',
     topics: [
-      "Environmental, Social & Governance (ESG) Core Integration",
-      "Sustainability Reporting Standards (GRI Standards & POJK 51)",
-      "Green Finance & Sustainable Banking Principles",
-      "ESG Risk Assessment & Due Diligence",
-      "Sustainable Corporate Business Strategies",
-      "Sustainable Development Goals (SDGs) Action Alignment",
-      "Circular Economy Implementation & Waste Reduction",
-      "Corporate Social Responsibility (CSR) & Social Return on Investment (SROI)",
-      "Sustainable Supply Chain & Green Procurement"
-    ],
-    iconName: "Award",
-    badge: "Keberlanjutan & ESG"
+      'Effective Business Communication & Presentation Skills',
+      'Public Speaking & Executive Presence',
+      'Advanced Negotiation & Persuasion Skills',
+      'Emotional Intelligence (EQ) for Professional Success',
+      'Time Management & Personal Productivity',
+      'Critical Thinking & Analytical Problem Solving',
+      'Interpersonal Skills & Conflict Resolution',
+      'Professional Image, Grooming & Business Etiquette',
+      'Stress Management & Work-Life Balance',
+      'Cross-Cultural Communication & Diversity in Workplace'
+    ]
   },
   {
-    id: "domain-12",
-    title: "Research, Academic & Professional Development",
-    category: "Teknologi & Operasional",
-    shortDesc: "Metodologi riset kualitatif & kuantitatif, analisis data SPSS/Python, publikasi jurnal, dan Training for Trainers (TFT).",
+    id: 'domain-12',
+    domainNumber: 12,
+    title: 'Event Management, MICE & Facility Operations',
+    category: 'Teknologi & Operasional',
+    shortDesc: 'Manajemen acara korporat, MICE, protokol, pengelolaan gedung & fasilitas, K3 gedung, dan operasional logistik.',
+    iconName: 'Landmark',
+    badge: '10 Sub Topik',
     topics: [
-      "Advanced Quantitative & Qualitative Research Methodologies",
-      "Applied Business & Economic Research",
-      "Market Research, Consumer Insights & Survey Design",
-      "Statistical Data Analysis (SPSS, AMOS, PLS-SEM, EViews, Python/R)",
-      "Academic Writing & Policy Brief Drafting",
-      "Reputable Scientific Journal Publication (Scopus / SINTA)",
-      "Training for Trainers (TFT) Bersertifikasi BNSP",
-      "Instructional Design, Curriculum & Modular Training Development",
-      "Continuing Professional Competency Programs"
-    ],
-    iconName: "Lightbulb",
-    badge: "Riset & Pengembangan"
+      'MICE (Meeting, Incentive, Convention, Exhibition) Planning',
+      'Corporate Event Execution & Protocol Management',
+      'Building & Facility Operations Management',
+      'Occupational Health, Safety & Environment (K3 Gedung)',
+      'Hospitality & VIP Guest Handling',
+      'Event Budgeting, Financial Control & Sponsorship',
+      'AV Technology, Stage Design & Hybrid Event Systems',
+      'Vendor Coordination & Event Risk Mitigation',
+      'Security, Crowd Control & Emergency Response in Event',
+      'Post-Event Evaluation & Impact Measurement'
+    ]
   }
 ];
 
 export const EXPERT_DOMAINS = EXPERT_DOMAINS_DATA;
-
-export const LEADERSHIP_MEMBERS: LeaderItem[] = [
-  {
-    id: "deni-hamdani",
-    name: "Deni Hamdani, SE.M.Si",
-    title: "Direktur Utama",
-    role: "Arah Strategis & Sinergi Kemitraan",
-    bio: "Memimpin arah strategis perusahaan serta bertanggung jawab dalam memastikan seluruh kegiatan operasional dan pengembangan bisnis berjalan selaras dengan visi perusahaan. Berperan dalam pengambilan keputusan strategis, penguatan tata kelola, serta membangun sinergi dan kerja sama dengan berbagai mitra untuk mendukung pertumbuhan perusahaan yang berkelanjutan.",
-    image: {
-      url: "./images/team/deni-hamdani.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80",
-      alt: "Deni Hamdani, SE.M.Si — Direktur Utama"
-    }
-  },
-  {
-    id: "gatot-iwan",
-    name: "Dr. Gatot Iwan Kurniawan, SE., MBA",
-    title: "Direktur",
-    role: "Perencanaan Strategis & Inovasi Layanan",
-    bio: "Berperan dalam mendukung perencanaan dan pelaksanaan strategi perusahaan, khususnya dalam pengembangan bisnis, inovasi, serta peningkatan kualitas layanan. Turut mengawal pelaksanaan program perusahaan agar berjalan efektif, adaptif terhadap perkembangan industri, dan mampu memberikan nilai tambah bagi mitra maupun pelanggan.",
-
-    image: {
-      url: "./images/team/gatot-iwan.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80",
-      alt: "Dr. Gatot Iwan Kurniawan, SE., MBA — Direktur"
-    }
-  },
-  {
-    id: "muhammad-gunawan",
-    name: "Muhammad Gunawan",
-    title: "Komisaris",
-    role: "Pengawasan & Arahan Tata Kelola (GCG)",
-    bio: "Melaksanakan fungsi pengawasan serta memberikan arahan dan masukan strategis terhadap kebijakan dan pengelolaan perusahaan. Berperan dalam memastikan kegiatan perusahaan dilaksanakan dengan prinsip tata kelola yang baik (Good Corporate Governance), profesional, transparan, serta tetap berorientasi pada pencapaian tujuan dan keberlanjutan perusahaan.",
-    image: {
-      url: "./images/team/muhammad-gunawan.jpeg",
-      fallbackUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80",
-      alt: "Muhammad Gunawan — Komisaris"
-    }
-  }
-];
-
-export const LEADERSHIP_DATA = LEADERSHIP_MEMBERS[0];
-
-export const VISION_MISSION_DATA = {
-  vision: COMPANY_INFO.vision,
-  missions: COMPANY_INFO.missions,
-  coreValues: [
-    { letter: "S", word: "Solutif", desc: "Menghadirkan jawaban nyata atas setiap tantangan institusional mitra." },
-    { letter: "I", word: "Integritas", desc: "Menjunjung tinggi kejujuran, etika, dan transparansi dalam seluruh operasional." },
-    { letter: "N", word: "Nalar", desc: "Menggunakan landasan analitis dan akademis yang kuat dalam setiap rekomendasi." },
-    { letter: "E", word: "Empati", desc: "Memahami dengan mendalam kebutuhan peserta, institusi, dan masyarakat." },
-    { letter: "R", word: "Responsif", desc: "Cepat dan sigap dalam memberikan layanan dan dukungan operasional." },
-    { letter: "G", word: "Gigih", desc: "Berkomitmen tinggi mencapai standar keunggulan tanpa kompromi." },
-    { letter: "I", word: "Inovatif", desc: "Terus memperbarui metode pembelajaran dan teknologi layanan." }
-  ]
-};

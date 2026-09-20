@@ -5,20 +5,18 @@ import {
   MapPin,
   Clock,
   Send,
-  MessageSquare,
   CheckCircle2,
   Download,
-  AlertCircle,
-  Sparkles
+  AlertCircle
 } from 'lucide-react';
-import { COMPANY_INFO } from '@/data/companyData';
+import { COMPANY_INFO, SERVICES_DATA } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
 export const LeadHub: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     institution: '',
-    service: 'Pelatihan & Pengembangan (Training & Development)',
+    service: 'Pelatihan Profesional & Sertifikasi Kompetensi',
     contact: '',
     message: '',
   });
@@ -83,7 +81,7 @@ export const LeadHub: React.FC = () => {
       return;
     }
 
-    const text = `Halo PT Sinergi Ekuitas Indonesia, saya ingin berkonsultasi mengenai kebutuhan institusi kami:
+    const text = `Halo ${COMPANY_INFO.name}, saya ingin berkonsultasi mengenai kebutuhan institusi kami:
 
 Nama: ${formData.name}
 Instansi: ${formData.institution || '-'}
@@ -92,7 +90,7 @@ Kontak: ${formData.contact}
 Pesan/Kebutuhan: ${formData.message || '-'}`;
 
     const encodedText = encodeURIComponent(text);
-    const waUrl = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodedText}`;
+    const waUrl = `${COMPANY_INFO.whatsappLink}?text=${encodedText}`;
 
     setSubmitted(true);
     window.open(waUrl, '_blank');
@@ -111,16 +109,14 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-extrabold text-coral-400 bg-navy-900 rounded-full">
-            <Sparkles className="w-3.5 h-3.5 text-coral-500" aria-hidden="true" />
+          <span className="inline-flex items-center px-3.5 py-1 text-xs font-extrabold text-coral-400 bg-navy-900 rounded-full">
             Hubungi Tim Konsultasi Kami
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
             Mulai Konsultasi &amp; Permintaan Proposal Sinergi
           </h2>
           <p className="text-base text-navy-200 leading-relaxed font-normal">
-            Siap mendiskusikan kebutuhan pengembangan SDM, pelatihan perbankan, konsultasi bisnis, dan operasional
-            kegiatan institusi Anda bersama pakar kami.
+            Siap mendiskusikan kebutuhan pengembangan SDM, pelatihan perbankan, konsultasi bisnis, dan operasional kegiatan institusi Anda bersama pakar kami.
           </p>
         </div>
 
@@ -132,10 +128,10 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   Sekretariat &amp; Kantor Pusat
                 </span>
                 <h3 className="text-xl font-bold text-white leading-snug">
-                  PT Sinergi Ekuitas Indonesia
+                  {COMPANY_INFO.name}
                 </h3>
                 <p className="text-xs text-navy-200">
-                  Afiliasi resmi Yayasan Kesejahteraan Pegawai (YKP) bank bjb &amp; Universitas Ekuitas Indonesia.
+                  {COMPANY_INFO.ecosystemSubtitle}
                 </p>
               </div>
 
@@ -159,7 +155,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   <div>
                     <span className="font-bold text-white block">WhatsApp &amp; Telepon:</span>
                     <span className="text-navy-200 block mt-0.5">
-                      {COMPANY_INFO.whatsappFormatted} (Official) / {COMPANY_INFO.phone}
+                      {COMPANY_INFO.whatsappFormatted} (WhatsApp) / {COMPANY_INFO.phone}
                     </span>
                   </div>
                 </div>
@@ -189,7 +185,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
 
               <div className="pt-2 space-y-3">
                 <a
-                  href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Halo%20PT%20Sinergi%20Ekuitas%20Indonesia,%20saya%20ingin%20berkonsultasi.`}
+                  href={`${COMPANY_INFO.whatsappLink}?text=Halo%20${encodeURIComponent(COMPANY_INFO.name)},%20saya%20ingin%20berkonsultasi.`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat langsung dengan sekretariat via WhatsApp Official"
@@ -203,7 +199,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   href="./docs/Company-Profile-PT-Sinergi.pdf"
                   download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
                   aria-label="Unduh E-Brochure Company Profile PT Sinergi format PDF"
-                  className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] text-xs font-bold text-white bg-navy-950 hover:bg-navy-800 border border-navy-700 px-5 py-2.5 rounded-xl transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
+                  className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] text-xs font-bold text-navy-100 bg-navy-950 hover:bg-navy-800 border border-navy-700 px-5 py-2.5 rounded-xl transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
                 >
                   <Download className="w-4 h-4 text-brandBlue-400" aria-hidden="true" />
                   <span>Unduh E-Brochure Profile (PDF)</span>
@@ -240,175 +236,136 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                     Permintaan Anda Sedang Diproses!
                   </h3>
                   <p className="text-xs sm:text-sm text-navy-700 max-w-md mx-auto leading-relaxed">
-                    Sistem telah mengarahkan Anda ke WhatsApp Official sekretariat kami. Jika jendela tidak terbuka otomatis, silakan klik tombol di bawah.
+                    Terima kasih telah menghubungi PT Sinergi Ekuitas Indonesia. Anda telah diarahkan ke WhatsApp Official kami untuk mendiskusikan proposal.
                   </p>
-                  <div className="pt-4">
-                    <a
-                      href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=Halo%20PT%20Sinergi%20Ekuitas%20Indonesia`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold text-xs text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-md transition-all duration-150 ease-out"
-                    >
-                      <MessageSquare className="w-4 h-4" />
-                      <span>Buka WhatsApp Sekarang</span>
-                    </a>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitted(false)}
+                    className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-navy-900 text-white font-bold text-xs hover:bg-brandBlue-600 transition-colors"
+                  >
+                    Kirim Pesan Lainnya
+                  </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                  <div className="space-y-1.5 border-b border-border-subtle pb-4">
-                    <span className="text-xs font-bold text-coral-600 uppercase tracking-wider">
-                      Respon Cepat Tim Ahli
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-navy-900 leading-snug">
-                      Formulir Permintaan Proposal &amp; Diskusi
+                <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+                  <div className="space-y-1 border-b border-border-subtle pb-4">
+                    <h3 className="text-xl font-extrabold text-navy-900">
+                      Formulir Konsultasi &amp; Kemitraan
                     </h3>
-                    <p className="text-xs text-navy-600 leading-relaxed font-normal">
-                      Isi formulir di bawah ini untuk terhubung langsung dengan Tim Konsultasi &amp; Sekretariat Sinergi.
+                    <p className="text-xs text-navy-600">
+                      Isi data singkat berikut untuk mempermudah konsultan kami menyiapkan rekomendasi solusi.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <label htmlFor="form-name" className="block text-xs font-bold text-navy-900">
-                        Nama Lengkap <span className="text-coral-500" aria-hidden="true">*</span>
-                        <span className="sr-only">(wajib diisi)</span>
+                  <div className="space-y-4">
+                    <div>
+                      <label htmlFor="lead-name" className="block text-xs font-bold text-navy-900 mb-1">
+                        Nama Lengkap <span className="text-coral-500">*</span>
                       </label>
                       <input
-                        id="form-name"
+                        id="lead-name"
                         type="text"
-                        required
-                        aria-required="true"
-                        aria-invalid={!!errors.name}
-                        aria-describedby={errors.name ? 'name-error' : undefined}
-                        placeholder="Contoh: Budi Pratama"
                         value={formData.name}
-                        onBlur={() => handleBlur('name')}
                         onChange={(e) => handleChange('name', e.target.value)}
-                        className={`w-full min-h-[44px] bg-surface-tint border px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 transition-all duration-150 ${
-                          errors.name
-                            ? 'border-red-500 focus-visible:ring-red-400 bg-red-50/20'
-                            : 'border-border-subtle focus-visible:ring-brandBlue-500'
+                        onBlur={() => handleBlur('name')}
+                        placeholder="Contoh: Budi Santoso, S.E."
+                        className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm font-normal text-navy-900 placeholder:text-navy-400 bg-white focus:outline-none focus:ring-2 transition-all ${
+                          touched.name && errors.name
+                            ? 'border-coral-500 focus:ring-coral-500/20'
+                            : 'border-border-subtle focus:border-brandBlue-500 focus:ring-brandBlue-500/20'
                         }`}
+                        aria-required="true"
+                        aria-invalid={!!(touched.name && errors.name)}
                       />
-                      {errors.name && (
-                        <p id="name-error" role="alert" className="text-xs text-red-600 font-medium flex items-center gap-1 pt-0.5">
-                          <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
+                      {touched.name && errors.name && (
+                        <p className="text-[11px] font-medium text-coral-600 mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5" />
                           <span>{errors.name}</span>
                         </p>
                       )}
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label htmlFor="form-institution" className="block text-xs font-bold text-navy-900">
-                        Nama Perusahaan / Instansi
+                    <div>
+                      <label htmlFor="lead-institution" className="block text-xs font-bold text-navy-900 mb-1">
+                        Instansi / Perusahaan / Kampus (Opsional)
                       </label>
                       <input
-                        id="form-institution"
+                        id="lead-institution"
                         type="text"
-                        placeholder="Contoh: Bank BJB Cabang / Dinas XYZ"
                         value={formData.institution}
                         onChange={(e) => handleChange('institution', e.target.value)}
-                        className="w-full min-h-[44px] bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 transition-all duration-150"
+                        placeholder="Contoh: PT Bank bjb Cabang Utama Bandung / Universitas X"
+                        className="w-full px-4 py-3 rounded-xl border border-border-subtle text-xs sm:text-sm font-normal text-navy-900 placeholder:text-navy-400 bg-white focus:outline-none focus:border-brandBlue-500 focus:ring-2 focus:ring-brandBlue-500/20 transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="lead-service" className="block text-xs font-bold text-navy-900 mb-1">
+                        Layanan yang Diminati <span className="text-coral-500">*</span>
+                      </label>
+                      <select
+                        id="lead-service"
+                        value={formData.service}
+                        onChange={(e) => handleChange('service', e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-border-subtle text-xs sm:text-sm font-normal text-navy-900 bg-white focus:outline-none focus:border-brandBlue-500 focus:ring-2 focus:ring-brandBlue-500/20 transition-all"
+                      >
+                        {SERVICES_DATA.map((srv) => (
+                          <option key={srv.id} value={srv.title}>
+                            {srv.title}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="lead-contact" className="block text-xs font-bold text-navy-900 mb-1">
+                        Nomor WhatsApp / Email Kontak <span className="text-coral-500">*</span>
+                      </label>
+                      <input
+                        id="lead-contact"
+                        type="text"
+                        value={formData.contact}
+                        onChange={(e) => handleChange('contact', e.target.value)}
+                        onBlur={() => handleBlur('contact')}
+                        placeholder="Contoh: 081234567890 atau email@perusahaan.co.id"
+                        className={`w-full px-4 py-3 rounded-xl border text-xs sm:text-sm font-normal text-navy-900 placeholder:text-navy-400 bg-white focus:outline-none focus:ring-2 transition-all ${
+                          touched.contact && errors.contact
+                            ? 'border-coral-500 focus:ring-coral-500/20'
+                            : 'border-border-subtle focus:border-brandBlue-500 focus:ring-brandBlue-500/20'
+                        }`}
+                        aria-required="true"
+                        aria-invalid={!!(touched.contact && errors.contact)}
+                      />
+                      {touched.contact && errors.contact && (
+                        <p className="text-[11px] font-medium text-coral-600 mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3.5 h-3.5" />
+                          <span>{errors.contact}</span>
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label htmlFor="lead-message" className="block text-xs font-bold text-navy-900 mb-1">
+                        Pesan / Detail Kebutuhan (Opsional)
+                      </label>
+                      <textarea
+                        id="lead-message"
+                        rows={4}
+                        value={formData.message}
+                        onChange={(e) => handleChange('message', e.target.value)}
+                        placeholder="Jelaskan perkiraan jumlah peserta, jadwal rencana kegiatan, atau topik modul khusus yang Anda butuhkan..."
+                        className="w-full px-4 py-3 rounded-xl border border-border-subtle text-xs sm:text-sm font-normal text-navy-900 placeholder:text-navy-400 bg-white focus:outline-none focus:border-brandBlue-500 focus:ring-2 focus:ring-brandBlue-500/20 transition-all resize-none"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label htmlFor="form-service" className="block text-xs font-bold text-navy-900">
-                      Pilihan Kategori Layanan <span className="text-coral-500" aria-hidden="true">*</span>
-                    </label>
-                    <div className="relative">
-                      <select
-                        id="form-service"
-                        value={formData.service}
-                        onChange={(e) => handleChange('service', e.target.value)}
-                        className="w-full min-h-[44px] bg-surface-tint border border-border-subtle px-3.5 py-2.5 rounded-xl text-xs text-navy-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 appearance-none transition-all duration-150"
-                      >
-                        <option value="Pelatihan & Pengembangan (Training & Development)">
-                          Pelatihan &amp; Pengembangan (Training &amp; Development)
-                        </option>
-                        <option value="Konsultasi (Strategic & Organizational Consulting)">
-                          Konsultasi (Strategic &amp; Organizational Consulting)
-                        </option>
-                        <option value="Manajemen Acara (Event & Conference Management)">
-                          Manajemen Acara (Event &amp; Conference Management)
-                        </option>
-                        <option value="Fasilitas Pembelajaran (Learning Facilities Rental & Support)">
-                          Fasilitas Pembelajaran (Rental Lab Komputer, Bank Mini, Kelas)
-                        </option>
-                        <option value="Merchandise Institusional (Corporate Merchandise & Branding)">
-                          Merchandise Institusional (Corporate Merchandise &amp; Kit)
-                        </option>
-                        <option value="Kemitraan Strategis (Strategic Partnerships & Synergies)">
-                          Kemitraan Strategis &amp; Sinergi Kelembagaan
-                        </option>
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-navy-700">
-                        <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                          <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label htmlFor="form-contact" className="block text-xs font-bold text-navy-900">
-                      Nomor WhatsApp / Email Kontak <span className="text-coral-500" aria-hidden="true">*</span>
-                      <span className="sr-only">(wajib diisi)</span>
-                    </label>
-                    <input
-                      id="form-contact"
-                      type="text"
-                      required
-                      aria-required="true"
-                      aria-invalid={!!errors.contact}
-                      aria-describedby={errors.contact ? 'contact-error' : undefined}
-                      placeholder="Contoh: 081234567890 atau nama@instansi.id"
-                      value={formData.contact}
-                      onBlur={() => handleBlur('contact')}
-                      onChange={(e) => handleChange('contact', e.target.value)}
-                      className={`w-full min-h-[44px] bg-surface-tint border px-3.5 py-2.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 transition-all duration-150 ${
-                        errors.contact
-                          ? 'border-red-500 focus-visible:ring-red-400 bg-red-50/20'
-                          : 'border-border-subtle focus-visible:ring-brandBlue-500'
-                      }`}
-                    />
-                    {errors.contact && (
-                      <p id="contact-error" role="alert" className="text-xs text-red-600 font-medium flex items-center gap-1 pt-0.5">
-                        <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" aria-hidden="true" />
-                        <span>{errors.contact}</span>
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label htmlFor="form-message" className="block text-xs font-bold text-navy-900">
-                      Detail Kebutuhan / Pertanyaan Proposal
-                    </label>
-                    <textarea
-                      id="form-message"
-                      rows={4}
-                      placeholder="Jelaskan perkiraan jumlah peserta, jadwal kegiatan, atau spesifikasi program yang dibutuhkan..."
-                      value={formData.message}
-                      onChange={(e) => handleChange('message', e.target.value)}
-                      className="w-full bg-surface-tint border border-border-subtle p-3.5 rounded-xl text-xs text-navy-900 placeholder:text-navy-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 resize-y transition-all duration-150"
-                    />
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      aria-label="Kirim formulir dan lanjutkan via WhatsApp Official"
-                      className="w-full inline-flex items-center justify-center gap-2.5 min-h-[48px] text-sm font-bold text-white bg-navy-900 hover:bg-navy-800 py-3.5 px-6 rounded-xl shadow-lg hover:shadow-card-hover transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98] group"
-                    >
-                      <Send className="w-4 h-4 text-coral-500 group-hover:translate-x-1 transition-transform duration-200 ease-out" aria-hidden="true" />
-                      <span>Kirim &amp; Hubungkan ke WhatsApp Official</span>
-                    </button>
-                    <p className="text-[11px] text-navy-500 text-center pt-2">
-                      Privasi data terjamin. Tim kami akan merespons dalam waktu 1x24 jam kerja.
-                    </p>
-                  </div>
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center gap-2 min-h-[50px] px-6 py-3.5 bg-brandBlue-600 hover:bg-brandBlue-700 text-white font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brandBlue-500 active:scale-[0.99]"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Kirim Permintaan Proposal via WhatsApp</span>
+                  </button>
                 </form>
               )}
             </div>

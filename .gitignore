@@ -2,3 +2,7 @@ node_modules
 dist
 .slim/deepwork/
 .slim/worktrees/
+.slim/codemap.json
+.impeccable
+codemap.md
+**/codemap.md

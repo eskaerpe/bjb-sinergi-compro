@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   Layers,
   ArrowRight,
-  Sparkles,
   CheckCircle2,
   FileCheck2,
   Scale
@@ -101,8 +100,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
 
       <div className="relative z-10 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3.5">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 text-xs font-bold text-brandBlue-600 bg-brandBlue-50 rounded-full">
-            <Sparkles className="w-3.5 h-3.5 text-coral-500" aria-hidden="true" />
+          <span className="inline-flex items-center px-3.5 py-1 text-xs font-bold text-brandBlue-600 bg-brandBlue-50 rounded-full">
             {isPreview ? 'Sinergi B2B & Ekuitas' : 'Sinergi Ekosistem Terintegrasi'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">

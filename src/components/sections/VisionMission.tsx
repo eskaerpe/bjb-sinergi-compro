@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Compass, Sparkles } from 'lucide-react';
+import { Target, Compass, ShieldCheck } from 'lucide-react';
 import { VISION_MISSION_DATA } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 
@@ -19,7 +19,7 @@ export const VisionMission: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           <div className="lg:col-span-5 bg-navy-900 text-white rounded-3xl p-8 sm:p-10 shadow-card border border-navy-800 flex flex-col justify-between space-y-8 relative overflow-hidden">
             <div className="space-y-4 relative z-10">
               <div className="w-12 h-12 rounded-xl bg-coral-500 text-navy-950 flex items-center justify-center font-bold shadow-sm">
@@ -29,32 +29,32 @@ export const VisionMission: React.FC = () => {
                 Visi Perusahaan
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white leading-snug">
-                Mitra Strategis Terdepan Integrasi SDM &amp; Kelembagaan
+                Mitra Strategis Terdepan &amp; Terpercaya
               </h3>
-              <p className="text-sm text-navy-100 leading-relaxed font-normal">
+              <p className="text-sm sm:text-base text-navy-100 leading-relaxed font-normal italic">
                 "{VISION_MISSION_DATA.vision}"
               </p>
             </div>
 
             <div className="pt-6 border-t border-navy-800 relative z-10">
               <p className="text-xs text-navy-300">
-                Standardisasi mutu berbasis kurikulum industri perbankan &amp; akademik teruji.
+                Standardisasi mutu berbasis kurikulum industri perbankan &amp; riset akademik teruji.
               </p>
             </div>
-            <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-brandBlue-500/20 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-16 -right-16 w-60 h-60 bg-brandBlue-500/20 rounded-full blur-2xl pointer-events-none" aria-hidden="true" />
           </div>
 
-          <div className="lg:col-span-7 bg-surface-tint rounded-3xl p-8 sm:p-10 border border-border-subtle space-y-6">
+          <div className="lg:col-span-7 bg-surface-tint rounded-3xl p-8 sm:p-10 border border-border-subtle flex flex-col justify-between space-y-6">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-bold">
                 <Compass className="w-5 h-5 text-brandBlue-500" />
               </div>
               <div>
                 <span className="text-[10px] font-extrabold uppercase text-brandBlue-600 tracking-wider">
-                  5 Pilar Eksekusi
+                  5 Misi Utama
                 </span>
                 <h3 className="text-xl font-extrabold text-navy-900">
-                  Misi Utama Perusahaan
+                  Misi Perusahaan &amp; Komitmen Tata Kelola
                 </h3>
               </div>
             </div>
@@ -63,9 +63,9 @@ export const VisionMission: React.FC = () => {
               {VISION_MISSION_DATA.missions.map((mission, idx) => (
                 <div
                   key={idx}
-                  className="bg-white p-4 rounded-2xl border border-border-subtle flex items-start gap-3 shadow-2xs"
+                  className="bg-white p-4 rounded-2xl border border-border-subtle flex items-start gap-3.5 shadow-2xs hover:border-brandBlue-300 transition-colors"
                 >
-                  <span className="w-6 h-6 rounded-full bg-navy-900 text-white text-xs font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-6 h-6 rounded-full bg-brandBlue-50 text-brandBlue-600 font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
                   <p className="text-xs sm:text-sm text-navy-800 font-medium leading-relaxed">
@@ -80,29 +80,34 @@ export const VisionMission: React.FC = () => {
         <div className="space-y-6 pt-4">
           <div className="text-center space-y-2">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold text-navy-800 bg-navy-50 px-3.5 py-1 rounded-full">
-              <Sparkles className="w-3.5 h-3.5 text-coral-500" />
-              <span>Budaya Organisasi</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-coral-500" />
+              <span>Budaya Organisasi &amp; Pedoman Perilaku</span>
             </span>
             <h3 className="text-2xl font-extrabold text-navy-900">
-              7 Nilai Utama (S-I-N-E-R-G-I)
+              7 Nilai Utama Budaya SINERGI
             </h3>
+            <p className="text-xs sm:text-sm text-navy-600 max-w-2xl mx-auto font-normal">
+              Sinergi, Integritas, Nawaitu, Efisien, Responsif, Gigih, dan Inovatif sebagai pilar perilaku seluruh insan perusahaan.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4">
-            {VISION_MISSION_DATA.coreValues.map((val, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-4">
+            {VISION_MISSION_DATA.values.map((val, idx) => (
               <div
                 key={idx}
-                className="bg-white p-4 rounded-2xl border border-border-subtle shadow-2xs text-center space-y-2"
+                className="bg-white p-4 rounded-2xl border border-border-subtle shadow-2xs text-center space-y-2.5 flex flex-col justify-between hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
               >
-                <div className="w-10 h-10 rounded-xl bg-navy-900 text-coral-500 font-black text-xl flex items-center justify-center mx-auto">
+                <div className="w-10 h-10 rounded-xl bg-navy-900 text-coral-500 font-black text-xl flex items-center justify-center mx-auto shadow-sm">
                   {val.letter}
                 </div>
-                <h4 className="text-sm font-bold text-navy-900 leading-tight">
-                  {val.word}
-                </h4>
-                <p className="text-[11px] text-navy-600 leading-snug font-normal">
-                  {val.desc}
-                </p>
+                <div>
+                  <h4 className="text-sm font-bold text-navy-900 leading-tight">
+                    {val.word}
+                  </h4>
+                  <p className="text-[11px] text-navy-600 leading-snug font-normal mt-1">
+                    {val.description || val.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
