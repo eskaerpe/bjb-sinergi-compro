@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Menu, X, MessageSquare, Download } from 'lucide-react';
+import { COMPANY_INFO } from '@/data/companyData';
 import { cn } from '@/utils/cn';
 
 interface NavItem {
@@ -168,8 +169,10 @@ export const Navbar: React.FC = () => {
                     </Link>
 
                     <a
-                      href="/docs/Company-Profile-PT-Sinergi.pdf"
+                      href={COMPANY_INFO.brochureUrl}
                       download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full h-11 inline-flex items-center justify-center gap-2 text-xs font-semibold text-navy-900 bg-surface-tint hover:bg-slate-100 rounded-xl border border-border-subtle transition-colors duration-150"
                     >
                       <Download className="w-4 h-4 text-brandBlue-600" />

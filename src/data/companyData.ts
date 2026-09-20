@@ -116,17 +116,18 @@ export const COMPANY_INFO = {
   parentOrg: "Yayasan Kesejahteraan Pegawai (YKP) bank bjb",
   affiliateOrg: "Universitas Ekuitas Indonesia",
   ecosystemSubtitle: "Memadukan kekuatan riset akademik Universitas Ekuitas Indonesia, pengalaman praktisi perbankan, dan tata kelola YKP bank bjb.",
-  address: "Gedung Universitas Ekuitas Indonesia, Jl. PHH. Mustofa No. 31, Bandung, Jawa Barat 40124",
+  address: "Jl. PHH. Mustofa No. 31, Cikutra, Kec. Cibeunying-Kaler, Kota Bandung, Jawa Barat 40124 (Gedung Kampus Universitas Ekuitas Indonesia)",
   city: "Bandung, Jawa Barat",
   postalCode: "40124",
   phone: "+62 821-1969-5761",
-  phoneDisplay: "+62821-1969-5761",
+  phoneDisplay: "+62 821-1969-5761",
   whatsapp: "6282119695761",
   whatsappFormatted: "+62 821-1969-5761",
   whatsappDisplay: "0821-1969-5761",
   whatsappLink: "https://wa.me/6282119695761",
-  email: "sinergiekuitas@gmail.com",
-  operatingHours: "Senin – Jumat: 08:00 – 17:00 WIB",
+  email: "kontak@sinergiekuitas.co.id",
+  operatingHours: "Senin – Jumat: 08:30 – 16:30 WIB | Sabtu & Minggu: Tutup",
+  brochureUrl: "/docs/Company-Profile-PT-Sinergi.pdf",
   googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.898687796347!2d107.63666507499622!3d-6.902700993096645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b5ad16111f%3A0x63bc297ad2efbeec!2sUniversitas%20Ekuitas%20Indonesia!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid",
   vision: "Menjadi perusahaan yang profesional, berkelanjutan, dan terpercaya dalam pengelolaan layanan pendidikan, pelatihan, konsultasi, serta pengembangan usaha berbasis pemanfaatan aset secara optimal.",
   missions: [
@@ -141,7 +142,7 @@ export const COMPANY_INFO = {
 export const LEADERSHIP_MEMBERS: LeaderItem[] = [
   {
     id: 'deni-hamdani',
-    name: 'Deni Hamdani, SE., M.Si',
+    name: 'Deni Hamdani',
     title: 'Direktur Utama',
     role: 'Pimpinan Eksekutif',
     bio: 'Memimpin arah strategis perusahaan serta bertanggung jawab dalam memastikan seluruh kegiatan operasional dan pengembangan bisnis berjalan selaras dengan visi perusahaan. Berperan dalam pengambilan keputusan strategis, penguatan tata kelola, serta membangun sinergi dan kerja sama dengan berbagai mitra untuk mendukung pertumbuhan perusahaan yang berkelanjutan.',
@@ -155,12 +156,12 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
     image: {
       url: './images/team/deni-hamdani.jpeg',
       fallbackUrl: './images/team/deni-hamdani.jpeg',
-      alt: 'Deni Hamdani, SE., M.Si - Direktur Utama'
+      alt: 'Deni Hamdani - Direktur Utama'
     }
   },
   {
     id: 'gatot-iwan',
-    name: 'Dr. Gatot Iwan Kurniawan, SE., MBA',
+    name: 'Dr. Gatot Iwan Kurniawan, Ir., M.M., M.Kom.',
     title: 'Direktur',
     role: 'Pengembangan & Inovasi',
     bio: 'Berperan dalam mendukung perencanaan dan pelaksanaan strategi perusahaan, khususnya dalam pengembangan bisnis, inovasi, serta peningkatan kualitas layanan. Turut mengawal pelaksanaan program perusahaan agar berjalan efektif, adaptif terhadap perkembangan industri, dan mampu memberikan nilai tambah bagi mitra maupun pelanggan.',
@@ -174,12 +175,12 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
     image: {
       url: './images/team/gatot-iwan.jpeg',
       fallbackUrl: './images/team/gatot-iwan.jpeg',
-      alt: 'Dr. Gatot Iwan Kurniawan, SE., MBA - Direktur'
+      alt: 'Dr. Gatot Iwan Kurniawan, Ir., M.M., M.Kom. - Direktur'
     }
   },
   {
     id: 'muhammad-gunawan',
-    name: 'Muhammad Gunawan',
+    name: 'Muhammad Gunawan, S.E.',
     title: 'Komisaris',
     role: 'Pengawasan & GCG',
     bio: 'Melaksanakan fungsi pengawasan serta memberikan arahan dan masukan strategis terhadap kebijakan dan pengelolaan perusahaan. Berperan dalam menjaga kepatuhan, akuntabilitas, dan penerapan Good Corporate Governance (GCG) guna memastikan perlindungan kepentingan pemegang saham dan pemangku kepentingan.',
@@ -192,7 +193,7 @@ export const LEADERSHIP_MEMBERS: LeaderItem[] = [
     image: {
       url: './images/team/muhammad-gunawan.jpeg',
       fallbackUrl: './images/team/muhammad-gunawan.jpeg',
-      alt: 'Muhammad Gunawan - Komisaris'
+      alt: 'Muhammad Gunawan, S.E. - Komisaris'
     }
   }
 ];
@@ -831,7 +832,7 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-1',
     domainNumber: 1,
-    title: 'Banking & Financial Services',
+    title: 'Perbankan, Keuangan & Operasional Finansial',
     category: 'Keuangan & Perbankan',
     shortDesc: 'Manajemen perbankan, analisis kredit, strategi treasury, perbankan syariah, digitalisasi perbankan, dan pemulihan NPL.',
     iconName: 'Landmark',
@@ -853,7 +854,7 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-2',
     domainNumber: 2,
-    title: 'Accounting, Finance & Taxation',
+    title: 'Akuntansi, Pelaporan Keuangan & Perpajakan Terapan',
     category: 'Keuangan & Perbankan',
     shortDesc: 'Akuntansi keuangan, corporate finance, perpajakan institusi, budgeting, audit internal, dan PSAK/IFRS.',
     iconName: 'Calculator',
@@ -874,9 +875,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-3',
     domainNumber: 3,
-    title: 'Sharia Finance & Economics',
+    title: 'Manajemen Risiko, Audit Internal & Good Corporate Governance (GCG)',
     category: 'Keuangan & Perbankan',
-    shortDesc: 'Prinsip keuangan syariah, akad perbankan, tata kelola syariah, auditing, dan manajemen produk halal.',
+    shortDesc: 'Manajemen risiko, audit internal, kepatuhan, pengendalian internal, dan penerapan Good Corporate Governance (GCG).',
     iconName: 'Wallet',
     badge: '10 Sub Topik',
     topics: [
@@ -895,9 +896,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-4',
     domainNumber: 4,
-    title: 'Risk Management, Compliance & Audit',
+    title: 'Kepemimpinan, Manajemen Strategis & Eksekutif',
     category: 'Keuangan & Perbankan',
-    shortDesc: 'Kerangka manajemen risiko, audit internal, anti-pencucian uang (APU PPT), Good Corporate Governance, dan investigasi kecurangan.',
+    shortDesc: 'Kepemimpinan strategis, manajemen perubahan, pengambilan keputusan, dan pengembangan kapasitas eksekutif.',
     iconName: 'ShieldAlert',
     badge: '11 Sub Topik',
     topics: [
@@ -917,9 +918,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-5',
     domainNumber: 5,
-    title: 'Human Capital, Leadership & Talent Management',
-    category: 'Manajemen & SDM',
-    shortDesc: 'Perencanaan SDM, kepemimpinan strategis, manajemen kinerja (KPI/OKR), rekrutmen, dan penilaian kompetensi.',
+    title: 'Pemasaran, Penjualan & Transformasi Digital',
+    category: 'Teknologi & Operasional',
+    shortDesc: 'Strategi pemasaran, penjualan, branding, pengalaman pelanggan, dan transformasi digital bisnis.',
     iconName: 'UserCheck',
     badge: '11 Sub Topik',
     topics: [
@@ -939,9 +940,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-6',
     domainNumber: 6,
-    title: 'Digital Transformation, Data Analytics & IT Governance',
+    title: 'Layanan Pelanggan, Service Excellence & Komunikasi Bisnis',
     category: 'Teknologi & Operasional',
-    shortDesc: 'Transformasi digital, analisis data bisnis, tata kelola IT (COBIT/ITIL), keamanan siber, dan AI untuk bisnis.',
+    shortDesc: 'Layanan pelanggan, service excellence, komunikasi bisnis, pengelolaan keluhan, dan layanan frontliner.',
     iconName: 'Cpu',
     badge: '10 Sub Topik',
     topics: [
@@ -960,9 +961,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-7',
     domainNumber: 7,
-    title: 'Business Strategy, Innovation & General Management',
+    title: 'Pengembangan Karakter, Etika Profesi & Budaya Perusahaan',
     category: 'Manajemen & SDM',
-    shortDesc: 'Perencanaan strategis bisnis, inovasi produk, manajemen perubahan, evaluasi investasi, dan kemitraan.',
+    shortDesc: 'Pengembangan karakter, etika profesi, integritas, budaya kerja, dan nilai-nilai perusahaan.',
     iconName: 'Lightbulb',
     badge: '10 Sub Topik',
     topics: [
@@ -981,10 +982,10 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-8',
     domainNumber: 8,
-    title: 'Marketing, Branding & Customer Experience',
+    title: 'Teknologi Informasi, Digital Banking & Keamanan Siber',
     category: 'Manajemen & SDM',
-    shortDesc: 'Pemasaran digital, manajemen merek, service excellence, penanganan komplain, dan manajemen hubungan pelanggan (CRM).',
-    iconName: 'Megaphone',
+    shortDesc: 'Teknologi informasi, digital banking, sistem inti, data, tata kelola TI, dan keamanan siber.',
+    iconName: 'MonitorCog',
     badge: '10 Sub Topik',
     topics: [
       'Integrated Marketing Strategy & Communications',
@@ -1002,10 +1003,10 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-9',
     domainNumber: 9,
-    title: 'Legal, Corporate Governance & Regulatory Affairs',
-    category: 'Keuangan & Perbankan',
-    shortDesc: 'Hukum perusahaan, legal drafting, hukum perbankan, mitigasi risiko sengketa, dan kepatuhan regulasi OJK/BI.',
-    iconName: 'FileCheck',
+    title: 'Manajemen Sumber Daya Manusia & Organisasi',
+    category: 'Manajemen & SDM',
+    shortDesc: 'Manajemen SDM, pemetaan kompetensi, manajemen kinerja, talent management, dan pengembangan organisasi.',
+    iconName: 'Users',
     badge: '10 Sub Topik',
     topics: [
       'Corporate Law & Contract Drafting/Review',
@@ -1023,9 +1024,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-10',
     domainNumber: 10,
-    title: 'Procurement, Supply Chain & Asset Management',
+    title: 'Kewirausahaan, UMKM & Pemberdayaan Ekonomi',
     category: 'Teknologi & Operasional',
-    shortDesc: 'Pengadaan barang/jasa, manajemen rantai pasok, tata kelola aset, audit vendor, dan manajemen logistik.',
+    shortDesc: 'Kewirausahaan, pengembangan UMKM, model bisnis, akses pembiayaan, dan pemberdayaan ekonomi.',
     iconName: 'ShoppingBag',
     badge: '10 Sub Topik',
     topics: [
@@ -1044,9 +1045,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-11',
     domainNumber: 11,
-    title: 'Soft Skills, Communication & Personal Effectiveness',
+    title: 'Hukum Bisnis, Kepatuhan Perbankan & Hubungan Industrial',
     category: 'Manajemen & SDM',
-    shortDesc: 'Komunikasi bisnis, public speaking, negosiasi, manajemen waktu, etika profesi, dan emotional intelligence.',
+    shortDesc: 'Hukum bisnis, kepatuhan perbankan, kontrak, regulasi, dan hubungan industrial.',
     iconName: 'Award',
     badge: '10 Sub Topik',
     topics: [
@@ -1065,9 +1066,9 @@ export const EXPERT_DOMAINS_DATA: ExpertDomain[] = [
   {
     id: 'domain-12',
     domainNumber: 12,
-    title: 'Event Management, MICE & Facility Operations',
+    title: 'Operasional, Logistik & Manajemen Fasilitas',
     category: 'Teknologi & Operasional',
-    shortDesc: 'Manajemen acara korporat, MICE, protokol, pengelolaan gedung & fasilitas, K3 gedung, dan operasional logistik.',
+    shortDesc: 'Operasional, logistik, pengadaan, optimalisasi aset, dan manajemen fasilitas institusional.',
     iconName: 'Landmark',
     badge: '10 Sub Topik',
     topics: [

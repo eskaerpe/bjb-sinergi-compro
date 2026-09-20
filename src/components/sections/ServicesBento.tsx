@@ -67,7 +67,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
                     <div className="w-12 h-12 rounded-2xl bg-navy-900 text-coral-400 flex items-center justify-center shadow-sm group-hover:bg-brandBlue-600 group-hover:text-white transition-colors duration-200">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-extrabold text-navy-400 bg-navy-50 px-2.5 py-1 rounded-full">
+                    <span className="text-xs font-extrabold text-navy-700 bg-navy-50 px-2.5 py-1 rounded-full">
                       Pilar 0{index + 1}
                     </span>
                   </div>
@@ -183,7 +183,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
 
               <div className="space-y-4">
                 <div>
-                  <h4 className="text-xs font-bold uppercase text-navy-400 tracking-wider mb-1">Deskripsi Lengkap</h4>
+                  <p className="text-xs font-bold uppercase text-navy-700 tracking-wider mb-1">Deskripsi Lengkap</p>
                   <p className="text-sm text-navy-700 leading-relaxed font-normal">
                     {selectedService.fullDesc}
                   </p>

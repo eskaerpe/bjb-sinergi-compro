@@ -26,16 +26,10 @@ export const LeadershipSection: React.FC = () => {
             return (
               <div
                 key={leader.id}
-                className={`bg-white rounded-3xl p-6 sm:p-8 border shadow-card flex flex-col justify-between space-y-6 relative ${
-                  isDirut ? 'border-brandBlue-500 ring-1 ring-brandBlue-500/30' : 'border-border-subtle'
+                className={`bg-white rounded-3xl p-6 sm:p-8 border shadow-card flex flex-col justify-between space-y-6 relative transition-all duration-300 hover:shadow-card-hover ${
+                  isDirut ? 'border-brandBlue-500/80 ring-1 ring-brandBlue-500/20' : 'border-border-subtle'
                 }`}
               >
-                {isDirut && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 bg-coral-500 text-navy-950 text-[10px] font-extrabold uppercase tracking-wider rounded-full shadow-md">
-                    Pimpinan Eksekutif
-                  </div>
-                )}
-
                 <div className="space-y-5">
                   <div className="relative rounded-2xl overflow-hidden bg-navy-950 h-64 sm:h-72 w-full group">
                     <img

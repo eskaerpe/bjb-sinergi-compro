@@ -73,10 +73,10 @@ export const ServicesPage: React.FC = () => {
       />
 
       {/* Sticky Sub-Navigation Bar */}
-      <div className="sticky top-[65px] md:top-[73px] z-30 bg-white/95 backdrop-blur-md border-b border-border-subtle py-3 shadow-2xs transition-all">
+      <div className="sticky top-[65px] md:top-[73px] z-30 bg-white/95 backdrop-blur-md border-b border-border-subtle py-2.5 shadow-xs transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
-            <span className="text-xs font-bold text-navy-400 uppercase tracking-wider shrink-0 hidden sm:inline-block mr-2">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 sm:px-0">
+            <span className="text-xs font-bold text-navy-800 uppercase tracking-wider shrink-0 hidden sm:inline-block mr-1">
               Lompat ke:
             </span>
             {SUB_NAV_ITEMS.map((item) => {
@@ -89,8 +89,8 @@ export const ServicesPage: React.FC = () => {
                   className={cn(
                     'px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-150 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
                     isActive
-                      ? 'bg-navy-900 text-white shadow-2xs font-bold'
-                      : 'bg-surface-tint text-navy-700 hover:bg-slate-200/70 hover:text-navy-950'
+                      ? 'bg-navy-900 text-white shadow-xs font-bold border border-navy-900'
+                      : 'bg-surface-tint text-navy-900 border border-border-subtle hover:bg-navy-100 hover:text-navy-950 font-medium'
                   )}
                 >
                   <span className="hidden sm:inline">{item.label}</span>

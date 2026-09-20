@@ -193,7 +193,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
         <Dialog.Root open={!!activeFacility} onOpenChange={(open) => !open && setActiveFacility(null)}>
           <Dialog.Portal>
             <Dialog.Overlay className="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 animate-fade-in" />
-            <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] bg-navy-900 rounded-3xl p-6 sm:p-8 shadow-2xl z-50 border border-navy-800 focus:outline-none flex flex-col justify-between space-y-4">
+            <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-4xl max-h-[90vh] overflow-y-auto no-scrollbar bg-navy-900 rounded-3xl p-4 sm:p-8 shadow-2xl z-50 border border-navy-800 focus:outline-none flex flex-col justify-between space-y-4">
               <div className="flex items-center justify-between border-b border-navy-800 pb-3">
                 <div className="space-y-0.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-coral-400">

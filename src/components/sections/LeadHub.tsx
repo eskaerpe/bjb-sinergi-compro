@@ -93,7 +93,10 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
     const waUrl = `${COMPANY_INFO.whatsappLink}?text=${encodedText}`;
 
     setSubmitted(true);
-    window.open(waUrl, '_blank');
+    const whatsappWindow = window.open(waUrl, '_blank', 'noopener,noreferrer');
+    if (!whatsappWindow) {
+      window.location.href = waUrl;
+    }
   };
 
   return (
@@ -196,8 +199,10 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                 </a>
 
                 <a
-                  href="./docs/Company-Profile-PT-Sinergi.pdf"
+                  href={COMPANY_INFO.brochureUrl}
                   download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Unduh E-Brochure Company Profile PT Sinergi format PDF"
                   className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] text-xs font-bold text-navy-100 bg-navy-950 hover:bg-navy-800 border border-navy-700 px-5 py-2.5 rounded-xl transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
                 >

@@ -120,7 +120,7 @@ export const ExpertDirectory: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 pt-2 px-1 sm:px-0">
             {CATEGORIES.map((category) => {
               const isActive = selectedCategory === category;
               return (
@@ -292,9 +292,9 @@ export const ExpertDirectory: React.FC = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-navy-900">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-navy-900">
                     Deskripsi Ringkas Bidang:
-                  </h4>
+                  </h3>
                   <p id="expert-domain-modal-description" className="text-xs sm:text-sm text-navy-700 leading-relaxed font-normal">
                     {activeModalDomain.shortDesc}
                   </p>
@@ -302,9 +302,9 @@ export const ExpertDirectory: React.FC = () => {
 
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-navy-900">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-navy-900">
                       Rincian Silabus &amp; Topik Tersedia:
-                    </h4>
+                    </h3>
                     <span className="text-xs text-navy-500 font-medium">
                       {activeModalDomain.topics.length} Topik Spesifik
                     </span>

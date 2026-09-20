@@ -34,8 +34,10 @@ export const Footer: React.FC = () => {
 
             <div className="pt-2">
               <a
-                href="/docs/Company-Profile-PT-Sinergi.pdf"
+                href={COMPANY_INFO.brochureUrl}
                 download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-xs font-bold text-navy-950 bg-white hover:bg-surface-tint px-4 py-2.5 rounded-xl shadow-md transition-all duration-150 ease-out"
               >
                 <Download className="w-4 h-4 text-brandBlue-600" />
@@ -97,14 +99,22 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-4 h-4 text-brandBlue-500 flex-shrink-0 mt-0.5" />
                 <span className="leading-relaxed">{COMPANY_INFO.address}</span>
               </div>
-              <div className="flex items-center gap-2.5">
+              <a
+                href={`tel:${COMPANY_INFO.phone.replace(/[^\d+]/g, '')}`}
+                aria-label={`Telepon ${COMPANY_INFO.name}`}
+                className="flex items-center gap-2.5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded"
+              >
                 <Phone className="w-4 h-4 text-coral-500 flex-shrink-0" />
                 <span>{COMPANY_INFO.phone} / {COMPANY_INFO.whatsappFormatted}</span>
-              </div>
-              <div className="flex items-center gap-2.5">
+              </a>
+              <a
+                href={`mailto:${COMPANY_INFO.email}`}
+                aria-label={`Email ${COMPANY_INFO.name}`}
+                className="flex items-center gap-2.5 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded"
+              >
                 <Mail className="w-4 h-4 text-brandBlue-500 flex-shrink-0" />
                 <span>{COMPANY_INFO.email}</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

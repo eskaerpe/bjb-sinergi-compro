@@ -8,6 +8,9 @@ import {
   Users,
   Megaphone,
   Cpu,
+  MonitorCog,
+  Scale,
+  Building2,
   Wallet,
   ShoppingBag,
   FileCheck,
@@ -28,6 +31,9 @@ const ICON_MAP: Record<string, React.ElementType> = {
   Users,
   Megaphone,
   Cpu,
+  MonitorCog,
+  Scale,
+  Building2,
   Wallet,
   ShoppingBag,
   FileCheck,
@@ -50,7 +56,7 @@ export const ExpertiseTeaser: React.FC = () => {
       outerClassName="relative bg-surface-tint border-b border-border-subtle overflow-hidden"
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(#1A4886_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(#1B365D_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -96,7 +102,7 @@ export const ExpertiseTeaser: React.FC = () => {
                 </div>
 
                 <div className="space-y-2 pt-3 border-t border-border-subtle">
-                  <span className="text-[10px] font-bold text-navy-400 uppercase tracking-wider block">
+                  <span className="text-[10px] font-bold text-navy-700 uppercase tracking-wider block">
                     {domain.badge} (Sampel Silabus):
                   </span>
                   <ul className="space-y-1">
