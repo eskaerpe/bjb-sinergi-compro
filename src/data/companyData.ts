@@ -12,6 +12,30 @@ export interface ServiceItem {
   };
 }
 
+export interface DetailedServicePillar {
+  id: string;
+  number: string;
+  title: string;
+  englishTitle: string;
+  shortDesc: string;
+  fullDesc: string;
+  iconName: string;
+  targetAudience: string[];
+  scopeOfWork: string[];
+  deliveryMethods?: string[];
+  curriculumIntegration?: string;
+  integratedFacilities: {
+    name: string;
+    detail?: string;
+  }[];
+  whatsappInquiry: string;
+  image: {
+    url: string;
+    alt: string;
+    aspectRatio: string;
+  };
+}
+
 export interface ExpertDomain {
   id: string;
   domainNumber: number;
@@ -234,70 +258,70 @@ export const VISION_MISSION_DATA = {
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: 'pelatihan-profesional',
-    title: 'Pelatihan Profesional & Sertifikasi Kompetensi',
-    shortDesc: 'Program upskilling, reskilling, workshop teknis, dan persiapan sertifikasi profesi (BNSP) berstandar industri perbankan dan korporasi.',
-    fullDesc: 'Menyediakan program pembelajaran dan pengembangan kompetensi kerja komprehensif berbasis standar BNSP dan kebutuhan spesifik industri. Menggabungkan pengajar doktoral Universitas Ekuitas Indonesia dan praktisi perbankan berpengalaman.',
+    id: 'pelatihan-sdm',
+    title: 'Pelatihan & Pengembangan SDM Terpadu',
+    shortDesc: 'Program peningkatan kompetensi teknis (hard skills) dan perilaku (soft skills/service excellence) bagi industri perbankan, BUMN/BUMD, dan instansi publik.',
+    fullDesc: 'Menyediakan program pembelajaran dan pengembangan kompetensi kerja komprehensif berbasis kebutuhan industri perbankan dan korporasi. Menggabungkan pengajar doktoral Universitas Ekuitas Indonesia dan praktisi perbankan aktif.',
     iconName: 'GraduationCap',
     features: [
-      'Pelatihan Sertifikasi Kompetensi BNSP & Lembaga Sertifikasi Profesi',
       'Program Pembelajaran Frontliner (Customer Service, Teller, Back Office)',
+      'Pelatihan Teknis Operasional Perbankan & Analisis Kredit',
       'Workshop In-House & Custom Learning & Development Program',
-      'Executive Leadership & Strategic Management Workshop'
+      'Executive Masterclass & Kepemimpinan Strategis Manajerial'
     ],
     image: {
       url: './images/portfolio/abdi-bjb-2.jpeg',
-      alt: 'Pelatihan Profesional & Sertifikasi Kompetensi',
+      alt: 'Pelatihan & Pengembangan SDM Terpadu',
       aspectRatio: '16/9'
     }
   },
   {
     id: 'konsultasi-manajemen',
-    title: 'Konsultasi Bisnis, Manajemen & Tata Kelola',
-    shortDesc: 'Pendampingan restrukturisasi organisasi, penyusunan SOP, audit tata kelola (GCG), dan manajemen risiko perbankan.',
-    fullDesc: 'Layanan konsultasi bisnis dan manajemen yang memberikan solusi berbasis riset terapan dan prinsip Good Corporate Governance (GCG) untuk meningkatkan efisiensi operasional dan kepatuhan institusi.',
+    title: 'Konsultasi Manajemen & Layanan Institusional',
+    shortDesc: 'Pendampingan strategis kelembagaan berbasis riset terapan dan standar tata kelola perbankan modern untuk memperkuat daya saing dan mitigasi risiko.',
+    fullDesc: 'Layanan konsultasi bisnis dan manajemen berbasis riset terapan dan prinsip Good Corporate Governance (GCG) untuk meningkatkan efisiensi operasional dan kepatuhan institusi.',
     iconName: 'Briefcase',
     features: [
-      'Pendampingan & Evaluasi Penerapan Good Corporate Governance (GCG)',
-      'Penyusunan & Pembaruan Standard Operating Procedures (SOP)',
-      'Kajian Manajemen Risiko & Kepatuhan Regulasi',
-      'Studi Kelayakan Bisnis & Audit Manajemen Organisasi'
+      'Penyusunan Rencana Bisnis Bank (RBB) & RJPP Perusahaan',
+      'Pemetaan Proses Bisnis, Penyusunan SOP, & BPR',
+      'Asesmen GCG & Enterprise Risk Management (ERM ISO 31000)',
+      'Studi Kelayakan Bisnis (Feasibility Study) & Valuasi Investasi'
     ],
     image: {
       url: './images/portfolio/abdi-bjb-6.jpeg',
-      alt: 'Konsultasi Bisnis, Manajemen & Tata Kelola',
+      alt: 'Konsultasi Manajemen & Layanan Institusional',
       aspectRatio: '16/9'
     }
   },
   {
-    id: 'pengembangan-sdm',
-    title: 'Pengembangan SDM & Assessment Center',
-    shortDesc: 'Asesmen pemetaan potensi SDM, psikotes kerja, pemetaan jalur karir, dan konsultasi manajerial.',
-    fullDesc: 'Layanan pengukuran dan pemetaan potensi sumber daya manusia melalui metode assessment center teruji untuk kebutuhan rekrutmen, promosi jabatan, serta pemetaan bakat institusional.',
+    id: 'asesmen-sertifikasi',
+    title: 'Asesmen, Sertifikasi & Uji Kompetensi',
+    shortDesc: 'Evaluasi kompetensi independen, seleksi calon pegawai (rekrutmen), asesmen kenaikan jenjang karir, dan uji sertifikasi profesi terstandarisasi.',
+    fullDesc: 'Layanan pengukuran dan pemetaan potensi sumber daya manusia melalui metode assessment center teruji dan didukung 2 laboratorium CBT berkapasitas besar.',
     iconName: 'Users',
     features: [
-      'Assessment Center & Pemetaan Potensi Manajerial',
-      'Psikotes Rekrutmen & Promosi Jabatan',
-      'Evaluasi Kinerja & Desain Executive Career Path',
-      'Konsultasi Pengembangan Budaya Kerja Korporat'
+      'Asesmen Massal Calon Pegawai Berbasis Komputer (CBT)',
+      'Psikotes Terstandarisasi & Pemetaan Profil Kepribadian Kerja',
+      'Observasi Perilaku, LGD, & Wawancara Berbasis Kompetensi (BEI)',
+      'Asesmen Frontliner & Roleplay Simulasi Transaksi Perbankan'
     ],
     image: {
       url: './images/portfolio/abdi-bjb-3.jpeg',
-      alt: 'Pengembangan SDM & Assessment Center',
+      alt: 'Asesmen, Sertifikasi & Uji Kompetensi',
       aspectRatio: '16/9'
     }
   },
   {
-    id: 'event-management',
+    id: 'acara-mice',
     title: 'Penyelenggaraan Acara Korporat & MICE',
-    shortDesc: 'Pengelolaan konferensi, seminar nasional/internasional, rapat kerja, gathering, dan kegiatan MICE terpadu.',
+    shortDesc: 'Pengelolaan kegiatan MICE (Meeting, Incentive, Convention, Exhibition) secara end-to-end yang tertib, representatif, dan bernilai tinggi.',
     fullDesc: 'Layanan pengelolaan acara end-to-end yang menjamin kelancaran, profesionalisme, dan efisiensi pelaksanaan seminar, konferensi, wisuda, hingga gathering korporat.',
     iconName: 'Calendar',
     features: [
-      'Penyelenggaraan Konferensi, Seminar & Workshop Nasional',
-      'Rapat Kerja Terpadu, Focus Group Discussion & Gathering',
-      'Manajemen Konsumsi, Akomodasi, & Mobilisasi Peserta',
-      'Pengelolaan Event Hybrid & Media Livestreaming Professional'
+      'Penyelenggaraan Konferensi, Seminar & Simposium Nasional/Internasional',
+      'Rapat Kerja Terpadu (Raker), FGD Eksekutif, & Gathering Korporat',
+      'Manajemen Akomodasi, Konsumsi Eksklusif, & Mobilisasi Peserta',
+      'Pengelolaan Event Hybrid & Media Livestreaming Profesional'
     ],
     image: {
       url: './images/portfolio/abdi-bjb-4.jpeg',
@@ -308,14 +332,14 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'fasilitas-kampus',
     title: 'Pengelolaan & Optimalisasi Fasilitas Kampus',
-    shortDesc: 'Penyewaan dan optimalisasi sarana kelas multimedia, lab komputer, lab bank mini, auditorium, dan ruang rapat.',
+    shortDesc: 'Penyewaan dan optimalisasi sarana kelas multimedia, lab komputer, lab bank mini, auditorium, dan ruang rapat di pusat kota Bandung.',
     fullDesc: 'Optimalisasi pemanfaatan aset sarana edukasi representatif di Kampus Universitas Ekuitas Indonesia untuk mendukung kegiatan pelatihan, ujian online, dan pertemuan bisnis.',
     iconName: 'Building2',
     features: [
-      'Penyewaan Ruang Kelas Multimedia & Auditorium (Graha Ekuitas)',
-      'Fasilitas Lab Komputer Modern & Computer-Based Test (CBT)',
-      'Laboratorium Simulasi Perbankan (Mini Bank Lab)',
-      'Ruang Rapat VIP & Executive Lounge'
+      'Laboratorium Bank Mini (Simulasi Teller & CS)',
+      'Classroom Multimedia Ber-AC & Audio Jernih',
+      'Laboratorium Komputer & CBT Center Berkapasitas Besar',
+      'Auditorium Graha Ekuitas (Kapasitas s.d. 500 Peserta)'
     ],
     image: {
       url: './images/facilities/classroom-1.jpeg',
@@ -326,15 +350,282 @@ export const SERVICES_DATA: ServiceItem[] = [
   {
     id: 'pendukung-institusional',
     title: 'Layanan Pendukung Operasional & Institusional',
-    shortDesc: 'Penyediaan armada transportasi/shuttle, pengadaan merchandise korporat, corporate kit, dan logistik acara.',
+    shortDesc: 'Penyediaan armada transportasi/shuttle eksekutif, pengadaan merchandise & corporate kit resmi, dan dukungan logistik terpadu.',
     fullDesc: 'Dukungan operasional institusional menyeluruh mencakup penyediaan armada bus/shuttle untuk mobilitas peserta serta pengadaan atribut dan merchandise resmi korporat.',
     iconName: 'ShoppingBag',
     features: [
-      'Layanan Armada Transportasi & Bus Executive Shuttle',
-      'Pengadaan Merchandise & Corporate Souvenir Kit',
-      'Penyediaan Atribut Acara & Media Promosi Kampus/Korporat',
-      'Dukungan Logistik & Operasional Acara Terpadu'
+      'Armada Transportasi & Bus Executive Shuttle Ber-AC',
+      'Pengadaan Merchandise & Corporate Kit Seminar/Seragam/Plakat',
+      'Penyediaan Atribut Acara & Media Promosi Representatif',
+      'Dukungan Logistik Panggung, Sound System & Dokumentasi Visual'
     ],
+    image: {
+      url: './images/facilities/transportasi.jpeg',
+      alt: 'Layanan Pendukung Operasional & Institusional',
+      aspectRatio: '16/9'
+    }
+  }
+];
+
+export const DETAILED_SERVICES_DATA: DetailedServicePillar[] = [
+  {
+    id: 'pilar-01',
+    number: '01',
+    title: 'Pelatihan & Pengembangan SDM Terpadu',
+    englishTitle: 'Human Capital & Corporate Training',
+    shortDesc: 'Program peningkatan kompetensi teknis (hard skills) dan perilaku (soft skills/service excellence) bagi industri perbankan, BUMN/BUMD, dan instansi publik dengan instruktur gabungan akademisi & praktisi perbankan aktif.',
+    fullDesc: 'Menyediakan program pengembangan modal insani terpadu yang memadukan keunggulan riset akademik Universitas Ekuitas Indonesia dan kepakaran praktisi perbankan aktif. Kurikulum dirancang aplikatif, terukur, dan adaptif terhadap transformasi industri perbankan serta kepatuhan regulasi terkini.',
+    iconName: 'GraduationCap',
+    targetAudience: [
+      'Industri Perbankan & Lembaga Keuangan',
+      'BUMN & BUMD',
+      'Instansi Pemerintah & Publik',
+      'Perusahaan Korporat Swasta'
+    ],
+    deliveryMethods: [
+      'In-House Training',
+      'Public Workshop',
+      'Intensive Bootcamp',
+      'Executive Masterclass'
+    ],
+    curriculumIntegration: 'Terhubung langsung dengan 12 Domain Keahlian & 124+ Silabus Modul (Perbankan, Akuntansi/Pajak, Manajemen Risiko, Audit & GCG, dll.).',
+    integratedFacilities: [
+      {
+        name: 'Smart Classroom Multimedia',
+        detail: 'Ruang kelas interaktif ber-AC dengan proyektor modern dan tata suara jernih'
+      },
+      {
+        name: 'Laboratorium Bank Mini Kampus Ekuitas',
+        detail: 'Counter Teller riil, Customer Service desk, sistem antrean, dan software simulasi transaksi'
+      }
+    ],
+    scopeOfWork: [
+      'Program Pembelajaran Frontliner (Customer Service, Teller, Back Office & Security Service Excellence)',
+      'Pelatihan Teknis Operasional Perbankan & Analisis Kelayakan Kredit Komersial/UMKM',
+      'Workshop Akuntansi Perbankan, Perpajakan Korporat, & Pelaporan Keuangan Berstandar PSAK',
+      'Pelatihan Manajemen Risiko Operasional, Kepatuhan Regulasi (OJK/BI), & Audit Internal',
+      'Custom In-House Learning & Development Curriculum Design Sesuai Kebutuhan Organisasi',
+      'Executive Masterclass & Kepemimpinan Strategis bagi Jajaran Manajerial'
+    ],
+    whatsappInquiry: 'Halo PT Sinergi Ekuitas Indonesia, saya ingin konsultasi dan mendapatkan proposal untuk Pilar 01: Pelatihan & Pengembangan SDM Terpadu.',
+    image: {
+      url: './images/portfolio/abdi-bjb-2.jpeg',
+      alt: 'Pelatihan & Pengembangan SDM Terpadu',
+      aspectRatio: '16/9'
+    }
+  },
+  {
+    id: 'pilar-02',
+    number: '02',
+    title: 'Konsultasi Manajemen & Layanan Institusional',
+    englishTitle: 'Management Consulting & Institutional Advisory',
+    shortDesc: 'Pendampingan strategis kelembagaan berbasis riset terapan dan standar tata kelola perbankan modern untuk memperkuat daya saing dan mitigasi risiko operasional.',
+    fullDesc: 'Layanan konsultasi manajemen strategis yang memberikan solusi berbasis data, riset terapan, dan prinsip Good Corporate Governance (GCG). Didukung oleh dewan pakar doktoral dan praktisi perbankan senior untuk mengawal proses transformasi organisasi, efisiensi operasional, dan kepatuhan terhadap regulasi industri.',
+    iconName: 'Briefcase',
+    targetAudience: [
+      'Dewan Komisaris & Direksi Perusahaan',
+      'Divisi Strategic Planning & Corporate Secretary',
+      'Divisi Kepatuhan, Legal & Manajemen Risiko',
+      'BUMN, BUMD, & Lembaga Jasa Keuangan'
+    ],
+    integratedFacilities: [
+      {
+        name: 'Dewan Konsultan Senior & Tenaga Ahli',
+        detail: 'Guru Besar, Doktoral, dan mantan eksekutif perbankan dengan pengalaman puluhan tahun'
+      },
+      {
+        name: 'Executive Meeting Suite & Smart Room',
+        detail: 'Ruang pertemuan VIP yang representatif untuk diskusi strategis C-Level'
+      }
+    ],
+    scopeOfWork: [
+      'Penyusunan Rencana Bisnis Bank (RBB) & Rencana Jangka Panjang Perusahaan (RJPP)',
+      'Pemetaan Proses Bisnis, Penyusunan Standard Operating Procedure (SOP), & Business Process Re-engineering (BPR)',
+      'Asesmen & Scoring Penerapan Good Corporate Governance (GCG) secara Mandiri dan Komprehensif',
+      'Pendampingan Penerapan Enterprise Risk Management (ERM berbasis kerangka ISO 31000)',
+      'Studi Kelayakan Bisnis (Feasibility Study), Kajian Investasi, dan Valuasi Usaha',
+      'Penyusunan Key Performance Indicators (KPI) & Strategic Human Resource Management'
+    ],
+    whatsappInquiry: 'Halo PT Sinergi Ekuitas Indonesia, saya ingin konsultasi dan mendapatkan proposal untuk Pilar 02: Konsultasi Manajemen & Layanan Institusional.',
+    image: {
+      url: './images/portfolio/abdi-bjb-6.jpeg',
+      alt: 'Konsultasi Manajemen & Layanan Institusional',
+      aspectRatio: '16/9'
+    }
+  },
+  {
+    id: 'pilar-03',
+    number: '03',
+    title: 'Asesmen, Sertifikasi & Uji Kompetensi',
+    englishTitle: 'Competency Assessment & CBT Center',
+    shortDesc: 'Layanan evaluasi kompetensi independen, seleksi calon pegawai (rekrutmen), asesmen kenaikan jenjang karir, dan uji sertifikasi profesi terstandarisasi.',
+    fullDesc: 'Pusat asesmen independen berstandar industri dengan dukungan fasilitas CBT modern untuk mengukur potensi intelektual, kompetensi teknis, dan profil kepribadian kerja secara objektif, akurat, dan transparan.',
+    iconName: 'Users',
+    targetAudience: [
+      'Divisi Human Capital & Pengelola SDM',
+      'Komite Rekrutmen & Seleksi Pegawai Baru',
+      'Lembaga Sertifikasi Profesi (LSP) Terakreditasi',
+      'Instansi Pemerintah Daerah & BUMN/BUMD'
+    ],
+    integratedFacilities: [
+      {
+        name: '2 Laboratorium Komputer Modern',
+        detail: 'Kapasitas besar dengan koneksi LAN/Internet berkecepatan tinggi dan infrastruktur dedicated'
+      },
+      {
+        name: 'Platform Computer-Based Test (CBT) Terstandarisasi',
+        detail: 'Sistem ujian online terenkripsi dengan pengawasan ketat dan pemrosesan nilai instan'
+      },
+      {
+        name: 'Ruang Observasi & Wawancara Khusus',
+        detail: 'Fasilitas untuk Focus Group Discussion, LGD, dan Behavioral Event Interview'
+      }
+    ],
+    scopeOfWork: [
+      'Asesmen Massal Calon Pegawai Baru (Rekrutmen & Seleksi Masuk Berbasis CBT)',
+      'Psikotes Terstandarisasi & Pemetaan Profil Kepribadian serta Sikap Kerja',
+      'Observasi Perilaku, Leaderless Group Discussion (LGD), & Behavioral Event Interview (BEI)',
+      'Asesmen Kompetensi Frontliner & Roleplay Simulasi Layanan Perbankan Nyata',
+      'Uji Sertifikasi Profesi bekerjasama dengan Lembaga Sertifikasi Terakreditasi',
+      'Penyusunan Laporan Hasil Asesmen Individual & Talent Matrix Mapping Institusi'
+    ],
+    whatsappInquiry: 'Halo PT Sinergi Ekuitas Indonesia, saya ingin konsultasi dan mendapatkan proposal untuk Pilar 03: Asesmen, Sertifikasi & Uji Kompetensi.',
+    image: {
+      url: './images/portfolio/abdi-bjb-3.jpeg',
+      alt: 'Asesmen, Sertifikasi & Uji Kompetensi',
+      aspectRatio: '16/9'
+    }
+  },
+  {
+    id: 'pilar-04',
+    number: '04',
+    title: 'Penyelenggaraan Acara Korporat & MICE',
+    englishTitle: 'Corporate Events, Conference & Logistics',
+    shortDesc: 'Pengelolaan kegiatan MICE (Meeting, Incentive, Convention, Exhibition) secara end-to-end yang tertib, representatif, dan bernilai tinggi bagi mitra korporasi dan institusi pendidikan.',
+    fullDesc: 'Layanan pengelolaan acara korporat profesional dari perancangan konsep kreatif, tata panggung & pencahayaan, registrasi digital peserta, manajemen hospitality, hingga multimedia livestreaming untuk menjamin kesuksesan agenda institusi mitra.',
+    iconName: 'Calendar',
+    targetAudience: [
+      'Sekretariat Perusahaan (Corporate Secretary) & Tim Protokoler',
+      'Panitia Rapat Kerja & Gathering Tahunan Korporasi',
+      'Asosiasi Profesi, Industri, & Komunitas Bisnis',
+      'Institusi Pendidikan Tinggi & Kedinasan'
+    ],
+    integratedFacilities: [
+      {
+        name: 'Auditorium Graha Ekuitas',
+        detail: 'Kapasitas 300–500 peserta dengan panggung luas, pencahayaan panggung, dan akustik profesional'
+      },
+      {
+        name: 'Executive Meeting Suite & Ruang Rapat VIP',
+        detail: 'Ruang sidang representatif untuk pertemuan tertutup dewan pimpinan'
+      },
+      {
+        name: 'Peralatan Livestreaming & Multimedia Broadcast',
+        detail: 'Perangkat siaran multi-kamera HD untuk penyelenggaraan event hybrid interaktif'
+      }
+    ],
+    scopeOfWork: [
+      'Penyelenggaraan Konferensi, Seminar Nasional/Internasional, dan Simposium Akademik',
+      'Rapat Kerja Terpadu (Raker), Focus Group Discussion (FGD) Eksekutif, dan Gathering Institusi',
+      'Manajemen Akomodasi, Konsumsi Eksklusif, dan Mobilisasi Peserta',
+      'Pengelolaan Event Hybrid, Multimedia Broadcast & Media Livestreaming Profesional',
+      'Tata Kelola Registrasi Digital Peserta & Hospitality Management',
+      'Produksi Backdrop, Booth Pameran, & Stage Architecture Representatif'
+    ],
+    whatsappInquiry: 'Halo PT Sinergi Ekuitas Indonesia, saya ingin konsultasi dan mendapatkan proposal untuk Pilar 04: Penyelenggaraan Acara Korporat & MICE.',
+    image: {
+      url: './images/portfolio/abdi-bjb-4.jpeg',
+      alt: 'Penyelenggaraan Acara Korporat & MICE',
+      aspectRatio: '16/9'
+    }
+  },
+  {
+    id: 'pilar-05',
+    number: '05',
+    title: 'Pengelolaan & Optimalisasi Fasilitas Kampus',
+    englishTitle: 'Learning Facilities & Campus Assets',
+    shortDesc: 'Layanan penyewaan sarana edukasi modern dan representatif berstandar industri di pusat kota Bandung (Jl. PHH. Mustofa No. 31) untuk kebutuhan instansi mitra.',
+    fullDesc: 'Optimalisasi pemanfaatan aset sarana edukasi dan pertemuan bisnis strategis di Kampus Universitas Ekuitas Indonesia. Berlokasi di jalur utama kota Bandung dengan fasilitas lengkap, bersih, ber-AC, dan terawat berstandar industri.',
+    iconName: 'Building2',
+    targetAudience: [
+      'Lembaga Penyelenggara Ujian, Sertifikasi, & Pelatihan',
+      'Institusi Perbankan, BUMN, & Korporasi',
+      'Instansi Pemerintah Daerah & Lembaga Publik',
+      'Event Organizer & Komunitas Bisnis'
+    ],
+    integratedFacilities: [
+      {
+        name: 'Laboratorium Bank Mini',
+        detail: 'Counter Teller riil, Customer Service desk, sistem antrean, dan aplikasi transaksi perbankan'
+      },
+      {
+        name: 'Classroom Multimedia',
+        detail: 'Ruang kelas interaktif ber-AC dengan proyektor modern dan tata suara jernih'
+      },
+      {
+        name: 'Laboratorium Komputer & CBT',
+        detail: 'PC spesifikasi tinggi untuk pelatihan software teknis dan ujian online berkapasitas besar'
+      },
+      {
+        name: 'Meeting Room VIP',
+        detail: 'Ruang rapat eksekutif untuk diskusi strategis dan negosiasi bisnis'
+      },
+      {
+        name: 'Auditorium Graha Ekuitas',
+        detail: 'Ruang aula berkapasitas ratusan peserta untuk acara berskala besar'
+      }
+    ],
+    scopeOfWork: [
+      'Penyewaan Laboratorium Bank Mini (Simulasi Perbankan Nyata Teller & Customer Service)',
+      'Penyewaan Classroom Multimedia Interaktif Ber-AC & Sound System Terintegrasi',
+      'Penyewaan Laboratorium Komputer Spesifikasi Tinggi & Infrastruktur CBT Center',
+      'Penyewaan Meeting Room VIP & Executive Suite untuk Pertemuan Terbatas',
+      'Penyewaan Auditorium Graha Ekuitas untuk Seminar, Wisuda, & Acara Massal',
+      'Paket Bundling Fasilitas Lengkap (Ruangan, Sound System, Operator Teknis, & Catering)'
+    ],
+    whatsappInquiry: 'Halo PT Sinergi Ekuitas Indonesia, saya ingin konsultasi dan mendapatkan proposal penyewaan untuk Pilar 05: Pengelolaan & Optimalisasi Fasilitas Kampus.',
+    image: {
+      url: './images/facilities/classroom-1.jpeg',
+      alt: 'Pengelolaan & Optimalisasi Fasilitas Kampus',
+      aspectRatio: '16/9'
+    }
+  },
+  {
+    id: 'pilar-06',
+    number: '06',
+    title: 'Layanan Pendukung Operasional & Institusional',
+    englishTitle: 'Logistics, Transportation & Corporate Kit',
+    shortDesc: 'Penyediaan dukungan logistik, mobilitas transportasi, dan atribut institusional untuk menjamin kelancaran seluruh rangkaian kegiatan mitra.',
+    fullDesc: 'Dukungan operasional institusional menyeluruh mencakup penyediaan armada bus shuttle eksekutif untuk mobilitas peserta, pengadaan merchandise dan souvenir korporat resmi berkualitas tinggi, serta tata kelola logistik pendukung kegiatan.',
+    iconName: 'ShoppingBag',
+    targetAudience: [
+      'Panitia Pelatihan, Workshop, & Simposium',
+      'Divisi Umum, Rumah Tangga & Pengadaan (Procurement) Perusahaan',
+      'Lembaga Diklat & Penyelenggara Acara Institusional',
+      'Institusi Mitra Kerja Sama'
+    ],
+    integratedFacilities: [
+      {
+        name: 'Armada Shuttle Bus Eksekutif Ber-AC',
+        detail: 'Armada transportasi terawat dengan pengemudi profesional berpengalaman dan berorientasi keselamatan'
+      },
+      {
+        name: 'Sentra Produksi & QC Merchandise Resmi',
+        detail: 'Pengadaan seminar kit, souvenir eksklusif, seragam korporat, plakat, dan sertifikat berstandar mutu tinggi'
+      },
+      {
+        name: 'Sentra Distribusi & Logistik Terpadu',
+        detail: 'Dukungan perlengkapan teknis panggung, tata suara, dan handling barang di lokasi kegiatan'
+      }
+    ],
+    scopeOfWork: [
+      'Armada Transportasi & Bus Executive Shuttle: Mobilitas penjemputan peserta luar kota, transfer bandara/stasiun, dan company visit',
+      'Pengadaan Merchandise & Corporate Kit: Pembuatan seminar kit, seragam kemeja/kaos, souvenir resmi, plakat akrilik/kayu, dan sertifikat fisik',
+      'Dukungan Logistik Terpadu: Penataan tata letak panggung, sound system profesional, perlengkapan teknis, dan dokumentasi visual',
+      'Manajemen Pergudangan, Distribusi Materi Diklat, & Handling Lapangan',
+      'Penyediaan Perlengkapan Branding, Signage, & Display Promosi Acara'
+    ],
+    whatsappInquiry: 'Halo PT Sinergi Ekuitas Indonesia, saya ingin konsultasi dan mendapatkan proposal untuk Pilar 06: Layanan Pendukung Operasional & Institusional.',
     image: {
       url: './images/facilities/transportasi.jpeg',
       alt: 'Layanan Pendukung Operasional & Institusional',
