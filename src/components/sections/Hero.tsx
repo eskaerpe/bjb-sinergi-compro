@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'motion/react';
 import {
   ArrowRight,
   Download,
@@ -97,8 +98,18 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-        <div className="lg:col-span-7 space-y-6 text-left">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-950 tracking-tight leading-[1.18]">
+        <motion.div
+          className="lg:col-span-7 space-y-6 text-left"
+          initial="hidden"
+          animate="visible"
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.16 } } }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <motion.h1
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-950 tracking-tight leading-[1.18]"
+            variants={{ hidden: { opacity: 0, y: 34 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
+          >
             Mitra Strategis Pelatihan, Konsultasi &amp; Layanan{' '}
             <span className="relative inline-block text-coral-600">
               Institusional Terpadu
@@ -107,16 +118,24 @@ export const Hero: React.FC = () => {
                 aria-hidden="true"
               />
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="text-base sm:text-lg text-navy-800 leading-relaxed max-w-2xl font-normal">
+          <motion.p
+            className="text-base sm:text-lg text-navy-800 leading-relaxed max-w-2xl font-normal"
+            variants={{ hidden: { opacity: 0, y: 26 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+          >
             PT Sinergi Ekuitas Indonesia memadukan kekuatan akademik Universitas Ekuitas Indonesia, keahlian praktisi
             perbankan bank bjb, serta fasilitas representatif untuk menghadirkan solusi SDM dan kelembagaan yang solutif,
             terukur, dan terpercaya.
-          </p>
+          </motion.p>
 
           {/* Primary CTAs & Brochure Link */}
-          <div className="space-y-4 pt-1">
+          <motion.div
+            className="space-y-4 pt-1"
+            variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <Link
                 to="/layanan"
@@ -151,10 +170,14 @@ export const Hero: React.FC = () => {
                 </span>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Trust Badges Social Proof Strip */}
-          <div className="pt-6 border-t border-slate-200/80">
+          <motion.div
+            className="pt-6 border-t border-slate-200/80"
+            variants={{ hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0 } }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+          >
             <div className="grid grid-cols-3 divide-x divide-slate-200/80 text-left">
               {/* 1. YKP bank bjb */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 pr-2 sm:pr-4">
@@ -189,10 +212,15 @@ export const Hero: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="lg:col-span-5">
+        <motion.div
+          className="lg:col-span-5"
+          initial={{ opacity: 0, x: 26 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        >
           <div className="relative">
             <div
               role="tablist"
@@ -220,22 +248,32 @@ export const Hero: React.FC = () => {
               })}
             </div>
 
-            <div
+            <motion.div
               id={`spotlight-panel-${activeTab.id}`}
               role="tabpanel"
               className="relative rounded-3xl overflow-hidden border border-border-subtle shadow-xl bg-navy-950 group"
+              initial={{ opacity: 0.72, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="w-full h-[380px] sm:h-[430px] overflow-hidden">
-                <img
-                  src={activeTab.imageUrl}
-                  alt={activeTab.title}
-                  className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.onerror = null;
-                    target.src = activeTab.fallbackUrl;
-                  }}
-                />
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeTab.id}
+                    src={activeTab.imageUrl}
+                    alt={activeTab.title}
+                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 0.9, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = activeTab.fallbackUrl;
+                    }}
+                  />
+                </AnimatePresence>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent pointer-events-none" />
 
@@ -259,9 +297,9 @@ export const Hero: React.FC = () => {
                   {activeTab.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </SectionContainer>
   );

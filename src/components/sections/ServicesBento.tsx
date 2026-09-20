@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { SERVICES_DATA, ServiceItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   GraduationCap,
@@ -41,7 +42,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
       />
 
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Portofolio Solusi Kelembagaan
           </span>
@@ -51,14 +52,14 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
           <p className="text-base text-navy-700 leading-relaxed font-normal">
             Solusi end-to-end terpadu yang dirancang untuk memenuhi standar kelembagaan, perbankan, instansi pemerintah, dan sektor korporat.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {SERVICES_DATA.map((service: ServiceItem, index: number) => {
             const IconComponent = ICON_MAP[service.iconName] || ShieldCheck;
 
             return (
-              <div
+              <StaggerItem
                 key={service.id}
                 className="bg-white rounded-3xl p-6 sm:p-8 border border-border-subtle shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-6 relative group"
               >
@@ -113,10 +114,10 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
                     </Link>
                   </div>
                 )}
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
         {/* Conditional Footer Rendering */}
         {showViewAllLink ? (

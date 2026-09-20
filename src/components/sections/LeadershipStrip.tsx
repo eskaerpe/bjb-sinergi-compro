@@ -8,6 +8,7 @@ import {
 import { LEADERSHIP_MEMBERS, LeaderItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 import { cn } from '@/utils/cn';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 const getOrderedLeaders = (members: LeaderItem[]): LeaderItem[] => {
   const dirut = members.find((m) => m.title === 'Direktur Utama');
@@ -51,7 +52,7 @@ export const LeadershipStrip: React.FC = () => {
       />
 
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3.5">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-3.5">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Jajaran Kepemimpinan
           </span>
@@ -61,9 +62,9 @@ export const LeadershipStrip: React.FC = () => {
           <p className="text-sm sm:text-base text-navy-700 leading-relaxed max-w-2xl mx-auto font-normal">
             Dikelola oleh eksekutif berpengalaman dan dewan pengawas yang mengawal komitmen Good Corporate Governance (GCG) serta mutu layanan institusi.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+        <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
           {leaders.map((leader) => {
             const isDirut = leader.title === 'Direktur Utama';
             const roleBadge = ROLE_BADGES[leader.title] || {
@@ -72,7 +73,7 @@ export const LeadershipStrip: React.FC = () => {
             };
 
             return (
-              <div
+              <StaggerItem
                 key={leader.id}
                 className={cn(
                   'group relative bg-white rounded-3xl p-6 sm:p-7 border border-border-subtle shadow-card flex flex-col justify-between',
@@ -139,10 +140,10 @@ export const LeadershipStrip: React.FC = () => {
                   </span>
                   <span className="text-[11px] font-bold text-navy-700">PT SEI</span>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
         <div className="text-center pt-2">
           <Link

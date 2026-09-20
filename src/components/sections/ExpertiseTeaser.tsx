@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { EXPERT_DOMAINS_DATA, ExpertDomain } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Calculator,
@@ -61,7 +62,7 @@ export const ExpertiseTeaser: React.FC = () => {
       />
 
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Pilar Kompetensi &amp; Silabus
           </span>
@@ -71,14 +72,14 @@ export const ExpertiseTeaser: React.FC = () => {
           <p className="text-base text-navy-700 leading-relaxed font-normal">
             Didukung oleh 124+ sub-topik spesialisasi dan jaringan instruktur praktisi senior perbankan serta akademisi doktoral Universitas Ekuitas Indonesia.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {displayDomains.map((domain: ExpertDomain) => {
             const IconComponent = ICON_MAP[domain.iconName] || BookOpen;
 
             return (
-              <div
+              <StaggerItem
                 key={domain.id}
                 className="bg-white rounded-3xl p-6 border border-border-subtle shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4 group relative"
               >
@@ -114,10 +115,10 @@ export const ExpertiseTeaser: React.FC = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
         <div className="text-center pt-4">
           <Link

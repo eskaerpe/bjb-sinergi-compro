@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO, SERVICES_DATA } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 export const LeadHub: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -111,7 +112,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
       />
 
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-coral-400 uppercase">
             Hubungi Tim Konsultasi Kami
           </span>
@@ -121,10 +122,10 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
           <p className="text-base text-navy-200 leading-relaxed font-normal">
             Siap mendiskusikan kebutuhan pengembangan SDM, pelatihan perbankan, konsultasi bisnis, dan operasional kegiatan institusi Anda bersama pakar kami.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          <div className="lg:col-span-5 space-y-6">
+        <Stagger className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          <StaggerItem className="lg:col-span-5 space-y-6">
             <div className="bg-navy-900/90 rounded-3xl p-6 sm:p-8 border border-navy-800 shadow-card space-y-6 text-left">
               <div className="space-y-2 border-b border-navy-800 pb-4">
                 <span className="text-xs font-extrabold uppercase tracking-wider text-coral-400">
@@ -228,9 +229,9 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                 className="w-full h-full opacity-90 hover:opacity-100 transition-opacity duration-300"
               />
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className="lg:col-span-7">
+          <StaggerItem className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-7 sm:p-10 border border-border-subtle shadow-card text-left">
               {submitted ? (
                 <div className="py-12 text-center space-y-4">
@@ -374,8 +375,8 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                 </form>
               )}
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
       </div>
     </SectionContainer>
   );

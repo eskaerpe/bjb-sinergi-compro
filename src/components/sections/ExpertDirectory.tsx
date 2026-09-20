@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { EXPERT_DOMAINS_DATA, ExpertDomain } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 const DOMAIN_ICON_MAP: Record<string, React.ElementType> = {
   Landmark,
@@ -160,7 +161,7 @@ export const ExpertDirectory: React.FC = () => {
             </div>
           ) : (
             <div className="relative">
-              <div
+              <Stagger
                 className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-hidden transition-all duration-700 ease-in-out ${
                   showExpanded
                     ? 'max-h-[3500px]'
@@ -170,7 +171,7 @@ export const ExpertDirectory: React.FC = () => {
                 {filteredDomains.map((domain) => {
                   const IconComponent = DOMAIN_ICON_MAP[domain.iconName] || BookOpen;
                   return (
-                    <div
+                    <StaggerItem
                       key={domain.id}
                       onClick={() => setActiveModalDomain(domain)}
                       onKeyDown={(e) => {
@@ -220,10 +221,10 @@ export const ExpertDirectory: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </StaggerItem>
                   );
                 })}
-              </div>
+              </Stagger>
 
               {!showExpanded && filteredDomains.length > 3 && (
                 <div

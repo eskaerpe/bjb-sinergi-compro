@@ -5,6 +5,40 @@
 @layer base {
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    scrollbar-width: thin;
+    scrollbar-color: #2d8cba #e8f0f7;
+    background: #e8f0f7;
+  }
+
+  body {
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: #2d8cba #e8f0f7;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e8f0f7;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #2d8cba 0%, #1b365d 100%);
+    border: 3px solid #e8f0f7;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #36a4d2 0%, #244a79 100%);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #e8f0f7;
   }
 }
 

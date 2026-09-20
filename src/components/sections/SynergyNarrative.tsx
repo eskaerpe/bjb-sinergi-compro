@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 export interface SynergyNarrativeProps {
   variant?: 'preview' | 'full';
@@ -93,7 +94,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
       />
 
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-3.5">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-3.5">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             {isPreview ? 'Sinergi B2B & Ekuitas' : 'Sinergi Ekosistem Terintegrasi'}
           </span>
@@ -105,14 +106,14 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
           <p className="text-sm sm:text-base text-navy-700 leading-relaxed max-w-2xl mx-auto font-normal">
             {COMPANY_INFO.ecosystemSubtitle}
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PILLARS.map((pillar) => {
             const IconComponent = pillar.icon;
 
             return (
-              <div
+              <StaggerItem
                 key={pillar.number}
                 className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle shadow-card hover:border-brandBlue-200 transition-colors"
               >
@@ -151,10 +152,10 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                     {pillar.metric}
                   </span>
                 </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
         {!isPreview && (
           <div className="bg-surface-tint rounded-3xl p-6 sm:p-8 border border-border-subtle space-y-6">

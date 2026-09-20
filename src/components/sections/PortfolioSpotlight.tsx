@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { PORTFOLIO_PROJECT } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 interface PortfolioSpotlightProps {
   showViewAllLink?: boolean;
@@ -53,7 +54,7 @@ export const PortfolioSpotlight: React.FC<PortfolioSpotlightProps> = ({ showView
       outerClassName="relative bg-surface-tint border-b border-border-subtle overflow-hidden"
     >
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Rekam Jejak &amp; Studi Kasus Utama
           </span>
@@ -63,11 +64,11 @@ export const PortfolioSpotlight: React.FC<PortfolioSpotlightProps> = ({ showView
           <p className="text-base text-navy-700 leading-relaxed font-normal">
             Bukti nyata kapabilitas PT Sinergi Ekuitas Indonesia dalam mengelola program pembelajaran perbankan komprehensif end-to-end.
           </p>
-        </div>
+        </Reveal>
 
         {/* Project Header Info Card */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-border-subtle shadow-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-5 text-left">
+        <Stagger className="bg-white rounded-3xl p-6 sm:p-8 border border-border-subtle shadow-card grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <StaggerItem className="lg:col-span-7 space-y-5 text-left">
             <div className="flex flex-wrap items-center gap-2">
               <span className="px-3 py-1 bg-brandBlue-50 text-brandBlue-600 text-xs font-extrabold rounded-full">
                 {PORTFOLIO_PROJECT.category}
@@ -97,9 +98,9 @@ export const PortfolioSpotlight: React.FC<PortfolioSpotlightProps> = ({ showView
                 </div>
               ))}
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className="lg:col-span-5 relative">
+          <StaggerItem className="lg:col-span-5 relative">
             <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-lg border border-border-subtle relative group bg-navy-900">
               <img
                 src={PORTFOLIO_PROJECT.image.url}
@@ -124,8 +125,8 @@ export const PortfolioSpotlight: React.FC<PortfolioSpotlightProps> = ({ showView
                 <Camera className="w-5 h-5 text-brandBlue-600" />
               </button>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
         {/* Detailed Sections for Full View (PortfolioPage) */}
         {!showViewAllLink && (

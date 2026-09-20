@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { FACILITIES_DATA, FacilityItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
+import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
 
 interface FacilitiesBentoProps {
   showViewAllLink?: boolean;
@@ -64,7 +65,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
   return (
     <SectionContainer id="fasilitas" outerClassName="relative bg-white border-b border-border-subtle overflow-hidden">
       <div className="relative z-10 space-y-12">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
+        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
           <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
             Infrastruktur Kampus Terpadu
           </span>
@@ -74,11 +75,11 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
           <p className="text-base text-navy-700 leading-relaxed font-normal">
             Berlokasi di Kampus Universitas Ekuitas Indonesia, Jl. PHH. Mustofa No. 31 Bandung. Lingkungan edukasi kondusif berstandar industri.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {displayFacilities.map((facility: FacilityItem) => (
-            <div
+            <StaggerItem
               key={facility.id}
               className="bg-surface-tint rounded-3xl border border-border-subtle overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
             >
@@ -147,9 +148,9 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         {/* Conditional Footer Rendering */}
         {showViewAllLink ? (
