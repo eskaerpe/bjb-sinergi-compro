@@ -193,9 +193,9 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat langsung dengan sekretariat via WhatsApp Official"
-                  className="w-full inline-flex items-center justify-center gap-2 min-h-[48px] text-xs font-bold text-navy-950 bg-coral-500 hover:bg-coral-400 px-5 py-3 rounded-xl shadow-lg transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
+                  className="w-full inline-flex items-center justify-center gap-2 min-h-[48px] text-xs font-bold text-navy-950 bg-coral-500 hover:bg-coral-400 px-5 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 active:scale-[0.98] group"
                 >
-                  <Phone className="w-4 h-4" aria-hidden="true" />
+                  <Phone className="w-4 h-4 group-hover:rotate-12 transition-transform duration-200 ease-out" aria-hidden="true" />
                   <span>Chat Langsung via WhatsApp Official</span>
                 </a>
 
@@ -205,9 +205,9 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Unduh E-Brochure Company Profile PT Sinergi format PDF"
-                  className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] text-xs font-bold text-navy-100 bg-navy-950 hover:bg-navy-800 border border-navy-700 px-5 py-2.5 rounded-xl transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
+                  className="w-full inline-flex items-center justify-center gap-2 min-h-[44px] text-xs font-bold text-navy-100 bg-navy-950 hover:bg-navy-800 border border-navy-700 hover:border-brandBlue-400 px-5 py-2.5 rounded-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 active:scale-[0.98] group"
                 >
-                  <Download className="w-4 h-4 text-brandBlue-400" aria-hidden="true" />
+                  <Download className="w-4 h-4 text-brandBlue-400 group-hover:-translate-y-0.5 transition-transform duration-200 ease-out" aria-hidden="true" />
                   <span>Unduh E-Brochure Profile (PDF)</span>
                 </a>
               </div>
@@ -247,7 +247,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-navy-900 text-white font-bold text-xs hover:bg-brandBlue-600 transition-colors"
+                    className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-navy-900 hover:bg-brandBlue-600 text-white font-bold text-xs shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                   >
                     Kirim Pesan Lainnya
                   </button>
@@ -367,9 +367,9 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 min-h-[50px] px-6 py-3.5 bg-brandBlue-600 hover:bg-brandBlue-700 text-white font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brandBlue-500 active:scale-[0.99]"
+                    className="w-full inline-flex items-center justify-center gap-2 min-h-[50px] px-6 py-3.5 bg-brandBlue-600 hover:bg-brandBlue-700 text-white font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
                   >
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200 ease-out" />
                     <span>Kirim Permintaan Proposal via WhatsApp</span>
                   </button>
                 </form>

@@ -115,7 +115,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
             return (
               <StaggerItem
                 key={pillar.number}
-                className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle shadow-card hover:border-brandBlue-200 transition-colors"
+                className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-white border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
@@ -216,15 +216,15 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                 <Link
                   to="/tentang-kami"
                   aria-label="Pelajari Profil dan Legalitas PT Sinergi Ekuitas Indonesia"
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-400 active:scale-[0.98]"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                 >
                   <span>Pelajari Profil &amp; Legalitas Kami</span>
-                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform duration-200 ease-out" aria-hidden="true" />
+                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/kontak"
                   aria-label="Konsultasi Program Sinergi"
-                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 active:scale-[0.98]"
                 >
                   Konsultasi Sinergi
                 </Link>
@@ -234,15 +234,15 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                 <Link
                   to="/layanan"
                   aria-label="Lihat Layanan Kami"
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-400 active:scale-[0.98]"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-white hover:bg-surface-tint shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                 >
                   <span>Jelajahi Layanan Kami</span>
-                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform duration-200 ease-out" aria-hidden="true" />
+                  <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" aria-hidden="true" />
                 </Link>
                 <Link
                   to="/kontak"
                   aria-label="Hubungi Konsultan Kami"
-                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center min-h-[46px] px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 active:scale-[0.98]"
                 >
                   Hubungi Kami
                 </Link>

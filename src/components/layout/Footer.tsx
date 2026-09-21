@@ -38,9 +38,9 @@ export const Footer: React.FC = () => {
                 download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold text-navy-950 bg-white hover:bg-surface-tint px-4 py-2.5 rounded-xl shadow-md transition-all duration-150 ease-out"
+                className="inline-flex items-center gap-2 text-xs font-bold text-navy-950 bg-white hover:bg-surface-tint px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
               >
-                <Download className="w-4 h-4 text-brandBlue-600" />
+                <Download className="w-4 h-4 text-brandBlue-600 group-hover:-translate-y-0.5 transition-transform duration-200 ease-out" />
                 <span>Unduh E-Brochure Profile (PDF)</span>
               </a>
             </div>

@@ -91,9 +91,9 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center shrink-0">
             <Link
               to="/kontak"
-              className="h-10 inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-navy-900 hover:bg-brandBlue-600 px-5 rounded-xl shadow-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
+              className="h-10 inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-navy-900 hover:bg-brandBlue-600 px-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
             >
-              <MessageSquare className="w-4 h-4 text-coral-500 shrink-0" />
+              <MessageSquare className="w-4 h-4 text-coral-500 shrink-0 group-hover:scale-110 transition-transform duration-200 ease-out" />
               <span>Konsultasi</span>
             </Link>
           </div>
@@ -104,14 +104,14 @@ export const Navbar: React.FC = () => {
                 <button
                   type="button"
                   aria-label="Buka Menu Navigasi"
-                  className="p-2 rounded-xl text-navy-900 hover:bg-slate-100 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
+                  className="p-2 rounded-xl text-navy-900 hover:bg-slate-100 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
                 >
                   <Menu className="w-6 h-6" />
                 </button>
               </Dialog.Trigger>
               <Dialog.Portal>
-                <Dialog.Overlay className="fixed inset-0 z-50 bg-navy-950/40 backdrop-blur-sm transition-opacity" />
-                <Dialog.Content className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white shadow-2xl p-6 flex flex-col justify-between focus:outline-none">
+                <Dialog.Overlay className="fixed inset-0 z-50 bg-navy-950/50 backdrop-blur-sm animate-in fade-in duration-200" />
+                <Dialog.Content className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-white shadow-2xl p-6 flex flex-col justify-between focus:outline-none animate-in slide-in-from-right duration-200">
                   <div>
                     <div className="flex items-center justify-between pb-6 border-b border-border-subtle">
                       <div className="flex items-center gap-2.5">
@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
                         <button
                           type="button"
                           aria-label="Tutup Menu"
-                          className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors duration-150"
+                          className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-95"
                         >
                           <X className="w-5 h-5" />
                         </button>
@@ -153,7 +153,7 @@ export const Navbar: React.FC = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className={({ isActive }) =>
                             cn(
-                              'flex items-center px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
+                              'flex items-center px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]',
                               isActive
                                 ? 'bg-brandBlue-50 text-brandBlue-700 font-semibold border-l-2 border-brandBlue-600 pl-3'
                                 : 'text-navy-700 hover:bg-surface-tint hover:text-navy-900 font-medium'
@@ -170,7 +170,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to="/kontak"
                       onClick={() => setMobileMenuOpen(false)}
-                      className="w-full h-11 inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-navy-900 hover:bg-brandBlue-600 rounded-xl shadow-sm transition-all duration-150 ease-out"
+                      className="w-full h-11 inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-navy-900 hover:bg-brandBlue-600 rounded-xl shadow-sm hover:shadow-md transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                     >
                       <MessageSquare className="w-4 h-4 text-coral-500" />
                       <span>Hubungi Kami</span>
@@ -181,7 +181,7 @@ export const Navbar: React.FC = () => {
                       download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full h-11 inline-flex items-center justify-center gap-2 text-xs font-semibold text-navy-900 bg-surface-tint hover:bg-slate-100 rounded-xl border border-border-subtle transition-colors duration-150"
+                      className="w-full h-11 inline-flex items-center justify-center gap-2 text-xs font-semibold text-navy-900 bg-surface-tint hover:bg-slate-100 rounded-xl border border-border-subtle transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                     >
                       <Download className="w-4 h-4 text-brandBlue-600" />
                       <span>Unduh Profil (PDF)</span>

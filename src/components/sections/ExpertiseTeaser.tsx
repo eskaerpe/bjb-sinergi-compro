@@ -81,7 +81,7 @@ export const ExpertiseTeaser: React.FC = () => {
             return (
               <StaggerItem
                 key={domain.id}
-                className="bg-white rounded-3xl p-6 border border-border-subtle shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4 group relative"
+                className="bg-white rounded-3xl p-6 sm:p-7 border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between space-y-4 group relative"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -123,10 +123,10 @@ export const ExpertiseTeaser: React.FC = () => {
         <div className="text-center pt-4">
           <Link
             to="/jaringan-ahli"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 group"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
           >
             <span>Jelajahi Direktori Lengkap 12 Domain &amp; 124+ Sub-Topik</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" />
           </Link>
         </div>
       </div>

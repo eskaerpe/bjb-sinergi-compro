@@ -76,7 +76,7 @@ export const LeadershipStrip: React.FC = () => {
               <StaggerItem
                 key={leader.id}
                 className={cn(
-                  'group relative bg-white rounded-3xl p-6 sm:p-7 border border-border-subtle shadow-card flex flex-col justify-between',
+                  'group relative bg-white rounded-3xl p-6 sm:p-7 border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between',
                   isDirut && 'border-brandBlue-300 ring-1 ring-brandBlue-500/20'
                 )}
               >
@@ -91,6 +91,8 @@ export const LeadershipStrip: React.FC = () => {
                     <img
                       src={leader.image.url}
                       alt={leader.image.alt}
+                      loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.onerror = null;
@@ -149,10 +151,10 @@ export const LeadershipStrip: React.FC = () => {
           <Link
             to="/tentang-kami"
             aria-label="Lihat Dewan Direksi & Pengawas Lengkap"
-            className="group inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-900 bg-surface-tint hover:bg-white border border-border-subtle hover:border-brandBlue-400 shadow-2xs transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
+            className="group inline-flex items-center justify-center gap-2 min-h-[46px] px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm text-navy-900 bg-surface-tint hover:bg-white border border-border-subtle hover:border-brandBlue-400 shadow-2xs hover:shadow-card transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
           >
             <span>Lihat Dewan Direksi &amp; Pengawas Lengkap</span>
-            <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1 transition-transform duration-200 ease-out" aria-hidden="true" />
+            <ArrowRight className="w-4 h-4 text-brandBlue-600 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" aria-hidden="true" />
           </Link>
         </div>
       </div>

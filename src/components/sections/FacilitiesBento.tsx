@@ -81,14 +81,15 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
           {displayFacilities.map((facility: FacilityItem) => (
             <StaggerItem
               key={facility.id}
-              className="bg-surface-tint rounded-3xl border border-border-subtle overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 flex flex-col justify-between group"
+              className="bg-surface-tint rounded-3xl border border-border-subtle hover:border-brandBlue-300 overflow-hidden shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between group"
             >
               <div className="relative aspect-video overflow-hidden bg-navy-900">
                 <img
                   src={facility.image.url}
                   alt={facility.image.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4">
@@ -101,7 +102,8 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                   <button
                     type="button"
                     onClick={() => openFacilityModal(facility)}
-                    className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/90 hover:bg-white text-navy-900 font-extrabold text-xs rounded-xl shadow-md backdrop-blur-md transition-colors"
+                    aria-label={`Buka galeri foto ${facility.name}`}
+                    className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/90 hover:bg-white text-navy-900 font-extrabold text-xs rounded-xl shadow-md backdrop-blur-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
                   >
                     <Images className="w-3.5 h-3.5 text-brandBlue-600" />
                     <span>Galeri Foto ({facility.galleryImages.length})</span>
@@ -142,10 +144,10 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                 <button
                   type="button"
                   onClick={() => openFacilityModal(facility)}
-                  className="inline-flex items-center gap-1 text-xs font-extrabold text-brandBlue-600 hover:text-navy-900 transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-extrabold text-brandBlue-600 hover:text-navy-900 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 rounded-lg py-1 px-2 -mr-2 active:scale-[0.98] group/btn"
                 >
                   <span>Detail &amp; Foto</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200 ease-out" />
                 </button>
               </div>
             </StaggerItem>
@@ -157,10 +159,10 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
           <div className="text-center pt-4">
             <Link
               to="/fasilitas"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 group"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
             >
               <span>Lihat Seluruh 6 Sarana Kampus &amp; Spesifikasi</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" />
             </Link>
           </div>
         ) : (
@@ -179,10 +181,10 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
             <div className="relative z-10 shrink-0">
               <Link
                 to="/kontak"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-coral-500 hover:bg-coral-600 text-navy-950 font-extrabold text-sm rounded-xl shadow-md transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 bg-coral-500 hover:bg-coral-400 text-navy-950 font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 active:scale-[0.98] group"
               >
                 <span>Reservasi Sarana Sekarang</span>
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 ease-out" />
               </Link>
             </div>
           </div>
@@ -193,8 +195,8 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
       {activeFacility && (
         <Dialog.Root open={!!activeFacility} onOpenChange={(open) => !open && setActiveFacility(null)}>
           <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-navy-950/80 backdrop-blur-md z-50 animate-fade-in" />
-            <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-4xl max-h-[90vh] overflow-y-auto no-scrollbar bg-navy-900 rounded-3xl p-4 sm:p-8 shadow-2xl z-50 border border-navy-800 focus:outline-none flex flex-col justify-between space-y-4">
+            <Dialog.Overlay className="fixed inset-0 bg-navy-950/80 backdrop-blur-sm z-50 animate-in fade-in duration-200" />
+            <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-4xl max-h-[90vh] overflow-y-auto no-scrollbar bg-navy-900 rounded-3xl p-5 sm:p-8 shadow-2xl z-50 border border-navy-800 focus:outline-none flex flex-col justify-between space-y-4 animate-in zoom-in-95 duration-200">
               <div className="flex items-center justify-between border-b border-navy-800 pb-3">
                 <div className="space-y-0.5">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-coral-400">
@@ -204,7 +206,10 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                     {activeFacility.name}
                   </Dialog.Title>
                 </div>
-                <Dialog.Close className="w-9 h-9 rounded-full bg-navy-800 hover:bg-navy-700 flex items-center justify-center text-white transition-colors">
+                <Dialog.Close
+                  aria-label="Tutup modal galeri fasilitas"
+                  className="w-9 h-9 rounded-full bg-navy-800 hover:bg-navy-700 flex items-center justify-center text-white transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900 active:scale-95"
+                >
                   <X className="w-5 h-5" />
                 </Dialog.Close>
               </div>
@@ -215,6 +220,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                     src={images[activeImageIndex].url}
                     alt={images[activeImageIndex].caption || activeFacility.name}
                     className="w-full h-full object-contain"
+                    decoding="async"
                   />
                   {images.length > 1 && (
                     <>
@@ -222,7 +228,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                         type="button"
                         onClick={handlePrevImage}
                         aria-label="Gambar sebelumnya"
-                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-colors"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
@@ -230,7 +236,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                         type="button"
                         onClick={handleNextImage}
                         aria-label="Gambar selanjutnya"
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>

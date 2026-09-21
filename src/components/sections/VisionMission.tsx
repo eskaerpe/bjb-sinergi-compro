@@ -95,7 +95,7 @@ export const VisionMission: React.FC = () => {
             {VISION_MISSION_DATA.values.map((val, idx) => (
               <div
                 key={idx}
-                className="bg-white p-4 rounded-2xl border border-border-subtle shadow-2xs text-center space-y-2.5 flex flex-col justify-between hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
+                className="bg-white p-4 rounded-2xl border border-border-subtle hover:border-brandBlue-300 shadow-2xs text-center space-y-2.5 flex flex-col justify-between hover:shadow-card hover:-translate-y-1 transition-all duration-300 ease-out"
               >
                 <div className="w-10 h-10 rounded-xl bg-navy-900 text-coral-500 font-black text-xl flex items-center justify-center mx-auto shadow-sm">
                   {val.letter}

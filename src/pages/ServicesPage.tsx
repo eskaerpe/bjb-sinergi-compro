@@ -43,17 +43,19 @@ export const ServicesPage: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 220;
+      let currentPilar = DETAILED_SERVICES_DATA[0].id;
       for (let i = DETAILED_SERVICES_DATA.length - 1; i >= 0; i--) {
         const pillar = DETAILED_SERVICES_DATA[i];
         const element = document.getElementById(pillar.id);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActivePilar(pillar.id);
+        if (element && element.getBoundingClientRect().top <= 220) {
+          currentPilar = pillar.id;
           break;
         }
       }
+      setActivePilar(currentPilar);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -61,7 +63,8 @@ export const ServicesPage: React.FC = () => {
   const scrollToPilar = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const elementTop = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: elementTop - 144, behavior: 'smooth' });
     }
   };
 
@@ -76,7 +79,7 @@ export const ServicesPage: React.FC = () => {
       {/* Sticky Sub-Navigation Bar */}
       <div className="sticky top-[65px] md:top-[73px] z-30 bg-white/95 backdrop-blur-md border-b border-border-subtle py-2.5 shadow-xs transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 px-1 sm:px-0">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1.5 px-4 sm:px-0 -mx-4 sm:mx-0 scroll-px-4">
             <span className="text-xs font-bold text-navy-800 uppercase tracking-wider shrink-0 hidden sm:inline-block mr-1">
               Lompat ke:
             </span>
@@ -88,7 +91,7 @@ export const ServicesPage: React.FC = () => {
                   type="button"
                   onClick={() => scrollToPilar(item.id)}
                   className={cn(
-                    'px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-150 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500',
+                    'px-3.5 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-150 shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]',
                     isActive
                       ? 'bg-navy-900 text-white shadow-xs font-bold border border-navy-900'
                       : 'bg-surface-tint text-navy-900 border border-border-subtle hover:bg-navy-100 hover:text-navy-950 font-medium'
@@ -151,6 +154,7 @@ export const ServicesPage: React.FC = () => {
                           alt={pillar.image.alt}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                           loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent pointer-events-none" />
                         <div className="absolute top-3 left-3 w-10 h-10 rounded-xl bg-navy-900/90 backdrop-blur-md text-coral-400 flex items-center justify-center border border-white/10 shadow-sm">
@@ -282,18 +286,18 @@ export const ServicesPage: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Konsultasikan ${pillar.title} via WhatsApp`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-coral-500 hover:bg-coral-600 text-navy-950 font-bold text-xs sm:text-sm shadow-button transition-all duration-150 active:scale-[0.98]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-coral-500 hover:bg-coral-400 text-navy-950 font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 active:scale-[0.98] group"
                     >
-                      <MessageSquare className="w-4 h-4" />
+                      <MessageSquare className="w-4 h-4 group-hover:scale-110 transition-transform duration-200 ease-out" />
                       <span>Konsultasikan Pilar Ini</span>
                     </a>
 
                     <Link
                       to="/kontak"
                       aria-label={`Minta Proposal ${pillar.title}`}
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-surface-tint text-navy-900 border border-border-medium font-bold text-xs sm:text-sm shadow-2xs transition-all duration-150 active:scale-[0.98]"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-surface-tint text-navy-900 border border-border-medium hover:border-brandBlue-500 font-bold text-xs sm:text-sm shadow-2xs hover:shadow-xs transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
                     >
-                      <FileText className="w-4 h-4 text-brandBlue-600" />
+                      <FileText className="w-4 h-4 text-brandBlue-600 group-hover:scale-110 transition-transform duration-200 ease-out" />
                       <span>Minta Proposal &amp; Diskusi</span>
                     </Link>
                   </div>

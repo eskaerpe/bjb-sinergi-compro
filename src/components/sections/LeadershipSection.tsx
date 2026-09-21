@@ -26,8 +26,8 @@ export const LeadershipSection: React.FC = () => {
             return (
               <div
                 key={leader.id}
-                className={`bg-white rounded-3xl p-6 sm:p-8 border shadow-card flex flex-col justify-between space-y-6 relative transition-all duration-300 hover:shadow-card-hover ${
-                  isDirut ? 'border-brandBlue-500/80 ring-1 ring-brandBlue-500/20' : 'border-border-subtle'
+                className={`bg-white rounded-3xl p-6 sm:p-8 border shadow-card flex flex-col justify-between space-y-6 relative transition-all duration-300 ease-out hover:shadow-card-hover hover:-translate-y-1 ${
+                  isDirut ? 'border-brandBlue-500/80 ring-1 ring-brandBlue-500/20' : 'border-border-subtle hover:border-brandBlue-300'
                 }`}
               >
                 <div className="space-y-5">
@@ -35,6 +35,8 @@ export const LeadershipSection: React.FC = () => {
                     <img
                       src={leader.image.url}
                       alt={leader.image.alt}
+                      loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.onerror = null;

@@ -140,18 +140,18 @@ export const Hero: React.FC = () => {
               <Link
                 to="/layanan"
                 aria-label="Jelajahi seluruh layanan PT Sinergi Ekuitas Indonesia"
-                className="inline-flex items-center justify-center gap-2.5 min-h-[48px] px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-navy-900 hover:bg-navy-800 shadow-md hover:shadow-lg transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900 active:scale-[0.98] group"
+                className="inline-flex items-center justify-center gap-2.5 min-h-[48px] px-8 py-3.5 rounded-xl font-bold text-sm text-white bg-navy-900 hover:bg-navy-800 shadow-md hover:shadow-lg transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
               >
                 <span>Jelajahi Seluruh Layanan</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform duration-200 ease-out" />
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1.5 transition-transform duration-200 ease-out" />
               </Link>
 
               <Link
                 to="/kontak"
                 aria-label="Minta Proposal Sinergi dan Konsultasi"
-                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3.5 rounded-xl font-bold text-sm text-navy-900 bg-white hover:bg-surface-tint border border-border-medium hover:border-navy-900 shadow-xs transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 min-h-[48px] px-6 py-3.5 rounded-xl font-bold text-sm text-navy-900 bg-white hover:bg-surface-tint border border-border-medium hover:border-brandBlue-500 shadow-xs hover:shadow-sm transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
               >
-                <FileText className="w-4 h-4 text-brandBlue-600" aria-hidden="true" />
+                <FileText className="w-4 h-4 text-brandBlue-600 group-hover:scale-110 transition-transform duration-200 ease-out" aria-hidden="true" />
                 <span>Minta Proposal Sinergi</span>
               </Link>
             </div>
@@ -162,9 +162,9 @@ export const Hero: React.FC = () => {
                 download="Company-Profile-PT-Sinergi-Ekuitas-Indonesia.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-navy-950 transition-colors duration-150 focus:outline-none focus-visible:underline rounded-lg"
+                className="group inline-flex items-center gap-2 font-semibold text-navy-700 hover:text-navy-950 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 rounded-lg py-1 px-1.5 -ml-1.5 active:scale-[0.98]"
               >
-                <Download className="w-4 h-4 text-brandBlue-600 group-hover:text-navy-950 transition-colors shrink-0" aria-hidden="true" />
+                <Download className="w-4 h-4 text-brandBlue-600 group-hover:text-navy-950 group-hover:-translate-y-0.5 transition-all shrink-0" aria-hidden="true" />
                 <span className="underline decoration-slate-300 underline-offset-4 group-hover:decoration-navy-950">
                   Unduh E-Brochure Company Profile Resmi (PDF)
                 </span>
@@ -225,7 +225,7 @@ export const Hero: React.FC = () => {
             <div
               role="tablist"
               aria-label="Pilihan Fasilitas Unggulan"
-              className="flex items-center gap-1.5 p-1.5 mb-3 bg-white/90 backdrop-blur-md rounded-2xl border border-border-subtle shadow-sm overflow-x-auto no-scrollbar"
+              className="flex items-center gap-1.5 p-1.5 mb-3 bg-white/90 backdrop-blur-md rounded-2xl border border-border-subtle shadow-sm overflow-x-auto no-scrollbar scroll-px-2"
             >
               {SPOTLIGHT_ITEMS.map((item) => {
                 const isActive = activeTab.id === item.id;
@@ -236,7 +236,7 @@ export const Hero: React.FC = () => {
                     aria-selected={isActive}
                     aria-controls={`spotlight-panel-${item.id}`}
                     onClick={() => setActiveTab(item)}
-                    className={`flex-1 min-w-[100px] text-xs font-bold py-2.5 px-3 rounded-xl transition-all duration-200 text-center whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 ${
+                    className={`flex-1 min-w-[100px] text-xs font-bold py-2.5 px-3 rounded-xl transition-all duration-200 text-center whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] ${
                       isActive
                         ? 'bg-navy-900 text-white shadow-sm'
                         : 'text-navy-800 hover:text-navy-950 hover:bg-navy-50'
@@ -262,6 +262,7 @@ export const Hero: React.FC = () => {
                     key={activeTab.id}
                     src={activeTab.imageUrl}
                     alt={activeTab.title}
+                    decoding="async"
                     className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
                     initial={{ opacity: 0, scale: 1.04 }}
                     animate={{ opacity: 0.9, scale: 1 }}

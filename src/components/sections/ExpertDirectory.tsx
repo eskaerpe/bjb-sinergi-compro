@@ -121,7 +121,7 @@ export const ExpertDirectory: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 pt-2 px-1 sm:px-0">
+          <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2 pt-2 px-4 sm:px-0 -mx-4 sm:mx-0 scroll-px-4">
             {CATEGORIES.map((category) => {
               const isActive = selectedCategory === category;
               return (
@@ -129,7 +129,7 @@ export const ExpertDirectory: React.FC = () => {
                   key={category}
                   type="button"
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-150 ease-out whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 ${
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all duration-150 ease-out whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] ${
                     isActive
                       ? 'bg-navy-900 text-white shadow-md'
                       : 'bg-white text-navy-800 hover:bg-navy-50 border border-border-subtle'
@@ -183,7 +183,7 @@ export const ExpertDirectory: React.FC = () => {
                       role="button"
                       tabIndex={0}
                       aria-label={`Lihat silabus lengkap untuk ${domain.title}`}
-                      className="bg-white rounded-3xl p-6 border border-border-subtle shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
+                      className="bg-white rounded-3xl p-6 border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between space-y-5 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.99]"
                     >
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
@@ -217,7 +217,7 @@ export const ExpertDirectory: React.FC = () => {
                             Lihat Silabus Detail
                           </span>
                           <div className="w-7 h-7 rounded-xl bg-surface-tint group-hover:bg-brandBlue-600 text-navy-900 group-hover:text-white flex items-center justify-center transition-all duration-150">
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200 ease-out" />
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200 ease-out" />
                           </div>
                         </div>
                       </div>
@@ -238,7 +238,7 @@ export const ExpertDirectory: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsExpanded(true)}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-border-subtle shadow-md text-xs font-bold text-navy-900 hover:bg-surface-tint hover:shadow-card-hover transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 group"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-border-subtle shadow-md text-xs font-bold text-navy-900 hover:bg-surface-tint hover:shadow-card-hover transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
                   >
                     <span>Tampilkan Semua {filteredDomains.length} Bidang Keahlian</span>
                     <ChevronDown className="w-4 h-4 text-brandBlue-600 group-hover:translate-y-0.5 transition-transform duration-200 ease-out" />
@@ -251,7 +251,7 @@ export const ExpertDirectory: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setIsExpanded(false)}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-border-subtle shadow-md text-xs font-bold text-navy-700 hover:bg-surface-tint hover:shadow-card-hover transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 group"
+                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-border-subtle shadow-md text-xs font-bold text-navy-700 hover:bg-surface-tint hover:shadow-card-hover transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
                   >
                     <span>Tampilkan Lebih Sedikit</span>
                     <ChevronUp className="w-4 h-4 text-brandBlue-600 group-hover:-translate-y-0.5 transition-transform duration-200 ease-out" />
@@ -268,7 +268,7 @@ export const ExpertDirectory: React.FC = () => {
           <Dialog.Overlay className="fixed inset-0 bg-navy-950/80 backdrop-blur-sm z-50 animate-in fade-in duration-200" />
           <Dialog.Content
             aria-describedby="expert-domain-modal-description"
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-2xl bg-white rounded-3xl shadow-2xl z-50 border border-border-subtle p-6 sm:p-8 max-h-[85vh] overflow-y-auto space-y-6 focus:outline-none animate-in zoom-in-95 duration-200"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-2xl bg-white rounded-3xl shadow-2xl z-50 border border-border-subtle p-6 sm:p-8 max-h-[85vh] overflow-y-auto space-y-6 focus:outline-none animate-in zoom-in-95 duration-200"
           >
             {activeModalDomain && (
               <>
@@ -285,7 +285,7 @@ export const ExpertDirectory: React.FC = () => {
                     <button
                       type="button"
                       aria-label="Tutup Dialog Silabus"
-                      className="p-2 rounded-xl text-navy-500 hover:bg-surface-tint transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500"
+                      className="p-2 rounded-xl text-navy-500 hover:bg-surface-tint transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
                     >
                       <X className="w-5 h-5" />
                     </button>
@@ -331,10 +331,10 @@ export const ExpertDirectory: React.FC = () => {
                     to="/kontak"
                     onClick={() => setActiveModalDomain(null)}
                     aria-label={`Konsultasi silabus ${activeModalDomain.title}`}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-2.5 rounded-xl font-bold text-xs text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-md transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 active:scale-[0.98]"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 min-h-[44px] px-6 py-2.5 rounded-xl font-bold text-xs text-navy-950 bg-coral-500 hover:bg-coral-400 shadow-md hover:shadow-lg transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 active:scale-[0.98] group/modalbtn"
                   >
                     <span>Ajukan Pelatihan Topik Ini</span>
-                    <ArrowRight className="w-4 h-4 text-navy-950" />
+                    <ArrowRight className="w-4 h-4 text-navy-950 group-hover/modalbtn:translate-x-1 transition-transform duration-200 ease-out" />
                   </Link>
                 </div>
               </>
