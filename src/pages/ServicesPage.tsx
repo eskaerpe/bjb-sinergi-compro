@@ -18,6 +18,7 @@ import { LeadHub } from '@/components/sections/LeadHub';
 import { SectionContainer } from '@/components/common/SectionContainer';
 import { DETAILED_SERVICES_DATA, COMPANY_INFO } from '@/data/companyData';
 import { cn } from '@/utils/cn';
+import { Reveal } from '@/components/common/MotionReveal';
 
 const ICON_MAP: Record<string, React.ElementType> = {
   GraduationCap,
@@ -109,7 +110,7 @@ export const ServicesPage: React.FC = () => {
             const IconComponent = ICON_MAP[pillar.iconName] || ShieldCheck;
 
             return (
-              <div
+              <Reveal
                 key={pillar.id}
                 id={pillar.id}
                 className="scroll-mt-36 bg-white rounded-3xl border border-border-subtle shadow-card overflow-hidden transition-all duration-300 hover:shadow-card-hover"
@@ -297,7 +298,7 @@ export const ServicesPage: React.FC = () => {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

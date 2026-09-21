@@ -35,7 +35,7 @@ export const App: React.FC = () => {
         <ScrollToTop />
         <div className="min-h-screen bg-surface-tint text-navy-900 font-sans antialiased selection:bg-brandBlue-500 selection:text-white flex flex-col justify-between">
           <Navbar />
-          <main className="flex-grow pt-20">
+          <main className="flex-grow pt-20 bg-surface-tint">
             <AppRoutes />
           </main>
           <Footer />
