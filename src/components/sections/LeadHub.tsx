@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Phone,
   Mail,
@@ -7,7 +8,8 @@ import {
   Send,
   CheckCircle2,
   Download,
-  AlertCircle
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
 import { COMPANY_INFO, SERVICES_DATA } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
@@ -21,16 +23,46 @@ export const LeadHub: React.FC = () => {
     contact: '',
     message: '',
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
 
-  const [errors, setErrors] = useState<{ name?: string; contact?: string }>({});
-  const [touched, setTouched] = useState<{ name?: boolean; contact?: boolean }>({});
+  const [errors, setErrors] = useState<{ name?: string; contact?: string; privacyConsent?: string }>({});
+  const [touched, setTouched] = useState<{ name?: boolean; contact?: boolean; privacyConsent?: boolean }>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const validateField = (field: 'name' | 'contact', value: string) => {
+  const getWhatsappUrl = (data: typeof formData) => {
+    const text = `Halo ${COMPANY_INFO.name}, saya ingin berkonsultasi mengenai kebutuhan institusi kami:
+
+Nama: ${data.name}
+Instansi: ${data.institution || '-'}
+Layanan: ${data.service}
+Kontak: ${data.contact}
+Pesan/Kebutuhan: ${data.message || '-'}`;
+
+    return `${COMPANY_INFO.whatsappLink}?text=${encodeURIComponent(text)}`;
+  };
+
+  const getMailtoUrl = (data: typeof formData) => {
+    const subject = `Permintaan Proposal & Konsultasi - ${data.institution || data.name}`;
+    const body = `Halo ${COMPANY_INFO.name},
+
+Berikut detail formulir konsultasi dan permintaan proposal institusi kami:
+
+- Nama Lengkap: ${data.name}
+- Instansi/Perusahaan: ${data.institution || '-'}
+- Layanan yang Diminati: ${data.service}
+- Kontak WhatsApp/Email: ${data.contact}
+- Pesan/Detail Kebutuhan: ${data.message || '-'}
+
+Terima kasih.`;
+
+    return `mailto:${COMPANY_INFO.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const validateField = (field: 'name' | 'contact' | 'privacyConsent', value: string | boolean) => {
     let err = '';
-    const trimmed = value.trim();
 
     if (field === 'name') {
+      const trimmed = (value as string).trim();
       if (!trimmed) {
         err = 'Nama lengkap wajib diisi.';
       } else if (trimmed.length < 3) {
@@ -39,6 +71,7 @@ export const LeadHub: React.FC = () => {
     }
 
     if (field === 'contact') {
+      const trimmed = (value as string).trim();
       if (!trimmed) {
         err = 'Nomor WhatsApp atau Email kontak wajib diisi.';
       } else if (trimmed.includes('@')) {
@@ -52,6 +85,12 @@ export const LeadHub: React.FC = () => {
         if (!phoneRegex.test(cleanPhone)) {
           err = 'Format nomor HP/WA tidak valid (contoh: 081234567890).';
         }
+      }
+    }
+
+    if (field === 'privacyConsent') {
+      if (!value) {
+        err = 'Anda harus menyetujui Kebijakan Privasi & Pelindungan Data untuk melanjutkan.';
       }
     }
 
@@ -76,23 +115,14 @@ export const LeadHub: React.FC = () => {
 
     const isNameValid = validateField('name', formData.name);
     const isContactValid = validateField('contact', formData.contact);
-    setTouched({ name: true, contact: true });
+    const isPrivacyValid = validateField('privacyConsent', privacyConsent);
+    setTouched({ name: true, contact: true, privacyConsent: true });
 
-    if (!isNameValid || !isContactValid) {
+    if (!isNameValid || !isContactValid || !isPrivacyValid) {
       return;
     }
 
-    const text = `Halo ${COMPANY_INFO.name}, saya ingin berkonsultasi mengenai kebutuhan institusi kami:
-
-Nama: ${formData.name}
-Instansi: ${formData.institution || '-'}
-Layanan: ${formData.service}
-Kontak: ${formData.contact}
-Pesan/Kebutuhan: ${formData.message || '-'}`;
-
-    const encodedText = encodeURIComponent(text);
-    const waUrl = `${COMPANY_INFO.whatsappLink}?text=${encodedText}`;
-
+    const waUrl = getWhatsappUrl(formData);
     setSubmitted(true);
     const whatsappWindow = window.open(waUrl, '_blank', 'noopener,noreferrer');
     if (!whatsappWindow) {
@@ -170,7 +200,7 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                   </div>
                   <div>
                     <span className="font-bold text-white block">Email Resmi:</span>
-                    <span className="text-navy-200 block mt-0.5">
+                    <span className="text-navy-200 block mt-0.5 break-all sm:break-normal">
                       {COMPANY_INFO.email}
                     </span>
                   </div>
@@ -234,23 +264,58 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
           <StaggerItem className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-7 sm:p-10 border border-border-subtle shadow-card text-left">
               {submitted ? (
-                <div className="py-12 text-center space-y-4">
+                <div className="py-8 text-center space-y-6">
                   <div className="w-16 h-16 rounded-full bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center mx-auto shadow-sm">
-                    <CheckCircle2 className="w-10 h-10" />
+                    <CheckCircle2 className="w-10 h-10 text-brandBlue-600" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-navy-900">
-                    Permintaan Anda Sedang Diproses!
-                  </h3>
-                  <p className="text-xs sm:text-sm text-navy-700 max-w-md mx-auto leading-relaxed">
-                    Terima kasih telah menghubungi PT Sinergi Ekuitas Indonesia. Anda telah diarahkan ke WhatsApp Official kami untuk mendiskusikan proposal.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setSubmitted(false)}
-                    className="inline-flex items-center justify-center px-6 py-2.5 rounded-xl bg-navy-900 hover:bg-brandBlue-600 text-white font-bold text-xs shadow-sm hover:shadow-md transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]"
-                  >
-                    Kirim Pesan Lainnya
-                  </button>
+                  <div className="space-y-2">
+                    <h3 className="text-2xl font-extrabold text-navy-900">
+                      Diarahkan ke WhatsApp Official
+                    </h3>
+                    <p className="text-xs sm:text-sm text-navy-700 max-w-md mx-auto leading-relaxed">
+                      Formulir Anda telah disiapkan. Anda telah diarahkan ke WhatsApp Official {COMPANY_INFO.name} untuk melanjutkan komunikasi proposal.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-left text-xs sm:text-sm text-navy-800 space-y-1.5 max-w-md mx-auto">
+                    <div className="flex items-start gap-2 font-bold text-navy-900">
+                      <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                      <span>Catatan Pengiriman Pesan:</span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed pl-6">
+                      Pesan WhatsApp tidak terkirim secara otomatis dari website. Mohon pastikan Anda menekan tombol <strong>"Kirim"</strong> di dalam aplikasi WhatsApp yang terbuka.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-1 max-w-md mx-auto">
+                    <a
+                      href={getWhatsappUrl(formData)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-coral-500 hover:bg-coral-400 text-navy-950 font-bold text-xs shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span>Buka WhatsApp Lagi</span>
+                    </a>
+
+                    <a
+                      href={getMailtoUrl(formData)}
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-navy-900 hover:bg-brandBlue-600 text-white font-bold text-xs shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2"
+                    >
+                      <Mail className="w-4 h-4 text-coral-400" />
+                      <span>Kirim via Email Resmi</span>
+                    </a>
+                  </div>
+
+                  <div className="pt-4 border-t border-border-subtle">
+                    <button
+                      type="button"
+                      onClick={() => setSubmitted(false)}
+                      className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-slate-600 hover:text-navy-900 text-xs font-semibold hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-800"
+                    >
+                      Kirim Formulir Konsultasi Lainnya
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5" noValidate>
@@ -282,9 +347,10 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                         }`}
                         aria-required="true"
                         aria-invalid={!!(touched.name && errors.name)}
+                        aria-describedby={touched.name && errors.name ? 'lead-name-error' : undefined}
                       />
                       {touched.name && errors.name && (
-                        <p className="text-[11px] font-medium text-coral-600 mt-1 flex items-center gap-1">
+                        <p id="lead-name-error" role="alert" className="text-[11px] font-medium text-coral-600 mt-1 flex items-center gap-1">
                           <AlertCircle className="w-3.5 h-3.5" />
                           <span>{errors.name}</span>
                         </p>
@@ -341,9 +407,10 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                         }`}
                         aria-required="true"
                         aria-invalid={!!(touched.contact && errors.contact)}
+                        aria-describedby={touched.contact && errors.contact ? 'lead-contact-error' : undefined}
                       />
                       {touched.contact && errors.contact && (
-                        <p className="text-[11px] font-medium text-coral-600 mt-1 flex items-center gap-1">
+                        <p id="lead-contact-error" role="alert" className="text-[11px] font-medium text-coral-600 mt-1 flex items-center gap-1">
                           <AlertCircle className="w-3.5 h-3.5" />
                           <span>{errors.contact}</span>
                         </p>
@@ -363,6 +430,51 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                         className="w-full px-4 py-3 rounded-xl border border-border-subtle text-xs sm:text-sm font-normal text-navy-900 placeholder:text-navy-400 bg-white focus:outline-none focus:border-brandBlue-500 focus:ring-2 focus:ring-brandBlue-500/20 transition-all resize-none"
                       />
                     </div>
+
+                    <div className="space-y-1.5 pt-1">
+                      <div className="flex items-start gap-2.5">
+                        <input
+                          id="lead-privacy"
+                          type="checkbox"
+                          checked={privacyConsent}
+                          onChange={(e) => {
+                            setPrivacyConsent(e.target.checked);
+                            if (touched.privacyConsent) {
+                              validateField('privacyConsent', e.target.checked);
+                            }
+                          }}
+                          onBlur={() => {
+                            setTouched((prev) => ({ ...prev, privacyConsent: true }));
+                            validateField('privacyConsent', privacyConsent);
+                          }}
+                          className="mt-0.5 w-4 h-4 rounded border-border-subtle text-brandBlue-600 focus:ring-2 focus:ring-brandBlue-500/20 focus:outline-none cursor-pointer shrink-0"
+                          aria-required="true"
+                          aria-invalid={!!(touched.privacyConsent && errors.privacyConsent)}
+                          aria-describedby={touched.privacyConsent && errors.privacyConsent ? 'lead-privacy-error' : undefined}
+                        />
+                        <div className="text-xs text-navy-700 leading-relaxed">
+                          <label htmlFor="lead-privacy" className="cursor-pointer select-none">
+                            Saya menyetujui bahwa data yang saya masukkan akan digunakan oleh {COMPANY_INFO.name} khusus untuk merespons permintaan proposal dan konsultasi institusi sesuai dengan{' '}
+                          </label>
+                          <Link
+                            to="/kebijakan-privasi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold text-navy-900 underline hover:text-brandBlue-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded px-0.5"
+                          >
+                            Kebijakan Privasi &amp; Pelindungan Data (UU PDP)
+                          </Link>
+                          <span className="text-navy-700">. </span>
+                          <span className="text-coral-500 font-bold">*</span>
+                        </div>
+                      </div>
+                      {touched.privacyConsent && errors.privacyConsent && (
+                        <p id="lead-privacy-error" role="alert" className="text-[11px] font-medium text-coral-600 flex items-center gap-1 pl-6">
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                          <span>{errors.privacyConsent}</span>
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <button
@@ -372,6 +484,18 @@ Pesan/Kebutuhan: ${formData.message || '-'}`;
                     <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-200 ease-out" />
                     <span>Kirim Permintaan Proposal via WhatsApp</span>
                   </button>
+
+                  <div className="text-center pt-1">
+                    <p className="text-[11px] text-slate-500">
+                      Terkendala dengan WhatsApp?{' '}
+                      <a
+                        href={getMailtoUrl(formData)}
+                        className="font-semibold text-navy-900 underline hover:text-brandBlue-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded px-0.5 break-all sm:break-normal"
+                      >
+                        Kirim proposal langsung via Email ({COMPANY_INFO.email})
+                      </a>
+                    </p>
+                  </div>
                 </form>
               )}
             </div>

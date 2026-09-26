@@ -127,7 +127,8 @@ export const COMPANY_INFO = {
   whatsappLink: "https://wa.me/6282119695761",
   email: "kontak@sinergiekuitas.co.id",
   operatingHours: "Senin – Jumat: 08:30 – 16:30 WIB | Sabtu & Minggu: Tutup",
-  brochureUrl: "/docs/Company-Profile-PT-Sinergi.pdf",
+  brochureUrl: `${import.meta.env.BASE_URL}docs/Company-Profile-PT-Sinergi.pdf`,
+  logoUrl: `${import.meta.env.BASE_URL}logo.jpeg`,
   googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.898687796347!2d107.63666507499622!3d-6.902700993096645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7b5ad16111f%3A0x63bc297ad2efbeec!2sUniversitas%20Ekuitas%20Indonesia!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid",
   vision: "Menjadi perusahaan yang profesional, berkelanjutan, dan terpercaya dalam pengelolaan layanan pendidikan, pelatihan, konsultasi, serta pengembangan usaha berbasis pemanfaatan aset secara optimal.",
   missions: [
@@ -389,7 +390,7 @@ export const DETAILED_SERVICES_DATA: DetailedServicePillar[] = [
       'Intensive Bootcamp',
       'Executive Masterclass'
     ],
-    curriculumIntegration: 'Terhubung langsung dengan 12 Domain Keahlian & 124+ Silabus Modul (Perbankan, Akuntansi/Pajak, Manajemen Risiko, Audit & GCG, dll.).',
+    curriculumIntegration: 'Terhubung langsung dengan 12 Domain Keahlian & 120+ Silabus Modul (Perbankan, Akuntansi/Pajak, Manajemen Risiko, Audit & GCG, dll.).',
     integratedFacilities: [
       {
         name: 'Smart Classroom Multimedia',

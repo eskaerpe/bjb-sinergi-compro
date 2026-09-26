@@ -37,7 +37,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
   return (
     <SectionContainer id="layanan" outerClassName="relative bg-surface-tint border-b border-border-subtle overflow-hidden">
       <div
-        className="absolute inset-0 bg-[radial-gradient(#1A4886_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -126,7 +126,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
               to="/layanan"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
             >
-              <span>Lihat Detail Seluruh 6 Layanan &amp; 124+ Modul</span>
+              <span>Lihat Detail Seluruh 6 Layanan &amp; 120+ Modul</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" />
             </Link>
           </div>
@@ -140,7 +140,7 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
                 Membutuhkan Modul Spasifik atau In-House Training Custom?
               </h3>
               <p className="text-sm text-navy-200 font-normal leading-relaxed">
-                Jelajahi 12 Domain Keahlian dan 124+ sub-topik spesifik yang didukung oleh instruktur praktisi perbankan senior dan dosen bergelar doktoral.
+                Jelajahi 12 Domain Keahlian dan 120+ sub-topik spesifik yang didukung oleh instruktur praktisi perbankan senior dan dosen bergelar doktoral.
               </p>
             </div>
             <div className="relative z-10 shrink-0">

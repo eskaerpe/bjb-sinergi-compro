@@ -10,12 +10,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 text-left">
           <div className="lg:col-span-5 space-y-4">
             <Link to="/" className="flex items-center gap-3 group inline-block">
-              <div className="w-10 h-10 rounded-xl bg-white text-navy-900 flex items-center justify-center font-extrabold text-lg shadow-md p-1.5">
-                <svg viewBox="0 0 100 100" className="w-full h-full">
-                  <path d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z" fill="none" stroke="#2D8CBA" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="50" cy="45" r="12" fill="#FEA959"/>
-                  <path d="M38 65 L62 65" stroke="#1A4886" strokeWidth="5" strokeLinecap="round"/>
-                </svg>
+              <div className="w-10 h-10 rounded-xl bg-white border border-white/20 shadow-md flex items-center justify-center p-1 overflow-hidden shrink-0">
+                <img
+                  src={COMPANY_INFO.logoUrl}
+                  alt="Logo PT Sinergi Ekuitas Indonesia"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-white text-lg leading-tight tracking-tight">
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4">
             <span className="hover:text-white cursor-pointer transition-colors duration-150">Syarat &amp; Ketentuan</span>
             <span>•</span>
-            <span className="hover:text-white cursor-pointer transition-colors duration-150">Kebijakan Privasi</span>
+            <Link to="/kebijakan-privasi" className="hover:text-white transition-colors duration-150">Kebijakan Privasi</Link>
             <span>•</span>
             <span className="hover:text-white cursor-pointer transition-colors duration-150">Standar GCG</span>
           </div>

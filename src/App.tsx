@@ -11,6 +11,8 @@ import FacilitiesPage from './pages/FacilitiesPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ExpertPage from './pages/ExpertPage';
 import ContactPage from './pages/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const AppRoutes: React.FC = () => {
   const location = useLocation();
@@ -24,6 +26,8 @@ const AppRoutes: React.FC = () => {
       <Route path="/portofolio" element={<PortfolioPage />} />
       <Route path="/jaringan-ahli" element={<ExpertPage />} />
       <Route path="/kontak" element={<ContactPage />} />
+      <Route path="/kebijakan-privasi" element={<PrivacyPolicyPage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

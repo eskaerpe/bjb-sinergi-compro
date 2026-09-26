@@ -65,18 +65,18 @@ export const Hero: React.FC = () => {
 
   return (
     <SectionContainer
-      outerClassName="relative pt-24 md:pt-32 pb-20 bg-gradient-to-b from-[#F5F9FD] via-[#EDF4FA] to-[#E5EEF9] text-navy-950 overflow-hidden border-b border-border-subtle"
+      outerClassName="relative pt-24 md:pt-32 pb-20 bg-gradient-to-b from-[#F7F8FA] via-[#EEF2F6] to-[#E2E8F0] text-navy-950 overflow-hidden border-b border-border-subtle"
     >
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div
           className="absolute inset-0 bg-transparent"
           style={{
             backgroundImage: `
-              radial-gradient(ellipse 90% 70% at 85% 15%, rgba(217, 119, 6, 0.12) 0%, transparent 60%),
-              radial-gradient(ellipse 75% 65% at 10% 85%, rgba(27, 54, 93, 0.10) 0%, transparent 65%),
-              radial-gradient(ellipse 60% 50% at 50% 35%, rgba(29, 98, 139, 0.08) 0%, transparent 60%),
-              radial-gradient(ellipse 45% 35% at 70% 65%, rgba(27, 54, 93, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse 40% 30% at 30% 20%, rgba(254, 243, 199, 0.4) 0%, transparent 45%)
+              radial-gradient(ellipse 90% 70% at 85% 15%, rgba(217, 164, 65, 0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 75% 65% at 10% 85%, rgba(11, 31, 58, 0.08) 0%, transparent 65%),
+              radial-gradient(ellipse 60% 50% at 50% 35%, rgba(20, 47, 82, 0.06) 0%, transparent 60%),
+              radial-gradient(ellipse 45% 35% at 70% 65%, rgba(11, 31, 58, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse 40% 30% at 30% 20%, rgba(231, 190, 105, 0.25) 0%, transparent 45%)
             `
           }}
         />
@@ -85,9 +85,9 @@ export const Hero: React.FC = () => {
         <div className="absolute -bottom-28 -left-28 sm:-bottom-36 sm:-left-36 w-[480px] sm:w-[680px] h-[480px] sm:h-[680px] bg-brandBlue-400/15 rounded-full blur-[110px] sm:blur-[130px] animate-mesh-cobalt" />
         <div className="absolute top-1/4 left-1/4 w-[360px] sm:w-[500px] h-[360px] sm:h-[500px] bg-navy-600/10 rounded-full blur-[90px] sm:blur-[110px] animate-mesh-blue" />
         <div className="absolute top-1/2 right-1/4 w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] bg-navy-100/40 rounded-full blur-[85px] sm:blur-[100px] animate-mesh-soft" />
-        <div className="absolute top-1/3 right-1/3 w-[220px] sm:w-[300px] h-[220px] sm:h-[300px] bg-coral-100/40 rounded-full blur-[70px] sm:blur-[90px]" />
+        <div className="absolute top-1/3 right-1/3 w-[220px] sm:w-[300px] h-[220px] sm:h-[300px] bg-coral-100/40 rounded-full blur-[80px] sm:blur-[90px] animate-mesh-amber" />
 
-        <div className="absolute inset-0 bg-[radial-gradient(#1D628B_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.05]" />
+        <div className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.05]" />
 
         <div
           className="absolute inset-0 opacity-[0.02] mix-blend-multiply pointer-events-none"
@@ -225,7 +225,7 @@ export const Hero: React.FC = () => {
             <div
               role="tablist"
               aria-label="Pilihan Fasilitas Unggulan"
-              className="flex items-center gap-1.5 p-1.5 mb-3 bg-white/90 backdrop-blur-md rounded-2xl border border-border-subtle shadow-sm overflow-x-auto no-scrollbar scroll-px-2"
+              className="w-full grid grid-cols-3 gap-1 sm:gap-1.5 p-1.5 mb-3 bg-white/90 backdrop-blur-md rounded-2xl border border-border-subtle shadow-sm"
             >
               {SPOTLIGHT_ITEMS.map((item) => {
                 const isActive = activeTab.id === item.id;
@@ -236,13 +236,13 @@ export const Hero: React.FC = () => {
                     aria-selected={isActive}
                     aria-controls={`spotlight-panel-${item.id}`}
                     onClick={() => setActiveTab(item)}
-                    className={`flex-1 min-w-[100px] text-xs font-bold py-2.5 px-3 rounded-xl transition-all duration-200 text-center whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] ${
+                    className={`w-full flex items-center justify-center min-h-[40px] text-[11px] sm:text-xs font-bold py-2 px-1.5 sm:px-3 rounded-xl transition-all duration-200 text-center leading-tight sm:leading-normal focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] ${
                       isActive
                         ? 'bg-navy-900 text-white shadow-sm'
                         : 'text-navy-800 hover:text-navy-950 hover:bg-navy-50'
                     }`}
                   >
-                    {item.tabLabel}
+                    <span>{item.tabLabel}</span>
                   </button>
                 );
               })}

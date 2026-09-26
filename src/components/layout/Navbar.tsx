@@ -44,19 +44,12 @@ export const Navbar: React.FC = () => {
             to="/"
             className="flex items-center gap-3 shrink-0 group focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 rounded-xl"
           >
-            <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-extrabold text-lg shadow-sm p-1.5 group-hover:bg-brandBlue-600 transition-colors duration-150">
-              <svg viewBox="0 0 100 100" className="w-full h-full">
-                <path
-                  d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z"
-                  fill="none"
-                  stroke="#2D8CBA"
-                  strokeWidth="7"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <circle cx="50" cy="45" r="12" fill="#FEA959" />
-                <path d="M38 65 L62 65" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" />
-              </svg>
+            <div className="w-10 h-10 rounded-xl bg-white border border-lightBorder shadow-sm flex items-center justify-center p-1 overflow-hidden group-hover:border-brandGold transition-colors duration-150 shrink-0">
+              <img
+                src={COMPANY_INFO.logoUrl}
+                alt="Logo PT Sinergi Ekuitas Indonesia"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-extrabold text-navy-900 text-base tracking-tight leading-none group-hover:text-brandBlue-600 transition-colors duration-150">
@@ -115,19 +108,12 @@ export const Navbar: React.FC = () => {
                   <div>
                     <div className="flex items-center justify-between pb-6 border-b border-border-subtle">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-navy-900 text-white flex items-center justify-center font-bold text-sm p-1">
-                          <svg viewBox="0 0 100 100" className="w-full h-full">
-                            <path
-                              d="M25 32 C25 25, 45 25, 50 35 C55 25, 75 25, 75 32 C75 55, 50 78, 50 78 C50 78, 25 55, 25 32 Z"
-                              fill="none"
-                              stroke="#2D8CBA"
-                              strokeWidth="7"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                            <circle cx="50" cy="45" r="12" fill="#FEA959" />
-                            <path d="M38 65 L62 65" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" />
-                          </svg>
+                        <div className="w-8 h-8 rounded-xl bg-white border border-lightBorder shadow-sm flex items-center justify-center p-0.5 overflow-hidden shrink-0">
+                          <img
+                            src={COMPANY_INFO.logoUrl}
+                            alt="Logo PT Sinergi Ekuitas Indonesia"
+                            className="w-full h-full object-contain"
+                          />
                         </div>
                         <span className="font-extrabold text-navy-900 text-sm tracking-tight">
                           PT SINERGI
@@ -153,9 +139,9 @@ export const Navbar: React.FC = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className={({ isActive }) =>
                             cn(
-                              'flex items-center px-3.5 py-2.5 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]',
+                              'flex items-center px-4 py-2.5 rounded-xl text-sm transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 active:scale-[0.98]',
                               isActive
-                                ? 'bg-brandBlue-50 text-brandBlue-700 font-semibold border-l-2 border-brandBlue-600 pl-3'
+                                ? 'bg-brandBlue-50 text-brandBlue-700 font-semibold'
                                 : 'text-navy-700 hover:bg-surface-tint hover:text-navy-900 font-medium'
                             )
                           }

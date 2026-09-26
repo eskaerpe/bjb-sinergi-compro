@@ -89,7 +89,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
       outerClassName="relative overflow-hidden bg-white border-b border-border-subtle"
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(#1A4886_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.025] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.025] pointer-events-none"
         aria-hidden="true"
       />
 

@@ -57,7 +57,7 @@ export const ExpertiseTeaser: React.FC = () => {
       outerClassName="relative bg-surface-tint border-b border-border-subtle overflow-hidden"
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(#1B365D_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
         aria-hidden="true"
       />
 
@@ -70,7 +70,7 @@ export const ExpertiseTeaser: React.FC = () => {
             12 Domain Keahlian Berstandar Industri
           </h2>
           <p className="text-base text-navy-700 leading-relaxed font-normal">
-            Didukung oleh 124+ sub-topik spesialisasi dan jaringan instruktur praktisi senior perbankan serta akademisi doktoral Universitas Ekuitas Indonesia.
+            Didukung oleh 120+ sub-topik spesialisasi dan jaringan instruktur praktisi senior perbankan serta akademisi doktoral Universitas Ekuitas Indonesia.
           </p>
         </Reveal>
 
@@ -125,7 +125,7 @@ export const ExpertiseTeaser: React.FC = () => {
             to="/jaringan-ahli"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
           >
-            <span>Jelajahi Direktori Lengkap 12 Domain &amp; 124+ Sub-Topik</span>
+            <span>Jelajahi Direktori Lengkap 12 Domain &amp; 120+ Sub-Topik</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" />
           </Link>
         </div>
