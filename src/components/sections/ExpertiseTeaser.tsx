@@ -85,10 +85,10 @@ export const ExpertiseTeaser: React.FC = () => {
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-navy-900 text-coral-400 flex items-center justify-center shadow-sm group-hover:bg-brandBlue-600 group-hover:text-white transition-colors duration-200">
+                    <div className="w-12 h-12 rounded-2xl bg-navy-900 text-softGold flex items-center justify-center shadow-sm group-hover:bg-brandBlue-700 group-hover:text-white transition-colors duration-200">
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-[11px] font-extrabold text-brandBlue-600 bg-brandBlue-50 px-2.5 py-1 rounded-full">
+                    <span className="text-[11px] font-extrabold text-brandBlue-800 bg-brandBlue-50 px-2.5 py-1 rounded-full">
                       Domain 0{domain.domainNumber}
                     </span>
                   </div>

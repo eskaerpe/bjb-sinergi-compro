@@ -26,11 +26,11 @@ const getOrderedLeaders = (members: LeaderItem[]): LeaderItem[] => {
 const ROLE_BADGES: Record<string, { label: string; badgeClass: string }> = {
   'Direktur Utama': {
     label: 'Pimpinan Eksekutif',
-    badgeClass: 'bg-coral-50 text-coral-600'
+    badgeClass: 'bg-coral-50 text-coral-800'
   },
   'Direktur': {
     label: 'Pengembangan & Inovasi',
-    badgeClass: 'bg-brandBlue-50 text-brandBlue-600'
+    badgeClass: 'bg-brandBlue-50 text-brandBlue-800'
   },
   'Komisaris': {
     label: 'Pengawasan & GCG',

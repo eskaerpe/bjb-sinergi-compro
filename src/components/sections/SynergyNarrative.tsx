@@ -179,7 +179,7 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
                     key={i}
                     className="p-5 rounded-2xl bg-white border border-border-subtle shadow-2xs flex items-start gap-3.5"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-8 h-8 rounded-xl bg-brandBlue-50 text-brandBlue-800 flex items-center justify-center shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" aria-hidden="true" />
                     </div>
                     <div className="space-y-1">

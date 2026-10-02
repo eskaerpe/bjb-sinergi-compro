@@ -13,7 +13,7 @@ export const PageHeader: React.FC<PageHeaderProps> = ({ badge, title, subtitle }
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-3">
         {badge && (
           <motion.span
-            className="block text-xs sm:text-sm font-bold tracking-wider text-coral-400 uppercase"
+            className="block text-xs sm:text-sm font-bold tracking-wider text-softGold uppercase"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}

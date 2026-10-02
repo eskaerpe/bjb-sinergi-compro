@@ -62,7 +62,7 @@ export const LeadershipSection: React.FC = () => {
                     <h3 className="text-xl font-extrabold text-navy-900 leading-snug">
                       {leader.name}
                     </h3>
-                    <p className="text-xs font-bold text-brandBlue-600">
+                    <p className="text-xs font-bold text-brandBlue-700">
                       {leader.role}
                     </p>
                     <p className="text-xs text-navy-700 leading-relaxed pt-1 font-normal">

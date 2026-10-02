@@ -62,7 +62,7 @@ export const PrivacyPolicyPage: React.FC = () => {
             <div className="absolute top-0 right-0 w-32 h-32 bg-brandBlue-50 rounded-full blur-3xl -z-10 pointer-events-none" />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5 mb-5">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brandBlue-700 bg-brandBlue-50 px-3 py-1 rounded-full border border-brandBlue-200/60 inline-block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-brandBlue-800 bg-brandBlue-50 px-3 py-1 rounded-full border border-brandBlue-200/60 inline-block mb-2">
                   Dokumen Tata Kelola Resmi
                 </span>
                 <h2 className="text-lg sm:text-xl font-bold text-navy-950">

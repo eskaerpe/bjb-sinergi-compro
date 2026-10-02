@@ -265,7 +265,7 @@ Terima kasih.`;
             <div className="bg-white rounded-3xl p-7 sm:p-10 border border-border-subtle shadow-card text-left">
               {submitted ? (
                 <div className="py-8 text-center space-y-6">
-                  <div className="w-16 h-16 rounded-full bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center mx-auto shadow-sm">
+                  <div className="w-16 h-16 rounded-full bg-brandBlue-50 text-brandBlue-800 flex items-center justify-center mx-auto shadow-sm">
                     <CheckCircle2 className="w-10 h-10 text-brandBlue-600" />
                   </div>
                   <div className="space-y-2">

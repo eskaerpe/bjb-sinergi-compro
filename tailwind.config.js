@@ -19,8 +19,8 @@ export default {
           300: '#F0CE88',
           400: '#E7BE69', // Soft Gold
           500: '#D9A441', // Brand Gold
-          600: '#C29135',
-          700: '#A37827',
+          600: '#84601D',
+          700: '#684B15',
           800: '#84601D',
           900: '#684B15',
           soft: '#E7BE69',
@@ -52,8 +52,8 @@ export default {
           300: '#F0CE88',
           400: '#E7BE69', // Soft Gold
           500: '#D9A441', // Brand Gold
-          600: '#C29135',
-          700: '#A37827',
+          600: '#84601D',
+          700: '#684B15',
           800: '#142F52', // Secondary Navy
           900: '#0B1F3A', // Primary Navy
           950: '#071527',
@@ -66,8 +66,8 @@ export default {
           300: '#F0CE88',
           400: '#E7BE69', // Soft Gold
           500: '#D9A441', // Brand Gold
-          600: '#C29135',
-          700: '#A37827',
+          600: '#84601D',
+          700: '#684B15',
           DEFAULT: '#D9A441',
         },
         surface: {

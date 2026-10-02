@@ -65,7 +65,7 @@ export const VisionMission: React.FC = () => {
                   key={idx}
                   className="bg-white p-4 rounded-2xl border border-border-subtle flex items-start gap-3.5 shadow-2xs hover:border-brandBlue-300 transition-colors"
                 >
-                  <span className="w-6 h-6 rounded-full bg-brandBlue-50 text-brandBlue-600 font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="w-6 h-6 rounded-full bg-brandBlue-50 text-brandBlue-800 font-extrabold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
                     {idx + 1}
                   </span>
                   <p className="text-xs sm:text-sm text-navy-800 font-medium leading-relaxed">

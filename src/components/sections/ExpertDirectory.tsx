@@ -116,7 +116,7 @@ export const ExpertDirectory: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2 text-xs font-bold text-navy-700 self-end md:self-auto">
-              <SlidersHorizontal className="w-4 h-4 text-brandBlue-500" />
+              <SlidersHorizontal className="w-4 h-4 text-brandBlue-700" />
               <span>Menampilkan: <strong className="text-navy-900">{filteredDomains.length}</strong> dari 12 Bidang</span>
             </div>
           </div>
@@ -187,7 +187,7 @@ export const ExpertDirectory: React.FC = () => {
                     >
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <div className="w-10 h-10 rounded-xl bg-brandBlue-50 text-brandBlue-600 flex items-center justify-center font-bold">
+                          <div className="w-10 h-10 rounded-xl bg-brandBlue-50 text-brandBlue-800 flex items-center justify-center font-bold">
                             <IconComponent className="w-5 h-5" />
                           </div>
                           <span className="px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider text-navy-800 bg-surface-tint rounded-full">
