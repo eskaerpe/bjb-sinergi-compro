@@ -107,7 +107,7 @@ export const ServicesPage: React.FC = () => {
       </div>
 
       {/* 6 Deep-Dive Pillar Modules */}
-      <SectionContainer outerClassName="bg-surface-tint/50 py-12 md:py-20">
+      <SectionContainer outerClassName="friendly-ambient-surface py-12 md:py-20">
         <div className="space-y-16">
           {DETAILED_SERVICES_DATA.map((pillar) => {
             const IconComponent = ICON_MAP[pillar.iconName] || ShieldCheck;
@@ -119,7 +119,7 @@ export const ServicesPage: React.FC = () => {
                 className="scroll-mt-36 bg-white rounded-3xl border border-border-subtle shadow-card overflow-hidden transition-all duration-300 hover:shadow-card-hover"
               >
                 {/* 1. Header & Value Proposition */}
-                <div className="p-6 sm:p-8 lg:p-10 border-b border-border-subtle bg-gradient-to-br from-white via-surface-card to-surface-tint">
+                <div className="p-6 sm:p-8 lg:p-10 border-b border-border-subtle friendly-pillar-header">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     <div className="lg:col-span-7 space-y-4 text-left">
                       <div className="flex flex-wrap items-center gap-3">
