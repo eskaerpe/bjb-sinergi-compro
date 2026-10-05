@@ -98,6 +98,12 @@ export const PortfolioSpotlight: React.FC<PortfolioSpotlightProps> = ({ showView
                 </div>
               ))}
             </div>
+
+            {PORTFOLIO_PROJECT.metricsDisclaimer && (
+              <p className="text-xs text-navy-600 mt-2 leading-relaxed">
+                {PORTFOLIO_PROJECT.metricsDisclaimer}
+              </p>
+            )}
           </StaggerItem>
 
           <StaggerItem className="lg:col-span-5 relative">

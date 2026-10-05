@@ -234,3 +234,8 @@ Glass executive bar — transparent at top (`py-5`), white veil on scroll (`bg-w
 - **Don't** fill large surfaces with coral or place body copy on coral.
 - **Don't** add shadows at rest on tint sections beyond Card Rest.
 - **Don't** hardcode copy or entity data in JSX — all content lives in `src/data/companyData.ts`.
+
+## Three Dials (antislop standard)
+- **ENERGY:** 1 (Calm/Institutional) — Authoritative, grounded, no gratuitous hype or loud elements.
+- **RHYTHM:** 2 (Measured Variation) — Balanced cadence alternating dense information and breathing room.
+- **MOTION:** 1 (Restrained/Purposeful) — Smooth functional transitions (200-300ms), zero ambient bobbing.

@@ -228,7 +228,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                         type="button"
                         onClick={handlePrevImage}
                         aria-label="Gambar sebelumnya"
-                        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
+                        className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
                       >
                         <ChevronLeft className="w-6 h-6" />
                       </button>
@@ -236,7 +236,7 @@ export const FacilitiesBento: React.FC<FacilitiesBentoProps> = ({ showViewAllLin
                         type="button"
                         onClick={handleNextImage}
                         aria-label="Gambar selanjutnya"
-                        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-navy-950/70 hover:bg-navy-950 text-white flex items-center justify-center backdrop-blur-sm transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
                       >
                         <ChevronRight className="w-6 h-6" />
                       </button>

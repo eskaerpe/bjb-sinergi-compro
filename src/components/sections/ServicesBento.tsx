@@ -12,12 +12,13 @@ import {
   ArrowRight,
   ShieldCheck,
   X,
-  Layers
+  Layers,
+  Award
 } from 'lucide-react';
 import { SERVICES_DATA, ServiceItem } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
-
+import { cn } from '@/utils/cn';
 const ICON_MAP: Record<string, React.ElementType> = {
   GraduationCap,
   Briefcase,
@@ -36,10 +37,6 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
 
   return (
     <SectionContainer id="layanan" outerClassName="relative bg-surface-tint border-b border-border-subtle overflow-hidden">
-      <div
-        className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <div className="relative z-10 space-y-12">
         <Reveal className="text-center max-w-3xl mx-auto space-y-4">
@@ -61,14 +58,47 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
             return (
               <StaggerItem
                 key={service.id}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col justify-between space-y-6 relative group"
+                className={cn(
+                  "rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 relative group transition-all duration-300 ease-out",
+                  service.isFlagship
+                    ? "bg-white border-2 border-brandBlue-200/80 hover:border-brandBlue-400 shadow-md hover:shadow-xl hover:-translate-y-1.5 ring-1 ring-brandBlue-500/10"
+                    : "bg-white border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1"
+                )}
               >
+                {service.isFlagship && (
+                  <div
+                    className="absolute top-0 inset-x-8 h-1 bg-gradient-to-r from-coral-500 via-brandBlue-500 to-navy-900 rounded-b-full"
+                    aria-hidden="true"
+                  />
+                )}
+
                 <div className="space-y-4">
+                  {service.featuredBadge && (
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-coral-50 border border-coral-200/80 text-[11px] font-extrabold text-coral-800 w-fit shadow-xs">
+                      <Award className="w-3.5 h-3.5 text-coral-600 shrink-0" aria-hidden="true" />
+                      <span>{service.featuredBadge}</span>
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-navy-900 text-coral-400 flex items-center justify-center shadow-sm group-hover:bg-brandBlue-600 group-hover:text-white transition-colors duration-200">
+                    <div
+                      className={cn(
+                        "w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-200",
+                        service.isFlagship
+                          ? "bg-navy-900 text-coral-400 shadow-sm group-hover:bg-brandBlue-600 group-hover:text-white"
+                          : "bg-surface-tint text-navy-800 border border-border-subtle group-hover:bg-brandBlue-600 group-hover:text-white"
+                      )}
+                    >
                       <IconComponent className="w-6 h-6" />
                     </div>
-                    <span className="text-xs font-extrabold text-navy-700 bg-navy-50 px-2.5 py-1 rounded-full">
+                    <span
+                      className={cn(
+                        "text-xs px-2.5 py-1 rounded-full",
+                        service.isFlagship
+                          ? "font-extrabold text-navy-900 bg-navy-100/90 border border-navy-200/60"
+                          : "font-bold text-navy-700 bg-navy-50"
+                      )}
+                    >
                       Pilar 0{index + 1}
                     </span>
                   </div>
@@ -88,8 +118,13 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
                     <ul className="space-y-1.5">
                       {service.features.map((feature, fIdx) => (
                         <li key={fIdx} className="flex items-start gap-2 text-xs text-navy-800">
-                          <CheckCircle2 className="w-4 h-4 text-brandBlue-500 shrink-0 mt-0.5" />
-                          <span>{feature}</span>
+                          <CheckCircle2
+                            className={cn(
+                              "w-4 h-4 shrink-0 mt-0.5",
+                              service.isFlagship ? "text-brandBlue-600" : "text-brandBlue-500"
+                            )}
+                          />
+                          <span className="leading-snug">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -101,7 +136,12 @@ export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = 
                     <button
                       type="button"
                       onClick={() => setSelectedService(service)}
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-brandBlue-600 hover:text-navy-900 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 rounded-lg py-1 px-2 -ml-2 active:scale-[0.98] group/btn"
+                      className={cn(
+                        "inline-flex items-center gap-1.5 text-xs transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 rounded-lg py-1 px-2 -ml-2 active:scale-[0.98] group/btn",
+                        service.isFlagship
+                          ? "font-extrabold text-brandBlue-700 hover:text-navy-950"
+                          : "font-extrabold text-brandBlue-600 hover:text-navy-900"
+                      )}
                     >
                       <span>Lihat Spesifikasi Layanan</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200 ease-out" />

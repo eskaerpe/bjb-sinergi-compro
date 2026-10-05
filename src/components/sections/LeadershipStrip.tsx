@@ -46,10 +46,6 @@ export const LeadershipStrip: React.FC = () => {
       id="kepemimpinan"
       outerClassName="relative bg-white border-b border-border-subtle overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.025] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <div className="relative z-10 space-y-12">
         <Reveal className="text-center max-w-3xl mx-auto space-y-3.5">

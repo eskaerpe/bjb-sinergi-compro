@@ -88,24 +88,25 @@ export const SynergyNarrative: React.FC<SynergyNarrativeProps> = ({ variant = 'f
       id="tentang-kami"
       outerClassName="relative overflow-hidden bg-white border-b border-border-subtle"
     >
-      <div
-        className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:28px_28px] opacity-[0.025] pointer-events-none"
-        aria-hidden="true"
-      />
 
       <div className="relative z-10 space-y-12">
-        <Reveal className="text-center max-w-3xl mx-auto space-y-3.5">
-          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
-            {isPreview ? 'Sinergi B2B & Ekuitas' : 'Sinergi Ekosistem Terintegrasi'}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">
-            {isPreview
-              ? 'Sinergi Riset Akademik, Praktisi Perbankan & Fasilitas Terpadu'
-              : 'Perpaduan Riset Akademik, Praktisi Perbankan & Fasilitas Mandiri'}
-          </h2>
-          <p className="text-sm sm:text-base text-navy-700 leading-relaxed max-w-2xl mx-auto font-normal">
-            {COMPANY_INFO.ecosystemSubtitle}
-          </p>
+        <Reveal className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end">
+          <div className="lg:col-span-7 space-y-3.5">
+            <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
+              {isPreview ? 'Sinergi B2B & Ekuitas' : 'Sinergi Ekosistem Terintegrasi'}
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight">
+              {isPreview
+                ? 'Sinergi Riset Akademik, Praktisi Perbankan & Fasilitas Terpadu'
+                : 'Perpaduan Riset Akademik, Praktisi Perbankan & Fasilitas Mandiri'}
+            </h2>
+          </div>
+          <div className="lg:col-span-5 flex flex-col justify-end space-y-3 lg:border-l lg:border-border-subtle lg:pl-8">
+            <div className="w-12 h-1 bg-coral-500 rounded-full" aria-hidden="true" />
+            <p className="text-sm sm:text-base text-navy-700 leading-relaxed font-normal">
+              {COMPANY_INFO.ecosystemSubtitle}
+            </p>
+          </div>
         </Reveal>
 
         <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

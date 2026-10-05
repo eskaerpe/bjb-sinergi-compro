@@ -272,10 +272,10 @@ export const ServicesPage: React.FC = () => {
                 {/* 4. Action Bar / CTA per Pilar */}
                 <div className="p-6 sm:p-8 bg-surface-card border-t border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="text-center sm:text-left space-y-1">
-                    <h4 className="text-sm sm:text-base font-bold text-navy-950">
+                    <h4 className="text-sm sm:text-base font-bold text-white">
                       Konsultasi &amp; Penawaran {pillar.title}
                     </h4>
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-navy-100">
                       Dapatkan proposal teknis, estimasi anggaran, dan jadwal kustom untuk institusi Anda.
                     </p>
                   </div>

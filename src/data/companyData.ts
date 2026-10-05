@@ -10,6 +10,8 @@ export interface ServiceItem {
     alt: string;
     aspectRatio: string;
   };
+  isFlagship?: boolean;
+  featuredBadge?: string;
 }
 
 export interface DetailedServicePillar {
@@ -97,6 +99,7 @@ export interface PortfolioProject {
   totalParticipants: string;
   category: string;
   impactMetrics: { label: string; value: string }[];
+  metricsDisclaimer?: string;
   summary: string;
   details: string[];
   image: {
@@ -275,7 +278,9 @@ export const SERVICES_DATA: ServiceItem[] = [
       url: './images/portfolio/abdi-bjb-2.jpeg',
       alt: 'Pelatihan & Pengembangan SDM Terpadu',
       aspectRatio: '16/9'
-    }
+    },
+    isFlagship: true,
+    featuredBadge: 'Program Unggulan Institusional'
   },
   {
     id: 'konsultasi-manajemen',
@@ -293,7 +298,9 @@ export const SERVICES_DATA: ServiceItem[] = [
       url: './images/portfolio/abdi-bjb-6.jpeg',
       alt: 'Konsultasi Manajemen & Layanan Institusional',
       aspectRatio: '16/9'
-    }
+    },
+    isFlagship: true,
+    featuredBadge: 'Program Unggulan Institusional'
   },
   {
     id: 'asesmen-sertifikasi',
@@ -776,6 +783,7 @@ export const PORTFOLIO_PROJECT: PortfolioProject = {
     { label: 'Kepuasan Layanan Peserta', value: '98.5%' },
     { label: 'Cakupan Layanan End-to-End', value: '100%' }
   ],
+  metricsDisclaimer: 'Data dihimpun dari evaluasi kelulusan & kuesioner kepuasan peserta program internal Abdi bjb Frontliner.',
   summary: 'Penyelenggaraan program pelatihan dan pembelajaran frontliner terpadu untuk calon pegawai & staf operasional bank bjb, mencakup kelas teori perbankan, simulasi laboratorium mini bank, ujian CBT, akomodasi, konsumsi, dan transportasi peserta.',
   details: [
     'Penyediaan fasilitas ruang kelas multimedia dan laboratorium komputer CBT untuk sesi ujian tertulis dan evaluasi pemahaman.',

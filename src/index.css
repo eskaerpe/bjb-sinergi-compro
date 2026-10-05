@@ -68,63 +68,6 @@ body {
     rgba(255, 255, 255, 0.92);
 }
 
-/* Atmospheric Mesh Drift Animations */
-@keyframes mesh-drift-amber {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-35px, 25px) scale(1.1);
-  }
-}
-
-@keyframes mesh-drift-cobalt {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(30px, -20px) scale(0.95);
-  }
-}
-
-@keyframes mesh-drift-blue {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-25px, -30px) scale(1.06);
-  }
-}
-
-@keyframes mesh-drift-soft {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(25px, 15px) scale(1.04);
-  }
-}
-
-.animate-mesh-amber {
-  animation: mesh-drift-amber 20s ease-in-out infinite;
-  will-change: transform;
-}
-
-.animate-mesh-cobalt {
-  animation: mesh-drift-cobalt 24s ease-in-out infinite;
-  will-change: transform;
-}
-
-.animate-mesh-blue {
-  animation: mesh-drift-blue 18s ease-in-out infinite;
-  will-change: transform;
-}
-
-.animate-mesh-soft {
-  animation: mesh-drift-soft 22s ease-in-out infinite;
-  will-change: transform;
-}
-
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

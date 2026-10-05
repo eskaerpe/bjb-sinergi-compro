@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import {
@@ -62,6 +62,31 @@ const SPOTLIGHT_ITEMS: SpotlightTab[] = [
 
 export const Hero: React.FC = () => {
   const [activeTab, setActiveTab] = useState<SpotlightTab>(SPOTLIGHT_ITEMS[0]);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    const currentIndex = SPOTLIGHT_ITEMS.findIndex((item) => item.id === activeTab.id);
+    let nextIndex = -1;
+
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextIndex = (currentIndex + 1) % SPOTLIGHT_ITEMS.length;
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      nextIndex = (currentIndex - 1 + SPOTLIGHT_ITEMS.length) % SPOTLIGHT_ITEMS.length;
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      nextIndex = SPOTLIGHT_ITEMS.length - 1;
+    }
+
+    if (nextIndex !== -1) {
+      setActiveTab(SPOTLIGHT_ITEMS[nextIndex]);
+      tabRefs.current[nextIndex]?.focus();
+    }
+  };
 
   return (
     <SectionContainer
@@ -80,15 +105,6 @@ export const Hero: React.FC = () => {
             `
           }}
         />
-
-        <div className="absolute -top-24 -right-24 sm:-top-32 sm:-right-32 w-[420px] sm:w-[620px] h-[420px] sm:h-[620px] bg-coral-400/15 rounded-full blur-[100px] sm:blur-[120px] animate-mesh-amber" />
-        <div className="absolute -bottom-28 -left-28 sm:-bottom-36 sm:-left-36 w-[480px] sm:w-[680px] h-[480px] sm:h-[680px] bg-brandBlue-400/15 rounded-full blur-[110px] sm:blur-[130px] animate-mesh-cobalt" />
-        <div className="absolute top-1/4 left-1/4 w-[360px] sm:w-[500px] h-[360px] sm:h-[500px] bg-navy-600/10 rounded-full blur-[90px] sm:blur-[110px] animate-mesh-blue" />
-        <div className="absolute top-1/2 right-1/4 w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] bg-navy-100/40 rounded-full blur-[85px] sm:blur-[100px] animate-mesh-soft" />
-        <div className="absolute top-1/3 right-1/3 w-[220px] sm:w-[300px] h-[220px] sm:h-[300px] bg-coral-100/40 rounded-full blur-[80px] sm:blur-[90px] animate-mesh-amber" />
-
-        <div className="absolute inset-0 bg-[radial-gradient(#142F52_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.05]" />
-
         <div
           className="absolute inset-0 opacity-[0.02] mix-blend-multiply pointer-events-none"
           style={{
@@ -186,7 +202,7 @@ export const Hero: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[11px] sm:text-xs font-bold text-navy-950 leading-tight">YKP bank bjb</p>
-                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 leading-snug">Standar Praktisi &amp; Jaringan Perbankan</p>
+                  <p className="text-[9px] sm:text-[11px] text-slate-600 mt-0.5 leading-snug">Standar Praktisi &amp; Jaringan Perbankan</p>
                 </div>
               </div>
 
@@ -197,7 +213,7 @@ export const Hero: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[11px] sm:text-xs font-bold text-navy-950 leading-tight">Univ. Ekuitas</p>
-                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 leading-snug">Riset Akademik &amp; Kurikulum Terapan</p>
+                  <p className="text-[9px] sm:text-[11px] text-slate-600 mt-0.5 leading-snug">Riset Akademik &amp; Kurikulum Terapan</p>
                 </div>
               </div>
 
@@ -208,7 +224,7 @@ export const Hero: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[11px] sm:text-xs font-bold text-navy-950 leading-tight">Tata Kelola GCG</p>
-                  <p className="text-[9px] sm:text-[11px] text-slate-500 mt-0.5 leading-snug">Akuntabel, Transparan &amp; Kepatuhan Legal</p>
+                  <p className="text-[9px] sm:text-[11px] text-slate-600 mt-0.5 leading-snug">Akuntabel, Transparan &amp; Kepatuhan Legal</p>
                 </div>
               </div>
             </div>
@@ -226,17 +242,23 @@ export const Hero: React.FC = () => {
               role="tablist"
               aria-label="Pilihan Fasilitas Unggulan"
               className="w-full grid grid-cols-3 gap-1 sm:gap-1.5 p-1.5 mb-3 bg-white/90 backdrop-blur-md rounded-2xl border border-border-subtle shadow-sm"
+              onKeyDown={handleKeyDown}
             >
-              {SPOTLIGHT_ITEMS.map((item) => {
+              {SPOTLIGHT_ITEMS.map((item, index) => {
                 const isActive = activeTab.id === item.id;
                 return (
                   <button
                     key={item.id}
+                    ref={(el) => {
+                      tabRefs.current[index] = el;
+                    }}
                     role="tab"
+                    id={`spotlight-tab-${item.id}`}
                     aria-selected={isActive}
                     aria-controls={`spotlight-panel-${item.id}`}
+                    tabIndex={isActive ? 0 : -1}
                     onClick={() => setActiveTab(item)}
-                    className={`w-full flex items-center justify-center min-h-[40px] text-[11px] sm:text-xs font-bold py-2 px-1.5 sm:px-3 rounded-xl transition-all duration-200 text-center leading-tight sm:leading-normal focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] ${
+                    className={`w-full flex items-center justify-center min-h-[44px] text-[11px] sm:text-xs font-bold py-2 px-1.5 sm:px-3 rounded-xl transition-all duration-200 text-center leading-tight sm:leading-normal focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] ${
                       isActive
                         ? 'bg-navy-900 text-white shadow-sm'
                         : 'text-navy-800 hover:text-navy-950 hover:bg-navy-50'
