@@ -9,9 +9,7 @@ The goal is to deliver an institutional B2B web experience combining the visual 
 
 ## 2. Source of Truth & Context Hierarchy
 
-The supplied PDF `public/docs/Company-Profile-PT-Sinergi.pdf` is the single authority for public corporate facts. It supersedes this directory's older briefs and legacy data. Page 6 contains only the heading “Our Services”; use broad activities expressly stated elsewhere in the PDF, not an invented catalog. For design direction consult `DESIGN md bjb.md`. Use `TASKS.md` and `CHANGELOG.md` only for current execution status, not factual authority.
-
----
+The supplied PDF `public/docs/Company-Profile-PT-Sinergi.pdf` governs core corporate facts: company identity and affiliation, leadership names/credentials/titles, contact values, vision and missions, and the exact expert-domain headings and topic lists. The PDF does not need to contain every useful website explanation. Previous project/site content may supply supplemental service, facility, portfolio, role-context, and page-header copy. Preserve those historical details unless they directly conflict with PDF facts; use the PDF wording only to resolve those direct conflicts. Do not treat a PDF omission as proof that established website content is false.
 
 ## 3. Technology Stack & Architecture
 

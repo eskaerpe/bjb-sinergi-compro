@@ -15,7 +15,7 @@ export const HomePage: React.FC = () => {
       <SynergyNarrative variant="preview" />
       <ServicesBento showViewAllLink={true} />
       <ExpertiseTeaser />
-      <FacilitiesBento />
+      <FacilitiesBento showViewAllLink={true} />
       <PortfolioSpotlight showViewAllLink={true} />
       <LeadershipStrip />
       <LeadHub />

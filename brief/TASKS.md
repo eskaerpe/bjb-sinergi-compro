@@ -1,24 +1,22 @@
 # Website Content Integrity Checklist
 
-## Authority
+## Authority and content boundary
 
-- `public/docs/Company-Profile-PT-Sinergi.pdf` is the single source of truth for visible corporate facts. It supersedes older briefs and prior master-data values.
-- Page 6 contains only “Our Services”; service copy may use only broad activities stated elsewhere in the PDF.
-- Do not infer falsehood from omission. Omit claims not substantiated by the PDF rather than inventing replacements.
-- No commit or push is requested or permitted for this task.
+- The supplied PDF `public/docs/Company-Profile-PT-Sinergi.pdf` validates core facts: corporate identity and affiliation, exact leadership names/credentials/titles, contact values, vision and five missions, and all 12 expert-domain headings and topic lists.
+- The website may retain supplemental service, facility, portfolio, leadership-context, and page-header material from the prior project/site version. The PDF is a fact-checking reference, not a limit on useful website copy.
+- Resolve direct conflicts in favor of the PDF. Do not treat an omission from the PDF as evidence that historical supplemental content is false. Do not add claims that are not in the PDF or prior site baseline.
+- The public profile PDF asset SHA-256 is `7c3bc33e844f7e07ccc5ca74436dcff3a5f43edbab296e8891cbdc2d0266ca6f`.
 
-## PDF-source cutover
+## Restoration and factual review
 
-- [x] Correct corporate affiliation and remove unsupported joint-founding/group claims.
-- [x] Correct leadership names, titles and credentials to page 4; remove unsupported embellishments and quotes.
-- [x] Use page 5 vision and mission wording; remove the unsupported SINERGI values and superlatives.
-- [x] Restrict service content to broad activities stated in the profile; remove invented catalogs, scopes and counts.
-- [x] Restrict facility content to the types shown on pages 3 and 7–14; remove capacities and specifications.
-- [x] Restrict portfolio content to the event name and broad experience statement on page 15.
-- [x] Replace prior expertise mapping with all 12 exact headings and topic lists from pages 16–21; remove unsupported totals/credentials.
-- [x] Correct contact email and address to page 22; remove unsupported office details/hours/map.
-- [x] Align website metadata, alt text, page headers, privacy disclosure, layout copy and source maps with the cutover.
-- [x] Run `npm run build` and record the result.
-- [x] Smoke every route and service/contact interaction in a browser; verify profile PDF download reaches the supplied asset.
+- [x] Preserve the YKP bank bjb subsidiary relationship and integrated University ecosystem; remove any joint-founder/group claim.
+- [x] Keep PDF-exact leadership strings: Deni Hamdani, SE.M.Si (Direktur Utama); Dr. Gatot Iwan Kurniawan, SE., MBA (Direktur); Muhammad Gunawan (Komisaris).
+- [x] Keep the PDF vision and five mission statements, with supplementary historical website values presented separately.
+- [x] Restore the six historical service areas with descriptions, audiences, scopes, methods, and service navigation.
+- [x] Restore historical facility descriptions, capacity details, highlights, galleries/lightbox, and site-visit contact path.
+- [x] Restore the historical Abdi bjb case presentation, details, metrics, gallery, and lightbox.
+- [x] Preserve all 12 current PDF-exact expert headings and topic arrays; restore fuller contextual teasers and directory detail without historical topic remapping.
+- [x] Restore fuller leadership role context, corporate narrative, page headers, and privacy information while correcting shared contact values and direct identity conflicts.
+- [x] Run `npm run build` and browser-check all eight routes, service navigation, facility gallery/modal, portfolio gallery/lightbox, expert search, contact form, responsive widths 320, 375, 768, 1024, and 1440; record results in `brief/CHANGELOG.md`.
 
-Verification completed; results are recorded in `brief/CHANGELOG.md` and `brief/WEBSITE_UPDATE_PLAN.md`.
+Historical website details on services, facility capacities/specifications, portfolio descriptions/metrics, and organizational values are supplemental prior-site content, not facts claimed to be stated in the PDF. Verification results are recorded in `brief/CHANGELOG.md`.

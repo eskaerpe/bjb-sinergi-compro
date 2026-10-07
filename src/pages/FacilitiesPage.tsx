@@ -4,7 +4,11 @@ import { FacilitiesBento } from '@/components/sections/FacilitiesBento';
 
 export const FacilitiesPage: React.FC = () => (
   <>
-    <PageHeader badge="Fasilitas" title="Fasilitas dalam profil perusahaan" subtitle="Ruang kelas multimedia, laboratorium komputer, mini banking, ruang seminar dan diskusi, serta dukungan operasional." />
+    <PageHeader
+      badge="Infrastruktur & Sarana Pembelajaran"
+      title="Fasilitas pembelajaran dan kegiatan institusional"
+      subtitle="Ruang kelas, laboratorium komputer, laboratorium bank mini, aula, ruang rapat, serta armada transportasi ditampilkan bersama kapasitas, deskripsi, sorotan fasilitas, dan dokumentasi foto. Hubungi tim untuk mendiskusikan kebutuhan atau mengatur site visit."
+    />
     <FacilitiesBento />
   </>
 );

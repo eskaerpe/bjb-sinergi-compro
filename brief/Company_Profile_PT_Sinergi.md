@@ -1,4 +1,4 @@
-> **Superseded factual brief:** use `public/docs/Company-Profile-PT-Sinergi.pdf` as the sole source of public company facts. This legacy brief may contain unverified service bundles, figures, capacities and contact claims; do not use it to populate the website.
+> **Content-source boundary:** the PDF `public/docs/Company-Profile-PT-Sinergi.pdf` governs core company facts, leadership, contact values, vision/missions, and expert-domain taxonomy. This legacy brief may supply supplemental service, facility, portfolio, and role-context copy when it matches the prior site, but it is not the authority for direct factual conflicts or the expert headings/topic arrays. Do not interpret details absent from the PDF as automatically false.
 
 # PT SINERGI EKUITAS INDONESIA
 **Strategic Partner for Training, Consulting, Event Management, and Institutional Support**

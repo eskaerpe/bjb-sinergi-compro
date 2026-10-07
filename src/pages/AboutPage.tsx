@@ -7,7 +7,7 @@ import { LeadershipSection } from '@/components/sections/LeadershipSection';
 
 export const AboutPage: React.FC = () => (
   <>
-    <PageHeader badge="Profil perusahaan" title={`Tentang ${COMPANY_INFO.name}`} subtitle={COMPANY_INFO.companySummary} />
+    <PageHeader badge="Profil perusahaan" title={`Tentang ${COMPANY_INFO.name}`} subtitle={`${COMPANY_INFO.companySummary} ${COMPANY_INFO.ecosystemSummary}`} />
     <SynergyNarrative variant="full" />
     <VisionMission />
     <LeadershipSection />

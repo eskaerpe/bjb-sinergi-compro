@@ -7,19 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Switched public corporate facts to the supplied 22-page company profile as the source of truth across data, routes, navigation, footer and metadata.
-- Corrected leadership credentials, email and address; removed unsupported company-values, affiliation, service-catalog, facilities, portfolio, expert-count and compliance claims.
-- Rebuilt the expert directory from the exact 12 headings and topic lists on PDF pages 16–21; removed the unsupported aggregate topic count.
-- Replaced privacy-policy assertions not backed by site behavior with a description of the contact form's WhatsApp/email behavior.
+- Restored the prior site's six service areas and detailed descriptions, audience, scope, methods, facility cards/galleries, site-visit path, Abdi bjb portfolio case presentation, leadership context, values layout, and fuller expert/page context.
+- Preserved the current PDF-exact company identity and affiliation, leadership names/credentials/titles, contact email, vision and missions, and 12 expert-domain headings/topic arrays.
+- Clarified that the PDF validates core facts but does not restrict supplemental website copy. Historical facilities/portfolio/service detail and metrics remain supplemental prior-site material, not claims that the PDF states them.
+- Expanded contact-form privacy information around the site's actual WhatsApp and email handoff behavior.
 
-### Verified
-- `npm run build` passed (`tsc` and Vite production build).
-- Browser smoke passed for all eight named routes; the homepage service CTA navigated to `#/layanan`.
-- Expert search returned the matching PDF topic and showed the no-results state for an unmatched query.
-- Contact form opened the generated WhatsApp message with selected service and entered fields; the email link resolves to `mailto:sinergiekuitas@gmail.com`.
-- Browser fetch returned the profile PDF with HTTP 200 and `application/pdf` (943,383 bytes); `public/docs` and built `dist/docs` copies have identical SHA-256 `7c3bc33e844f7e07ccc5ca74436dcff3a5f43edbab296e8891cbdc2d0266ca6f`.
+### Verification
+- `npm run build` passed: TypeScript check and Vite production build transformed 2,009 modules.
+- Production browser smoke passed on all eight routes; every rendered image loaded, with no JavaScript exceptions. The Google Maps iframe request was aborted when automation navigated away from the contact route.
+- Verified six service-navigation buttons and the 144px manual scroll offset, clickable/keyboard-operated hero spotlights, facility gallery next/close, portfolio lightbox next/close, matching/no-match expert search, and WhatsApp/email contact handoff with the selected service.
+- Checked all eight routes at 320, 375, 768, 1024 and 1440px: no horizontal overflow. Facility and portfolio dialogs fit at 320px; the mobile menu navigated and closed correctly at 375px.
+- The supplied PDF SHA-256 remains `7c3bc33e844f7e07ccc5ca74436dcff3a5f43edbab296e8891cbdc2d0266ca6f`; production preview returned HTTP 200 with `application/pdf`.
 
-Historical release notes below document the earlier implementation and are not current factual claims or a source of truth. The PDF-backed content and current verification are recorded above.
+Historical release notes below document earlier implementations; they are not the current source for PDF-authoritative corporate facts.
 
 ## [2.0.0] - 2026-09-10
 
