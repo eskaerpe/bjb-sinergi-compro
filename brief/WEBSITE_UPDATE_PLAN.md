@@ -1,47 +1,24 @@
-# PLAN PELAKSANAAN UPDATE WEBSITE PT SINERGI EKUITAS INDONESIA
-Berdasarkan hasil validasi Council terhadap codebase aktual.
+# Website Content Update Plan
 
-## ARSITEKTUR FINAL YANG DISETUJUI
-**Opsi A Polish (True Multi-Page with Teaser Homepage)**
-Mempertahankan arsitektur `HashRouter` eksisting dengan 7 route. Modifikasi akan difokuskan untuk menjadikan `HomePage.tsx` benar-benar berfungsi sebagai etalase (*teaser*), yang dapat mendorong klik ke halaman detail, dan menghilangkan masalah duplikasi konten statik (khususnya perbaikan bug prop di Services).
+## Current source of truth
 
----
+`public/docs/Company-Profile-PT-Sinergi.pdf` is the single authoritative source for public company facts. Earlier values in AGENTS.md, companyData.ts, review notes, and proposal briefs are subordinate when inconsistent. The PDF has 22 pages; page 6 shows only the “Our Services” heading, with no detailed service catalog.
 
-## 📅 DAFTAR TUGAS PELAKSANAAN
+## PDF content boundaries
 
-### FASE 0: PERBAIKAN BUG KRITIS (Prioritas Tertinggi)
-Fase ini akan memberbaiki error referensi yang ditemukan selama proses audit tanpa merombak tampilan.
+- **Company and affiliation:** PT Sinergi Ekuitas Indonesia is a subsidiary of Yayasan Kesejahteraan Pegawai (YKP) bank bjb and part of an ecosystem integrated with Universitas Ekuitas Indonesia (p. 3).
+- **Leadership:** Use names, qualifications, titles and bios from p. 4 exactly.
+- **Vision and missions:** Use p. 5; the profile does not list corporate values.
+- **Services:** Describe only broad activities present on pp. 3, 15 and 22. Do not represent derived groupings as a formal catalog or pillars.
+- **Facilities:** Use named types from pp. 3 and 7–14; no capacities/specifications are stated.
+- **Portfolio:** Use “Kegiatan Abdi bjb Frontliner” and the broad experience statement on p. 15; no dates, metrics or participant counts are stated.
+- **Experts:** Reproduce all 12 headings and their exact topic lists on pp. 16–21. Do not claim a profile total or credential/seniority details.
+- **Contacts:** Use p. 22 phone, email and address only.
 
-1. [ ] **Perbaiki Bug Prop `ServicesBento`**
-   - File: `src/components/sections/ServicesBento.tsx`
-   - Tindakan: Hapus alias `_showViewAllLink` di baris 36. Implementasikan limitasi data: Jika `showViewAllLink` adalah `true`, lakukan `.slice(0, 3)` pada array layanan agar hanya menampilkan 3 data teratas.
-2. [ ] **Perbaiki Anchor Routing `SynergyNarrative`**
-   - File: `src/components/sections/SynergyNarrative.tsx`, baris 168.
-   - Tindakan: Mengganti tag `<a href="#lead-form">` (anchor) menjadi komponen `<Link to="/kontak">` yang kompatibel dengan React Router.
-3. [ ] **Perbaiki Path PDF Profil Perusahaan**
-   - File: `src/components/sections/Hero.tsx`, baris 183.
-   - Tindakan: Ubah atribut `href="./docs/Company-Profile-PT-Sinergi.pdf"` menjadi `href="/docs/Company-Profile-PT-Sinergi.pdf"` (absolute path dari public) untuk mencegah potensi file 404 dari child/nested route.
+## Cutover status
 
-### FASE 1: PEROMBAKAN HOMEPAGE MENJADI TEASER (Visual & Arsitektur)
-Merapikan `HomePage.tsx` agarnya flow informasi berjenjang (Teaser → Detail).
+The PDF fact audit and content cutover have been implemented across data, routes, sections, shared navigation/footer, metadata, and the form information page. The homepage remains a summary of the source-backed company profile. Forms retain WhatsApp and email actions; facility and portfolio numerical/specification cards were removed. The former privacy claims were replaced with an explanation limited to the actual client-side message behavior.
 
-1. [ ] **Diferensiasi `SynergyNarrative` (Tentang Kami)**
-   - File: `src/components/sections/SynergyNarrative.tsx`, `HomePage.tsx`, `AboutPage.tsx`.
-   - Tindakan: Tambahkan parameter `variant="preview" | "full"`.
-   - Preview variant (di Beranda): Hanya tampilkan 1-2 paragraf utama ("Membangun Sinergi, Menggerakkan Ekuitas") tanpa penjelasan poin Visi-Misi, tambahkan tombol `[Baca Selengkapnya -> /tentang-kami]`.
-   - Full variant (di `/tentang-kami`): Tampilkan seluruh teks secara penuh.
-2. [ ] **Komponen Baru: `ExpertiseTeaser.tsx` (Jaringan Ahli)**
-   - File: `src/components/sections/ExpertiseTeaser.tsx` (Baru).
-   - Tindakan: Buat komponen yang akan me-render statistik grid highlight, mengambil maksimal 4 domain keahlian terpopuler dari `EXPERT_DOMAINS_DATA` (Hukum, TI, Keuangan, Strategi). Tambahkan *Badge* informasi "12 Domain Keahlian + 124 Sub Topik Spesifik" dan tombol `[Lihat Direktori Ahli -> /jaringan-ahli]`.
-   - Integrasi: Masukkan komponen ini ke dalam `src/pages/HomePage.tsx` tepat di bawah `ServicesBento`.
-3. [ ] **Komponen Baru: `LeadershipStrip.tsx` (Micro Teaser)**
-   - File: `src/components/sections/LeadershipStrip.tsx` (Baru).
-   - Tindakan: Buat sebuah banner horizontal / slider minimalis yang berisi pas foto, nama, dan jabatan 3 profil pemimpin manajemen (Bpk. Deni Hamdani, Bpk. Gatot Iwan, Bapak M Gunawan) dari dataset `LEADERSHIP_DATA`. Tambahkan tombol kecil `[Lihat Jajaran Direksi -> /tentang-kami]`.
-   - Integrasi: Tempatkan komponen ini di `HomePage.tsx` sebelum blok `LeadHub`.
+## Verification
 
-### FASE 2: QA & FINALISASI (Verification)
-1. [ ] **Uji Navigasi Endpoint-to-Endpoint**
-   - Build aplikasi: Lakukan simulasi build (`npm run build`) untuk memastikan seluruh alias path, prop yang ditambahkan tidak merusak typescript typing (`any`).
-   - Cek rute perpindahan halaman melalui local dev environment, verifikasi rendering CTA "View All" berjalan normal dan mem-page-load data dengan akurat.
-2. [ ] **Konsistensi Data Master (No Hallucination Check)**
-   - Lakukan satu review akhir pada file UI dengan `companyData.ts` untuk memverifikasi bahwa *hardcode* tidak mengubah nilai `COMPANY_INFO`, data, alamat atau metrik pada halaman apa pun.
+`npm run build` passed. Browser smoke checks passed for all eight named routes; the homepage service CTA navigated to `#/layanan`; expert-topic search and empty results behaved as expected; the contact form produced a WhatsApp message containing the selected service and user-entered fields. The email link points to `mailto:sinergiekuitas@gmail.com`. Fetching the profile returned HTTP 200, `application/pdf`, 943,383 bytes. The `public/docs` and `dist/docs` PDFs have matching SHA-256 `7c3bc33e844f7e07ccc5ca74436dcff3a5f43edbab296e8891cbdc2d0266ca6f`. No commit or push was performed.

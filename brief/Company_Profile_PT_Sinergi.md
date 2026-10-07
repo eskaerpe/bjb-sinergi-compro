@@ -1,3 +1,5 @@
+> **Superseded factual brief:** use `public/docs/Company-Profile-PT-Sinergi.pdf` as the sole source of public company facts. This legacy brief may contain unverified service bundles, figures, capacities and contact claims; do not use it to populate the website.
+
 # PT SINERGI EKUITAS INDONESIA
 **Strategic Partner for Training, Consulting, Event Management, and Institutional Support**
 *(Anak Perusahaan Yayasan Kesejahteraan Pegawai bank bjb & Ekosistem Terintegrasi Universitas Ekuitas Indonesia)*

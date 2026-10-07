@@ -1,268 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import * as Dialog from '@radix-ui/react-dialog';
-import {
-  GraduationCap,
-  Briefcase,
-  Users,
-  Calendar,
-  Building2,
-  ShoppingBag,
-  CheckCircle2,
-  ArrowRight,
-  ShieldCheck,
-  X,
-  Layers,
-  Award
-} from 'lucide-react';
-import { SERVICES_DATA, ServiceItem } from '@/data/companyData';
+import { SERVICES_DATA } from '@/data/companyData';
 import { SectionContainer } from '@/components/common/SectionContainer';
 import { Reveal, Stagger, StaggerItem } from '@/components/common/MotionReveal';
-import { cn } from '@/utils/cn';
-const ICON_MAP: Record<string, React.ElementType> = {
-  GraduationCap,
-  Briefcase,
-  Users,
-  Calendar,
-  Building2,
-  ShoppingBag,
-};
 
 interface ServicesBentoProps {
   showViewAllLink?: boolean;
 }
 
 export const ServicesBento: React.FC<ServicesBentoProps> = ({ showViewAllLink = false }) => {
-  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const items = showViewAllLink ? SERVICES_DATA.slice(0, 3) : SERVICES_DATA;
 
   return (
-    <SectionContainer id="layanan" outerClassName="relative bg-surface-tint border-b border-border-subtle overflow-hidden">
-
-      <div className="relative z-10 space-y-12">
-        <Reveal className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs sm:text-sm font-bold tracking-wider text-brandBlue-600 uppercase">
-            Portofolio Solusi Kelembagaan
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight leading-tight">
-            6 Pilar Layanan Utama PT Sinergi Ekuitas Indonesia
-          </h2>
-          <p className="text-base text-navy-700 leading-relaxed font-normal">
-            Solusi end-to-end terpadu yang dirancang untuk memenuhi standar kelembagaan, perbankan, instansi pemerintah, dan sektor korporat.
-          </p>
+    <SectionContainer id="layanan" outerClassName="bg-surface-tint border-b border-border-subtle">
+      <div className="space-y-10">
+        <Reveal className="max-w-3xl space-y-3">
+          <span className="text-xs font-bold tracking-wider text-brandBlue-600 uppercase">Layanan</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900">Kegiatan dan layanan</h2>
+          <p className="text-base text-navy-700 leading-relaxed">PT Sinergi Ekuitas Indonesia bergerak di bidang pelatihan profesional, konsultasi, pengembangan kompetensi sumber daya manusia, penyelenggaraan kegiatan, serta layanan pendukung institusional.</p>
         </Reveal>
-
-        <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-          {SERVICES_DATA.map((service: ServiceItem, index: number) => {
-            const IconComponent = ICON_MAP[service.iconName] || ShieldCheck;
-
-            return (
-              <StaggerItem
-                key={service.id}
-                className={cn(
-                  "rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 relative group transition-all duration-300 ease-out",
-                  service.isFlagship
-                    ? "bg-white border-2 border-brandBlue-200/80 hover:border-brandBlue-400 shadow-md hover:shadow-xl hover:-translate-y-1.5 ring-1 ring-brandBlue-500/10"
-                    : "bg-white border border-border-subtle hover:border-brandBlue-300 shadow-card hover:shadow-card-hover hover:-translate-y-1"
-                )}
-              >
-                {service.isFlagship && (
-                  <div
-                    className="absolute top-0 inset-x-8 h-1 bg-gradient-to-r from-coral-500 via-brandBlue-500 to-navy-900 rounded-b-full"
-                    aria-hidden="true"
-                  />
-                )}
-
-                <div className="space-y-4">
-                  {service.featuredBadge && (
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-coral-50 border border-coral-200/80 text-[11px] font-extrabold text-coral-800 w-fit shadow-xs">
-                      <Award className="w-3.5 h-3.5 text-coral-600 shrink-0" aria-hidden="true" />
-                      <span>{service.featuredBadge}</span>
-                    </div>
-                  )}
-
-                  <div className="flex items-center justify-between">
-                    <div
-                      className={cn(
-                        "w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-200",
-                        service.isFlagship
-                          ? "bg-navy-900 text-coral-400 shadow-sm group-hover:bg-brandBlue-600 group-hover:text-white"
-                          : "bg-surface-tint text-navy-800 border border-border-subtle group-hover:bg-brandBlue-600 group-hover:text-white"
-                      )}
-                    >
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    <span
-                      className={cn(
-                        "text-xs px-2.5 py-1 rounded-full",
-                        service.isFlagship
-                          ? "font-extrabold text-navy-900 bg-navy-100/90 border border-navy-200/60"
-                          : "font-bold text-navy-700 bg-navy-50"
-                      )}
-                    >
-                      Pilar 0{index + 1}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-extrabold text-navy-900 group-hover:text-brandBlue-600 transition-colors leading-snug">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-navy-700 leading-relaxed font-normal">
-                    {showViewAllLink ? service.shortDesc : service.fullDesc}
-                  </p>
-
-                  <div className="space-y-2 pt-2 border-t border-border-subtle">
-                    <span className="text-[11px] font-bold text-navy-500 uppercase tracking-wider block">
-                      Fitur &amp; Cakupan Layanan:
-                    </span>
-                    <ul className="space-y-1.5">
-                      {service.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2 text-xs text-navy-800">
-                          <CheckCircle2
-                            className={cn(
-                              "w-4 h-4 shrink-0 mt-0.5",
-                              service.isFlagship ? "text-brandBlue-600" : "text-brandBlue-500"
-                            )}
-                          />
-                          <span className="leading-snug">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {!showViewAllLink && (
-                  <div className="pt-4 border-t border-border-subtle flex items-center justify-between gap-3">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedService(service)}
-                      className={cn(
-                        "inline-flex items-center gap-1.5 text-xs transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 rounded-lg py-1 px-2 -ml-2 active:scale-[0.98] group/btn",
-                        service.isFlagship
-                          ? "font-extrabold text-brandBlue-700 hover:text-navy-950"
-                          : "font-extrabold text-brandBlue-600 hover:text-navy-900"
-                      )}
-                    >
-                      <span>Lihat Spesifikasi Layanan</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform duration-200 ease-out" />
-                    </button>
-                    <Link
-                      to="/kontak"
-                      className="inline-flex items-center gap-1 text-xs font-bold text-navy-700 hover:text-coral-600 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 rounded-lg py-1 px-2 -mr-2 active:scale-[0.98]"
-                    >
-                      Konsultasi
-                    </Link>
-                  </div>
-                )}
-              </StaggerItem>
-            );
-          })}
+        <Stagger className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {items.map((item) => (
+            <StaggerItem key={item.id} className="bg-white rounded-2xl border border-border-subtle p-6">
+              <h3 className="text-lg font-bold text-navy-900">{item.title}</h3>
+              <p className="mt-2 text-sm text-navy-700 leading-relaxed">{item.shortDesc}</p>
+            </StaggerItem>
+          ))}
         </Stagger>
-
-        {/* Conditional Footer Rendering */}
-        {showViewAllLink ? (
-          <div className="text-center pt-4">
-            <Link
-              to="/layanan"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-brandBlue-600 text-white font-extrabold text-sm sm:text-base rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group"
-            >
-              <span>Lihat Detail Seluruh 6 Layanan &amp; 120+ Modul</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200 ease-out" />
-            </Link>
-          </div>
-        ) : (
-          <div className="bg-navy-950 text-white rounded-3xl p-8 sm:p-10 border border-navy-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-            <div className="space-y-2 text-left relative z-10 max-w-2xl">
-              <span className="text-xs sm:text-sm font-bold tracking-wider text-coral-400 uppercase">
-                Integrasi Jaringan Ahli &amp; Silabus Kompetensi
-              </span>
-              <h3 className="text-2xl font-extrabold text-white">
-                Membutuhkan Modul Spasifik atau In-House Training Custom?
-              </h3>
-              <p className="text-sm text-navy-200 font-normal leading-relaxed">
-                Jelajahi 12 Domain Keahlian dan 120+ sub-topik spesifik yang didukung oleh instruktur praktisi perbankan senior dan dosen bergelar doktoral.
-              </p>
-            </div>
-            <div className="relative z-10 shrink-0">
-              <Link
-                to="/jaringan-ahli"
-                className="inline-flex items-center gap-2 px-6 py-3.5 bg-coral-500 hover:bg-coral-400 text-navy-950 font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg transition-all duration-200 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-coral-400 focus-visible:ring-offset-2 active:scale-[0.98] group"
-              >
-                <span>Eksplorasi 12 Domain Keahlian</span>
-                <Layers className="w-4 h-4 group-hover:rotate-6 transition-transform duration-200 ease-out" />
-              </Link>
-            </div>
-            <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-brandBlue-600/20 rounded-full blur-3xl pointer-events-none" />
+        {showViewAllLink && (
+          <div className="text-center">
+            <Link to="/layanan" className="inline-flex items-center justify-center px-6 py-3 rounded-xl bg-navy-900 text-white font-semibold hover:bg-brandBlue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brandBlue-600">Lihat cakupan layanan</Link>
           </div>
         )}
       </div>
-
-      {/* Service Detail Dialog Modal */}
-      {selectedService && (
-        <Dialog.Root open={!!selectedService} onOpenChange={(open) => !open && setSelectedService(null)}>
-          <Dialog.Portal>
-            <Dialog.Overlay className="fixed inset-0 bg-navy-950/70 backdrop-blur-sm z-50 animate-in fade-in duration-200" />
-            <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white rounded-3xl p-6 sm:p-8 shadow-2xl z-50 border border-border-subtle focus:outline-none space-y-6 animate-in zoom-in-95 duration-200">
-              <div className="flex items-center justify-between border-b border-border-subtle pb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-navy-900 text-coral-400 flex items-center justify-center font-bold">
-                    {React.createElement(ICON_MAP[selectedService.iconName] || ShieldCheck, { className: 'w-5 h-5' })}
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-extrabold uppercase text-coral-600 tracking-wider">
-                      Spesifikasi Solusi
-                    </span>
-                    <Dialog.Title className="text-xl font-extrabold text-navy-900">
-                      {selectedService.title}
-                    </Dialog.Title>
-                  </div>
-                </div>
-                <Dialog.Close
-                  aria-label="Tutup modal rincian layanan"
-                  className="w-9 h-9 rounded-full bg-navy-50 hover:bg-navy-100 flex items-center justify-center text-navy-700 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-95"
-                >
-                  <X className="w-5 h-5" />
-                </Dialog.Close>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs font-bold uppercase text-navy-700 tracking-wider mb-1">Deskripsi Lengkap</p>
-                  <p className="text-sm text-navy-700 leading-relaxed font-normal">
-                    {selectedService.fullDesc}
-                  </p>
-                </div>
-
-                <div className="space-y-2 bg-surface-tint p-4 rounded-2xl border border-border-subtle">
-                  <h4 className="text-xs font-bold uppercase text-navy-900 tracking-wider">Fitur Utama &amp; Deliverables</h4>
-                  <ul className="space-y-2">
-                    {selectedService.features.map((feat, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-navy-800">
-                        <CheckCircle2 className="w-4 h-4 text-brandBlue-600 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-border-subtle flex flex-col sm:flex-row gap-3 justify-end">
-                <Dialog.Close className="px-5 py-2.5 rounded-xl border border-border-subtle font-bold text-xs text-navy-700 hover:bg-navy-50 transition-all duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98]">
-                  Tutup
-                </Dialog.Close>
-                <Link
-                  to="/kontak"
-                  onClick={() => setSelectedService(null)}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-brandBlue-600 hover:bg-brandBlue-700 font-extrabold text-xs text-white shadow-md hover:shadow-lg transition-all duration-150 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue-500 focus-visible:ring-offset-2 active:scale-[0.98] group/modalbtn"
-                >
-                  <span>Ajukan Proposal Services</span>
-                  <ArrowRight className="w-4 h-4 group-hover/modalbtn:translate-x-1 transition-transform duration-200 ease-out" />
-                </Link>
-              </div>
-            </Dialog.Content>
-          </Dialog.Portal>
-        </Dialog.Root>
-      )}
     </SectionContainer>
   );
 };

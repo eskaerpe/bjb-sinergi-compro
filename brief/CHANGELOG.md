@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+- Switched public corporate facts to the supplied 22-page company profile as the source of truth across data, routes, navigation, footer and metadata.
+- Corrected leadership credentials, email and address; removed unsupported company-values, affiliation, service-catalog, facilities, portfolio, expert-count and compliance claims.
+- Rebuilt the expert directory from the exact 12 headings and topic lists on PDF pages 16–21; removed the unsupported aggregate topic count.
+- Replaced privacy-policy assertions not backed by site behavior with a description of the contact form's WhatsApp/email behavior.
+
+### Verified
+- `npm run build` passed (`tsc` and Vite production build).
+- Browser smoke passed for all eight named routes; the homepage service CTA navigated to `#/layanan`.
+- Expert search returned the matching PDF topic and showed the no-results state for an unmatched query.
+- Contact form opened the generated WhatsApp message with selected service and entered fields; the email link resolves to `mailto:sinergiekuitas@gmail.com`.
+- Browser fetch returned the profile PDF with HTTP 200 and `application/pdf` (943,383 bytes); `public/docs` and built `dist/docs` copies have identical SHA-256 `7c3bc33e844f7e07ccc5ca74436dcff3a5f43edbab296e8891cbdc2d0266ca6f`.
+
+Historical release notes below document the earlier implementation and are not current factual claims or a source of truth. The PDF-backed content and current verification are recorded above.
+
 ## [2.0.0] - 2026-09-10
 
 ### Added & Refactored (Corporate Multi-Page Architecture & Full Master Data Sync)

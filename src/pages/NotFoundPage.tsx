@@ -27,7 +27,7 @@ export const NotFoundPage: React.FC = () => {
                 Navigasi Mitra Strategis {COMPANY_INFO.shortName}
               </h2>
               <p className="text-base text-slate-600 leading-relaxed max-w-lg mx-auto">
-                Silakan kembali ke halaman utama kami atau jelajahi layanan pilar institusi untuk menemukan informasi yang Anda butuhkan.
+                Silakan kembali ke halaman utama atau lihat informasi layanan perusahaan.
               </p>
             </div>
 

@@ -9,11 +9,7 @@ The goal is to deliver an institutional B2B web experience combining the visual 
 
 ## 2. Source of Truth & Context Hierarchy
 
-Every AI agent and human engineer MUST strictly consult and adhere to these 4 context files:
-1. `DESIGN md bjb.md` — Authoritative visual tokens, typography scales, layout blueprints, spacing, micro-interactions, and component contracts.
-2. `Company_Profile_PT_Sinergi.md` — Immutable, verified factual source for all copy, leadership names, corporate affiliations, services, facilities, and contact points.
-3. `TASKS.md` — Phase-by-phase agile delivery roadmap with strict acceptance criteria and Git commit checkpoints.
-4. `CHANGELOG.md` — Structured version history following Keep a Changelog (SemVer 2.0.0).
+The supplied PDF `public/docs/Company-Profile-PT-Sinergi.pdf` is the single authority for public corporate facts. It supersedes this directory's older briefs and legacy data. Page 6 contains only the heading “Our Services”; use broad activities expressly stated elsewhere in the PDF, not an invented catalog. For design direction consult `DESIGN md bjb.md`. Use `TASKS.md` and `CHANGELOG.md` only for current execution status, not factual authority.
 
 ---
 
@@ -53,22 +49,6 @@ Every AI agent and human engineer MUST strictly consult and adhere to these 4 co
 
 ---
 
-## 5. Agile Execution & Git Push Protocol
+## 5. Execution & Delivery
 
-Development proceeds strictly in sequential phases defined in `TASKS.md`. Agents must not jump ahead or combine phases.
-
-### Phase Workflow Checklist:
-1. **Read & Plan:** Review the current phase checklist and acceptance criteria in `TASKS.md`.
-2. **Implement:** Write modular, clean TypeScript/React code complying with `DESIGN md bjb.md`.
-3. **Verify:** Run static verification and build validation:
-   ```bash
-   npm run lint && npm run build
-   ```
-4. **Document:** Log all added components and enhancements in `CHANGELOG.md` under `## [Unreleased]`.
-5. **Check Off:** Mark completed tasks in `TASKS.md`.
-6. **Commit & Push:** Execute atomic Git commit and push directly to GitHub:
-   ```bash
-   git add .
-   git commit -m "feat(<scope>): <concise description> [Phase X]"
-   git push origin <active-branch>
-   ```
+Follow the user-assigned scope and root `AGENTS.md`. Verify a build or browser behavior only when explicitly requested. Update `CHANGELOG.md`, the relevant checklist, and codemaps after implementation. Never stage, commit, or push unless the user explicitly asks.
